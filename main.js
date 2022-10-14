@@ -1,36 +1,27 @@
-class Usuario {
-  constructor(nombre, apellido, libros, mascotas) {
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.libros = libros;
-    this.mascotas = mascotas;
+let fs = require("fs");
+class Contenedor {
+  constructor(archivo) {
+    this.archivo = archivo;
   }
-
-  getFullName() {
-    return `Tu Nombre es: ${this.nombre} ${this.apellido}`;
+  creador(producto) {
+    this.archivo.push(producto);
+    let product = JSON.stringify(this.archivo);
+    fs.writeFileSync("./productos.txt", `${product}\n`);
   }
-  addMascota(nombreMascotas) {
-    this.mascotas.push(nombreMascotas);
+  save2(productA) {
+    this.archivo.push(productA);
+    productA = JSON.stringify(this.archivo);
+    fs.appendFileSync("./productos.txt", `${productA}\n`);
   }
-  countMascotas() {
-    return `tienes  ${this.mascotas.length} mascotas;`;
-  }
-  addBook(libro, escritoPor) {
-    this.libros.push({ titulo: libro, autor: escritoPor });
-  }
-  getBookNames() {
-    return `Tus libros son: ${this.libros.map((el) => el.titulo.toString())}`;
+  deleteAll() {
+    fs.unlinkSync("./productos.txt");
   }
 }
 
-let usuario1 = new Usuario("Jose", "Nava", [{ titulo: "Así habló Zaratustra", autor: "Friedrich Nietzsche" }], ["rayo", "moco"]);
+const primerProducto = new Contenedor([{ producto: "AAAA", precio: 111, id: 3 }]);
 
-let nombreGenerado = usuario1.getFullName();
-usuario1.addMascota("rocky");
-let contador = usuario1.countMascotas();
-usuario1.addBook("ventajas de ser invicible", "Stephen Chbosky");
-let titulosLibros = usuario1.getBookNames();
-
-console.log(nombreGenerado);
-console.log(contador);
-console.log(titulosLibros);
+primerProducto.creador({ producto: "AAAA", precio: 111, id: 3 });
+primerProducto.save2({ producto: "FFFA", precio: 111, id: 3 });
+//let borrarArchivoTxt = primerProducto.deleteAll();
+let Datas = fs.readFileSync("./productos.txt", "utf-8");
+console.log(Datas);
