@@ -1,2 +1,1 @@
-[{"producto":"AAAA","precio":111,"id":3},{"producto":"AAAA","precio":111,"id":3}]
-[{"producto":"AAAA","precio":111,"id":3},{"producto":"AAAA","precio":111,"id":3},{"producto":"FFFA","precio":111,"id":3}]
+[{"producto":"Bacardi","precio":215,"id":1},{"producto":"Capitan Morgan","precio":185,"id":3},{"producto":"SKY Blue","precio":420,"id":4}]
