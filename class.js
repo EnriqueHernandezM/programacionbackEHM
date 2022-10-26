@@ -66,7 +66,7 @@ guardarProducto.save({ producto: "Corralejo", precio: 820 });
 let buscarPorId = guardarProducto.getById(5);
 let arrayCobjetos = guardarProducto.getAll();
 //borrar u solo elemento
-guardarProducto.deleteById(4);
+//guardarProducto.deleteById(2);
 console.log(buscarPorId);
 console.log(arrayCobjetos);
 //SACAR COMENTARIO P/PROBAR DELETE ALL
