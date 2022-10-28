@@ -8,13 +8,8 @@ class Contenedor {
       const id = this.archivo.length + 1;
       let all = this.getAll();
       producto.id = id;
-      if (all) {
-        id = all.length + 1;
-        this.archivo.push(producto);
-      } else if (all == []) {
-        this.archivo.push(producto);
-      }
-      let product = JSON.stringify(this.archivo);
+      all.push(producto);
+      let product = JSON.stringify(all);
       fs.writeFileSync("./productos.txt", product);
     } catch {
       console.log(err);
@@ -68,11 +63,11 @@ guardarProducto.save({ producto: "SKY Blue", precio: 420 });
 guardarProducto.save({ producto: "Red Label", precio: 620 });
 guardarProducto.save({ producto: "Jimador", precio: 650 });
 guardarProducto.save({ producto: "Corralejo", precio: 820 });
-//guardarProducto.save({ producto: "Corralejo", precio: 820 });
+
 let buscarPorId = guardarProducto.getById(5);
 let arrayCobjetos = guardarProducto.getAll();
 //borrar u solo elemento
-//guardarProducto.deleteById(2);
+guardarProducto.deleteById(4);
 console.log(buscarPorId);
 console.log(arrayCobjetos);
 //SACAR COMENTARIO P/PROBAR DELETE ALL
