@@ -7,13 +7,13 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>hola mundo</h1>
-    <p>como estais</p>
-    <div id="datos"></div>
-    <script src="main.js"></script>
+    <form action="/uploadfile" enctype="multipart/form-data" method="POST">
+      <input type="text" name="Nombre" placeholder="Ingresa tu nombre" />
+      <input type="number" placeholder="Ingresa tu edad" name="edad" />
+      <input type="file" name="myFile" />
+      <br />
+      <input type="submit" value="Upload a file" />
+      <br />
+    </form>
   </body>
 </html>
-let fs = require("fs"); class Contenedor { constructor(archivo) { this.archivo = archivo; } creador(producto, precio, id) { this.archivo.push({ productos: producto, precios: precio, ids: id }); let
-product = JSON.stringify(this.archivo); fs.writeFileSync("./productos.txt", `${product}\n`); } save2(productA) { this.archivo.push(productA); productA = JSON.stringify(this.archivo);
-fs.appendFileSync("./productos.txt", `${productA}\n`); } deleteAll() { fs.unlinkSync("./productos.txt"); } } const primerProducto = new Contenedor([{ producto: "AAAA", precio: 111, id: 3 }]);
-primerProducto.creador("aaaa", 111, 3); primerProducto.creador("jJJJ", 200, 6); //let borrarArchivoTxt = primerProducto.deleteAll();
