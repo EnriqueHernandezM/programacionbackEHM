@@ -4,7 +4,11 @@ class Contenedor {
   save(producto) {
     try {
       let all = this.getAll();
-      const id = all.length + 1;
+      let id = 1;
+      all.length > 0 &&
+        all.forEach((el) => {
+          id = el.id + 1;
+        });
       producto.id = id;
       all.push(producto);
       let products = JSON.stringify(all);
@@ -63,12 +67,16 @@ class Contenedor {
       console.log(err);
     }
   }
-  saveUser(product) {
+  saveUser(user) {
     try {
       let all = this.getAll("./perfiles.txt");
-      const id = all.length + 1;
-      product.id = id;
-      all.push(product);
+      let id = 1;
+      all.length > 0 &&
+        all.forEach((el) => {
+          id = el.id + 1;
+        });
+      user.id = id;
+      all.push(user);
       let products = JSON.stringify(all);
       fs.writeFileSync("./perfiles.txt", products);
     } catch {
