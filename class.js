@@ -18,7 +18,7 @@ class Contenedor {
       const datas = fs.readFileSync("./productos.txt", "utf-8");
       let datasq = JSON.parse(datas);
       let buscaPmostrar = datasq.findIndex((el) => el.id == number);
-      return buscaPmostrar > 0 ? datasq.find((el) => el.id == number) : console.log("producto no existe");
+      return buscaPmostrar > 0 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
     } catch {
       console.log(err);
     }
@@ -28,17 +28,13 @@ class Contenedor {
       switch (act) {
         case undefined:
           const datas = fs.readFileSync("./productos.txt", "utf-8");
-          let datasq = JSON.parse(datas);
-          return datasq;
-          break;
+          return JSON.parse(datas);
         case "./perfiles.txt":
           const datasP = fs.readFileSync(act, "utf-8");
-          let perfiles = JSON.parse(datasP);
-          return perfiles;
-          break;
+          return JSON.parse(datasP);
       }
     } catch (err) {
-      console.log(err);
+      return { error: err };
     }
   }
   deleteById(aBorrar) {
@@ -60,13 +56,35 @@ class Contenedor {
       console.log(err);
     }
   }
-  saveProduct(product) {
-    let all = this.getAll("./perfiles.txt");
-    const id = all.length + 1;
-    product.id = id;
-    all.push(product);
-    let products = JSON.stringify(all);
-    fs.writeFileSync("./perfiles.txt", products);
+  saveUser(product) {
+    try {
+      let all = this.getAll("./perfiles.txt");
+      const id = all.length + 1;
+      product.id = id;
+      all.push(product);
+      let products = JSON.stringify(all);
+      fs.writeFileSync("./perfiles.txt", products);
+    } catch {
+      console.log(err);
+    }
+  }
+  modifyElement(id, body) {
+    try {
+      let all = this.getAll();
+      let product = all.findIndex((el) => el.id == id);
+      if (product >= 0) {
+        all[product] = body;
+        let products = JSON.stringify(all);
+        fs.writeFileSync("./productos.txt", products);
+        return { res: true, msg: "producto correctamente modificado", producto: body };
+      }
+      if (product == -1) {
+        console.log("mo");
+        return { err: true, msg: "producto a modificar no existe" };
+      }
+    } catch {
+      console.log(err);
+    }
   }
 }
 

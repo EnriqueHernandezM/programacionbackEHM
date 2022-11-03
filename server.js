@@ -36,8 +36,7 @@ routerDeProductos.get("/", (req, res) => {
 });
 routerDeProductos.get("/:id", (req, res) => {
   const { id } = req.params;
-  let us = containerProducts.getAll().find((el) => el.id == id);
-  us != undefined ? res.json({ success: true, user: us }) : res.json({ err: true, msg: "no encontrado" });
+  res.json(containerProducts.getById(id));
 });
 routerDeProductos.post("/", (req, res) => {
   const { body } = req;
@@ -47,21 +46,11 @@ routerDeProductos.post("/", (req, res) => {
 routerDeProductos.put("/:id", (req, res) => {
   const { id } = req.params;
   const { body } = req;
-  let all = containerProducts.getAll();
-  let product = all.findIndex((el) => el.id == id);
-  product >= 0 ? (all[product] = body) : res.json({ err: true, msg: "no encontrado" });
-  let products = JSON.stringify(all);
-  fs.writeFileSync("./productos.txt", products);
-  res.json(body);
+  res.send(containerProducts.modifyElement(id, body));
 });
 routerDeProductos.delete("/:id", (req, res) => {
   const { id } = req.params;
-  let arr = containerProducts.getAll();
-  let encontrado = arr.findIndex((el) => el.id == id);
-  encontrado <= -1 ? res.json({ err: true, msg: "no encontrado" }) : arr.splice(encontrado, 1);
-  let products = JSON.stringify(arr);
-  fs.writeFileSync("./productos.txt", products);
-  res.send({ producto_con_id: id, msg: "eliminado" });
+  res.send(containerProducts.deleteById(id));
 });
 
 //FORMULARIO DEL INDEX RUTAS PARA CREAR PERFIL
@@ -73,7 +62,7 @@ perfil.get("/existentes", (req, res) => {
   res.json(containerProducts.getAll("./perfiles.txt"));
 });
 
-//configuracion para subir foto
+//configuracion para subir formulario en upload/files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, __dirname + "/uploads/files");
@@ -83,11 +72,12 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
-
+// post de index
+// ?? es necesario usar app. o puede usar routing tambien
 app.post("/uploadfile", upload.single("myFile"), (req, res) => {
   const file = req.file;
   const body = req.body;
   body.imagen = file.filename;
-  containerProducts.saveProduct(body);
+  containerProducts.saveUser(body);
   res.json({ message: "usuario guardado", usuario: body });
 });
