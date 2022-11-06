@@ -27,15 +27,13 @@ class Contenedor {
       console.log(err);
     }
   }
-  getAll(act) {
+  getAll() {
     try {
-      switch (act) {
-        case undefined:
-          const datas = fs.readFileSync("./productos.txt", "utf-8");
-          return JSON.parse(datas);
-        case "./perfiles.txt":
-          const datasP = fs.readFileSync(act, "utf-8");
-          return JSON.parse(datasP);
+      const datas = fs.readFileSync("./productos.txt", "utf-8");
+      if (datas) {
+        return JSON.parse(datas);
+      } else {
+        return [];
       }
     } catch (err) {
       return { error: err };
@@ -67,7 +65,7 @@ class Contenedor {
       console.log(err);
     }
   }
-  saveUser(user) {
+  /* saveUser(user) {
     try {
       let all = this.getAll("./perfiles.txt");
       let id = 1;
@@ -82,7 +80,7 @@ class Contenedor {
     } catch {
       console.log(err);
     }
-  }
+  } */
   modifyElement(id, body) {
     try {
       let all = this.getAll();

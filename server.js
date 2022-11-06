@@ -7,77 +7,69 @@ const port = process.env.PORT || 8081;
 const multer = require("multer");
 const Contenedor = require("./class.js");
 const containerProducts = new Contenedor();
-
-let fs = require("fs");
-const { get } = require("https");
+const { engine } = require("express-handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//para mostrar imagenes!!!!
+app.use("/public/files", express.static(__dirname + "/public/files"));
+
+//Configuracion Handlebars
+app.set("view engine", "hbs");
+app.set("views", "./views");
+app.engine(
+  "hbs",
+  engine({
+    extname: ".hbs",
+    defaultLayout: "index.hbs",
+    layoutsDir: __dirname + "/views/layouts",
+    partialsDir: __dirname + "/views/partials",
+  })
+);
+
+app.use("/productos", routerDeProductos);
+app.use("/perfil", perfil);
+
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
-
-routerDeProductos.use((req, res, next) => {
-  console.log("Time:", Date());
-  next();
-});
-app.use("/api/productos", routerDeProductos);
-app.use("/perfil", perfil);
-//para mostrar imagenes!!!!
-app.use("/public", express.static(__dirname + "/public"));
-
+//
+//Solicitudes & res
+//
 app.get("/", (req, res) => {
-  res.send("HOLA puedes buscar endPoints: /api/productos,/api/productos/id, y /perfil/nuevo o /perfil/existentes ");
+  res.render("reception", { saludo: "bienvenido a esta gran vinateria" });
 });
-
 routerDeProductos.get("/", (req, res) => {
-  res.json(containerProducts.getAll());
+  let products1 = containerProducts.getAll();
+  if (products1.length) {
+    res.render("productslist", { products: products1, productsExist: true });
+  }
+  if (products1.length == 0) {
+    res.render("productslist", { products: "Al parecer no hay productos aun", productsExist: false });
+  }
 });
-routerDeProductos.get("/:id", (req, res) => {
-  const { id } = req.params;
-  res.json(containerProducts.getById(id));
-});
-routerDeProductos.post("/", (req, res) => {
-  const { body } = req;
-  containerProducts.save(body);
-  res.send({ id_Asignado: body.id });
-});
-routerDeProductos.put("/:id", (req, res) => {
-  const { id } = req.params;
-  const { body } = req;
-  res.send(containerProducts.modifyElement(id, body));
-});
-routerDeProductos.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  res.send(containerProducts.deleteById(id));
-});
-
-//FORMULARIO DEL INDEX RUTAS PARA CREAR PERFIL
-perfil.get("/nuevo", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
-//ver perfiles ya creados
-perfil.get("/existentes", (req, res) => {
-  res.json(containerProducts.getAll("./perfiles.txt"));
+routerDeProductos.get("/newProduct", (req, res) => {
+  res.render("newProduct", {});
 });
 
 //configuracion para subir formulario en upload/files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, __dirname + "/uploads/files");
+    cb(null, __dirname + "/public/files");
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
   },
 });
 const upload = multer({ storage: storage });
-// post de index
-// ?? es necesario usar app. o puede usar routing tambien
-app.post("/uploadfile", upload.single("myFile"), (req, res) => {
-  const file = req.file;
+
+app.post("/productos", upload.none(), (req, res) => {
   const body = req.body;
-  body.imagen = file.filename;
-  containerProducts.saveUser(body);
-  res.json({ message: "usuario guardado", usuario: body });
+  if (body.length) {
+    containerProducts.save(body);
+    res.render("guardadoOk", { confirmacion: "Producto Guardado Correctamente" });
+  } else {
+    res.render("guardadoOk", { confirmacion: "ERROR" });
+  }
 });
