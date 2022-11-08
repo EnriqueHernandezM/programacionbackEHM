@@ -66,10 +66,10 @@ const upload = multer({ storage: storage });
 
 app.post("/productos", upload.none(), (req, res) => {
   const body = req.body;
-  if (body.length) {
-    containerProducts.save(body);
-    res.render("guardadoOk", { confirmacion: "Producto Guardado Correctamente" });
+  if (body.producto == "" || body.precio == "" || body.imagen == "") {
+    res.render("guardadoOk", { confirmacion: "al parecer hubo un error", loaded: false });
   } else {
-    res.render("guardadoOk", { confirmacion: "ERROR" });
+    containerProducts.save(body);
+    res.render("guardadoOk", { confirmacion: "Producto Guardado Correctamente", loaded: true });
   }
 });
