@@ -1,8 +1,17 @@
-html
+html(lang="es")
     head
         title='test pug'
         style 
-            include styles.css 
+            include estilos.css 
     body
-        h1=msg
-        h2(class='p-cualquiera')= loco
+        nav#navbar
+            div#containerNav
+                ul
+                    li.logo Jack Vinaterias
+                    li #[a(href = "/") Home]
+                    li #[a(href = "/productos") productos] 
+                    li #[a(href = "/productos/newProduct") Agregar producto] 
+        h2(class="titSaludo")=saludo 
+footer 
+    ul
+        li Desarrollado por Enrique Hernandez 

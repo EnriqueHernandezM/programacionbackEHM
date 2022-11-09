@@ -11,14 +11,8 @@ html(lang="es")
                     li #[a(href = "/") Home]
                     li #[a(href = "/productos") productos] 
                     li #[a(href = "/productos/newProduct") Agregar producto]
-    div(class="contenedorDeProducts")
-        h1="listado de productos"
-        for item in products
-         
-            article    
-                p=item.producto
-                p=item.precio
-                img(class='product-img', src=item.imagen)  
-footer 
-    ul
-        li Desarrollado por Enrique Hernandez 
+        div(class="contenedorDeProducts")
+            h1=confirmacion 
+    footer 
+        ul
+            li Desarrollado por Enrique Hernandez 

@@ -1,0 +1,25 @@
+#containerNav {
+  ul {
+    .logo {
+      margin-right: 46vw;
+      font-size: 2.3rem;
+    }
+    h1 {
+      text-align: left;
+    }
+    display: flex;
+    justify-content: end;
+    margin: 2rem;
+    li {
+      padding: 1.5rem;
+      list-style: none;
+      a {
+        text-decoration: none;
+        color: aliceblue;
+      }
+      a:hover {
+        color: aqua;
+      }
+    }
+  }
+}

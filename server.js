@@ -7,7 +7,6 @@ const port = process.env.PORT || 8081;
 const multer = require("multer");
 const Contenedor = require("./class.js");
 const containerProducts = new Contenedor();
-const { engine } = require("express-handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,18 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 //para mostrar imagenes!!!!
 app.use("/public/files", express.static(__dirname + "/public/files"));
 
-//Configuracion Handlebars
-app.set("view engine", "hbs");
+//Configuracion PUG
+//
+app.set("view engine", "pug");
 app.set("views", "./views");
-app.engine(
-  "hbs",
-  engine({
-    extname: ".hbs",
-    defaultLayout: "index.hbs",
-    layoutsDir: __dirname + "/views/layouts",
-    partialsDir: __dirname + "/views/partials",
-  })
-);
 
 app.use("/productos", routerDeProductos);
 app.use("/perfil", perfil);
@@ -38,19 +29,19 @@ app.listen(port, () => {
 //Solicitudes & res
 //
 app.get("/", (req, res) => {
-  res.render("reception", { saludo: "bienvenido a esta gran vinateria" });
+  res.render("hello.pug", { saludo: "bienvenido a esta gran vinateria" });
 });
 routerDeProductos.get("/", (req, res) => {
   let products1 = containerProducts.getAll();
   if (products1.length) {
-    res.render("productslist", { products: products1, productsExist: true });
+    res.render("products.pug", { products: products1 });
   }
   if (products1.length == 0) {
     res.render("productslist", { products: "Al parecer no hay productos aun", productsExist: false });
   }
 });
 routerDeProductos.get("/newProduct", (req, res) => {
-  res.render("newProduct", {});
+  res.render("newProduct.pug", {});
 });
 
 //configuracion para subir formulario en upload/files
@@ -66,10 +57,14 @@ const upload = multer({ storage: storage });
 
 app.post("/productos", upload.none(), (req, res) => {
   const body = req.body;
-  if (body.producto == "" || body.precio == "" || body.imagen == "") {
-    res.render("guardadoOk", { confirmacion: "al parecer hubo un error", loaded: false });
+  if (body.producto == "" || body.precio < 0 || body.imagen == "") {
+    res.render("result.pug", {
+      confirmacion: "al parecer hubo un error",
+    });
   } else {
     containerProducts.save(body);
-    res.render("guardadoOk", { confirmacion: "Producto Guardado Correctamente", loaded: true });
+    res.render("result.pug", {
+      confirmacion: "producto Guardado Correctamente",
+    });
   }
 });
