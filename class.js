@@ -88,14 +88,16 @@ class Contenedor {
       let all = this.getAll();
       let product = all.findIndex((el) => el.id == id);
       if (product >= 0) {
-        all[product] = body;
+        id = parseInt(id);
+        let newProduct = { ...body, id };
+        all[product] = newProduct;
         let products = JSON.stringify(all);
         fs.writeFileSync("./productos.txt", products);
-        return { res: true, msg: "producto correctamente modificado", producto: body };
+        return { res: true, id: id, msg: "producto correctamente modificado", producto: body };
       }
       if (product == -1) {
         console.log("err");
-        return { err: true, msg: "producto a modificar no existe" };
+        return { err: true, id: id, msg: "producto a modificar no existe" };
       }
     } catch {
       console.log(err);
