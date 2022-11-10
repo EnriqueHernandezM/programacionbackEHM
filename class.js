@@ -86,7 +86,9 @@ class Contenedor {
       let all = this.getAll();
       let product = all.findIndex((el) => el.id == id);
       if (product >= 0) {
-        all[product] = body;
+        id = parseInt(id);
+        let newProduct = { ...body, id };
+        all[product] = newProduct;
         let products = JSON.stringify(all);
         fs.writeFileSync("./productos.txt", products);
         return { res: true, msg: "producto correctamente modificado", producto: body };
