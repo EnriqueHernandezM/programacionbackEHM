@@ -1,3 +1,5 @@
+const { json } = require("express");
+
 let fs = require("fs");
 class Contenedor {
   constructor() {}
@@ -13,6 +15,7 @@ class Contenedor {
       all.push(producto);
       let products = JSON.stringify(all);
       fs.writeFileSync("./productos.txt", products);
+      return all;
     } catch {
       console.log(err);
     }
@@ -65,22 +68,7 @@ class Contenedor {
       console.log(err);
     }
   }
-  /* saveUser(user) {
-    try {
-      let all = this.getAll("./perfiles.txt");
-      let id = 1;
-      all.length > 0 &&
-        all.forEach((el) => {
-          id = el.id + 1;
-        });
-      user.id = id;
-      all.push(user);
-      let products = JSON.stringify(all);
-      fs.writeFileSync("./perfiles.txt", products);
-    } catch {
-      console.log(err);
-    }
-  } */
+
   modifyElement(id, body) {
     try {
       let all = this.getAll();
@@ -95,6 +83,24 @@ class Contenedor {
         console.log("err");
         return { err: true, msg: "producto a modificar no existe" };
       }
+    } catch {
+      console.log(err);
+    }
+  }
+  readMsgs() {
+    const everybodyMsges = fs.readFileSync("mensajes.txt", "utf-8");
+    if (everybodyMsges) {
+      return JSON.parse(everybodyMsges);
+    } else {
+      return [];
+    }
+  }
+  saveMsges(obj) {
+    try {
+      const actually = this.readMsgs();
+      actually.push(obj);
+      const saver = JSON.stringify(obj);
+      fs.writeFileSync("mensajes.txt", saver);
     } catch {
       console.log(err);
     }
