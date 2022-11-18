@@ -9,8 +9,7 @@ const actualizarFeed = () => {
 const enviarMsg = () => {
   const email = document.getElementById("inputEmail").value;
   const msgeParaEnviar = document.getElementById("inputMsg").value;
-  const now = ("Time:", new Date());
-  socket.emit("msg", { email: email, mensaje: msgeParaEnviar, now: now });
+  socket.emit("msg", { email: email, mensaje: msgeParaEnviar });
 };
 
 socket.on("connect", () => {

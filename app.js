@@ -1,4 +1,5 @@
 const { json } = require("express");
+const { DateTime } = require("luxon");
 
 let fs = require("fs");
 class Contenedor {
@@ -98,6 +99,8 @@ class Contenedor {
   saveMsges(obj) {
     try {
       const actually = this.readMsgs();
+      let data = DateTime.local();
+      obj.data = data;
       actually.push(obj);
       const saver = JSON.stringify(obj);
       fs.writeFileSync("mensajes.txt", saver);

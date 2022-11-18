@@ -65,6 +65,7 @@ const upload = multer({ storage: storage });
 /* AQUI EMPIEZA EL CODIGO DeL 
 CHAT
  */ //ARRAY PARA MESJES
+const { DateTime } = require("luxon");
 const msgs = [];
 
 io.on("connection", (socket) => {
@@ -79,7 +80,7 @@ io.on("connection", (socket) => {
       socketid: socket.id,
       email: data.email,
       mensaje: data.mensaje,
-      now: data.now,
+      now: DateTime.local(),
     });
     containerProducts.saveMsges(msgs);
     io.sockets.emit("listaMsgs", msgs);
