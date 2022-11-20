@@ -68,4 +68,8 @@ form .bEnv {
 }
 #probandoAct div img {
   width: 25%;
-} /*# sourceMappingURL=estilos.css.map */
+}
+
+#contieneElIdProducto {
+  display: none;
+}/*# sourceMappingURL=estilos.css.map */

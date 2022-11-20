@@ -1,0 +1,22 @@
+[
+  {
+    "producto": "Don Pedro",
+    "precio": "250",
+    "imagen": "https://cdn.shopify.com/s/files/1/0402/2475/1766/products/BRANDYDONPEDRO1000MLSHOPIFY_700x.jpg?v=1637864473",
+    "description": "Brandy Don Pedro Reserva Especial 750 ml a un súper precio",
+    "stockItems": "5",
+    "data": "2022-11-19T02:51:37.116-06:00",
+    "codeItem": 1000000,
+    "id": 1
+  },
+  {
+    "producto": "Moet",
+    "precio": "750",
+    "imagen": "https://www.sampieri.com.mx/wp-content/uploads/2018/07/CHAMPAGNE-MOET-CHANDON-BRUT-EST-MADERA.jpg",
+    "description": "Fundada en 1743, Moët & Chandon celebra los momentos memorables de la vida con una gama de champagnes únicos para cada ocasión.",
+    "stockItems": "3",
+    "data": "2022-11-19T02:54:49.444-06:00",
+    "codeItem": 1000000,
+    "id": 2
+  }
+]

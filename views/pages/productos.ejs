@@ -2,12 +2,6 @@
 <html lang="en">
   <head>
     <%- include('../partials/head'); %>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-      crossorigin="anonymous"
-    />
   </head>
   <body class="bg-dark text-white">
     <%- include('../partials/navbar'); %>
@@ -17,7 +11,7 @@
           <h1>Agregar Un Nuevo Producto</h1>
         </div>
       </div>
-      <form enctype="multipart/form-data" method="POST" class="row p-5" onsubmit="actualizarFeed();return false;">
+      <form action="/productos" enctype="multipart/form-data" method="POST" class="row p-5">
         <div class="col-xs-12 col-md-6 col-lg-4">
           <p class="text-white P-2">Nombre del Licor</p>
           <input id="ingProduct" type="text" name="producto" placeholder="Ingresa nombre del producto " class="w-75" required="true" />
@@ -30,17 +24,72 @@
           <p class="text-white P-2">ingresa URL de imagen</p>
           <input id="ingImagen" type="text" name="imagen" class="w-100" required="true" />
         </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">ingresa Descripcion del producto</p>
+          <input id="ingDescription" type="text" name="description" class="w-100" required="true" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">ingresa stock disponible</p>
+          <input id="ingStock" type="number" name="stockItems" class="w-100" required="true" />
+        </div>
         <div class="col-xs-12 col-md-6 col-lg-12 P-4 mt-5 text-center ps-5 ms-5">
           <input type="submit" value="Upload productos" />
         </div>
       </form>
     </div>
+    <div class="container-fluid mt-5">
+      <div class="row p-5 ps-2">
+        <div class="col text-white ms-5 text-center">
+          <h1>Editar Un Producto</h1>
+        </div>
+      </div>
+      <form action="/productos" enctype="multipart/form-data" method="PUT" class="row p-5">
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">id del producto</p>
+          <input id="idAedit" type="text" name="id" placeholder="Ingresa id Del producto a editar " class="w-75" required="true" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">Nombre del Licor</p>
+          <input id="ingProduct" type="text" name="producto" placeholder="Ingresa nombre del producto " class="w-75" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">precio del producto</p>
+          <input id="ingPrecio" type="number" placeholder="ingresa el precio del producto" name="precio" class="w-50" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">ingresa URL de imagen</p>
+          <input id="ingImagen" type="text" name="imagen" class="w-100" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">ingresa Descripcion del producto</p>
+          <input id="ingDescription" type="text" name="description" class="w-100" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">ingresa stock disponible</p>
+          <input id="ingStock" type="number" name="stockItems" class="w-100" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-12 P-4 mt-5 text-center ps-5 ms-5">
+          <input type="submit" value="update products" />
+        </div>
+      </form>
+    </div>
     <div class="container m-auto">
       <div class="row">
-        <h2 class="p-5 text-center">productos disponibles</h2>
-        <div class="col-xs-12 col-md-6 col-lg-4">
-          <div id="probandoAct"></div>
-        </div>
+        <h2 class="pt-5 ms-5 ps-4">Listado de productos</h2>
+        <% if(productsExist) { %> <% products.forEach((item)=>{ %>
+        <article class="mt-5 pt-5 d-flex align-items-center justify-content-around w-100 m-auto mb-5">
+          <p class="w-25 text-center fs-3">Licor: <%=item.producto%><br /></p>
+          <p class="w-25 text-left fs-3">precio: <%=item.precio%><br /></p>
+          <img class="w-25 align me-auto" src=" <%=item.imagen %>" /><br />
+          <form action="/carritoDeCompras" enctype="multipart/form-data" method="POST" class="w-25">
+            <input id="contieneElIdProducto" name="idPc" value="<%=item.id %>" />
+            <input class="w-25 p-1" type="submit" value="🛒" />
+          </form>
+        </article>
+        <% }) %> <%}else {%>
+        <h2 class="fs-1 text-center mt-4 p-5">UPPS</h2>
+        <p class="text-center fs-1 p-4 mb-4"><%-products%></p>
+        <%}%>
       </div>
     </div>
     <div class="container m-auto">
