@@ -8,14 +8,15 @@ const renderProducts = () => {
       let html = "";
       json.forEach((el) => {
         html += `
-    <div class="d-flex flex-column  w-50 text-center">
+    <div class="d-flex flex-column  w-50 text-center p-2">
     <p><img class="w-25" src="${el.imagen}"/> </p>    
       <p class="mensaje" > ${el.producto} </p>
-      <p class="description"> ${el.description} </p>
-      <p class="hora"> ${el.precio} </p>
+      <p class="description p-5"> ${el.description} </p>
+      <p class="hora"> $${el.precio} </p>
       <span onclick=addArticleTrolley(${el.id});> 🛒 </span>
       <span onclick=renderFormActProduct();> 🔃 </span>
       <span onclick=deleteItemForId(${el.id});> 🗑️ </span>
+      <p class="ps-5 ms-5"> ID:${el.id} </p>
     </div>
     `;
       });
@@ -46,8 +47,12 @@ const newProduct = () => {
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
-      alert("ProductoagregadoCorrectamente");
+      if (res.error == true) {
+        alert("reservado solo para administradores");
+      }
+      if (res.ok) {
+        alert("ProductoagregadoCorrectamente");
+      }
     });
 };
 const renderFormActProduct = () => {
@@ -174,7 +179,7 @@ const CreateNewTrolley = () => {
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
+      alert(res.idAsignado + "para guardar productos en tu carrito coloca tu ID en el siguiente contendor");
     });
 };
 const addArticleTrolley = (idAdd) => {

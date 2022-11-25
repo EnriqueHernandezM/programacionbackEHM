@@ -163,7 +163,7 @@ class CarritoCompras {
       all.push(newCart);
       let products = JSON.stringify(all);
       fs.writeFileSync("./itemstrolley.json", products);
-      return id;
+      return { idAsignado: id };
     } catch {
       console.log(err);
     }

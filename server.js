@@ -11,6 +11,7 @@ const containerProducts = new Contenedor();
 const carritoProducts = new CarritoCompras();
 const { DateTime } = require("luxon");
 const cors = require("cors");
+const { json } = require("express");
 //CONFIGURACION NECESARIA PARA IO
 //
 app.use(cors({ origin: "*" }));
@@ -39,34 +40,70 @@ const upload = multer({ storage: storage });
 //
 httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT));
 //
+///   ADMIN
+let userOrAdmin = true;
+//let userOrAdmin = false;
+//
 //Solicitudes & res
 //
-app.get("/", (req, res) => {
-  res.json({ nombre: "pepillo" });
+///
+////RUTAS NO DEFINIDAS
+app.get("*", (req, res) => {
+  res.json({ rout: "Esta ruta nop esta definida" });
 });
 //Ruta para productos
 routerDeProductos.get("/", (req, res) => {
   res.json(containerProducts.getAll());
 });
 //ruta para hacer post en productos
-routerDeProductos.post("/", upload.none(), (req, res) => {
-  const { body } = req;
-  containerProducts.save(body);
-  let products1 = containerProducts.getAll();
-  res.json(products1);
-});
+routerDeProductos.post(
+  "/",
+  (req, res, next) => {
+    if (userOrAdmin === true) {
+      next();
+    } else {
+      return res.status(404).json({ error: true, description: "solo admin" });
+    }
+  },
+  upload.none(),
+  (req, res) => {
+    const { body } = req;
+    containerProducts.save(body);
+    res.json({ ok: "producto agregado correctamente" });
+  }
+);
 //
 //Ruta para hacer put en productos EDITARLOS
-routerDeProductos.put("/:id", (req, res) => {
-  const { id } = req.params;
-  const { body } = req;
-  res.json(containerProducts.modifyElement(id, body));
-});
+routerDeProductos.put(
+  "/:id",
+  (req, res, next) => {
+    if (userOrAdmin === true) {
+      next();
+    } else {
+      return res.status(404).json({ error: true, description: "solo admin" });
+    }
+  },
+  (req, res) => {
+    const { id } = req.params;
+    const { body } = req;
+    res.json(containerProducts.modifyElement(id, body));
+  }
+);
 //Ruta para hacer dlete en productos
-routerDeProductos.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  res.json(containerProducts.deleteById(id));
-});
+routerDeProductos.delete(
+  "/:id",
+  (req, res, next) => {
+    if (userOrAdmin === true) {
+      next();
+    } else {
+      return res.status(404).json({ error: true, description: "solo admin" });
+    }
+  },
+  (req, res) => {
+    const { id } = req.params;
+    res.json(containerProducts.deleteById(id));
+  }
+);
 ///
 ////ruta para mostrar productos en carrrito
 routerCarrito.get("/:id/productos", (req, res) => {

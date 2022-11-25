@@ -1,1 +1,42 @@
-[{"producto":"Moet Chandom","precio":"751","imagen":"https://www.sampieri.com.mx/wp-content/uploads/2018/07/CHAMPAGNE-MOET-CHANDON-BRUT-EST-MADERA.jpg","description":"Fundada en 1743, Moët & Chandon celebra los momentos memorables de la vida con una gama de champagnes únicos para cada ocasión.","stockItems":"9","data":"2022-11-24T20:23:44.417-06:00","codeItem":5003494,"id":2},{"producto":"Don Pedro","precio":"250","imagen":"https://cdn.shopify.com/s/files/1/0402/2475/1766/products/BRANDYDONPEDRO1000MLSHOPIFY_700x.jpg?v=1637864473","description":"Brandy Don Pedro Reserva Especial 750 ml a un súper precio","stockItems":"4","data":"2022-11-24T23:19:06.538-06:00","codeItem":4631750,"id":3}]
+[
+  {
+    "producto": "Moet Chandom",
+    "precio": "751",
+    "imagen": "https://www.sampieri.com.mx/wp-content/uploads/2018/07/CHAMPAGNE-MOET-CHANDON-BRUT-EST-MADERA.jpg",
+    "description": "Fundada en 1743, Moët & Chandon celebra los momentos memorables de la vida con una gama de champagnes únicos para cada ocasión.",
+    "stockItems": "9",
+    "data": "2022-11-24T20:23:44.417-06:00",
+    "codeItem": 5003494,
+    "id": 2
+  },
+  {
+    "producto": "Don Pedro",
+    "precio": "250",
+    "imagen": "https://cdn.shopify.com/s/files/1/0402/2475/1766/products/BRANDYDONPEDRO1000MLSHOPIFY_700x.jpg?v=1637864473",
+    "description": "Brandy Don Pedro Reserva Especial 750 ml a un súper precio",
+    "stockItems": "4",
+    "data": "2022-11-24T23:19:06.538-06:00",
+    "codeItem": 4631750,
+    "id": 3
+  },
+  {
+    "producto": "Absolut Vodka",
+    "precio": "480",
+    "imagen": "http://cdn.shopify.com/s/files/1/0279/8151/2798/products/VO0001_1200x1200.jpg?v=1598030242",
+    "description": "Absolut Vodka es la marca líder de vodka Premium que ofrece el original sabor del vodka",
+    "stockItems": "4",
+    "data": "2022-11-25T01:30:51.002-06:00",
+    "codeItem": 4873587,
+    "id": 4
+  },
+  {
+    "producto": "Capitan Morgan",
+    "precio": "290",
+    "imagen": "https://www.mayoreodevinosylicores.com/wp/wp-content/uploads/2016/06/capitan.jpg",
+    "description": "Captain Morgan Spiced es una bebida que refleja toda la esencia de Guatemala y el Caribe, gracias a sus notas con toques especiados y picantes.",
+    "stockItems": "16",
+    "data": "2022-11-25T01:48:50.694-06:00",
+    "codeItem": 5852419,
+    "id": 5
+  }
+]
