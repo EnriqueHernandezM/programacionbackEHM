@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../public/estilos.css" />
 </head>
 
-<body class="bg-dark text-white" onload="renderTrolley()">
+<body class="bg-dark text-white">
   <nav class="navbar navbar-expand-lg bg-light w-100 bg-dark ">
     <div class="container-fluid ">
       <a class="navbar-brand p-4 text-white fs-1" href="#">Jack Vinaterias</a>
@@ -29,6 +29,12 @@
         </div>
       </div>
   </nav>
+  <blockquote class="text-end me-5 p-5" >
+    <h5>introduce id para ver carrito por id o eliminar producto de carrito</h5>
+    <button onclick="renderTrolley()"> ver carrito </button>
+    <input id="inputPfuncionesConCarrito" type="number" placeholder="id para probar funciones carrito"  > 
+    <button class="p-1" onclick="deleteTrolley()">vaciar carrito</button>
+  </blockquote>
   <div class="d-flex justify-content-between flex-wrap" id="productosCarrito"></div>
   <footer class="container-fluid">
     <div class="row p-3 bg-dark text-white">

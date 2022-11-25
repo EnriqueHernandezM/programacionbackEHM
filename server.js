@@ -86,3 +86,14 @@ routerCarrito.post("/:id/productos", (req, res) => {
   const idProduct = body.product;
   res.json(carritoProducts.addToCart(id, idProduct));
 });
+//Ruta para eliminar todo el carrito
+routerCarrito.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  res.json(carritoProducts.deleteByIdAllTrolley(id));
+});
+//Ruta par eliminar todo el carrito
+routerCarrito.delete("/:id/productos/:idItem", (req, res) => {
+  const { id } = req.params;
+  const { idItem } = req.params;
+  res.json(carritoProducts.deleteByIdAllTrolleyItem(id, idItem));
+});

@@ -190,13 +190,34 @@ class CarritoCompras {
   }
   deleteByIdAllTrolley(aBorrar) {
     try {
-      const datas = fs.readFileSync("./productos.txt", "utf-8");
-      let datasq1 = JSON.parse(datas);
+      let datasq1 = this.getAllTrolley();
       let buscaPborrar = datasq1.findIndex((el) => el.id == aBorrar);
       if (buscaPborrar >= 0) {
         datasq1.splice(buscaPborrar, 1);
         let documentAc = JSON.stringify(datasq1);
-        fs.writeFileSync("./productos.txt", documentAc);
+        fs.writeFileSync("./itemstrolley.json", documentAc);
+        return { res: true, msg: "carrito correctamente eliminado" };
+      }
+      if (buscaPborrar == -1) {
+        console.log("err");
+        return { err: true, msg: "Carrito a eliminar no existe" };
+      }
+    } catch {
+      console.log(err);
+    }
+  }
+  deleteByIdAllTrolleyItem(idTrolley, idItem) {
+    try {
+      const trolleyDisp = this.getAllTrolley();
+      const catchInC = trolleyDisp.findIndex((el) => el.id == idTrolley);
+      let catchTrolleyW = this.getByIdCart(idTrolley);
+      let buscaPborrar = catchTrolleyW.trolley.findIndex((el) => el.id == idItem);
+      if (buscaPborrar >= 0) {
+        catchTrolleyW.trolley.splice(buscaPborrar, 1);
+        const deleteProduct = catchTrolleyW;
+        trolleyDisp[catchInC] = deleteProduct;
+        let documentAc = JSON.stringify(trolleyDisp);
+        fs.writeFileSync("./itemstrolley.json", documentAc);
         return { res: true, msg: "producto correctamente eliminado" };
       }
       if (buscaPborrar == -1) {

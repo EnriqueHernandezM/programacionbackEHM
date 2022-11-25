@@ -140,7 +140,7 @@ const deleteItemForId = (idDelete) => {
 ////
 const renderTrolley = () => {
   //MODIFICAMOS ESTA VARIABLE SI QUEREMES RENDERIIZAR OTRO CARRITO
-  const idTrolleyRender = 5;
+  const idTrolleyRender = document.getElementById("inputPfuncionesConCarrito").value;
   let url = "http://localhost:8081/api/carritoDeCompras/";
   fetch(url + idTrolleyRender + "/productos")
     .then((res) => res.json())
@@ -153,9 +153,8 @@ const renderTrolley = () => {
     <p class="mensaje" > ${el.producto} </p>
     <p class="description"> ${el.description} </p>
     <p class="hora"> ${el.precio} </p>
-    <span onclick=addToCart(${el.id}); > 🛒 </span>
-    <span onclick=renderFormActProduct();> 🔃 </span>
-    <span onclick=deleteItemForId(${el.id});> 🗑️ </span>
+    
+    <span onclick=deleteItemTrolley(${el.id})> 🗑️ </span>
   </div>
   `;
       });
@@ -180,7 +179,7 @@ const CreateNewTrolley = () => {
 };
 const addArticleTrolley = (idAdd) => {
   //MODIFICAMOS ESTA VARIABLE SI QUEREMOS PUSHEAR ENN OTRO CARRITO
-  const idReq = 5;
+  const idReq = document.getElementById("inputPfuncionesConCarritopushearProducto").value;
   const url = "http://localhost:8081/api/carritoDeCompras/";
   fetch(url + idReq + "/productos", {
     method: "POST",
@@ -188,6 +187,28 @@ const addArticleTrolley = (idAdd) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ product: idAdd }),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+    });
+};
+const deleteTrolley = (idD) => {
+  idD = document.getElementById("inputPfuncionesConCarrito").value;
+  let url = "http://localhost:8081/api/carritoDeCompras/";
+  fetch(url + idD, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+    });
+};
+const deleteItemTrolley = (idItem) => {
+  let idCarritoA = document.getElementById("inputPfuncionesConCarrito").value;
+  let url = "http://localhost:8081/api/carritoDeCompras/";
+  fetch(url + idCarritoA + "/productos/" + idItem, {
+    method: "DELETE",
   })
     .then((res) => res.json())
     .then((res) => {
