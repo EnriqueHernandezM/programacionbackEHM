@@ -10,21 +10,21 @@ const { CarritoCompras } = require("./app");
 const containerProducts = new Contenedor();
 const carritoProducts = new CarritoCompras();
 const { DateTime } = require("luxon");
+const cors = require("cors");
 //CONFIGURACION NECESARIA PARA IO
 //
+app.use(cors({ origin: "*" }));
 const httpServer = require("http").createServer(app);
-const io = require("socket.io")(httpServer);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //para mostrar imagenes!!!!
 app.use(express.static(__dirname + "/public"));
-//Configuracion Para EJS
+//Configuracion Server
+
 //
-app.set("view engine", "ejs");
-//Rutas Disponibles
-//
-app.use("/productos", routerDeProductos);
-app.use("/carritoDeCompras", routerCarrito);
+app.use("/api/productos", routerDeProductos);
+app.use("/api/carritoDeCompras", routerCarrito);
 
 //configuracion para subir formulario en upload/files
 const storage = multer.diskStorage({
@@ -42,76 +42,47 @@ httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT))
 //Solicitudes & res
 //
 app.get("/", (req, res) => {
-  res.render("pages/index", { saludo: "bienvenido a esta gran vinateria", imagen: "https://i.ytimg.com/vi/WGrX46hqSCc/maxresdefault.jpg" });
+  res.json({ nombre: "pepillo" });
 });
-//
+//Ruta para productos
 routerDeProductos.get("/", (req, res) => {
-  let products1 = containerProducts.getAll();
-  if (products1.length) {
-    res.render("pages/productos", { products: products1, productsExist: true });
-  }
-  if (products1.length == 0) {
-    res.render("pages/productos", { products: "Al parecer no hay productos aun", productsExist: false });
-  }
+  res.json(containerProducts.getAll());
 });
-
-routerCarrito.get("/", (req, res) => {
-  let itemsAggregates = carritoProducts.getAllTrolley();
-  if (itemsAggregates.length) {
-    res.render("pages/carrito", { productsC: itemsAggregates, productsExistC: true });
-  }
-  if (itemsAggregates.length == 0) {
-    res.render("pages/carrito", { productsC: "Al parecer no hay productos aun", productsExistC: false });
-  }
-});
-
+//ruta para hacer post en productos
 routerDeProductos.post("/", upload.none(), (req, res) => {
   const { body } = req;
   containerProducts.save(body);
   let products1 = containerProducts.getAll();
-  res.render("pages/productos", { products: products1, productsExist: true });
+  res.json(products1);
 });
-
-routerCarrito.post("/", upload.none(), (req, res) => {
-  const { body } = req;
-  let itemsAggregates = carritoProducts.addToCart(body);
-  res.render("pages/carrito", { productsC: itemsAggregates, productsExistC: true });
-});
+//
+//Ruta para hacer put en productos EDITARLOS
 routerDeProductos.put("/:id", (req, res) => {
   const { id } = req.params;
   const { body } = req;
-  let products1 = containerProducts.getAll();
-  containerProducts.modifyElement(id, body);
-  res.render("pages/productos", { products: products1, productsExist: true });
+  res.json(containerProducts.modifyElement(id, body));
 });
-
-// AQUI EMPIEZA EL CODIGO DeL
-//CHAT;
-
-//ARRAY PARA MESJES
-const msgs = [];
-
-io.on("connection", (socket) => {
-  socket.on("on", () => {
-    let products = containerProducts.getAll();
-    io.sockets.emit("feedAct", products);
-  });
-
-  socket.on("msg", (data) => {
-    console.log("data", data);
-    msgs.push({
-      socketid: socket.id,
-      email: data.email,
-      mensaje: data.mensaje,
-      now: DateTime.local(),
-    });
-    containerProducts.saveMsges(msgs);
-    io.sockets.emit("listaMsgs", msgs);
-  });
-
-  socket.on("actualizame", (data) => {
-    let act = containerProducts.save(data);
-    io.sockets.emit("feedAct", act);
-  });
-  //NO OLVIDAR CHECAR  VAR CONFIG iIO
+//Ruta para hacer dlete en productos
+routerDeProductos.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  res.json(containerProducts.deleteById(id));
+});
+///
+////ruta para mostrar productos en carrrito
+routerCarrito.get("/:id/productos", (req, res) => {
+  const { id } = req.params;
+  res.json(carritoProducts.getAllForItemsTrolley(id));
+  //
+  // RUTA PARA CREAR UN NUEVO CARRITO
+});
+routerCarrito.post("/", (req, res) => {
+  const { body } = req;
+  res.json(carritoProducts.creatteCart(body));
+});
+//RUTA Para incorporar productos al carrito por su id de producto
+routerCarrito.post("/:id/productos", (req, res) => {
+  const { body } = req;
+  const { id } = req.params;
+  const idProduct = body.product;
+  res.json(carritoProducts.addToCart(id, idProduct));
 });

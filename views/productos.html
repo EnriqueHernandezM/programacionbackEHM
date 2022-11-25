@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jack Vinatedrias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../public/estilos.css" />
+  </head>
+<body class="bg-dark text-white" onload="renderProducts()">
+  <nav class="navbar navbar-expand-lg bg-light w-100 bg-dark ">
+    <div class="container-fluid ">
+      <a class="navbar-brand p-4 text-white fs-1" href="#">Jack Vinaterias</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end " id="navbarNavAltMarkup">
+        <div class="navbar-nav me-5">
+          <a class=" text-white nav-link p-2 ms-5 me-5 fs-4" href="../index.html">Inicio</a>
+          <a class="text-white nav-link p-2 ms-5 me-5 fs-4" href="../views/productos.html">Productos</a>
+          <a class="text-white nav-link p-2 ms-5 me-5 fs-4" href="../views/carrito.html">Mi carrito</a>
+        </div>
+      </div>
+  </nav>
+  <div class="container-fluid mt-5">
+    <div class="row p-5 ps-2">
+      <div class="col text-white ms-5 text-center">
+        <h1>Agregar Un Nuevo Producto</h1>
+      </div>
+    </div>
+    <form enctype="multipart/form-data" method="POST" class="row p-5" onsubmit="newProduct();return false;">
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">Nombre del Licor</p>
+        <input id="ingProduct" type="text" name="producto" placeholder="Ingresa nombre del producto " class="w-75"
+          required="true" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">precio del producto</p>
+        <input id="ingPrecio" type="number" placeholder="ingresa el precio del producto" name="precio" class="w-50"
+          required="true" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa URL de imagen</p>
+        <input id="ingImagen" type="text" name="imagen" class="w-100" required="true" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa Descripcion del producto</p>
+        <input id="ingDescription" type="text" name="description" class="w-100" required="true" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa stock disponible</p>
+        <input id="ingStock" type="number" name="stockItems" class="w-100" required="true" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-12 P-4 mt-5 text-center ps-5 ms-5">
+        <input type="submit" value="Upload productos" />
+      </div>
+    </form>
+  </div>
+  <blockquote class="p-5 ms-5">
+    <h5>Si no tienes un id de carrito haz click aqui para crear uno y poder  guardar y agregar productos con una ID <br> 
+    si ya tienes un ID introduzelo  </h5>
+    <input type="button" class="butonCreateTrolley" value="crea un carrito" onclick="CreateNewTrolley();">
+  
+  </blockquote>
+  <div id="formularoParaActualizar"></div>
+  <div class="d-flex justify-content-between flex-wrap" id="productos"></div>
+  <footer class="container-fluid">
+    <div class="row p-3 bg-dark text-white">
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <p class="h3 "> Jack Vinaterias</p>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <p class="h5 ">CONTACTO</p>
+
+        <div class=" linkredes mb-2 text-left pl-2 pt-4">
+          <a href="##"> <img class="w-25"
+              src="https://github.com/EnriqueHernandezM/proyectofinal_ehm/blob/master/imagenes/logogithub.png?raw=true"
+              alt="gitHub"></a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <p class="h5">PRIVACIDAD Y SEGURIDAD</p>
+        <p class="mt-4"> Datos</p>
+        <p class="mt-4"> Privacidad</p>
+        <p class="mt-4"> Terminos y Condiciones</p>
+      </div>
+      <div class="col-xs-12 COL-md-6 col-lg-3 text-center">
+        <p class="h5">DESARROLLADO POR</p>
+        <p>Enrique Hernandez Montiel</p>
+        <p> Mexico</p>
+      </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="../public/main.js"></script>
+</body>
+
+</html>

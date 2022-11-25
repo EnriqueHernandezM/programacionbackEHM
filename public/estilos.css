@@ -72,4 +72,12 @@ form .bEnv {
 
 #contieneElIdProducto {
   display: none;
+}
+
+#formularoParaActualizar {
+  background-color: rgb(35, 65, 65);
+  position: absolute;
+  left: 14vw;
+  top: 20hw;
+  width: 75vw;
 }/*# sourceMappingURL=estilos.css.map */
