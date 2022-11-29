@@ -1,26 +1,27 @@
 const { json } = require("express");
 const { DateTime } = require("luxon");
+const { options } = require("./options/mysql");
+const knex = require("knex")(options);
 
 let fs = require("fs");
 class Contenedor {
   constructor() {}
+
   save(producto) {
-    try {
-      let all = this.getAll();
-      let id = 1;
-      all.length > 0 &&
-        all.forEach((el) => {
-          id = el.id + 1;
-        });
-      producto.id = id;
-      all.push(producto);
-      let products = JSON.stringify(all);
-      fs.writeFileSync("./productos.txt", products);
-      return all;
-    } catch {
-      console.log(err);
-    }
-  } /*  */
+    console.log(producto);
+    knex("inventario")
+      .insert(producto)
+      .then(() => {
+        console.log("producto insertado correctamente");
+      })
+      .catch((err) => {
+        console.log(err);
+        throw new Error(err);
+      })
+      .finally(() => {
+        knex.destroy();
+      });
+  }
   getById(number) {
     try {
       const datas = fs.readFileSync("./productos.txt", "utf-8");
@@ -32,16 +33,19 @@ class Contenedor {
     }
   }
   getAll() {
-    try {
-      const datas = fs.readFileSync("./productos.txt", "utf-8");
-      if (datas) {
-        return JSON.parse(datas);
-      } else {
-        return [];
-      }
-    } catch (err) {
-      return { error: err };
-    }
+    knex
+      .from("inventario")
+      .select("*")
+      .then((res) => {
+        console.log(res);
+        return res;
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+      .finally(() => {
+        knex.destroy();
+      });
   }
   deleteById(aBorrar) {
     try {
@@ -111,3 +115,71 @@ class Contenedor {
 }
 
 module.exports = Contenedor;
+
+/* knex("cars")
+  .insert({ name: "bmw", price: 2000 })
+  .then(() => {
+    console.log("logre meter ah la tabla");
+  })
+  .catch((err) => {
+    console.log(err);
+    throw new Error(err);
+  })
+  .finally(() => {
+    knex.destroy();
+  }); */
+
+/* knex
+  .from("cars")
+  .select("*")
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((e) => {
+    console.log(e);
+  })
+  .finally(() => {
+    knex.destroy();
+  }); */
+//p borrar
+/* knex
+  .from("cars")
+  .where("id", "=", 1)
+  .then((res) => {
+    console.log("borre bien");
+  })
+  .catch((e) => {
+    console.log(e);
+  })
+  .finally(() => {
+    knex.destroy();
+  }); */
+//update
+/* knex
+  .from("cars")
+  .where("id", "=", 1)
+  .update({ price: 4500 })
+  .then((res) => {
+    console.log("actrualize bien");
+  })
+  .catch((e) => {
+    console.log(e);
+  })
+  .finally(() => {
+    knex.destroy();
+  });
+  const { options } = require("./options/sqlite");
+ */
+/* knex
+  .from("inventario")
+  .select("*")
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((e) => {
+    console.log(e);
+  })
+  .finally(() => {
+    knex.destroy();
+  });
+ */

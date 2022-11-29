@@ -32,12 +32,7 @@ app.get("/", (req, res) => {
 });
 routerDeProductos.get("/", (req, res) => {
   let products1 = containerProducts.getAll();
-  if (products1.length) {
-    res.render("pages/productos", { products: products1, productsExist: true });
-  }
-  if (products1.length == 0) {
-    res.render("pages/productos", { products: "Al parecer no hay productos aun", productsExist: false });
-  }
+  res.render("pages/productos", { products: products1, productsExist: true });
 });
 
 //configuracion para subir formulario en upload/files
