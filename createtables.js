@@ -1,4 +1,4 @@
-const { options } = require("./options/mysql");
+/* const { options } = require("./options/mysql");
 const knex = require("knex")(options);
 
 knex.schema
@@ -14,14 +14,14 @@ knex.schema
   })
   .finally(() => {
     knex.destroy();
-  });
+  }); */
 
-/* const { options } = require("./options/sqlite");
-const knex = require("knex")(options);
+const { optionsLite } = require("./options/sqlite");
+const knex = require("knex")(optionsLite);
 
 knex.schema
   .createTable("mensajes", (table) => {
-    table.dateTime("fecha"), table.string("email"), table.string("mensaje");
+    table.increments("id"), table.string("time"), table.string("email"), table.string("mensaje");
   })
   .then(() => {
     console.log("se creo con exito la tabla para mensajes");
@@ -33,4 +33,3 @@ knex.schema
   .finally(() => {
     knex.destroy();
   });
- */

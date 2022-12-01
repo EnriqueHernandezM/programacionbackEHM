@@ -4,9 +4,12 @@ const app = express();
 const routerDeProductos = Router();
 const PORT = process.env.PORT || 8081;
 const multer = require("multer");
-const Contenedor = require("./app");
-const containerProducts = new Contenedor();
+const { Contenedor } = require("./app");
+const { ContenedorMsjes } = require("./appMsjes");
+const containerProducts = new Contenedor("inventario");
+const containerMsjes = new ContenedorMsjes("mensajes");
 //CONFIGURACION NECESARIA PARA IO
+
 //
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer);
@@ -31,11 +34,10 @@ app.get("/", (req, res) => {
   res.render("pages/index", { saludo: "bienvenido a esta gran vinateria", imagen: "https://i.ytimg.com/vi/WGrX46hqSCc/maxresdefault.jpg" });
 });
 routerDeProductos.get("/", (req, res) => {
-  let products1 = containerProducts.getAll();
-  res.render("pages/productos", { products: products1, productsExist: true });
+  res.render("pages/productos", {});
 });
 
-//configuracion para subir formulario en upload/files
+//configuracion para subir formulario en uploady/files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, __dirname + "/public");
@@ -45,45 +47,28 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
+//ARRAY PARA MESJES
 
-/* app.post("/productos", upload.none(), (req, res) => {
-  const body = req.body;
-  if (body.producto == "" || body.precio < 0 || body.imagen == "") {
-    res.render("pages/confirmacion", {
-      confirmacion: "al parecer hubo un error ",
-      imagen: "https://i.ytimg.com/vi/WGrX46hqSCc/maxresdefault.jpg",
-    });
-  } else {
-    containerProducts.save(body);
-  }
-}); */
-/* AQUI EMPIEZA EL CODIGO DeL 
-CHAT
- */ //ARRAY PARA MESJES
-const { DateTime } = require("luxon");
-const msgs = [];
+io.on("connection", async (socket) => {
+  console.log("cone3ct");
 
-io.on("connection", (socket) => {
-  socket.on("on", () => {
-    let products = containerProducts.getAll();
-    io.sockets.emit("feedAct", products);
+  socket.on("on", async () => {
+    io.sockets.emit("feedAct", await containerProducts.getAll());
   });
 
-  socket.on("msg", (data) => {
-    console.log("data", data);
-    msgs.push({
-      socketid: socket.id,
-      email: data.email,
-      mensaje: data.mensaje,
-      now: DateTime.local(),
-    });
-    containerProducts.saveMsges(msgs);
-    io.sockets.emit("listaMsgs", msgs);
-  });
-
-  socket.on("actualizame", (data) => {
-    let act = containerProducts.save(data);
+  socket.on("actualizame", async (data) => {
+    let act = await containerProducts.save(data);
     io.sockets.emit("feedAct", act);
   });
-  //NO OLVIDAR CHECAR  VAR CONFIG iIO
+  socket.on("deleteElement", async (idAb) => {
+    const eliminate = await containerProducts.deleteById(idAb);
+    io.sockets.emit("feedAct", eliminate);
+  });
+  //
+  //SOCKETS MENSAJES
+  //
+  socket.on("msg", async (data) => {
+    const saved = await containerMsjes.saveMsges(data);
+    io.sockets.emit("listaMsgs", saved);
+  });
 });

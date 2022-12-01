@@ -55,5 +55,8 @@ form {
     img {
       width: 25%;
     }
+    span::before {
+      content: "borrar articulo";
+    }
   }
 }
