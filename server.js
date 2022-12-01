@@ -47,6 +47,10 @@ let userOrAdmin = true;
 //Solicitudes & res
 //
 ///
+//RUTA PRINCIPAL
+app.get("/", (req, res) => {
+  res.send("HOLA VISITA: http://127.0.0.1:5500/root/views/productos.html");
+});
 ////RUTAS NO DEFINIDAS
 app.get("*", (req, res) => {
   res.json({ rout: "Esta ruta nop esta definida" });
@@ -54,6 +58,11 @@ app.get("*", (req, res) => {
 //Ruta para productos
 routerDeProductos.get("/", (req, res) => {
   res.json(containerProducts.getAll());
+});
+//GET CON ID
+routerDeProductos.get("/:id", (req, res) => {
+  const { id } = req.params;
+  res.json(containerProducts.getById(id));
 });
 //ruta para hacer post en productos
 routerDeProductos.post(

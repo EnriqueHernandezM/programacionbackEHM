@@ -33,7 +33,7 @@ class Contenedor {
       const datas = fs.readFileSync("./productos.json", "utf-8");
       let datasq = JSON.parse(datas);
       let buscaPmostrar = datasq.findIndex((el) => el.id == number);
-      return buscaPmostrar > 0 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
+      return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
     } catch {
       console.log(err);
     }
@@ -59,6 +59,7 @@ class Contenedor {
         datasq1.splice(buscaPborrar, 1);
         let documentAc = JSON.stringify(datasq1);
         fs.writeFileSync("./productos.json", documentAc);
+        return { err: false, msg: "producto eliminado Correctamente" };
       }
       if (buscaPborrar == -1) {
         console.log("err");
@@ -97,6 +98,8 @@ class Contenedor {
     }
   }
 }
+//
+////
 //classes para carrito  podriamos mejopr juntarlo
 class CarritoCompras {
   constructor() {}
@@ -163,7 +166,7 @@ class CarritoCompras {
       all.push(newCart);
       let products = JSON.stringify(all);
       fs.writeFileSync("./itemstrolley.json", products);
-      return { idAsignado: id };
+      return { idAsignado: id, create: "nuevo carrito vacio creado" };
     } catch {
       console.log(err);
     }
@@ -184,6 +187,7 @@ class CarritoCompras {
       trolleyDisp[catchIn] = newProduct;
       let products = JSON.stringify(trolleyDisp);
       fs.writeFileSync("./itemstrolley.json", products);
+      return { res: "producto agregado en carrito con id ", articleAddInTrolleyID: artId };
     } catch {
       console.log(err);
     }

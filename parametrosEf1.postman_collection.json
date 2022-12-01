@@ -1,0 +1,206 @@
+{
+  "info": {
+    "_postman_id": "740ae6b2-195c-4fa5-a8e9-5d562aa67822",
+    "name": "parametrosEf1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24071348"
+  },
+  "item": [
+    {
+      "name": "/api/productos",
+      "item": [
+        {
+          "name": "traet todos los productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/productos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "productos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "traer por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/productos/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "productos", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "post agregar producto",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"producto\": \"Moet Chandom\",\r\n    \"precio\": \"751\",\r\n    \"imagen\": \"https://www.sampieri.com.mx/wp-content/uploads/2018/07/CHAMPAGNE-MOET-CHANDON-BRUT-EST-MADERA.jpg\",\r\n    \"description\": \"Fundada en 1743, Moët & Chandon celebra los momentos memorables de la vida con una gama de champagnes únicos para cada ocasión.\",\r\n    \"stockItems\": \"9\",\r\n    \"codeItem\": 5003494\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/productos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "productos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modif.producto c/id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"producto\": \"Moet Chandom\",\r\n    \"precio\": \"752\",\r\n    \"imagen\": \"https://www.sampieri.com.mx/wp-content/uploads/2018/07/CHAMPAGNE-MOET-CHANDON-BRUT-EST-MADERA.jpg\",\r\n    \"description\": \"Fundada en 1743, Moët & Chandon celebra los momentos memorables de la vida con una gama de champagnes únicos para cada ocasión.\",\r\n    \"stockItems\": \"9\",\r\n    \"codeItem\": 5003494\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/productos/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "productos", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "borrar un producto c/id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/productos/5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "productos", "5"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "/api/carritoDeCompras",
+      "item": [
+        {
+          "name": "ver carrito por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/carritoDeCompras/4/productos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "carritoDeCompras", "4", "productos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "crear un nuevo carrito",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/carritoDeCompras",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "carritoDeCompras"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "meter productos por id",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"product\":  2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/carritoDeCompras/4/productos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "carritoDeCompras", "4", "productos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "elim todo un carrito por Id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/carritoDeCompras/5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "carritoDeCompras", "5"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "elim producto de un carrito",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/carritoDeCompras/4/productos/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "carritoDeCompras", "4", "productos", "2"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
