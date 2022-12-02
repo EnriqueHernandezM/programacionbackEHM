@@ -33,10 +33,10 @@ httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT))
 app.get("/", (req, res) => {
   res.render("pages/index", { saludo: "bienvenido a esta gran vinateria", imagen: "https://i.ytimg.com/vi/WGrX46hqSCc/maxresdefault.jpg" });
 });
+//solo renderisa ejs
 routerDeProductos.get("/", (req, res) => {
   res.render("pages/productos", {});
 });
-
 //configuracion para subir formulario en uploady/files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -47,11 +47,10 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
-//ARRAY PARA MESJES
 
 io.on("connection", async (socket) => {
   console.log("cone3ct");
-
+  //sOCKETS PRODUCTOS
   socket.on("on", async () => {
     io.sockets.emit("feedAct", await containerProducts.getAll());
   });

@@ -1,10 +1,7 @@
 const { json } = require("express");
-const { DateTime } = require("luxon");
-
 const { options } = require("./options/mysql");
 const knex = require("knex")(options);
 
-let fs = require("fs");
 class Contenedor {
   constructor(nameTable) {
     this.nameTable = nameTable;
@@ -35,44 +32,7 @@ class Contenedor {
       console.log(err);
     }
   }
-  getById(number) {
-    try {
-      const datas = fs.readFileSync("./productos.txt", "utf-8");
-      let datasq = JSON.parse(datas);
-      let buscaPmostrar = datasq.findIndex((el) => el.id == number);
-      return buscaPmostrar > 0 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
-    } catch {
-      console.log(err);
-    }
-  }
-  deleteAll() {
-    try {
-      fs.writeFileSync("./productos.txt", JSON.stringify([]), console.log("Archivo vaciado correctamente"));
-    } catch {
-      console.log(err);
-    }
-  }
-
-  modifyElement(id, body) {
-    try {
-      let all = this.getAll();
-      let product = all.findIndex((el) => el.id == id);
-      if (product >= 0) {
-        all[product] = body;
-        let products = JSON.stringify(all);
-        fs.writeFileSync("./productos.txt", products);
-        return { res: true, msg: "producto correctamente modificado", producto: body };
-      }
-      if (product == -1) {
-        console.log("err");
-        return { err: true, msg: "producto a modificar no existe" };
-      }
-    } catch {
-      console.log(err);
-    }
-  }
 }
-
 module.exports = { Contenedor };
 
 /* knex("cars")

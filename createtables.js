@@ -1,4 +1,4 @@
-/* const { options } = require("./options/mysql");
+const { options } = require("./options/mysql");
 const knex = require("knex")(options);
 
 knex.schema
@@ -14,8 +14,11 @@ knex.schema
   })
   .finally(() => {
     knex.destroy();
-  }); */
-
+  });
+//
+////DESCOMENTAR LO SIGUIENTE Y COMENTAR LO ANTERIOR PARA CREAR TABALA SQLITE
+//
+/* 
 const { optionsLite } = require("./options/sqlite");
 const knex = require("knex")(optionsLite);
 
@@ -33,3 +36,4 @@ knex.schema
   .finally(() => {
     knex.destroy();
   });
+ */
