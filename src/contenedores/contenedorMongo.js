@@ -1,11 +1,18 @@
-const { json } = require("express");
-const { DateTime } = require("luxon");
-
-let fs = require("fs");
-class Contenedor {
+const { connect } = require("mongoose");
+const Usuarios = require("../models/usuario.js").default;
+//CONTENEDOR PARA GUARDAN EN mONGOAtlas
+class ContenedorMongo {
   constructor(routPersistance) {
     this.routPersistance = routPersistance;
   }
+  connectMG = async () => {
+    try {
+      await connect("mongodb+srv://enriquehm:0h47RMcEkqCLHjTP@cluster0.ckqspop.mongodb.net/?retryWrites=true&w=majority");
+    } catch (e) {
+      console.log(e);
+      throw "can not connect to the db";
+    }
+  };
   random(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   }
@@ -42,9 +49,11 @@ class Contenedor {
   }
   getAll() {
     try {
-      const datas = fs.readFileSync(this.routPersistance, "utf-8");
+      this.connectMG();
+      const datas = Usuarios.find({});
+      console.log(datas);
       if (datas) {
-        return JSON.parse(datas);
+        return datas;
       } else {
         return [];
       }
@@ -54,12 +63,11 @@ class Contenedor {
   }
   deleteById(aBorrar) {
     try {
-      const datas = fs.readFileSync(this.routPersistance, "utf-8");
-      let datasq1 = JSON.parse(datas);
-      let buscaPborrar = datasq1.findIndex((el) => el.id == aBorrar);
+      const datas = this.getAll();
+      let buscaPborrar = datas.findIndex((el) => el.id == aBorrar);
       if (buscaPborrar >= 0) {
-        datasq1.splice(buscaPborrar, 1);
-        let documentAc = JSON.stringify(datasq1);
+        datas.splice(buscaPborrar, 1);
+        let documentAc = JSON.stringify(datas);
         fs.writeFileSync(this.routPersistance, documentAc);
         return { err: false, msg: "producto eliminado Correctamente" };
       }
@@ -99,25 +107,9 @@ class Contenedor {
       console.log(err);
     }
   }
-}
-//classes para carrito  podriamos mejopr juntarlo
-class CarritoCompras {
-  constructor() {}
-  getAllTrolley() {
-    try {
-      const aggregates = fs.readFileSync("./itemstrolley.json", "utf-8");
-      if (aggregates) {
-        return JSON.parse(aggregates);
-      } else {
-        return { notProducts: "el Carritoa vacio" };
-      }
-    } catch (err) {
-      return { error: err, conten: "al parecer no hay ningun carrito " };
-    }
-  }
   getAllForItemsTrolley(idC) {
     try {
-      const aggregates = fs.readFileSync("./itemstrolley.json", "utf-8");
+      const aggregates = fs.readFileSync(this.routPersistance, "utf-8");
       if (aggregates) {
         const trolleyDisp = JSON.parse(aggregates);
         const catchTrolley = trolleyDisp.find((el) => el.id == idC);
@@ -129,19 +121,10 @@ class CarritoCompras {
       return { error: err, conten: "al parecer no hay ningun carrito " };
     }
   }
-  getByIdCart(number) {
-    try {
-      const datas = fs.readFileSync("./itemsTrolley.json", "utf-8");
-      let datasq = JSON.parse(datas);
-      let buscaPmostrar = datasq.findIndex((el) => el.id == number);
-      return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
-    } catch {
-      console.log(err);
-    }
-  }
+  // UNICA QUE SOLICITA CON RUTA FIJA BUSCAR SOLUCION
   getByIdProductos(number) {
     try {
-      const datas = fs.readFileSync("./productos.json", "utf-8");
+      const datas = fs.readFileSync("productos.json", "utf-8");
       let datasq = JSON.parse(datas);
       let buscaPmostrar = datasq.findIndex((el) => el.id == number);
       return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
@@ -152,7 +135,7 @@ class CarritoCompras {
   creatteCart(newCart) {
     console.log(newCart);
     try {
-      let all = this.getAllTrolley();
+      let all = this.getAll();
       let id = 1;
       let data = DateTime.local();
       const trolley = [];
@@ -165,7 +148,7 @@ class CarritoCompras {
       newCart.trolley = trolley;
       all.push(newCart);
       let products = JSON.stringify(all);
-      fs.writeFileSync("./itemstrolley.json", products);
+      fs.writeFileSync(this.routPersistance, products);
       return { idAsignado: id, create: "nuevo carrito vacio creado" };
     } catch {
       console.log(err);
@@ -174,9 +157,9 @@ class CarritoCompras {
 
   addToCart(artId, body) {
     try {
-      const trolleyDisp = this.getAllTrolley();
+      const trolleyDisp = this.getAll();
       //trae el carro por id
-      const catchTrolley = this.getByIdCart(artId);
+      const catchTrolley = this.getById(artId);
       //trae el producto por id
       const catchProduct = this.getByIdProductos(body);
       //traigo el indice del CarritoCompras
@@ -186,7 +169,7 @@ class CarritoCompras {
       let newProduct = catchTrolley;
       trolleyDisp[catchIn] = newProduct;
       let products = JSON.stringify(trolleyDisp);
-      fs.writeFileSync("./itemstrolley.json", products);
+      fs.writeFileSync(this.routPersistance, products);
       return { res: "producto agregado en carrito con id ", articleAddInTrolleyID: artId };
     } catch {
       console.log(err);
@@ -194,12 +177,12 @@ class CarritoCompras {
   }
   deleteByIdAllTrolley(aBorrar) {
     try {
-      let datasq1 = this.getAllTrolley();
+      let datasq1 = this.getAll();
       let buscaPborrar = datasq1.findIndex((el) => el.id == aBorrar);
       if (buscaPborrar >= 0) {
         datasq1.splice(buscaPborrar, 1);
         let documentAc = JSON.stringify(datasq1);
-        fs.writeFileSync("./itemstrolley.json", documentAc);
+        fs.writeFileSync(this.routPersistance, documentAc);
         return { res: true, msg: "carrito correctamente eliminado" };
       }
       if (buscaPborrar == -1) {
@@ -212,16 +195,16 @@ class CarritoCompras {
   }
   deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
-      const trolleyDisp = this.getAllTrolley();
+      const trolleyDisp = this.getAll();
       const catchInC = trolleyDisp.findIndex((el) => el.id == idTrolley);
-      let catchTrolleyW = this.getByIdCart(idTrolley);
+      let catchTrolleyW = this.getById(idTrolley);
       let buscaPborrar = catchTrolleyW.trolley.findIndex((el) => el.id == idItem);
       if (buscaPborrar >= 0) {
         catchTrolleyW.trolley.splice(buscaPborrar, 1);
         const deleteProduct = catchTrolleyW;
         trolleyDisp[catchInC] = deleteProduct;
         let documentAc = JSON.stringify(trolleyDisp);
-        fs.writeFileSync("./itemstrolley.json", documentAc);
+        fs.writeFileSync(this.routPersistance, documentAc);
         return { res: true, msg: "producto correctamente eliminado" };
       }
       if (buscaPborrar == -1) {
@@ -233,5 +216,4 @@ class CarritoCompras {
     }
   }
 }
-
-module.exports = { Contenedor, CarritoCompras };
+module.exports = ContenedorMongo;

@@ -5,14 +5,15 @@ const routerDeProductos = Router();
 const routerCarrito = Router();
 const PORT = process.env.PORT || 8081;
 const multer = require("multer");
-const { Contenedor } = require("./app");
-const { CarritoCompras } = require("./app");
-const containerProducts = new Contenedor();
-const carritoProducts = new CarritoCompras();
+//importamos class de productos FS
 const { DateTime } = require("luxon");
 const cors = require("cors");
 const { json } = require("express");
 //CONFIGURACION NECESARIA PARA IO
+const rutaResult = require("./daos/index");
+const functionsProducts = new rutaResult.productos();
+const functionsTrolley = new rutaResult.trolleys();
+
 //
 app.use(cors({ origin: "*" }));
 const httpServer = require("http").createServer(app);
@@ -57,12 +58,12 @@ app.get("*", (req, res) => {
 });
 //Ruta para productos
 routerDeProductos.get("/", (req, res) => {
-  res.json(containerProducts.getAll());
+  res.json(functionsProducts.getAll());
 });
 //GET CON ID
 routerDeProductos.get("/:id", (req, res) => {
   const { id } = req.params;
-  res.json(containerProducts.getById(id));
+  res.json(functionsProducts.getById(id));
 });
 //ruta para hacer post en productos
 routerDeProductos.post(
@@ -77,7 +78,8 @@ routerDeProductos.post(
   upload.none(),
   (req, res) => {
     const { body } = req;
-    containerProducts.save(body);
+
+    functionsProducts.save(body);
     res.json({ ok: "producto agregado correctamente" });
   }
 );
@@ -95,7 +97,7 @@ routerDeProductos.put(
   (req, res) => {
     const { id } = req.params;
     const { body } = req;
-    res.json(containerProducts.modifyElement(id, body));
+    res.json(functionsProducts.modifyElement(id, body));
   }
 );
 //Ruta para hacer dlete en productos
@@ -110,36 +112,36 @@ routerDeProductos.delete(
   },
   (req, res) => {
     const { id } = req.params;
-    res.json(containerProducts.deleteById(id));
+    res.json(functionsProducts.deleteById(id));
   }
 );
 ///
 ////ruta para mostrar productos en carrrito
 routerCarrito.get("/:id/productos", (req, res) => {
   const { id } = req.params;
-  res.json(carritoProducts.getAllForItemsTrolley(id));
+  res.json(functionsTrolley.getAllForItemsTrolley(id));
   //
   // RUTA PARA CREAR UN NUEVO CARRITO
 });
 routerCarrito.post("/", (req, res) => {
   const { body } = req;
-  res.json(carritoProducts.creatteCart(body));
+  res.json(functionsTrolley.creatteCart(body));
 });
 //RUTA Para incorporar productos al carrito por su id de producto
 routerCarrito.post("/:id/productos", (req, res) => {
   const { body } = req;
   const { id } = req.params;
   const idProduct = body.product;
-  res.json(carritoProducts.addToCart(id, idProduct));
+  res.json(functionsTrolley.addToCart(id, idProduct));
 });
 //Ruta para eliminar todo el carrito
 routerCarrito.delete("/:id", (req, res) => {
   const { id } = req.params;
-  res.json(carritoProducts.deleteByIdAllTrolley(id));
+  res.json(functionsTrolley.deleteByIdAllTrolley(id));
 });
 //Ruta par eliminar todo el carrito
 routerCarrito.delete("/:id/productos/:idItem", (req, res) => {
   const { id } = req.params;
   const { idItem } = req.params;
-  res.json(carritoProducts.deleteByIdAllTrolleyItem(id, idItem));
+  res.json(functionsTrolley.deleteByIdAllTrolleyItem(id, idItem));
 });

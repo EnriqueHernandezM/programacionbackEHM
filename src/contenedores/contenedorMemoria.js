@@ -1,13 +1,49 @@
-const { json } = require("express");
 const { DateTime } = require("luxon");
-
-let fs = require("fs");
-class Contenedor {
+//arrays para memoriua
+const arrayDeProductos = [
+  {
+    producto: "Moet Chandom",
+    precio: "753",
+    imagen: "https://www.sampieri.com.mx/wp-content/uploads/2018/07/CHAMPAGNE-MOET-CHANDON-BRUT-EST-MADERA.jpg",
+    description: "Fundada en 1743, Moët & Chandon celebra los momentos memorables de la vida con una gama de champagnes únicos para cada ocasión.",
+    stockItems: "9",
+    codeItem: 5003494,
+    data: "2022-11-24T20:23:44.417-06:00",
+    id: 2,
+  },
+];
+const arrayDeCarritos = [
+  {
+    data: "2022-11-24T20:21:39.636-06:00",
+    id: 5,
+    trolley: [
+      {
+        producto: "Moet Chandom",
+        precio: "750",
+        imagen: "https://www.sampieri.com.mx/wp-content/uploads/2018/07/CHAMPAGNE-MOET-CHANDON-BRUT-EST-MADERA.jpg",
+        description: "Fundada en 1743, Moët & Chandon celebra los momentos memorables de la vida con una gama de champagnes únicos para cada ocasión.",
+        stockItems: "4",
+        data: "2022-11-24T20:23:44.417-06:00",
+        codeItem: 5003494,
+        id: 2,
+      },
+    ],
+  },
+];
+//CONTENEDOR PARA GUARDAN EN FILESYSTEM
+class ContenedorMemory {
   constructor(routPersistance) {
     this.routPersistance = routPersistance;
   }
   random(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
+  }
+  memoryDirectory() {
+    if (this.routPersistance == "arrayDeProductos") {
+      return arrayDeProductos;
+    } else if (this.routPersistance == "arrayDeCarritos") {
+      return arrayDeCarritos;
+    }
   }
   save(producto) {
     try {
@@ -23,8 +59,6 @@ class Contenedor {
       producto.codeItem = codeItem;
       producto.id = id;
       all.push(producto);
-      let products = JSON.stringify(all);
-      fs.writeFileSync(this.routPersistance, products); //"./productos.json"
       return all;
     } catch {
       console.log(err);
@@ -32,8 +66,7 @@ class Contenedor {
   } /*  */
   getById(number) {
     try {
-      const datas = fs.readFileSync(this.routPersistance, "utf-8");
-      let datasq = JSON.parse(datas);
+      const datasq = this.memoryDirectory();
       let buscaPmostrar = datasq.findIndex((el) => el.id == number);
       return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
     } catch {
@@ -42,9 +75,9 @@ class Contenedor {
   }
   getAll() {
     try {
-      const datas = fs.readFileSync(this.routPersistance, "utf-8");
+      const datas = this.memoryDirectory();
       if (datas) {
-        return JSON.parse(datas);
+        return datas;
       } else {
         return [];
       }
@@ -54,13 +87,10 @@ class Contenedor {
   }
   deleteById(aBorrar) {
     try {
-      const datas = fs.readFileSync(this.routPersistance, "utf-8");
-      let datasq1 = JSON.parse(datas);
-      let buscaPborrar = datasq1.findIndex((el) => el.id == aBorrar);
+      const datas = this.getAll();
+      let buscaPborrar = datas.findIndex((el) => el.id == aBorrar);
       if (buscaPborrar >= 0) {
-        datasq1.splice(buscaPborrar, 1);
-        let documentAc = JSON.stringify(datasq1);
-        fs.writeFileSync(this.routPersistance, documentAc);
+        datas.splice(buscaPborrar, 1);
         return { err: false, msg: "producto eliminado Correctamente" };
       }
       if (buscaPborrar == -1) {
@@ -73,7 +103,9 @@ class Contenedor {
   }
   deleteAll() {
     try {
-      fs.writeFileSync(this.routPersistance, JSON.stringify([]), console.log("Archivo vaciado correctamente"));
+      const all = this.getAll();
+      all.push([]);
+      console.log("Archivo vaciado correctamente");
     } catch {
       console.log(err);
     }
@@ -88,8 +120,6 @@ class Contenedor {
         id = parseInt(id);
         let newProduct = { ...body, data, codeItem, id };
         all[product] = newProduct;
-        let products = JSON.stringify(all);
-        fs.writeFileSync(this.routPersistance, products);
         return all;
       }
       if (product == -1) {
@@ -99,28 +129,11 @@ class Contenedor {
       console.log(err);
     }
   }
-}
-//classes para carrito  podriamos mejopr juntarlo
-class CarritoCompras {
-  constructor() {}
-  getAllTrolley() {
-    try {
-      const aggregates = fs.readFileSync("./itemstrolley.json", "utf-8");
-      if (aggregates) {
-        return JSON.parse(aggregates);
-      } else {
-        return { notProducts: "el Carritoa vacio" };
-      }
-    } catch (err) {
-      return { error: err, conten: "al parecer no hay ningun carrito " };
-    }
-  }
   getAllForItemsTrolley(idC) {
     try {
-      const aggregates = fs.readFileSync("./itemstrolley.json", "utf-8");
+      const aggregates = this.memoryDirectory();
       if (aggregates) {
-        const trolleyDisp = JSON.parse(aggregates);
-        const catchTrolley = trolleyDisp.find((el) => el.id == idC);
+        const catchTrolley = aggregates.find((el) => el.id == idC);
         return catchTrolley.trolley;
       } else {
         return { notProducts: "el Carritoa vacio" };
@@ -129,22 +142,12 @@ class CarritoCompras {
       return { error: err, conten: "al parecer no hay ningun carrito " };
     }
   }
-  getByIdCart(number) {
-    try {
-      const datas = fs.readFileSync("./itemsTrolley.json", "utf-8");
-      let datasq = JSON.parse(datas);
-      let buscaPmostrar = datasq.findIndex((el) => el.id == number);
-      return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
-    } catch {
-      console.log(err);
-    }
-  }
+  // UNICA QUE SOLICITA CON RUTA FIJA BUSCAR SOLUCION
   getByIdProductos(number) {
     try {
-      const datas = fs.readFileSync("./productos.json", "utf-8");
-      let datasq = JSON.parse(datas);
-      let buscaPmostrar = datasq.findIndex((el) => el.id == number);
-      return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
+      const datas = arrayDeProductos;
+      let buscaPmostrar = datas.findIndex((el) => el.id == number);
+      return buscaPmostrar > -1 ? datas.find((el) => el.id == number) : { error: "producto no encontrado" };
     } catch {
       console.log(err);
     }
@@ -152,7 +155,7 @@ class CarritoCompras {
   creatteCart(newCart) {
     console.log(newCart);
     try {
-      let all = this.getAllTrolley();
+      let all = this.getAll();
       let id = 1;
       let data = DateTime.local();
       const trolley = [];
@@ -164,19 +167,16 @@ class CarritoCompras {
       newCart.id = id;
       newCart.trolley = trolley;
       all.push(newCart);
-      let products = JSON.stringify(all);
-      fs.writeFileSync("./itemstrolley.json", products);
       return { idAsignado: id, create: "nuevo carrito vacio creado" };
     } catch {
       console.log(err);
     }
   }
-
   addToCart(artId, body) {
     try {
-      const trolleyDisp = this.getAllTrolley();
+      const trolleyDisp = this.getAll();
       //trae el carro por id
-      const catchTrolley = this.getByIdCart(artId);
+      const catchTrolley = this.getById(artId);
       //trae el producto por id
       const catchProduct = this.getByIdProductos(body);
       //traigo el indice del CarritoCompras
@@ -185,8 +185,6 @@ class CarritoCompras {
       catchTrolley.trolley.push(catchProduct);
       let newProduct = catchTrolley;
       trolleyDisp[catchIn] = newProduct;
-      let products = JSON.stringify(trolleyDisp);
-      fs.writeFileSync("./itemstrolley.json", products);
       return { res: "producto agregado en carrito con id ", articleAddInTrolleyID: artId };
     } catch {
       console.log(err);
@@ -194,12 +192,10 @@ class CarritoCompras {
   }
   deleteByIdAllTrolley(aBorrar) {
     try {
-      let datasq1 = this.getAllTrolley();
+      let datasq1 = this.getAll();
       let buscaPborrar = datasq1.findIndex((el) => el.id == aBorrar);
       if (buscaPborrar >= 0) {
         datasq1.splice(buscaPborrar, 1);
-        let documentAc = JSON.stringify(datasq1);
-        fs.writeFileSync("./itemstrolley.json", documentAc);
         return { res: true, msg: "carrito correctamente eliminado" };
       }
       if (buscaPborrar == -1) {
@@ -212,16 +208,14 @@ class CarritoCompras {
   }
   deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
-      const trolleyDisp = this.getAllTrolley();
+      const trolleyDisp = this.getAll();
       const catchInC = trolleyDisp.findIndex((el) => el.id == idTrolley);
-      let catchTrolleyW = this.getByIdCart(idTrolley);
+      let catchTrolleyW = this.getById(idTrolley);
       let buscaPborrar = catchTrolleyW.trolley.findIndex((el) => el.id == idItem);
       if (buscaPborrar >= 0) {
         catchTrolleyW.trolley.splice(buscaPborrar, 1);
         const deleteProduct = catchTrolleyW;
         trolleyDisp[catchInC] = deleteProduct;
-        let documentAc = JSON.stringify(trolleyDisp);
-        fs.writeFileSync("./itemstrolley.json", documentAc);
         return { res: true, msg: "producto correctamente eliminado" };
       }
       if (buscaPborrar == -1) {
@@ -233,5 +227,4 @@ class CarritoCompras {
     }
   }
 }
-
-module.exports = { Contenedor, CarritoCompras };
+module.exports = ContenedorMemory;
