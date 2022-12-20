@@ -57,13 +57,13 @@ app.get("*", (req, res) => {
   res.json({ rout: "Esta ruta nop esta definida" });
 });
 //Ruta para productos
-routerDeProductos.get("/", (req, res) => {
-  res.json(functionsProducts.getAll());
+routerDeProductos.get("/", async (req, res) => {
+  res.json(await functionsProducts.getAll());
 });
 //GET CON ID
-routerDeProductos.get("/:id", (req, res) => {
+routerDeProductos.get("/:id", async (req, res) => {
   const { id } = req.params;
-  res.json(functionsProducts.getById(id));
+  res.json(await functionsProducts.getById(id));
 });
 //ruta para hacer post en productos
 routerDeProductos.post(
@@ -75,10 +75,8 @@ routerDeProductos.post(
       return res.status(404).json({ error: true, description: "solo admin" });
     }
   },
-  upload.none(),
   (req, res) => {
     const { body } = req;
-
     functionsProducts.save(body);
     res.json({ ok: "producto agregado correctamente" });
   }
@@ -101,25 +99,23 @@ routerDeProductos.put(
   }
 );
 //Ruta para hacer dlete en productos
-routerDeProductos.delete(
-  "/:id",
-  (req, res, next) => {
-    if (userOrAdmin === true) {
-      next();
-    } else {
-      return res.status(404).json({ error: true, description: "solo admin" });
-    }
-  },
-  (req, res) => {
+routerDeProductos.delete("/:id", async (req, res, next) => {
+  if (userOrAdmin === true) {
+    next();
     const { id } = req.params;
-    res.json(functionsProducts.deleteById(id));
+    res.json(await functionsProducts.deleteById(id));
+  } else {
+    return res.status(404).json({ error: true, description: "solo admin" });
   }
-);
+});
 ///
 ////ruta para mostrar productos en carrrito
-routerCarrito.get("/:id/productos", (req, res) => {
+////
+///
+//
+routerCarrito.get("/:id/productos", async (req, res) => {
   const { id } = req.params;
-  res.json(functionsTrolley.getAllForItemsTrolley(id));
+  res.json(await functionsTrolley.getAllForItemsTrolley(id));
   //
   // RUTA PARA CREAR UN NUEVO CARRITO
 });
@@ -128,11 +124,11 @@ routerCarrito.post("/", (req, res) => {
   res.json(functionsTrolley.creatteCart(body));
 });
 //RUTA Para incorporar productos al carrito por su id de producto
-routerCarrito.post("/:id/productos", (req, res) => {
+routerCarrito.post("/:id/productos", async (req, res) => {
   const { body } = req;
   const { id } = req.params;
-  const idProduct = body.product;
-  res.json(functionsTrolley.addToCart(id, idProduct));
+  const idProduct = body.producto;
+  res.json(await functionsTrolley.addToCart(id, idProduct));
 });
 //Ruta para eliminar todo el carrito
 routerCarrito.delete("/:id", (req, res) => {

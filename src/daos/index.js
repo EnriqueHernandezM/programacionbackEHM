@@ -8,7 +8,9 @@ const CarritoMemory = require("./carritos/carritosDaoMemoria");
 //imports clases mongo
 const ProductosMongo = require("./productos/productosDaoMongo");
 const CarritoMongo = require("./carritos/carritosDaoMongo");
-
+//IMPORTS CLASES FIREBASSES
+const ProductosFire = require("./productos/productosDaoFirebase");
+const CarritoFire = require("./carritos/carritosDaoFirebase");
 config();
 const instancias = [
   {
@@ -39,6 +41,16 @@ const instancias = [
   {
     nombre: CarritoMongo,
     id: "mongo",
+    descripcion: "trolleys",
+  },
+  {
+    nombre: ProductosFire,
+    id: "firebase",
+    descripcion: "productos",
+  },
+  {
+    nombre: CarritoFire,
+    id: "firebase",
     descripcion: "trolleys",
   },
 ];
