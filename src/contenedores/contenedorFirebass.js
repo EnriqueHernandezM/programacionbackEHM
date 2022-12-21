@@ -1,146 +1,100 @@
-const { json } = require("express");
-const { connect, mongoose } = require("mongoose");
-const Productos = require("../models/mongo/productos");
-mongoose.set("strictQuery", true);
-
-//CONTENEDOR PARA GUARDAN EN mONGOAtlas
+const admin = require("firebase-admin");
+const { getFirestore } = require("firebase-admin/firestore");
+const serviceAccount = require("../../privi.json");
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+console.log("conecte");
+const db = getFirestore();
+//CONTENEDOR PARA GUARDAN EN FIREBAS
 class ContenedorFire {
   constructor(routPersistance) {
     this.routPersistance = routPersistance;
   }
-  random(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-  }
-  async connectMG() {
-    try {
-      await connect("mongodb+srv://enriquehm:0h47RMcEkqCLHjTP@cluster0.ckqspop.mongodb.net/ecommerce?retryWrites=true&w=majority");
-      console.log("conecte");
-    } catch (e) {
-      console.log(e);
-      throw "can not connect to the db";
-    }
-  }
-  async save(producto) {
-    try {
-      await this.connectMG();
-      //producto = JSON.stringify(producto);
-      console.log(producto);
-      const newProduct = new Productos(producto);
-      await newProduct.save().then((data) => console.log(data));
-    } catch {
-      console.log(err);
-    }
-  } /*  */
-  getById(number) {
-    try {
-      const datas = fs.readFileSync(this.routPersistance, "utf-8");
-      let datasq = JSON.parse(datas);
-      let buscaPmostrar = datasq.findIndex((el) => el.id == number);
-      return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
-    } catch {
-      console.log(err);
-    }
-  }
   async getAll() {
     try {
-      this.connectMG();
-      const prod = await Productos.find({});
-      console.log(prod);
-      return prod;
+      const res = await db.collection("productos").get();
+      let arrayRes = res.docs.map((item) => {
+        return { id: item.id, ...item.data() };
+      });
+      return arrayRes;
     } catch (err) {
       return { error: err };
     }
   }
-
+  async save(producto) {
+    try {
+      let res;
+      const object = {
+        ...producto,
+        date: new Date().toLocaleDateString(),
+      };
+      res = await db.collection("productos").doc().set(object);
+      return res;
+    } catch {
+      console.log(err);
+    }
+  } /*  */
+  async getById(number) {
+    try {
+      const res = db.collection(this.routPersistance).doc(number);
+      let x = await res.get();
+      console.log(x.data());
+      return { id: x.id, ...x.data() };
+    } catch {
+      console.log(err);
+    }
+  }
   deleteById(aBorrar) {
     try {
-      const datas = this.getAll();
-      let buscaPborrar = datas.findIndex((el) => el.id == aBorrar);
-      if (buscaPborrar >= 0) {
-        datas.splice(buscaPborrar, 1);
-        let documentAc = JSON.stringify(datas);
-        fs.writeFileSync(this.routPersistance, documentAc);
-        return { err: false, msg: "producto eliminado Correctamente" };
-      }
-      if (buscaPborrar == -1) {
-        console.log("err");
-        return { err: true, msg: "producto a eliminar no existe" };
-      }
+      db.collection(this.routPersistance).doc(aBorrar).delete();
+      return { idItemEiminado: "ok" };
     } catch {
       console.log(err);
     }
   }
-  deleteAll() {
+  async modifyElement(id, body) {
     try {
-      fs.writeFileSync(this.routPersistance, JSON.stringify([]), console.log("Archivo vaciado correctamente"));
+      const refDocMati = db.collection(this.routPersistance).doc(id);
+      const object = {
+        ...body,
+        date: new Date().toLocaleDateString(),
+      };
+      const res = await refDocMati.update(object);
+      return res;
     } catch {
       console.log(err);
     }
   }
-  modifyElement(id, body) {
+  async getAllForItemsTrolley(idC) {
     try {
-      let all = this.getAll();
-      let product = all.findIndex((el) => el.id == id);
-      let data = all[product].data;
-      let codeItem = all[product].codeItem;
-      if (product >= 0) {
-        id = parseInt(id);
-        let newProduct = { ...body, data, codeItem, id };
-        all[product] = newProduct;
-        let products = JSON.stringify(all);
-        fs.writeFileSync(this.routPersistance, products);
-        return all;
-      }
-      if (product == -1) {
-        console.log("err");
-      }
-    } catch {
-      console.log(err);
-    }
-  }
-  getAllForItemsTrolley(idC) {
-    try {
-      const aggregates = fs.readFileSync(this.routPersistance, "utf-8");
-      if (aggregates) {
-        const trolleyDisp = JSON.parse(aggregates);
-        const catchTrolley = trolleyDisp.find((el) => el.id == idC);
-        return catchTrolley.trolley;
-      } else {
-        return { notProducts: "el Carritoa vacio" };
-      }
+      let catchTrolley = this.getById(idC);
+      return catchTrolley;
     } catch (err) {
       return { error: err, conten: "al parecer no hay ningun carrito " };
     }
   }
   // UNICA QUE SOLICITA CON RUTA FIJA BUSCAR SOLUCION
-  getByIdProductos(number) {
+  async getByIdProductos(number) {
     try {
-      const datas = fs.readFileSync("productos.json", "utf-8");
-      let datasq = JSON.parse(datas);
-      let buscaPmostrar = datasq.findIndex((el) => el.id == number);
-      return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
+      const res = db.collection("productos").doc(number);
+      let x = await res.get();
+      console.log(x.data());
+      return { id: x.id, ...x.data() };
     } catch {
       console.log(err);
     }
   }
-  creatteCart(newCart) {
-    console.log(newCart);
+  async creatteCart(newCart) {
     try {
-      let all = this.getAll();
-      let id = 1;
-      let data = DateTime.local();
-      const trolley = [];
-      all.length > 0 &&
-        all.forEach((el) => {
-          id = el.id + 1;
-        });
-      newCart.data = data;
-      newCart.id = id;
-      newCart.trolley = trolley;
-      all.push(newCart);
-      let products = JSON.stringify(all);
-      fs.writeFileSync(this.routPersistance, products);
-      return { idAsignado: id, create: "nuevo carrito vacio creado" };
+      let res;
+      const object = {
+        trolley: [newCart],
+        date: new Date().toLocaleDateString(),
+      };
+      res = await db.collection("carritos").doc().set(object);
+      console.log({ id: res.id });
+      return { id: res.id };
     } catch {
       console.log(err);
     }
@@ -205,6 +159,9 @@ class ContenedorFire {
     } catch {
       console.log(err);
     }
+  }
+  random(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
   }
 }
 module.exports = ContenedorFire;

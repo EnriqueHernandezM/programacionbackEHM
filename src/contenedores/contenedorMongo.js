@@ -91,6 +91,7 @@ class ContenedorMongo {
       console.log(err);
     }
   }
+  //probada/////////////////////////////////////////////
   async getAllForItemsTrolley(idC) {
     try {
       await this.connectMG();
@@ -142,42 +143,20 @@ class ContenedorMongo {
       console.log(err);
     }
   }
-  deleteByIdAllTrolley(aBorrar) {
+
+  async deleteByIdAllTrolley(aBorrar) {
     try {
-      let datasq1 = this.getAll();
-      let buscaPborrar = datasq1.findIndex((el) => el.id == aBorrar);
-      if (buscaPborrar >= 0) {
-        datasq1.splice(buscaPborrar, 1);
-        let documentAc = JSON.stringify(datasq1);
-        fs.writeFileSync(this.routPersistance, documentAc);
-        return { res: true, msg: "carrito correctamente eliminado" };
-      }
-      if (buscaPborrar == -1) {
-        console.log("err");
-        return { err: true, msg: "Carrito a eliminar no existe" };
-      }
+      const buscar = await this.getById(aBorrar);
+      const usuarioBorrar = await this.memoryDirectory().deleteOne({ codeItem: buscar.codeItem });
+      console.log(usuarioBorrar);
     } catch {
       console.log(err);
     }
   }
-  deleteByIdAllTrolleyItem(idTrolley, idItem) {
+  async deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
-      const trolleyDisp = this.getAll();
-      const catchInC = trolleyDisp.findIndex((el) => el.id == idTrolley);
-      let catchTrolleyW = this.getById(idTrolley);
-      let buscaPborrar = catchTrolleyW.trolley.findIndex((el) => el.id == idItem);
-      if (buscaPborrar >= 0) {
-        catchTrolleyW.trolley.splice(buscaPborrar, 1);
-        const deleteProduct = catchTrolleyW;
-        trolleyDisp[catchInC] = deleteProduct;
-        let documentAc = JSON.stringify(trolleyDisp);
-        fs.writeFileSync(this.routPersistance, documentAc);
-        return { res: true, msg: "producto correctamente eliminado" };
-      }
-      if (buscaPborrar == -1) {
-        console.log("err");
-        return { err: true, msg: "producto a eliminar no existe" };
-      }
+      await Carritos.trolley.id(_id).remove();
+      return { res: true, msg: "producto correctamente eliminado" };
     } catch {
       console.log(err);
     }
