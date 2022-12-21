@@ -13,7 +13,7 @@ class ContenedorFire {
   }
   async getAll() {
     try {
-      const res = await db.collection("productos").get();
+      const res = await db.collection(this.routPersistance).get();
       let arrayRes = res.docs.map((item) => {
         return { id: item.id, ...item.data() };
       });
@@ -80,82 +80,48 @@ class ContenedorFire {
       const res = db.collection("productos").doc(number);
       let x = await res.get();
       console.log(x.data());
-      return { id: x.id, ...x.data() };
+      return x.data();
     } catch {
       console.log(err);
     }
   }
+  //hacerla retornar id
   async creatteCart(newCart) {
     try {
-      let res;
       const object = {
         trolley: [newCart],
         date: new Date().toLocaleDateString(),
       };
-      res = await db.collection("carritos").doc().set(object);
-      console.log({ id: res.id });
-      return { id: res.id };
+      let res = await db.collection("carritos").doc().set(object);
+      console.log(res);
     } catch {
       console.log(err);
     }
   }
 
-  addToCart(artId, body) {
+  async addToCart(artId, body) {
     try {
-      const trolleyDisp = this.getAll();
-      //trae el carro por id
-      const catchTrolley = this.getById(artId);
-      //trae el producto por id
-      const catchProduct = this.getByIdProductos(body);
-      //traigo el indice del CarritoCompras
-      const catchIn = trolleyDisp.findIndex((el) => el.id == artId);
-      //a el carrittp del carrito le pusheo el preoductro
-      catchTrolley.trolley.push(catchProduct);
-      let newProduct = catchTrolley;
-      trolleyDisp[catchIn] = newProduct;
-      let products = JSON.stringify(trolleyDisp);
-      fs.writeFileSync(this.routPersistance, products);
-      return { res: "producto agregado en carrito con id ", articleAddInTrolleyID: artId };
+      let catchProduct = await this.getByIdProductos(body);
+      let agregar = await db
+        .collection("carritos")
+        .doc(artId)
+        .update({ trolley: [catchProduct] });
+      //t await db.collection("carritos").doc(artId).collection("trolley").add(catchProduct);
+      return agregar;
     } catch {
       console.log(err);
     }
   }
-  deleteByIdAllTrolley(aBorrar) {
+  async deleteByIdAllTrolley(aBorrar) {
     try {
-      let datasq1 = this.getAll();
-      let buscaPborrar = datasq1.findIndex((el) => el.id == aBorrar);
-      if (buscaPborrar >= 0) {
-        datasq1.splice(buscaPborrar, 1);
-        let documentAc = JSON.stringify(datasq1);
-        fs.writeFileSync(this.routPersistance, documentAc);
-        return { res: true, msg: "carrito correctamente eliminado" };
-      }
-      if (buscaPborrar == -1) {
-        console.log("err");
-        return { err: true, msg: "Carrito a eliminar no existe" };
-      }
+      const res = await db.collection(this.routPersistance).doc(aBorrar).delete();
+      return res;
     } catch {
       console.log(err);
     }
   }
   deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
-      const trolleyDisp = this.getAll();
-      const catchInC = trolleyDisp.findIndex((el) => el.id == idTrolley);
-      let catchTrolleyW = this.getById(idTrolley);
-      let buscaPborrar = catchTrolleyW.trolley.findIndex((el) => el.id == idItem);
-      if (buscaPborrar >= 0) {
-        catchTrolleyW.trolley.splice(buscaPborrar, 1);
-        const deleteProduct = catchTrolleyW;
-        trolleyDisp[catchInC] = deleteProduct;
-        let documentAc = JSON.stringify(trolleyDisp);
-        fs.writeFileSync(this.routPersistance, documentAc);
-        return { res: true, msg: "producto correctamente eliminado" };
-      }
-      if (buscaPborrar == -1) {
-        console.log("err");
-        return { err: true, msg: "producto a eliminar no existe" };
-      }
     } catch {
       console.log(err);
     }

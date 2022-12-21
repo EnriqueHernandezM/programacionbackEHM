@@ -131,9 +131,9 @@ routerCarrito.post("/:id/productos", async (req, res) => {
   res.json(await functionsTrolley.addToCart(id, idProduct));
 });
 //Ruta para eliminar todo el carrito
-routerCarrito.delete("/:id", (req, res) => {
+routerCarrito.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  res.json(functionsTrolley.deleteByIdAllTrolley(id));
+  res.json(await functionsTrolley.deleteByIdAllTrolley(id));
 });
 //Ruta par eliminar
 routerCarrito.delete("/:id/productos/:idItem", (req, res) => {
