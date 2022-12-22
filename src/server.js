@@ -136,8 +136,8 @@ routerCarrito.delete("/:id", async (req, res) => {
   res.json(await functionsTrolley.deleteByIdAllTrolley(id));
 });
 //Ruta par eliminar
-routerCarrito.delete("/:id/productos/:idItem", (req, res) => {
+routerCarrito.delete("/:id/productos/:idItem", async (req, res) => {
   const { id } = req.params;
   const { idItem } = req.params;
-  res.json(functionsTrolley.deleteByIdAllTrolleyItem(id, idItem));
+  res.json(await functionsTrolley.deleteByIdAllTrolleyItem(id, idItem));
 });

@@ -111,6 +111,7 @@ class ContenedorMongo {
       console.log(err);
     }
   }
+  //Solo retorna Id por Terminal
   async creatteCart(newCart) {
     try {
       await this.connectMG();
@@ -130,7 +131,7 @@ class ContenedorMongo {
       const catchProduct = await this.getByIdProductos(body);
       console.log(catchProduct);
       const agregarItem = await Carritos.updateOne(
-        { _id: "63a16bfa00a78ad7dead1be6" },
+        { _id: artId },
         {
           $push: {
             trolley: catchProduct,
@@ -146,17 +147,14 @@ class ContenedorMongo {
 
   async deleteByIdAllTrolley(aBorrar) {
     try {
-      const buscar = await this.getById(aBorrar);
-      const usuarioBorrar = await this.memoryDirectory().deleteOne({ codeItem: buscar.codeItem });
-      console.log(usuarioBorrar);
     } catch {
       console.log(err);
     }
   }
   async deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
-      await Carritos.trolley.id(_id).remove();
-      return { res: true, msg: "producto correctamente eliminado" };
+      const usuarioBorrar = await Carritos.deleteOne({});
+      console.log(usuarioBorrar);
     } catch {
       console.log(err);
     }

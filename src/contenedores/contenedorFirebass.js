@@ -102,16 +102,18 @@ class ContenedorFire {
   async addToCart(artId, body) {
     try {
       let catchProduct = await this.getByIdProductos(body);
+      //let agregar = await db.collection("carritos").doc(art.Id).update("trolley.items", FieldValue.arrayUnion(catchProduct), { merge: true });
       let agregar = await db
         .collection("carritos")
         .doc(artId)
         .update({ trolley: [catchProduct] });
-      //t await db.collection("carritos").doc(artId).collection("trolley").add(catchProduct);
+
       return agregar;
     } catch {
       console.log(err);
     }
   }
+  //borrar Todo el carrito
   async deleteByIdAllTrolley(aBorrar) {
     try {
       const res = await db.collection(this.routPersistance).doc(aBorrar).delete();
@@ -120,8 +122,10 @@ class ContenedorFire {
       console.log(err);
     }
   }
-  deleteByIdAllTrolleyItem(idTrolley, idItem) {
+  async deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
+      //const res = await db.collection(this.routPersistance).doc(idTrolley).collection("trolley").delete({ trolley: idItem });
+      return res;
     } catch {
       console.log(err);
     }
