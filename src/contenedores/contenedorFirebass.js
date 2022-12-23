@@ -39,7 +39,6 @@ class ContenedorFire {
     try {
       const res = db.collection(this.routPersistance).doc(number);
       let x = await res.get();
-      console.log(x.data());
       return { id: x.id, ...x.data() };
     } catch {
       console.log(err);
@@ -79,8 +78,7 @@ class ContenedorFire {
     try {
       const res = db.collection("productos").doc(number);
       let x = await res.get();
-      console.log(x.data());
-      return x.data();
+      return { id: x.id, ...x.data() };
     } catch {
       console.log(err);
     }
@@ -103,13 +101,15 @@ class ContenedorFire {
       console.log(err);
     }
   }
-
   async addToCart(artId, body) {
     try {
+      console.log(body);
       let trarCarrito = await this.getAllForItemsTrolley(artId);
       let catchProduct = await this.getByIdProductos(body);
       const acumuladorProductos = [];
-      acumuladorProductos.push(trarCarrito, catchProduct);
+      let x = trarCarrito.trolley;
+      acumuladorProductos.push(...x, catchProduct);
+      console.log(acumuladorProductos);
       //let agregar = await db.collection("carritos").doc(art.Id).update("trolley.items", FieldValue.arrayUnion(catchProduct), { merge: true });
       let agregar = await db.collection("carritos").doc(artId).update({ trolley: acumuladorProductos });
       return agregar;
@@ -128,8 +128,13 @@ class ContenedorFire {
   }
   async deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
-      //const res = await db.collection(this.routPersistance).doc(idTrolley).collection("trolley").delete({ trolley: idItem });
-      return res;
+      /////////
+      const trolleyC = await this.getAllForItemsTrolley(idTrolley);
+      let trolleyDelete = trolleyC.trolley.find((el) => el.id == idItem);
+      trolleyC.trolley.splice(trolleyDelete, 1);
+      console.log(trolleyC);
+      let agregar = await db.collection("carritos").doc(idTrolley).update({ trolley: trolleyC });
+      return agregar;
     } catch {
       console.log(err);
     }
