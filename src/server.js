@@ -119,9 +119,9 @@ routerCarrito.get("/:id/productos", async (req, res) => {
   //
   // RUTA PARA CREAR UN NUEVO CARRITO
 });
-routerCarrito.post("/", (req, res) => {
+routerCarrito.post("/", async (req, res) => {
   const { body } = req;
-  res.json(functionsTrolley.creatteCart(body));
+  res.json(await functionsTrolley.creatteCart(body));
 });
 //RUTA Para incorporar productos al carrito por su id de producto
 routerCarrito.post("/:id/productos", async (req, res) => {

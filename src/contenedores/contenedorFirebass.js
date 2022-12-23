@@ -85,7 +85,7 @@ class ContenedorFire {
       console.log(err);
     }
   }
-  //hacerla retornar id
+  //no pude hacerla retornar id que asigna
   async creatteCart(newCart) {
     try {
       const object = {
@@ -94,6 +94,11 @@ class ContenedorFire {
       };
       let res = await db.collection("carritos").doc().set(object);
       console.log(res);
+      let iDCarritosDisp = await this.getAll();
+      let x = iDCarritosDisp.map((el) => {
+        return el.id;
+      });
+      return { idsCarritosDisponibles: x };
     } catch {
       console.log(err);
     }
@@ -101,13 +106,12 @@ class ContenedorFire {
 
   async addToCart(artId, body) {
     try {
+      let trarCarrito = await this.getAllForItemsTrolley(artId);
       let catchProduct = await this.getByIdProductos(body);
+      const acumuladorProductos = [];
+      acumuladorProductos.push(trarCarrito, catchProduct);
       //let agregar = await db.collection("carritos").doc(art.Id).update("trolley.items", FieldValue.arrayUnion(catchProduct), { merge: true });
-      let agregar = await db
-        .collection("carritos")
-        .doc(artId)
-        .update({ trolley: [catchProduct] });
-
+      let agregar = await db.collection("carritos").doc(artId).update({ trolley: acumuladorProductos });
       return agregar;
     } catch {
       console.log(err);
