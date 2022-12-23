@@ -52,23 +52,26 @@ class ContenedorFire {
       console.log(err);
     }
   }
-  async modifyElement(id, body) {
+  modifyElement(id, body) {
     try {
       const refDocMati = db.collection(this.routPersistance).doc(id);
       const object = {
         ...body,
         date: new Date().toLocaleDateString(),
       };
-      const res = await refDocMati.update(object);
-      return res;
+      refDocMati.update(object);
+      return { modyfied: "true", idProductModyfy: id };
     } catch {
       console.log(err);
     }
   }
   async getAllForItemsTrolley(idC) {
     try {
-      let catchTrolley = this.getById(idC);
-      return catchTrolley;
+      const res = db.collection(this.routPersistance).doc(idC);
+      let x = await res.get();
+      let z = x.data();
+      console.log(x.data());
+      return z.trolley;
     } catch (err) {
       return { error: err, conten: "al parecer no hay ningun carrito " };
     }
@@ -96,6 +99,7 @@ class ContenedorFire {
       let x = iDCarritosDisp.map((el) => {
         return el.id;
       });
+      console.log(x);
       return { idsCarritosDisponibles: x };
     } catch {
       console.log(err);
@@ -103,7 +107,6 @@ class ContenedorFire {
   }
   async addToCart(artId, body) {
     try {
-      console.log(body);
       let trarCarrito = await this.getAllForItemsTrolley(artId);
       let catchProduct = await this.getByIdProductos(body);
       const acumuladorProductos = [];
@@ -133,7 +136,7 @@ class ContenedorFire {
       let trolleyDelete = trolleyC.trolley.find((el) => el.id == idItem);
       trolleyC.trolley.splice(trolleyDelete, 1);
       console.log(trolleyC);
-      let agregar = await db.collection("carritos").doc(idTrolley).update({ trolley: trolleyC });
+      let agregar = await db.collection("carritos").doc(idTrolley).update({ trolley: trolleyC.trolley });
       return agregar;
     } catch {
       console.log(err);

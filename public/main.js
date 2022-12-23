@@ -13,9 +13,9 @@ const renderProducts = () => {
       <p class="mensaje" > ${el.producto} </p>
       <p class="description p-5"> ${el.description} </p>
       <p class="hora"> $${el.precio} </p>
-      <span onclick=addArticleTrolley(${el.id});>agregar a carrito 🛒 necesitas poner id de carrito arriba </span>
-      <span onclick=renderFormActProduct(${el.id});> modificar producto 🔃 </span>
-      <span onclick=deleteItemForId(${el.id});> eliminar producto 🗑️ </span>
+      <span onclick=addArticleTrolley(${el.id || el._id});>agregar a carrito🛒 necesitas poner id de carrito arriba </span>
+      <span onclick=renderFormActProduct("${el.id || el._id}");> modificar producto 🔃 </span>
+      <span onclick=deleteItemForId("${el.id || el._id}");> eliminar producto 🗑️ </span>
       
     </div>
     `;
@@ -39,10 +39,10 @@ const renderForId = () => {
       <p class="mensaje" > ${json.producto} </p>
       <p class="description p-5"> ${json.description} </p>
       <p class="hora"> $${json.precio} </p>
-      <span onclick=addArticleTrolley(${json.id});>agregar a carrito 🛒 </span>
-      <span onclick=renderFormActProduct(${json.id});> modificar producto 🔃 </span>
-      <span onclick=deleteItemForId(${json.id});> eliminar producto 🗑️ </span>
-      <p class="ps-5 ms-5"> ID:${json.id} </p>
+      <span onclick=addArticleTrolley("${json.id || json._id}");>agregar a carrito 🛒 </span>
+      <span onclick=renderFormActProduct("${json.id || json._id}"});> modificar producto 🔃 </span>
+      <span onclick=deleteItemForId("${json.id || json._id}");> eliminar producto 🗑️ </span>
+      <p class="ps-5 ms-5"> ID:${json.id || json._id} </p>
     </div>
     `;
 
@@ -58,6 +58,7 @@ const newProduct = () => {
   const newImageProduct = document.getElementById("ingImagen").value;
   const newDescriptionProduct = document.getElementById("ingDescription").value;
   const newStockProduct = document.getElementById("ingStock").value;
+  const newCodeItem = document.getElementById("ingCodeItem").value;
   fetch("http://localhost:8081/api/productos", {
     method: "POST",
     headers: {
@@ -69,6 +70,7 @@ const newProduct = () => {
       imagen: newImageProduct,
       description: newDescriptionProduct,
       stockItems: newStockProduct,
+      codeItem: newCodeItem,
     }),
   })
     .then((res) => res.json())
@@ -100,8 +102,8 @@ const renderFormActProduct = (number) => {
   <div class="row p-5">
   <div class="col-xs-12 col-md-6 col-lg-4">
   <p class="text-white P-2">id del producto</p>
-  <input id="idAedit" type="text" placeholder="${x.id}" class="w-75"
-   value="${x.id}" />
+  <input id="idAedit" type="text" placeholder="${x.id || x._id}" class="w-75"
+   value="${x.id || x._id}" />
   </div>
   <div class="col-xs-12 col-md-6 col-lg-4">
   <p class="text-white P-2">Nombre del Licor</p>
@@ -125,6 +127,10 @@ const renderFormActProduct = (number) => {
       <p class="text-white P-2">ingresa stock disponible</p>
       <input id="updateStock" type="number" placeholder="${x.stockItems}" class="w-100"value="${x.stockItems}"  />
       </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+      <p class="text-white P-2">ingresa CodeItem</p>
+      <input id="updateCodeItem" type="number" placeholder="${x.codeItem}" class="w-100"value="${x.codeItem}"  />
+      </div>
       <div class="col-xs-12 col-md-6 col-lg-12 P-4 mt-5 text-center ps-5 ms-5">
       <input type="submit" onclick="updateProduct()" value="update products" />
       </div>   
@@ -144,6 +150,8 @@ const updateProduct = () => {
   const updateImagen = document.getElementById("updateImagen").value;
   const updateDescription = document.getElementById("updateDescription").value;
   const updateStock = document.getElementById("updateStock").value;
+  const updateCodeItem = document.getElementById("updateCodeItem").value;
+
   let url = "http://localhost:8081/api/productos/";
   fetch(url + idToEdit, {
     method: "PUT",
@@ -156,6 +164,7 @@ const updateProduct = () => {
       imagen: updateImagen,
       description: updateDescription,
       stockItems: updateStock,
+      codeItem: updateCodeItem,
     }),
   })
     .then((res) => res.json())
@@ -195,7 +204,7 @@ const renderTrolley = () => {
     <p class="description"> ${el.description} </p>
     <p class="hora"> ${el.precio} </p>
     
-    <span onclick=deleteItemTrolley(${el.id})> 🗑️ </span>
+    <span onclick=deleteItemTrolley(${el.id || el._id}})> 🗑️ </span>
   </div>
   `;
       });

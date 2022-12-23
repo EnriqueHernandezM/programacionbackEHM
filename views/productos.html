@@ -54,6 +54,10 @@
         <p class="text-white P-2">ingresa stock disponible</p>
         <input id="ingStock" type="number" name="stockItems" class="w-100" required="true" />
       </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa CodeItem</p>
+        <input id="ingCodeItem" type="number" name="codeItem" class="w-100" required="true" />
+      </div>
       <div class="col-xs-12 col-md-6 col-lg-12 P-4 mt-5 text-center ps-5 ms-5">
         <input type="submit" value="Upload productos" />
       </div>
@@ -63,7 +67,7 @@
     <h5>Si no tienes un id de carrito haz click aqui para crear uno y poder  guardar y agregar productos con una ID <br> 
     si ya tienes un ID introduzelo para agregar productos <br> Igual de puede usar para buscar por ID </h5>
     <input type="button" class="butonCreateTrolley" value="crea un carrito" onclick="CreateNewTrolley();">
-    <input id="inputPfuncionesConCarritopushearProducto" type="number" placeholder="id para probar funciones carrito"  > 
+    <input id="inputPfuncionesConCarritopushearProducto" type="text" placeholder="id para probar funciones carrito"  > 
     <button onclick="renderForId();"> buscar por ID </button>
   </blockquote>
   <div id="formularoParaActualizar"></div>

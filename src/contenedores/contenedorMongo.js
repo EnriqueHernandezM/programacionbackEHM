@@ -57,8 +57,8 @@ class ContenedorMongo {
 
   async deleteById(aBorrar) {
     try {
-      const buscar = await this.getById(aBorrar);
-      const usuarioBorrar = await this.memoryDirectory().deleteOne({ codeItem: buscar.codeItem });
+      await this.connectMG();
+      const usuarioBorrar = await this.memoryDirectory().deleteOne({ _id: aBorrar });
       console.log(usuarioBorrar);
     } catch {
       console.log(err);
@@ -97,7 +97,8 @@ class ContenedorMongo {
       await this.connectMG();
       const data = await this.memoryDirectory().find({});
       const catchTrolley = data.find((el) => el._id == idC);
-      return catchTrolley;
+      console.log(catchTrolley);
+      return catchTrolley.trolley;
     } catch (err) {
       return { error: err, conten: "al parecer no hay ningun carrito " };
     }
@@ -106,7 +107,8 @@ class ContenedorMongo {
   async getByIdProductos(number) {
     try {
       const data = await Productos.find({});
-      return data.find((el) => el._id == number);
+      let res = data.find((el) => el._id == number);
+      return res;
     } catch {
       console.log(err);
     }
@@ -129,7 +131,6 @@ class ContenedorMongo {
       await this.connectMG();
       //trae el producto por id
       const catchProduct = await this.getByIdProductos(body);
-      console.log(catchProduct);
       const agregarItem = await Carritos.updateOne(
         { _id: artId },
         {
@@ -147,14 +148,26 @@ class ContenedorMongo {
 
   async deleteByIdAllTrolley(aBorrar) {
     try {
+      await this.connectMG();
+      const usuarioBorrar = await this.memoryDirectory().deleteOne({ _id: aBorrar });
+      console.log(usuarioBorrar);
     } catch {
       console.log(err);
     }
   }
+  //no me borra xcc
   async deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
-      const usuarioBorrar = await Carritos.deleteOne({});
-      console.log(usuarioBorrar);
+      await this.connectMG();
+      const borrarItem = await Carritos.updateOne(
+        { _id: idTrolley },
+        {
+          $pull: {
+            trolley: { _id: idItem },
+          },
+        }
+      );
+      console.log(borrarItem);
     } catch {
       console.log(err);
     }
