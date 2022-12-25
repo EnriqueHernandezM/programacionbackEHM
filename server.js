@@ -9,6 +9,7 @@ const { ContenedorMsjes } = require("./appMsjes");
 const containerProducts = new Contenedor("inventario");
 const containerMsjes = new ContenedorMsjes("mensajes");
 //CONFIGURACION NECESARIA PARA IO
+//const str = require("./src/mocks/mocks");
 
 //
 const httpServer = require("http").createServer(app);
@@ -29,6 +30,11 @@ app.use("/productos", routerDeProductos);
 httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT));
 //
 //Solicitudes & res
+//
+////
+app.get("/api/productos-test", (req, res) => {});
+////
+//
 //
 app.get("/", (req, res) => {
   res.render("pages/index", { saludo: "bienvenido a esta gran vinateria", imagen: "https://i.ytimg.com/vi/WGrX46hqSCc/maxresdefault.jpg" });
