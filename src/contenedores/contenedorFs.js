@@ -25,7 +25,7 @@ class ContenedorFs {
       let products = JSON.stringify(all);
       fs.writeFileSync(this.routPersistance, products); //"./productos.json"
       return all;
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   } /*  */
@@ -35,7 +35,7 @@ class ContenedorFs {
       let datasq = JSON.parse(datas);
       let buscaPmostrar = datasq.findIndex((el) => el.id == number);
       return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -65,7 +65,7 @@ class ContenedorFs {
         console.log("err");
         return { err: true, msg: "producto a eliminar no existe" };
       }
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -80,6 +80,9 @@ class ContenedorFs {
     try {
       let all = this.getAll();
       let product = all.findIndex((el) => el.id == id);
+      if (product == -1) {
+        return { err: "true", msge: "producto no existe" };
+      }
       let data = all[product].data;
       let codeItem = all[product].codeItem;
       if (product >= 0) {
@@ -90,10 +93,7 @@ class ContenedorFs {
         fs.writeFileSync(this.routPersistance, products);
         return all;
       }
-      if (product == -1) {
-        console.log("err");
-      }
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -117,7 +117,7 @@ class ContenedorFs {
       const datas = fs.readFileSync("productos.json", "utf-8");
       let datasq = JSON.parse(datas);
       let buscaPmostrar = datasq.findIndex((el) => el.id == number);
-      return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
+      return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : false;
     } catch {
       console.log(err);
     }
@@ -140,7 +140,7 @@ class ContenedorFs {
       let products = JSON.stringify(all);
       fs.writeFileSync(this.routPersistance, products);
       return { idAsignado: id, create: "nuevo carrito vacio creado" };
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -148,20 +148,22 @@ class ContenedorFs {
   addToCart(artId, body) {
     try {
       const trolleyDisp = this.getAll();
-      //trae el carro por id
       const catchTrolley = this.getById(artId);
-      //trae el producto por id
+      if (catchTrolley.error == "producto no encontrado") {
+        return { err: "carrito no no existe" };
+      }
       const catchProduct = this.getByIdProductos(body);
-      //traigo el indice del CarritoCompras
+      if (catchProduct == false) {
+        return { err: "producto no existe" };
+      }
       const catchIn = trolleyDisp.findIndex((el) => el.id == artId);
-      //a el carrittp del carrito le pusheo el preoductro
       catchTrolley.trolley.push(catchProduct);
       let newProduct = catchTrolley;
       trolleyDisp[catchIn] = newProduct;
       let products = JSON.stringify(trolleyDisp);
       fs.writeFileSync(this.routPersistance, products);
       return { res: "producto agregado en carrito con id ", articleAddInTrolleyID: artId };
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -179,7 +181,7 @@ class ContenedorFs {
         console.log("err");
         return { err: true, msg: "Carrito a eliminar no existe" };
       }
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -188,6 +190,9 @@ class ContenedorFs {
       const trolleyDisp = this.getAll();
       const catchInC = trolleyDisp.findIndex((el) => el.id == idTrolley);
       let catchTrolleyW = this.getById(idTrolley);
+      if (catchTrolleyW.error == "producto no encontrado") {
+        return { err: "carrito no no existe" };
+      }
       let buscaPborrar = catchTrolleyW.trolley.findIndex((el) => el.id == idItem);
       if (buscaPborrar >= 0) {
         catchTrolleyW.trolley.splice(buscaPborrar, 1);
@@ -201,7 +206,7 @@ class ContenedorFs {
         console.log("err");
         return { err: true, msg: "producto a eliminar no existe" };
       }
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }

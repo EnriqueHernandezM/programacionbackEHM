@@ -50,17 +50,15 @@ class ContenedorMemory {
       let all = this.getAll();
       let id = 1;
       let data = DateTime.local();
-      let codeItem = this.random(1000000, 10000000);
       all.length > 0 &&
         all.forEach((el) => {
           id = el.id + 1;
         });
       producto.data = data;
-      producto.codeItem = codeItem;
       producto.id = id;
       all.push(producto);
       return all;
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   } /*  */
@@ -69,7 +67,7 @@ class ContenedorMemory {
       const datasq = this.memoryDirectory();
       let buscaPmostrar = datasq.findIndex((el) => el.id == number);
       return buscaPmostrar > -1 ? datasq.find((el) => el.id == number) : { error: "producto no encontrado" };
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -94,10 +92,9 @@ class ContenedorMemory {
         return { err: false, msg: "producto eliminado Correctamente" };
       }
       if (buscaPborrar == -1) {
-        console.log("err");
         return { err: true, msg: "producto a eliminar no existe" };
       }
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -106,7 +103,7 @@ class ContenedorMemory {
       const all = this.getAll();
       all.push([]);
       console.log("Archivo vaciado correctamente");
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -114,6 +111,9 @@ class ContenedorMemory {
     try {
       let all = this.getAll();
       let product = all.findIndex((el) => el.id == id);
+      if (product <= -1) {
+        return { error: "true", mesage: "producto a modificar no existe no existe" };
+      }
       let data = all[product].data;
       let codeItem = all[product].codeItem;
       if (product >= 0) {
@@ -122,10 +122,7 @@ class ContenedorMemory {
         all[product] = newProduct;
         return all;
       }
-      if (product == -1) {
-        console.log("err");
-      }
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -148,7 +145,7 @@ class ContenedorMemory {
       const datas = arrayDeProductos;
       let buscaPmostrar = datas.findIndex((el) => el.id == number);
       return buscaPmostrar > -1 ? datas.find((el) => el.id == number) : { error: "producto no encontrado" };
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -168,7 +165,7 @@ class ContenedorMemory {
       newCart.trolley = trolley;
       all.push(newCart);
       return { idAsignado: id, create: "nuevo carrito vacio creado" };
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -186,7 +183,7 @@ class ContenedorMemory {
       let newProduct = catchTrolley;
       trolleyDisp[catchIn] = newProduct;
       return { res: "producto agregado en carrito con id ", articleAddInTrolleyID: artId };
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -202,7 +199,7 @@ class ContenedorMemory {
         console.log("err");
         return { err: true, msg: "Carrito a eliminar no existe" };
       }
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -222,7 +219,7 @@ class ContenedorMemory {
         console.log("err");
         return { err: true, msg: "producto a eliminar no existe" };
       }
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }

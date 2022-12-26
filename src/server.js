@@ -99,11 +99,11 @@ routerDeProductos.put(
   }
 );
 //Ruta para hacer dlete en productos
-routerDeProductos.delete("/:id", async (req, res, next) => {
+routerDeProductos.delete("/:id", (req, res, next) => {
   if (userOrAdmin === true) {
     next();
     const { id } = req.params;
-    res.json(await functionsProducts.deleteById(id));
+    res.json(functionsProducts.deleteById(id));
   } else {
     return res.status(404).json({ error: true, description: "solo admin" });
   }

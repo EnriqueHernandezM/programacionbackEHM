@@ -31,7 +31,7 @@ class ContenedorFire {
       };
       res = await db.collection("productos").doc().set(object);
       return res;
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   } /*  */
@@ -44,24 +44,25 @@ class ContenedorFire {
       console.log(err);
     }
   }
-  deleteById(aBorrar) {
+  async deleteById(aBorrar) {
     try {
-      db.collection(this.routPersistance).doc(aBorrar).delete();
-      return { idItemEiminado: "ok" };
-    } catch {
+      const elimin = await db.collection(this.routPersistance).doc(aBorrar).delete();
+      return elimin;
+    } catch (err) {
       console.log(err);
     }
   }
-  modifyElement(id, body) {
+  async modifyElement(id, body) {
     try {
-      const refDocMati = db.collection(this.routPersistance).doc(id);
+      const refDocument = db.collection(this.routPersistance).doc(id);
+
       const object = {
         ...body,
         date: new Date().toLocaleDateString(),
       };
-      refDocMati.update(object);
-      return { modyfied: "true", idProductModyfy: id };
-    } catch {
+      await refDocument.update(object);
+      return refDocument;
+    } catch (err) {
       console.log(err);
     }
   }
@@ -82,7 +83,7 @@ class ContenedorFire {
       const res = db.collection("productos").doc(number);
       let x = await res.get();
       return { id: x.id, ...x.data() };
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -101,7 +102,7 @@ class ContenedorFire {
       });
       console.log(x);
       return { idsCarritosDisponibles: x };
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -110,13 +111,10 @@ class ContenedorFire {
       let trarCarrito = await this.getAllForItemsTrolley(artId);
       let catchProduct = await this.getByIdProductos(body);
       const acumuladorProductos = [];
-      let x = trarCarrito.trolley;
-      acumuladorProductos.push(...x, catchProduct);
-      console.log(acumuladorProductos);
-      //let agregar = await db.collection("carritos").doc(art.Id).update("trolley.items", FieldValue.arrayUnion(catchProduct), { merge: true });
+      acumuladorProductos.push(catchProduct, ...trarCarrito);
       let agregar = await db.collection("carritos").doc(artId).update({ trolley: acumuladorProductos });
       return agregar;
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -125,7 +123,7 @@ class ContenedorFire {
     try {
       const res = await db.collection(this.routPersistance).doc(aBorrar).delete();
       return res;
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -133,12 +131,12 @@ class ContenedorFire {
     try {
       /////////
       const trolleyC = await this.getAllForItemsTrolley(idTrolley);
-      let trolleyDelete = trolleyC.trolley.find((el) => el.id == idItem);
-      trolleyC.trolley.splice(trolleyDelete, 1);
+      let trolleyDelete = trolleyC.find((el) => el.id == idItem);
+      trolleyC.splice(trolleyDelete, 1);
       console.log(trolleyC);
-      let agregar = await db.collection("carritos").doc(idTrolley).update({ trolley: trolleyC.trolley });
+      let agregar = await db.collection("carritos").doc(idTrolley).update({ trolley: trolleyC });
       return agregar;
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }

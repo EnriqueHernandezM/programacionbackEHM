@@ -32,7 +32,7 @@ class ContenedorMongo {
       console.log(producto);
       const newProduct = new Productos(producto);
       await newProduct.save().then((data) => console.log(data));
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   } /*  */
@@ -41,7 +41,7 @@ class ContenedorMongo {
       this.connectMG();
       const datas = await this.memoryDirectory().find({});
       return datas.find((el) => el._id == number);
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -54,19 +54,19 @@ class ContenedorMongo {
       return { error: err };
     }
   }
-
   async deleteById(aBorrar) {
     try {
       await this.connectMG();
-      const usuarioBorrar = await this.memoryDirectory().deleteOne({ _id: aBorrar });
-      console.log(usuarioBorrar);
-    } catch {
+      Productos.deleteOne({ _id: aBorrar }).then(function () {
+        console.log("Data deleted");
+      });
+    } catch (err) {
       console.log(err);
     }
   }
   async deleteAll() {
     try {
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -87,7 +87,7 @@ class ContenedorMongo {
         }
       );
       console.log(usuarioModificado);
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -109,7 +109,7 @@ class ContenedorMongo {
       const data = await Productos.find({});
       let res = data.find((el) => el._id == number);
       return res;
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -120,8 +120,8 @@ class ContenedorMongo {
       const newCartCreate = new Carritos({
         trolley: [newCart],
       });
-      await newCartCreate.save().then((data) => console.log(data + "nuevo carrito vacio creado"));
-    } catch {
+      await newCartCreate.save().then((data) => console.log(data + "nuevo carrito vacio creado VER ID DE CARRITOS POR CONSOLA"));
+    } catch (err) {
       console.log(err);
     }
   }
@@ -141,7 +141,7 @@ class ContenedorMongo {
       );
       console.log(agregarItem);
       return { res: "producto agregado en carrito con id ", articleAddInTrolleyID: artId };
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -151,7 +151,7 @@ class ContenedorMongo {
       await this.connectMG();
       const usuarioBorrar = await this.memoryDirectory().deleteOne({ _id: aBorrar });
       console.log(usuarioBorrar);
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -159,16 +159,19 @@ class ContenedorMongo {
   async deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
       await this.connectMG();
-      const borrarItem = await Carritos.updateOne(
+      let catchCart = await this.getAllForItemsTrolley(idTrolley);
+      catchCart = catchCart.filter((prod) => prod._id != idItem);
+      const agregarItem = await Carritos.updateOne(
         { _id: idTrolley },
         {
-          $pull: {
-            trolley: { _id: idItem },
+          $set: {
+            trolley: catchCart,
           },
         }
       );
-      console.log(borrarItem);
-    } catch {
+      console.log(agregarItem);
+      return { productoEliminadoDelCarrito: idTrolley };
+    } catch (err) {
       console.log(err);
     }
   }
