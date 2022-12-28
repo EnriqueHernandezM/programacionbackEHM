@@ -12,6 +12,7 @@ admin.initializeApp({
 console.log("conecte");
 const db = getFirestore();
 ///
+const { normalize, schema, denormalize } = require("normalizr");
 /////
 ///
 class ContenedorMsjes {
@@ -45,6 +46,29 @@ class ContenedorMsjes {
     } catch {
       console.log(err);
     }
+  }
+  async normalizarMsges() {
+    const mensajes = await this.readMsgs();
+    const authorSchema = new schema.Entity("author");
+    const messageSchema = new schema.Entity(
+      "mensajes",
+      {
+        author: authorSchema,
+      },
+      { idAttribute: "id" }
+    );
+    const schemaAmandar = [messageSchema];
+
+    const mensajesProces = mensajes.map((el) => ({
+      author: el.author.idmail,
+      id: el["id"],
+      text: el.text,
+    }));
+
+    const normalizarOk = normalize(mensajesProces, schemaAmandar);
+
+    // const denormalized = denormalize(normalizxado.result, posts, normalizxado.entities);
+    console.log(JSON.stringify(normalizarOk, null, 4));
   }
 }
 

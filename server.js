@@ -33,7 +33,7 @@ httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT))
 //
 ////
 app.get("/api/productos-test", (req, res) => {
-  res.render("pages/tablafaker", { stre: str });
+  res.render("pages/tablafaker", { stre: str() });
 });
 ////
 //
@@ -76,6 +76,8 @@ io.on("connection", async (socket) => {
   //
   socket.on("msg", async (data) => {
     const saved = await containerMsjes.saveMsges(data);
+    let probandoNormalizr = await containerMsjes.normalizarMsges();
+    console.log(probandoNormalizr);
     io.sockets.emit("listaMsgs", saved);
   });
 });

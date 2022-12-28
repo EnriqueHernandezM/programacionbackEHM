@@ -1,12 +1,18 @@
 const faker = require("faker");
 faker.locale = "es";
 const { commerce, finance, image, hacker, date } = faker;
-const { writeFile } = require("fs");
 
-let str = "PRODUCTO;PRECIO;IMAGEN;DESCRIPTION;STOCKITEMS;DATA\n";
-
-for (let i = 0; i < 5; i++) {
-  str += commerce.product() + ";" + finance.amount() + ";" + image.cats() + ";" + hacker.phrase() + ";" + date.past() + ";" + date.past() + "\n";
-}
+const str = () => {
+  let arrPrototype = [];
+  for (let i = 0; i < 10; i++) {
+    let producto = commerce.product();
+    let precio = finance.amount();
+    let imagen = image.cats();
+    let description = hacker.phrase();
+    let data = date.past();
+    arrPrototype.push({ producto: producto, precio: precio, imagen: imagen, description: description, data: data });
+  }
+  return arrPrototype;
+};
 
 module.exports = str;
