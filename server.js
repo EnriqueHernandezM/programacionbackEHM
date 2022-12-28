@@ -9,7 +9,7 @@ const { ContenedorMsjes } = require("./appMsjes");
 const containerProducts = new Contenedor("inventario");
 const containerMsjes = new ContenedorMsjes("mensajes");
 //CONFIGURACION NECESARIA PARA IO
-//const str = require("./src/mocks/mocks");
+const str = require("./src/contenedores/mocks");
 
 //
 const httpServer = require("http").createServer(app);
@@ -32,7 +32,9 @@ httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT))
 //Solicitudes & res
 //
 ////
-app.get("/api/productos-test", (req, res) => {});
+app.get("/api/productos-test", (req, res) => {
+  res.render("pages/tablafaker", { stre: str });
+});
 ////
 //
 //

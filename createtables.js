@@ -18,8 +18,7 @@ knex.schema
 //
 ////DESCOMENTAR LO SIGUIENTE Y COMENTAR LO ANTERIOR PARA CREAR TABALA SQLITE
 //
-/* 
-const { optionsLite } = require("./options/sqlite");
+/* const { optionsLite } = require("./options/sqlite");
 const knex = require("knex")(optionsLite);
 
 knex.schema

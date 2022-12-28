@@ -10,7 +10,12 @@ const actualizarFeed = () => {
 const enviarMsg = () => {
   const email = document.getElementById("inputEmail").value;
   const msgeParaEnviar = document.getElementById("inputMsg").value;
-  socket.emit("msg", { email: email, mensaje: msgeParaEnviar });
+  const avatarImagen = document.getElementById("avatarImagen").value;
+  const nombreUser = document.getElementById("Nombre").value;
+  const apellidoUser = document.getElementById("apellido").value;
+  const edadUser = document.getElementById("edad").value;
+  const aliasUser = document.getElementById("alias").value;
+  socket.emit("msg", { idmail: email, text: msgeParaEnviar, avatar: avatarImagen, nombre: nombreUser, apellido: apellidoUser, edad: edadUser, alias: aliasUser });
 };
 //funcion para llamar eliminar producto
 const deleteElement = (idAb) => {
@@ -27,9 +32,9 @@ socket.on("listaMsgs", (data) => {
   data.forEach((el) => {
     html += `
     <div>
-      <p class="user"> User: ${el.email} dice: </p>
-      <p class="mensaje" > ${el.mensaje} </p>
-      <p class="hora"> ${el.time} </p>
+      <p class="user"> User: ${el.author.nombre} dice: </p>
+      <p class="mensaje" > ${el.text} </p>
+     
     </div>
     `;
   });
