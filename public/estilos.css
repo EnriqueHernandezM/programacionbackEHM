@@ -71,4 +71,8 @@ form .bEnv {
 }
 #probandoAct div span::before {
   content: "borrar articulo";
+}
+
+.imgchat {
+  width: 3.5rem;
 }/*# sourceMappingURL=estilos.css.map */

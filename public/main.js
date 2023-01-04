@@ -47,11 +47,13 @@ socket.on("listaMsgs", (data) => {
   const denormalized = denormalize(data.result, messageSchemaOk, data.entities);
   normalizedCount.innerHTML = JSON.stringify(data).length;
   denormalizedCount.innerHTML = JSON.stringify(denormalized).length;
+  console.log(denormalized);
   denormalized.forEach((el) => {
     html += `
     <div>
-      <p class="user"> User: ${el.author.idmail} dice: </p>
+      <p class="user"> <img class="imgchat" src="${el.author.avatar}" alt="">User: ${el.author.idmail} dice: </p>
       <p class="mensaje" > ${el.text} </p>
+        
     </div>
     `;
   });

@@ -7,7 +7,7 @@ const str = () => {
   for (let i = 0; i < 10; i++) {
     let producto = commerce.product();
     let precio = finance.amount();
-    let imagen = image.cats();
+    let imagen = image.business();
     let description = hacker.phrase();
     let data = date.past();
     arrPrototype.push({ producto: producto, precio: precio, imagen: imagen, description: description, data: data });

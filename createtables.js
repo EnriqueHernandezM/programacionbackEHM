@@ -15,24 +15,3 @@ knex.schema
   .finally(() => {
     knex.destroy();
   });
-//
-////DESCOMENTAR LO SIGUIENTE Y COMENTAR LO ANTERIOR PARA CREAR TABALA SQLITE
-//
-/* const { optionsLite } = require("./options/sqlite");
-const knex = require("knex")(optionsLite);
-
-knex.schema
-  .createTable("mensajes", (table) => {
-    table.increments("id"), table.string("time"), table.string("email"), table.string("mensaje");
-  })
-  .then(() => {
-    console.log("se creo con exito la tabla para mensajes");
-  })
-  .catch((err) => {
-    console.log(err);
-    throw new Error(err);
-  })
-  .finally(() => {
-    knex.destroy();
-  });
- */
