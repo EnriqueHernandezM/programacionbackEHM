@@ -75,9 +75,8 @@ io.on("connection", async (socket) => {
   //SOCKETS MENSAJES
   //
   socket.on("msg", async (data) => {
-    const saved = await containerMsjes.saveMsges(data);
-    let probandoNormalizr = await containerMsjes.normalizarMsges();
-    console.log(probandoNormalizr);
-    io.sockets.emit("listaMsgs", saved);
+    let guardar = await containerMsjes.saveMsges(data);
+    let probandoNormalizr = containerMsjes.normalizarMsges(guardar);
+    io.sockets.emit("listaMsgs", probandoNormalizr);
   });
 });

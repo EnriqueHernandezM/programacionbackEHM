@@ -1,4 +1,7 @@
 const socket = io();
+const schema = normalizr.schema;
+const normalize = normalizr.normalize;
+const denormalize = normalizr.denormalize;
 //funcion para subir producto
 const actualizarFeed = () => {
   const ingProduct = document.getElementById("ingProduct").value;
@@ -21,7 +24,16 @@ const enviarMsg = () => {
 const deleteElement = (idAb) => {
   socket.emit("deleteElement", idAb);
 };
+///
+///ESQUEMA
+const authorSchema = new schema.Entity("authors", {}, { idAttribute: "idmail" });
+const messageSchema = new schema.Entity("texts", {
+  author: authorSchema,
+});
 
+const messageSchemaOk = [messageSchema];
+///
+///
 socket.on("connect", () => {
   console.log("quede conectado!");
 });
@@ -29,17 +41,27 @@ socket.emit("on", {});
 //renderiza mensajes
 socket.on("listaMsgs", (data) => {
   let html = "";
-  data.forEach((el) => {
+  const normalizedCount = document.getElementById("normalizados");
+  const denormalizedCount = document.getElementById("desnormalizados");
+  //////DESNORMALIZAMOS
+  const denormalized = denormalize(data.result, messageSchemaOk, data.entities);
+  console.log(denormalized);
+
+  normalizedCount.innerHTML = JSON.stringify(data).length;
+  denormalizedCount.innerHTML = JSON.stringify(denormalized).length;
+  denormalized.forEach((el) => {
     html += `
     <div>
-      <p class="user"> User: ${el.author.nombre} dice: </p>
+      <p class="user"> User: ${el.author.idmail} dice: </p>
       <p class="mensaje" > ${el.text} </p>
-     
     </div>
     `;
   });
   document.getElementById("boxMsges").innerHTML = html;
 });
+///
+///
+//
 //renderiza productos
 socket.on("feedAct", (data12) => {
   let html1 = "";
@@ -57,5 +79,6 @@ socket.on("feedAct", (data12) => {
 });
 //
 ////
+
 ///
 //
