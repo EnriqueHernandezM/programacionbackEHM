@@ -45,8 +45,6 @@ socket.on("listaMsgs", (data) => {
   const denormalizedCount = document.getElementById("desnormalizados");
   //////DESNORMALIZAMOS
   const denormalized = denormalize(data.result, messageSchemaOk, data.entities);
-  console.log(denormalized);
-
   normalizedCount.innerHTML = JSON.stringify(data).length;
   denormalizedCount.innerHTML = JSON.stringify(denormalized).length;
   denormalized.forEach((el) => {

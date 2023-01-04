@@ -26,39 +26,48 @@ class ContenedorMsjes {
     this.table = table;
   }
   async readMsgs() {
-    const res = await db.collection("mensajes").get();
-
-    if (res) {
-      let arrayRes = res.docs.map((item) => {
-        return { id: item.id, ...item.data() };
-      });
-      return arrayRes;
-    } else {
-      return [];
+    try {
+      const res = await db.collection("mensajes").orderBy("time", "asc").get();
+      if (res) {
+        let arrayRes = res.docs.map((item) => {
+          return { id: item.id, ...item.data() };
+        });
+        return arrayRes;
+      } else {
+        return [], { err: true, msg: "sin mensajes" };
+      }
+    } catch (err) {
+      console.log(err);
     }
   }
   async saveMsges(mensaje) {
     try {
-      /*   const author1 = { idmail: mensaje.idmail, avatar: mensaje.avatar, nombre: mensaje.nombre, apellido: mensaje.apellido, edad: mensaje.edad, alias: mensaje.alias };
+      const author1 = { idmail: mensaje.idmail, avatar: mensaje.avatar, nombre: mensaje.nombre, apellido: mensaje.apellido, edad: mensaje.edad, alias: mensaje.alias };
       let text1 = mensaje.text;
       let res;
+
       res = await db.collection("mensajes").doc().set({
         author: author1,
         text: text1,
+        time: timestamp,
       });
-      console.log(res); */
+      console.log(res);
       let act = await this.readMsgs();
       return act;
-    } catch {
+    } catch (err) {
       console.log(err);
     }
   }
 
   normalizarMsges(msgRec) {
-    const normalizarOk = normalize(msgRec, messageSchemaOk);
-    // const denormalized = denormalize(normalizxado.result, posts, normalizxado.entities);
-    console.log(JSON.stringify(normalizarOk, null, 4));
-    return normalizarOk;
+    try {
+      const normalizarOk = normalize(msgRec, messageSchemaOk);
+      // const denormalized = denormalize(normalizxado.result, posts, normalizxado.entities);
+      console.log(JSON.stringify(normalizarOk, null, 4));
+      return normalizarOk;
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 
