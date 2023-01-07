@@ -30,6 +30,29 @@ const authorSchema = new schema.Entity("authors", {}, { idAttribute: "idmail" })
 const messageSchema = new schema.Entity("texts", {
   author: authorSchema,
 });
+///
+/* const userLogin = () => {
+  const nombreDeUser = document.getElementById("userLog").value;
+  const contraseniaDeUser = document.getElementById("contraseniaLog").value;
+  fetch("http://localhost:8081/loguear1", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      nombreUserLog: nombreDeUser,
+      contraseñaLog: contraseniaDeUser,
+    }),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.error == true) {
+        console.log(error);
+      }
+     
+    });
+};
+/// */
 
 const messageSchemaOk = [messageSchema];
 ///
