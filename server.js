@@ -1,24 +1,19 @@
 const express = require("express");
 const { Router } = express;
 const session = require("express-session");
-const FileStore = require("session-file-store")(session);
 const MongoStore = require("connect-mongo");
 const app = express();
 const routerDeProductos = Router();
 const PORT = process.env.PORT || 8081;
-const multer = require("multer");
 const { Contenedor } = require("./app");
 const { ContenedorMsjes } = require("./appMsjes");
 const containerProducts = new Contenedor("inventario");
 const containerMsjes = new ContenedorMsjes("mensajes");
 //CONFIGURACION NECESARIA PARA IO
 const str = require("./src/contenedores/mocks");
-const Usuarios = require("./models/usuarios");
-
-//
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer);
-
+//
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //Configuracion Para EJS
@@ -40,7 +35,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 600000,
+      maxAge: 600000, //sesion durara 10 minutos
     },
   })
 );
@@ -49,10 +44,11 @@ const validar = (req, res, next) => {
   if (req.session?.user === "Enrique" && req.session?.admin) {
     return next();
   }
-  return res.status(401).send("error de autorización!");
+  let tex = "hola para ver esta ruta necesitas etsar logueado";
+  return res.status(401).render("pages/formloguear", { sessionE: "fake", msg: tex });
 };
 //Solicitudes & res
-//
+// INICIO
 app.get("/", (req, res) => {
   let veces;
   if (req.session.cont) {
@@ -65,12 +61,16 @@ app.get("/", (req, res) => {
   }
   res.render("pages/index", { saludo: "bienvenido a esta gran vinateria", imagen: "https://i.ytimg.com/vi/WGrX46hqSCc/maxresdefault.jpg", visitas: veces });
 });
-//
+//Ver productos estan en mongoDB
+routerDeProductos.get("/", (req, res) => {
+  res.render("pages/productos", {});
+});
+//PRODUCTOS FAKER
 app.get("/api/productos-test", validar, (req, res) => {
   res.render("pages/tablafaker", { stre: str() });
 });
 ////
-//FORMULARIO
+//FORMULARIO LOGUIN
 app.get("/loguear", (req, res) => {
   if (req.session?.user === "Enrique" && req.session?.admin) {
     res.render("pages/formloguear", { sessionE: true, userE: req.session.user });
@@ -90,35 +90,17 @@ app.post("/loguear", (req, res) => {
   req.session.admin = true;
   res.render("pages/formloguear", { sessionE: true, userE: nombreUserLog });
 });
-//
-app.get("/showsession", (req, res) => {
-  res.json(req.session);
-});
-//solo renderisa ejs
-routerDeProductos.get("/", (req, res) => {
-  res.render("pages/productos", {});
-});
 //////////////////////////////////////////////LOG OUT SESSION
 app.get("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      res.send("no pudo we");
+      res.send("algo salio mal en la pagina intenta de nuevo");
     } else {
-      res.send("todo bien panqa");
+      res.render("pages/formloguear", { sessionE: "esp" });
     }
   });
 });
-//configuracion para subir formulario en uploady/files
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, __dirname + "/public");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-const upload = multer({ storage: storage });
-
+///////////////////////////////////////////////////Sockets
 io.on("connection", async (socket) => {
   console.log("cone3ct");
   //sOCKETS PRODUCTOS

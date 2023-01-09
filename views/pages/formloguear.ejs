@@ -19,12 +19,18 @@
       </div>
       <div class="row p-5">
         <div class="col text-white ms-5 text-center">
-          <% if (sessionE == true ){ %>
+          <% if (sessionE == "fake" ){ %>
+          <h1><%=msg%></h1>
+          <% } if (sessionE == true ){ %>
           <h1>Hola Bienvenido <%=userE%></h1>
-          <form action="/logout" class="row p-5">
-            <input type="submit" />
-          </form>
-          <% } if(sessionE == false){ %> <% } else{ %>
+
+          <div class="col-xs-12 col-md-6 col-lg-12 P-4 mt-5 text-center">
+            <a href="/logout">cerrar session</a>
+          </div>
+
+          <% } if(sessionE == false){ %>
+          <h1>Hola al parecer aun no estas en el sistema</h1>
+          <% } else{ %>
         </div>
       </div>
       <form action="/loguear" method="post" class="row p-5">
