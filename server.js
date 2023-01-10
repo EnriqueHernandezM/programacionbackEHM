@@ -1,27 +1,36 @@
 const express = require("express");
 const { Router } = express;
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
 const app = express();
 const routerDeProductos = Router();
 const PORT = process.env.PORT || 8081;
+
 const { Contenedor } = require("./app");
 const { ContenedorMsjes } = require("./appMsjes");
 const containerProducts = new Contenedor("inventario");
 const containerMsjes = new ContenedorMsjes("mensajes");
 //CONFIGURACION NECESARIA PARA IO
 const str = require("./src/contenedores/mocks");
+
+//
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer);
-//
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//para mostrar imagenes!!!!
+app.use(express.static(__dirname + "/public"));
+
 //Configuracion Para EJS
+//
 app.set("view engine", "ejs");
+
 app.use("/productos", routerDeProductos);
 
 httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT));
 //
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 app.use(
   session({
     store: MongoStore.create({
@@ -92,17 +101,18 @@ app.post("/loguear", (req, res) => {
 });
 //////////////////////////////////////////////LOG OUT SESSION
 app.get("/logout", (req, res) => {
+  let mdg = "hata luego" + " " + req.session.user;
   req.session.destroy((err) => {
     if (err) {
       res.send("algo salio mal en la pagina intenta de nuevo");
     } else {
-      res.render("pages/formloguear", { sessionE: "esp" });
+      res.render("pages/formloguear", { sessionE: "desp", mdg: mdg });
     }
   });
 });
 ///////////////////////////////////////////////////Sockets
 io.on("connection", async (socket) => {
-  console.log("cone3ct");
+  console.log("con3ct");
   //sOCKETS PRODUCTOS
   socket.on("on", async () => {
     io.sockets.emit("feedAct", await containerProducts.getAll());
