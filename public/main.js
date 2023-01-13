@@ -91,10 +91,10 @@ socket.on("feedAct", (data12) => {
   data12.forEach((el) => {
     html1 += `
     <div>
-      <p >  ${el.products}  </p>
+      <p >  ${el.producto}  </p>
       <p> ${el.precio} </p>
         <img src="${el.imagen}" alt="">
-        <span onclick=deleteElement(${el.id});> 🗑️ </span>
+        <span onclick=deleteElement("${el._id}");> 🗑️ </span>
     </div>
     `;
   });

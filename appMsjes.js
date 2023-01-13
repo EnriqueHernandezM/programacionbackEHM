@@ -1,5 +1,4 @@
 const { optionsLite } = require("./options/sqlite");
-const knex = require("knex")(optionsLite);
 const moment = require("moment");
 const timestamp = moment().format("lll");
 ///

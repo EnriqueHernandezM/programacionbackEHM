@@ -1,34 +1,89 @@
-const { json } = require("express");
-const { options } = require("./options/mysql");
-const knex = require("knex")(options);
+const { connect, mongoose } = require("mongoose");
+const Productos = require("./models/productos");
 
 class Contenedor {
-  constructor(nameTable) {
-    this.nameTable = nameTable;
+  constructor(routPersistance) {
+    this.routPersistance = routPersistance;
   }
-  async getAll() {
+  memoryDirectory() {
+    if (this.routPersistance == "productos") {
+      return Productos;
+    } else if (this.routPersistance == "carritos") {
+      return Carritos;
+    }
+  }
+  async connectMG() {
     try {
-      const inventary = await knex(this.nameTable).select("*");
-      return JSON.parse(JSON.stringify(inventary));
-    } catch (err) {
-      console.log(err);
+      await connect("mongodb+srv://enriquehm:0h47RMcEkqCLHjTP@cluster0.ckqspop.mongodb.net/ecommerce?retryWrites=true&w=majority");
+      console.log("conecte");
+    } catch (e) {
+      console.log(e);
+      throw "can not connect to the db";
     }
   }
   async save(producto) {
     try {
-      await knex(this.nameTable).insert(producto);
-      console.log("producto Guardado correctamente");
-      return this.getAll();
+      await this.connectMG();
+      console.log(producto);
+      const newProduct = new Productos(producto);
+      await newProduct.save().then((data) => console.log(data));
+    } catch (err) {
+      console.log(err);
+    }
+  } /*  */
+  async getById(number) {
+    try {
+      this.connectMG();
+      const datas = await this.memoryDirectory().find({});
+      return datas.find((el) => el._id == number);
     } catch (err) {
       console.log(err);
     }
   }
+  async getAll() {
+    try {
+      await this.connectMG();
+      const data = await this.memoryDirectory().find({});
+      return data;
+    } catch (err) {
+      return { error: err };
+    }
+  }
   async deleteById(aBorrar) {
     try {
-      await knex(this.nameTable).where("id", aBorrar).del();
-      console.log("producto Borrado correctamente");
-      return this.getAll();
-    } catch {
+      await this.connectMG();
+      Productos.deleteOne({ _id: aBorrar }).then(function () {
+        console.log("Data deleted");
+        return this.getAll();
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async deleteAll() {
+    try {
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async modifyElement(id, body) {
+    try {
+      const buscar = await this.getById(id);
+      const usuarioModificado = await this.memoryDirectory().updateOne(
+        { codeItem: buscar.codeItem },
+        {
+          $set: {
+            producto: body.producto,
+            precio: body.precio,
+            imagen: body.imagen,
+            description: body.description,
+            stockItems: body.stockItems,
+            codeItem: body.stockItems,
+          },
+        }
+      );
+      console.log(usuarioModificado);
+    } catch (err) {
       console.log(err);
     }
   }

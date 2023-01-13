@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8081;
 
 const { Contenedor } = require("./app");
 const { ContenedorMsjes } = require("./appMsjes");
-const containerProducts = new Contenedor("inventario");
+const containerProducts = new Contenedor("productos");
 const containerMsjes = new ContenedorMsjes("mensajes");
 //CONFIGURACION NECESARIA PARA IO
 const str = require("./src/contenedores/mocks");
@@ -28,9 +28,98 @@ app.set("view engine", "ejs");
 app.use("/productos", routerDeProductos);
 
 httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT));
+///
+const routes = require("./src/routes");
+const mongoose = require("mongoose");
+const Usuarios = require("./models/usuarios");
+const bcrypt = require("bcrypt");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 //
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+//////////////
+mongoose.set("strictQuery", false);
+mongoose
+  .connect("mongodb+srv://enriquehm:0h47RMcEkqCLHjTP@cluster0.ckqspop.mongodb.net/ecommerce?retryWrites=true&w=majority")
+  .then(() => console.log("Connected to Mongo"))
+  .catch((e) => {
+    console.error(e);
+    throw "can not connect to the mongo!";
+  });
+
+function isValidPassword(user, password) {
+  return bcrypt.compareSync(password, user.password);
+}
+function createHash(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+}
+passport.use(
+  "login",
+  new LocalStrategy((email, pasword, done) => {
+    Usuarios.findOne({ email }, (err, user) => {
+      if (err) return done(err);
+
+      if (!user) {
+        console.log("User Not Found with username " + email);
+        return done(null, false);
+      }
+
+      if (!isValidPassword(user, pasword)) {
+        console.log("Invalid Password");
+        return done(null, false);
+      }
+
+      return done(null, user);
+    });
+  })
+);
+
+passport.use(
+  "crearCuenta",
+  new LocalStrategy(
+    {
+      passReqToCallback: true,
+    },
+    (req, email, password, done) => {
+      Usuarios.findOne({ email: email }, function (err, user) {
+        if (err) {
+          console.log("Error in SignUp: " + err);
+          return done(err);
+        }
+
+        if (user) {
+          console.log("User already exists");
+          return done(null, false);
+        }
+
+        const newUser = {
+          email: email,
+          password: createHash(password),
+        };
+        Usuarios.create(newUser, (err, userWithId) => {
+          if (err) {
+            console.log("Error in Saving user: " + err);
+            return done(err);
+          }
+          console.log(user);
+          console.log("User Registration succesful");
+          return done(null, userWithId);
+        });
+      });
+    }
+  )
+);
+
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser((id, done) => {
+  Usuarios.findById(id, done);
+});
+
+/////////COKIES
 app.use(
   session({
     store: MongoStore.create({
@@ -48,6 +137,7 @@ app.use(
     },
   })
 );
+
 //
 const validar = (req, res, next) => {
   if (req.session?.user === "Enrique" && req.session?.admin) {
@@ -56,61 +146,36 @@ const validar = (req, res, next) => {
   let tex = "hola para ver esta ruta necesitas etsar logueado";
   return res.status(401).render("pages/formloguear", { sessionE: "fake", msg: tex });
 };
+app.use(passport.initialize());
+app.use(passport.session());
 //Solicitudes & res
 // INICIO
-app.get("/", (req, res) => {
-  let veces;
-  if (req.session.cont) {
-    req.session.cont++;
-    veces = req.session.cont;
-  } else {
-    req.session.cont = 1;
-
-    veces = +1;
-  }
-  res.render("pages/index", { saludo: "bienvenido a esta gran vinateria", imagen: "https://i.ytimg.com/vi/WGrX46hqSCc/maxresdefault.jpg", visitas: veces });
-});
+app.get("/", routes.routIndex);
 //Ver productos estan en mongoDB
-routerDeProductos.get("/", (req, res) => {
-  res.render("pages/productos", {});
-});
+routerDeProductos.get("/", routes.getProductsRout);
 //PRODUCTOS FAKER
-app.get("/api/productos-test", validar, (req, res) => {
-  res.render("pages/tablafaker", { stre: str() });
-});
+app.get("/api/productos-test", validar, routes.productsTest);
+////
+/////////////////////////////////////////////Crear Cuenta
+app.get("/crearCuenta", routes.getCreateAcount);
+///
+app.post("/crearCuenta", passport.authenticate("crearCuenta", { failureRedirect: "/crearCuenta" }), routes.postCreateAcount);
 ////
 //FORMULARIO LOGUIN
-app.get("/loguear", (req, res) => {
-  if (req.session?.user === "Enrique" && req.session?.admin) {
-    res.render("pages/formloguear", { sessionE: true, userE: req.session.user });
-  } else {
-    res.render("pages/formloguear", { sessionE: "esp" });
-  }
-});
-//
-app.post("/loguear", (req, res) => {
-  const { nombreUserLog, contraseñaLog } = req.body;
-  const user = { nombreUserLog, contraseñaLog };
-  console.log(user);
-  if (nombreUserLog !== "Enrique" || contraseñaLog !== "260199") {
-    return res.render("pages/formloguear", { sessionE: false });
-  }
-  req.session.user = nombreUserLog;
-  req.session.admin = true;
-  res.render("pages/formloguear", { sessionE: true, userE: nombreUserLog });
-});
+app.get("/loguear", routes.getLoguear); //
+app.post("/loguear", routes.postLoguear);
 //////////////////////////////////////////////LOG OUT SESSION
-app.get("/logout", (req, res) => {
-  let mdg = "hata luego" + " " + req.session.user;
-  req.session.destroy((err) => {
-    if (err) {
-      res.send("algo salio mal en la pagina intenta de nuevo");
-    } else {
-      res.render("pages/formloguear", { sessionE: "desp", mdg: mdg });
-    }
-  });
-});
+app.get("/logout", routes.logOut);
+
+function checkAuthentication(req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+}
 ///////////////////////////////////////////////////Sockets
+
 io.on("connection", async (socket) => {
   console.log("con3ct");
   //sOCKETS PRODUCTOS
@@ -123,7 +188,7 @@ io.on("connection", async (socket) => {
     io.sockets.emit("feedAct", act);
   });
   socket.on("deleteElement", async (idAb) => {
-    const eliminate = await containerProducts.deleteById(idAb);
+    const eliminate = containerProducts.deleteById(idAb);
     io.sockets.emit("feedAct", eliminate);
   });
   //
