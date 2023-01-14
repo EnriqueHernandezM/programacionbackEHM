@@ -54,6 +54,13 @@ function isValidPassword(user, password) {
 function createHash(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
 }
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser((id, done) => {
+  Usuarios.findById(id, done);
+});
 passport.use(
   "login",
   new LocalStrategy((email, pasword, done) => {
@@ -79,6 +86,8 @@ passport.use(
   "crearCuenta",
   new LocalStrategy(
     {
+      usernameField: "email",
+      passwordField: "password",
       passReqToCallback: true,
     },
     (req, email, password, done) => {
@@ -110,14 +119,6 @@ passport.use(
     }
   )
 );
-
-passport.serializeUser((user, done) => {
-  done(null, user._id);
-});
-
-passport.deserializeUser((id, done) => {
-  Usuarios.findById(id, done);
-});
 
 /////////COKIES
 app.use(
@@ -159,7 +160,7 @@ app.get("/api/productos-test", validar, routes.productsTest);
 /////////////////////////////////////////////Crear Cuenta
 app.get("/crearCuenta", routes.getCreateAcount);
 ///
-app.post("/crearCuenta", passport.authenticate("crearCuenta", { failureRedirect: "/crearCuenta" }), routes.postCreateAcount);
+app.post("/crearCuenta", passport.authenticate("crearCuenta", { successRedirect: "/", failureRedirect: "/crearCuenta", passReqToCallback: true }), routes.postCreateAcount);
 ////
 //FORMULARIO LOGUIN
 app.get("/loguear", routes.getLoguear); //
