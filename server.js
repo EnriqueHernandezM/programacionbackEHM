@@ -9,7 +9,6 @@ const { ContenedorMsjes } = require("./appMsjes");
 const containerProducts = new Contenedor("productos");
 const containerMsjes = new ContenedorMsjes("mensajes");
 //CONFIGURACION NECESARIA PARA IO
-const str = require("./src/contenedores/mocks");
 
 //
 const httpServer = require("http").createServer(app);
@@ -38,6 +37,7 @@ const LocalStrategy = require("passport-local").Strategy;
 //
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const flash = require("connect-flash");
 //////////////
 mongoose.set("strictQuery", false);
 mongoose
@@ -63,23 +63,29 @@ passport.deserializeUser((id, done) => {
 });
 passport.use(
   "login",
-  new LocalStrategy((email, pasword, done) => {
-    Usuarios.findOne({ email }, (err, user) => {
-      if (err) return done(err);
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+      passReqToCallback: true,
+    },
+    (req, email, password, done) => {
+      Usuarios.findOne({ email }, (err, user) => {
+        if (err) return done(err);
 
-      if (!user) {
-        console.log("User Not Found with username " + email);
-        return done(null, false);
-      }
+        if (!user) {
+          console.log("User Not Found with email " + email);
+          return done(null, false);
+        }
 
-      if (!isValidPassword(user, pasword)) {
-        console.log("Invalid Password");
-        return done(null, false);
-      }
-
-      return done(null, user);
-    });
-  })
+        if (!isValidPassword(user, password)) {
+          console.log("Invalid Password");
+          return done(null, false);
+        }
+        return done(null, user);
+      });
+    }
+  )
 );
 
 passport.use(
@@ -99,7 +105,7 @@ passport.use(
 
         if (user) {
           console.log("User already exists");
-          return done(null, false);
+          return done(null, false, req.flash("crearCuentamsg", "cuenta ya existente"));
         }
 
         const newUser = {
@@ -134,28 +140,35 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 600000, //sesion durara 10 minutos
+      maxAge: 60000, //sesion durara 10 minutos
     },
   })
 );
 
 //
 const validar = (req, res, next) => {
-  if (req.session?.user === "Enrique" && req.session?.admin) {
+  const { email } = req.user;
+  console.log(email);
+  if (req.session?.user === email && req.session?.admin) {
     return next();
   }
   let tex = "hola para ver esta ruta necesitas etsar logueado";
   return res.status(401).render("pages/formloguear", { sessionE: "fake", msg: tex });
 };
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+  app.locals.crearCuentamsg = req.flash("crearCuentamsg");
+  next();
+});
 //Solicitudes & res
 // INICIO
 app.get("/", routes.routIndex);
 //Ver productos estan en mongoDB
 routerDeProductos.get("/", routes.getProductsRout);
 //PRODUCTOS FAKER
-app.get("/api/productos-test", validar, routes.productsTest);
+app.get("/api/productos-test", checkAuthentication, routes.productsTest);
 ////
 /////////////////////////////////////////////Crear Cuenta
 app.get("/crearCuenta", routes.getCreateAcount);
@@ -164,7 +177,7 @@ app.post("/crearCuenta", passport.authenticate("crearCuenta", { successRedirect:
 ////
 //FORMULARIO LOGUIN
 app.get("/loguear", routes.getLoguear); //
-app.post("/loguear", routes.postLoguear);
+app.post("/loguear", passport.authenticate("login", { successRedirect: "/", failureRedirect: "/loguear", passReqToCallback: true }), routes.postLoguear);
 //////////////////////////////////////////////LOG OUT SESSION
 app.get("/logout", routes.logOut);
 
@@ -172,7 +185,7 @@ function checkAuthentication(req, res, next) {
   if (req.isAuthenticated()) {
     next();
   } else {
-    res.redirect("/login");
+    res.redirect("/loguear");
   }
 }
 ///////////////////////////////////////////////////Sockets

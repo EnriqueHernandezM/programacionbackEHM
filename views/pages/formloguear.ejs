@@ -33,6 +33,11 @@
           <% } else{ %>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-12 text-center">
+          <a class="text-decoration-none fs-4" href="/crearCuenta">si no tienes una cuenta crea una</a>
+        </div>
+      </div>
       <form action="/loguear" method="post" class="row p-5">
         <div class="col-xs-12 col-md-6 col-lg-4">
           <p class="text-white P-2">Correo de Usuario</p>
@@ -46,13 +51,6 @@
           <input type="submit" />
         </div>
       </form>
-    </div>
-    <div class="row p-5">
-      <div class="col text-white ms-5 text-center">
-        <div class="col-xs-12 col-md-6 col-lg-12 P-4 mt-5 text-center">
-          <a href="/crearCuenta">si no tienes una cuenta crea una</a>
-        </div>
-      </div>
     </div>
     <% } %> <%- include('../partials/footer'); %>
   </body>

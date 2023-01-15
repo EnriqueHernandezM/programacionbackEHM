@@ -17,7 +17,9 @@
           <h1>Crea Cuenta</h1>
         </div>
       </div>
-
+      <% if(crearCuentamsg){ %>
+      <h1><%=crearCuentamsg%></h1>
+      <% } %>
       <form method="post" action="/crearCuenta" class="row p-5">
         <div class="col-xs-12 col-md-6 col-lg-4">
           <p class="text-white P-2">Ingresa un correo electronico</p>
