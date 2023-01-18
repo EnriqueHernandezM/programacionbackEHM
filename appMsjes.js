@@ -1,4 +1,3 @@
-const { optionsLite } = require("./options/sqlite");
 const moment = require("moment");
 const timestamp = moment().format("lll");
 ///

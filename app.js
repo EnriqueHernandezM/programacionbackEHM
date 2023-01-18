@@ -1,6 +1,7 @@
 const { connect, mongoose } = require("mongoose");
 const Productos = require("./src/models/productos");
-
+const { config } = require("dotenv");
+config();
 class Contenedor {
   constructor(routPersistance) {
     this.routPersistance = routPersistance;
@@ -14,7 +15,7 @@ class Contenedor {
   }
   async connectMG() {
     try {
-      await connect("mongodb+srv://enriquehm:0h47RMcEkqCLHjTP@cluster0.ckqspop.mongodb.net/ecommerce?retryWrites=true&w=majority");
+      await connect(process.env.DATABAS);
       console.log("conecte");
     } catch (e) {
       console.log(e);

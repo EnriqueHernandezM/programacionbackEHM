@@ -68,7 +68,27 @@ function logOut(req, res) {
     }
   });
 }
+function info(req, res) {
+  // const argEntrda = "";
+  const sistemaOperativo = process.platform;
+  const nodeJsVersion = process.version;
+  const rss = process.memoryUsage();
+  const patEjecucion = process.execPath;
+  const processId = process.pid;
+  const carpetaProyecto = process.cwd();
+  const info = {
+    "sistema Operativo": sistemaOperativo,
+    "carpeta del proyecto": carpetaProyecto,
+    "ID  del proceso": processId,
+    "version node JS": nodeJsVersion,
+    "uso de la memoria": rss,
+    "path de ejecucion": patEjecucion,
+  };
+  res.json(info);
+}
+function apiRandoms(req, res) {}
 module.exports = {
+  apiRandoms,
   failRoute,
   routIndex,
   getProductsRout,
@@ -78,4 +98,5 @@ module.exports = {
   getLoguear,
   postLoguear,
   logOut,
+  info,
 };

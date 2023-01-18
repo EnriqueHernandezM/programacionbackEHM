@@ -3,13 +3,10 @@ const { Router } = express;
 const app = express();
 const routerDeProductos = Router();
 const PORT = process.env.PORT || 8081;
-
 const { Contenedor } = require("./app");
 const { ContenedorMsjes } = require("./appMsjes");
 const containerProducts = new Contenedor("productos");
 const containerMsjes = new ContenedorMsjes("mensajes");
-//CONFIGURACION NECESARIA PARA IO
-
 //
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer);
@@ -23,9 +20,7 @@ app.use(express.static(__dirname + "/public"));
 //Configuracion Para EJS
 //
 app.set("view engine", "ejs");
-
 app.use("/productos", routerDeProductos);
-
 httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT));
 ///
 const routes = require("./src/routes");
@@ -38,11 +33,13 @@ const LocalStrategy = require("passport-local").Strategy;
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
+const { config } = require("dotenv");
+config();
 //////////////
 mongoose.set("strictQuery", false);
 mongoose
-  .connect("mongodb+srv://enriquehm:0h47RMcEkqCLHjTP@cluster0.ckqspop.mongodb.net/ecommerce?retryWrites=true&w=majority")
-  .then(() => console.log("Connected to Mongo"))
+  .connect(process.env.DATABAS)
+  .then(() => console.log("Connected to Mongo para registrar Usuarios"))
   .catch((e) => {
     console.error(e);
     throw "can not connect to the mongo!";
@@ -130,13 +127,13 @@ passport.use(
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl: "mongodb+srv://enriquehm:0h47RMcEkqCLHjTP@cluster0.ckqspop.mongodb.net/ecommerce?retryWrites=true&w=majority",
+      mongoUrl: process.env.DATABAS,
       mongoOptions: {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       },
     }),
-    secret: "secret",
+    secret: process.env.SESSIONSECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -180,6 +177,10 @@ function checkAuthentication(req, res, next) {
     res.redirect("/loguear");
   }
 }
+///////////////////////////////////Ruta INFO
+//
+app.get("/info", routes.info);
+app.get("/api/randoms", routes.apiRandoms);
 app.get("*", routes.failRoute);
 ///////////////////////////////////////////////////Sockets
 
