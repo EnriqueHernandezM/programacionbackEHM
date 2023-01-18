@@ -30,7 +30,7 @@ httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT))
 ///
 const routes = require("./src/routes");
 const mongoose = require("mongoose");
-const Usuarios = require("./models/usuarios");
+const Usuarios = require("./src/models/usuarios");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
@@ -75,12 +75,12 @@ passport.use(
 
         if (!user) {
           console.log("User Not Found with email " + email);
-          return done(null, false);
+          return done(null, false, req.flash("crearCuentamsg", "tenemos algun problema o verifica tu informacion"));
         }
 
         if (!isValidPassword(user, password)) {
           console.log("Invalid Password");
-          return done(null, false);
+          return done(null, false, req.flash("crearCuentamsg", "tenemos algun problema o verifica tu informacion"));
         }
         return done(null, user);
       });
@@ -145,16 +145,6 @@ app.use(
   })
 );
 
-//
-const validar = (req, res, next) => {
-  const { email } = req.user;
-  console.log(email);
-  if (req.session?.user === email && req.session?.admin) {
-    return next();
-  }
-  let tex = "hola para ver esta ruta necesitas etsar logueado";
-  return res.status(401).render("pages/formloguear", { sessionE: "fake", msg: tex });
-};
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -185,9 +175,12 @@ function checkAuthentication(req, res, next) {
   if (req.isAuthenticated()) {
     next();
   } else {
+    /*  let tex = "hola para ver esta ruta necesitas etsar logueado";
+    return res.status(401).render("pages/formloguear", { sessionE: "fake", msg: tex }); */
     res.redirect("/loguear");
   }
 }
+app.get("*", routes.failRoute);
 ///////////////////////////////////////////////////Sockets
 
 io.on("connection", async (socket) => {
@@ -202,8 +195,9 @@ io.on("connection", async (socket) => {
     io.sockets.emit("feedAct", act);
   });
   socket.on("deleteElement", async (idAb) => {
-    const eliminate = containerProducts.deleteById(idAb);
-    io.sockets.emit("feedAct", eliminate);
+    containerProducts.deleteById(idAb);
+    const actual = await containerProducts.getAll();
+    io.sockets.emit("feedAct", actual);
   });
   //
   //SOCKETS MENSAJES

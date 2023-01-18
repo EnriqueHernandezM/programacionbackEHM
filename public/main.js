@@ -7,7 +7,7 @@ const actualizarFeed = () => {
   const ingProduct = document.getElementById("ingProduct").value;
   const ingPrecio = document.getElementById("ingPrecio").value;
   const ingImg = document.getElementById("ingImagen").value;
-  socket.emit("actualizame", { products: ingProduct, precio: ingPrecio, imagen: ingImg });
+  socket.emit("actualizame", { producto: ingProduct, precio: ingPrecio, imagen: ingImg });
 };
 //funcion para enviar mensaje
 const enviarMsg = () => {

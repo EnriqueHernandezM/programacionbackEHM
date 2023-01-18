@@ -1,18 +1,10 @@
 const { app } = require("firebase-admin");
 const str = require("../src/contenedores/mocks");
 
-function getFaillogin(req, res) {
-  res.render("login-error", {});
-}
-
-function getFailsignup(req, res) {
-  res.render("signup-error", {});
-}
-
 function failRoute(req, res) {
   res.status(404).render("routing-error", {});
 }
-/////////////////////////////////////////FUNCIONES MIAS
+
 function routIndex(req, res) {
   let veces;
   let email = "";
@@ -47,12 +39,8 @@ function getCreateAcount(req, res) {
   }
 }
 function postCreateAcount(req, res) {
-  console.log("ohwidfhiuwdhfuowdhfvouwefouehfouehfgou");
   const { email, password } = req.body;
   const user = { email, password };
-  console.log(user);
-
-  console.log(x);
   res.render("pages/confirmCountCreate", {});
 }
 function getLoguear(req, res) {
@@ -72,7 +60,7 @@ function postLoguear(req, res) {
   return res.render("pages/index", { sessionE: true, userE: user.email });
 }
 function logOut(req, res) {
-  let mdg = "hata luego" + " " + req.user.email;
+  let mdg = "hasta luego" + " " + req.user.email;
   req.session.destroy((err) => {
     if (err) {
       res.send("algo salio mal en la pagina intenta de nuevo");
@@ -82,8 +70,6 @@ function logOut(req, res) {
   });
 }
 module.exports = {
-  getFaillogin,
-  getFailsignup,
   failRoute,
   routIndex,
   getProductsRout,

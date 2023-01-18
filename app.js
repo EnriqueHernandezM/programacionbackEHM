@@ -1,5 +1,5 @@
 const { connect, mongoose } = require("mongoose");
-const Productos = require("./models/productos");
+const Productos = require("./src/models/productos");
 
 class Contenedor {
   constructor(routPersistance) {
@@ -27,6 +27,7 @@ class Contenedor {
       console.log(producto);
       const newProduct = new Productos(producto);
       await newProduct.save().then((data) => console.log(data));
+      return this.getAll();
     } catch (err) {
       console.log(err);
     }
@@ -54,7 +55,6 @@ class Contenedor {
       await this.connectMG();
       Productos.deleteOne({ _id: aBorrar }).then(function () {
         console.log("Data deleted");
-        return this.getAll();
       });
     } catch (err) {
       console.log(err);

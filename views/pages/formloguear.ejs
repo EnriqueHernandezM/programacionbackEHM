@@ -19,7 +19,9 @@
       </div>
       <div class="row p-5">
         <div class="col text-white ms-5 text-center">
-          <% if (sessionE == "desp" ){ %>
+          <% if(crearCuentamsg){ %>
+          <h1><%=crearCuentamsg%></h1>
+          <% } %> <% if (sessionE == "desp" ){ %>
           <h1><%=mdg%></h1>
           <% } if (sessionE == "fake" ){ %>
           <h1><%=msg%></h1>
@@ -41,7 +43,7 @@
       <form action="/loguear" method="post" class="row p-5">
         <div class="col-xs-12 col-md-6 col-lg-4">
           <p class="text-white P-2">Correo de Usuario</p>
-          <input type="text" name="email" placeholder="Ingresa nombre del producto " class="w-75" required="true" />
+          <input type="email" name="email" placeholder="Ingresa nombre del producto " class="w-75" required="true" />
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
           <p class="text-white P-2">ingresa tu contraseña</p>
