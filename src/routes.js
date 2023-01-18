@@ -1,4 +1,3 @@
-const { app } = require("firebase-admin");
 const str = require("../src/contenedores/mocks");
 
 function failRoute(req, res) {
