@@ -1,5 +1,5 @@
 const str = require("../src/contenedores/mocks");
-
+const { fork } = require("child_process");
 function failRoute(req, res) {
   res.status(404).render("routing-error", {});
 }
@@ -86,7 +86,25 @@ function info(req, res) {
   };
   res.json(info);
 }
-function apiRandoms(req, res) {}
+async function apiRandoms(req, res) {
+  const limite = req.query;
+  const operacioAleatoria = fork("./opercacionAleatoria.js");
+  operacioAleatoria.send(limite);
+  operacioAleatoria.on("message", (msg) => {
+    const { data, type } = msg;
+    switch (type) {
+      case "sum":
+        let x = { veces: limite, claves: data };
+
+        console.log();
+        res.json(x);
+        break;
+      case "otra cosa":
+        res.end(`La data es ${data}`);
+        break;
+    }
+  });
+}
 module.exports = {
   apiRandoms,
   failRoute,

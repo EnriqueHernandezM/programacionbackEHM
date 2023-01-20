@@ -2,6 +2,7 @@ const express = require("express");
 const { Router } = express;
 const app = express();
 const routerDeProductos = Router();
+const randomOperation = Router();
 const PORT = process.env.PORT || 8081;
 const { Contenedor } = require("./app");
 const { ContenedorMsjes } = require("./appMsjes");
@@ -20,6 +21,7 @@ app.use(express.static(__dirname + "/public"));
 //Configuracion Para EJS
 //
 app.set("view engine", "ejs");
+app.use("/api", randomOperation);
 app.use("/productos", routerDeProductos);
 httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT));
 ///
@@ -34,6 +36,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const { config } = require("dotenv");
+
 config();
 //////////////
 mongoose.set("strictQuery", false);
@@ -150,6 +153,7 @@ app.use((req, res, next) => {
   next();
 });
 //Solicitudes & res
+
 // INICIO
 app.get("/", routes.routIndex);
 //Ver productos estan en mongoDB
@@ -180,7 +184,7 @@ function checkAuthentication(req, res, next) {
 ///////////////////////////////////Ruta INFO
 //
 app.get("/info", routes.info);
-app.get("/api/randoms", routes.apiRandoms);
+randomOperation.get("/randoms", routes.apiRandoms);
 app.get("*", routes.failRoute);
 ///////////////////////////////////////////////////Sockets
 
