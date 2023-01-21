@@ -3,7 +3,11 @@ const { Router } = express;
 const app = express();
 const routerDeProductos = Router();
 const randomOperation = Router();
-const PORT = process.env.PORT || 8081;
+//////////////////////////////////////////////////////MINIMIST
+let argv = require("minimist")(process.argv.slice(2));
+console.log(argv["_"][0]);
+let puertoPorArgumentos = argv["_"][0];
+const PORT = process.env.PORT || puertoPorArgumentos || 8080;
 const { Contenedor } = require("./app");
 const { ContenedorMsjes } = require("./appMsjes");
 const containerProducts = new Contenedor("productos");
@@ -17,8 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 
 //para mostrar imagenes!!!!
 app.use(express.static(__dirname + "/public"));
-
-//Configuracion Para EJS
 //
 app.set("view engine", "ejs");
 app.use("/api", randomOperation);
