@@ -8,8 +8,8 @@ let argv = require("minimist")(process.argv.slice(2));
 console.log(argv["_"][0]);
 let puertoPorArgumentos = argv["_"][0];
 const PORT = process.env.PORT || puertoPorArgumentos || 8080;
-const { Contenedor } = require("./app");
-const { ContenedorMsjes } = require("./appMsjes");
+const { Contenedor } = require("./src/contenedores/app");
+const { ContenedorMsjes } = require("./src/contenedores/appMsjes");
 const containerProducts = new Contenedor("productos");
 const containerMsjes = new ContenedorMsjes("mensajes");
 //

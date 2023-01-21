@@ -1,5 +1,5 @@
 const { connect, mongoose } = require("mongoose");
-const Productos = require("./src/models/productos");
+const Productos = require("../models/productos");
 const { config } = require("dotenv");
 config();
 class Contenedor {
