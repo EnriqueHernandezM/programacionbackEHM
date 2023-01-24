@@ -1,4 +1,5 @@
 const str = require("../src/contenedores/mocks");
+////////////////////////////////////////////REQUERIMOS PARA USAR CHILD PROCES
 const { fork } = require("child_process");
 
 function failRoute(req, res) {
@@ -69,6 +70,7 @@ function logOut(req, res) {
     }
   });
 }
+//////////////////////////////////////FUNCIONES ENTREGA OBJECT PROCESS
 function info(req, res) {
   // const argEntrda = "";
   const sistemaOperativo = process.platform;
@@ -89,14 +91,13 @@ function info(req, res) {
 }
 async function apiRandoms(req, res) {
   const limite = req.query;
-  const operacioAleatoria = fork("./opercacionAleatoria.js");
-  operacioAleatoria.send(limite);
+  const operacioAleatoria = fork("./operacionAleatoria.js");
+  operacioAleatoria.send(limite); //////le mando esta variable como mensaje
   operacioAleatoria.on("message", (msg) => {
     const { data, type } = msg;
     switch (type) {
       case "sum":
         let x = { veces: limite, claves: data };
-
         console.log();
         res.json(x);
         break;

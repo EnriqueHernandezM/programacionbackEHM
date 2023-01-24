@@ -3,7 +3,7 @@ const { Router } = express;
 const app = express();
 const routerDeProductos = Router();
 const randomOperation = Router();
-//////////////////////////////////////////////////////MINIMIST
+//////////////////////////////////////////////////MINIMIST REQ PARA USAR PARAM EN TERMINAL
 let argv = require("minimist")(process.argv.slice(2));
 console.log(argv["_"][0]);
 let puertoPorArgumentos = argv["_"][0];
@@ -37,6 +37,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
+///REQUERIMOS PARA USAR ENV
 const { config } = require("dotenv");
 
 config();
@@ -183,7 +184,7 @@ function checkAuthentication(req, res, next) {
     res.redirect("/loguear");
   }
 }
-///////////////////////////////////Ruta INFO
+///////////////////////////////////RUTAS DESAFIO OBJECT PROCES
 //
 app.get("/info", routes.info);
 randomOperation.get("/randoms", routes.apiRandoms);
