@@ -2,10 +2,6 @@ const str = require("../src/contenedores/mocks");
 ////////////////////////////////////////////REQUERIMOS PARA USAR CHILD PROCES
 const { fork } = require("child_process");
 
-function failRoute(req, res) {
-  res.status(404).render("routing-error", {});
-}
-
 function routIndex(req, res) {
   let veces;
   let email = "";
@@ -109,7 +105,6 @@ async function apiRandoms(req, res) {
 }
 module.exports = {
   apiRandoms,
-  failRoute,
   routIndex,
   getProductsRout,
   productsTest,

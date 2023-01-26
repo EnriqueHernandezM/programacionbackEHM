@@ -188,7 +188,7 @@ function checkAuthentication(req, res, next) {
 //
 app.get("/info", routes.info);
 randomOperation.get("/randoms", routes.apiRandoms);
-app.get("*", routes.failRoute);
+
 ///////////////////////////////////////////////////Sockets
 
 io.on("connection", async (socket) => {
