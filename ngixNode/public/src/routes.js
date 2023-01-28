@@ -87,13 +87,13 @@ function info(req, res) {
 }
 async function apiRandoms(req, res) {
   const limite = req.query;
-  const operacioAleatoria = fork("./operacionAleatoria.js");
+  const operacioAleatoria = fork("src/contenedores/operacionAleatoria.js");
   operacioAleatoria.send(limite); //////le mando esta variable como mensaje
   operacioAleatoria.on("message", (msg) => {
     const { data, type } = msg;
     switch (type) {
       case "sum":
-        let x = { veces: limite, claves: data };
+        let x = { veces: limite, puerto: parseInt(process.argv[2]), claves: data };
         console.log();
         res.json(x);
         break;

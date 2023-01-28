@@ -5,7 +5,7 @@ const random = (min, max) => {
 process.on("message", (msg) => {
   console.log(msg);
   let sum = [];
-  let operador = msg.limite || 100000000;
+  let operador = msg.limite || 1000000;
   for (let i = 0; i < operador; i++) {
     sum.push(random(1, 1000));
   }
