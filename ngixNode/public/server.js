@@ -5,9 +5,9 @@ const routerDeProductos = Router();
 const randomOperation = Router();
 //////////////////////////////////////////////////MINIMIST REQ PARA USAR PARAM EN TERMINAL
 let argv = require("minimist")(process.argv.slice(2));
-
+console.log(argv["_"][0]);
 let puertoPorArgumentos = argv["_"][0];
-const PORT = parseInt(process.argv[2]) || process.env.PORT || puertoPorArgumentos || 8081;
+const PORT = process.env.PORT || puertoPorArgumentos || 8080;
 const { Contenedor } = require("./src/contenedores/app");
 const { ContenedorMsjes } = require("./src/contenedores/appMsjes");
 const containerProducts = new Contenedor("productos");
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //para mostrar imagenes!!!!
-//app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 //
 app.set("view engine", "ejs");
 app.use("/api", randomOperation);
@@ -156,10 +156,7 @@ app.use((req, res, next) => {
   next();
 });
 //Solicitudes & res
-app.get("/datos", (req, res) => {
-  res.send(`Servidor express <span style="color:blueviolet;">(Nginx)</span> en ${PORT} - 
-    <b>PID ${process.pid}</b> - ${new Date().toLocaleString()}`);
-});
+
 // INICIO
 app.get("/", routes.routIndex);
 //Ver productos estan en mongoDB
