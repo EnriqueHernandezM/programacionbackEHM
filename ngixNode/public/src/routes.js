@@ -75,6 +75,7 @@ function info(req, res) {
   const patEjecucion = process.execPath;
   const processId = process.pid;
   const carpetaProyecto = process.cwd();
+  const puerto = parseInt(process.argv[2]);
   const info = {
     "sistema Operativo": sistemaOperativo,
     "carpeta del proyecto": carpetaProyecto,
@@ -82,6 +83,7 @@ function info(req, res) {
     "version node JS": nodeJsVersion,
     "uso de la memoria": rss,
     "path de ejecucion": patEjecucion,
+    " en uso": puerto,
   };
   res.json(info);
 }
