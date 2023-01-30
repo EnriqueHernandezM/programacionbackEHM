@@ -95,9 +95,13 @@ async function apiRandoms(req, res) {
     const { data, type } = msg;
     switch (type) {
       case "sum":
+        if (parseInt(process.argv[2]) == 8081) {
+          console.log(`Worker ${process.pid} started}`);
+        }
         let x = { veces: limite, puerto: parseInt(process.argv[2]), claves: data };
         console.log();
         res.json(x);
+
         break;
       case "otra cosa":
         res.end(`La data es ${data}`);
