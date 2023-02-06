@@ -35,7 +35,7 @@ class ContenedorMsjes {
         return [], { err: true, msg: "sin mensajes" };
       }
     } catch (err) {
-      console.log(err);
+      logger.log("error", `${err}`);
     }
   }
   async saveMsges(mensaje) {
@@ -53,7 +53,7 @@ class ContenedorMsjes {
       let act = await this.readMsgs();
       return act;
     } catch (err) {
-      console.log(err);
+      logger.log("error", `${err}`);
     }
   }
 
@@ -64,7 +64,7 @@ class ContenedorMsjes {
       console.log(JSON.stringify(normalizarOk, null, 4));
       return normalizarOk;
     } catch (err) {
-      console.log(err);
+      logger.log("error", `${err}`);
     }
   }
 }

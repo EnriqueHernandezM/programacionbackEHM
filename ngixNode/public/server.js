@@ -1,8 +1,10 @@
+const logger = require("./src/utils/loggers");
 const express = require("express");
 const { Router } = express;
 const app = express();
 const routerDeProductos = Router();
 const randomOperation = Router();
+const infoConCompresion = Router();
 let argv = require("minimist")(process.argv.slice(2));
 let puertoPorArgumentos = argv["_"][0];
 const PORT = process.env.PORT || puertoPorArgumentos || 8080;
@@ -12,7 +14,7 @@ if (argv["_"][1] === "prueba") {
   const cluster = require("cluster");
   const numCPUs = require("os").cpus().length;
   if (cluster.isMaster) {
-    console.log(`Master ${process.pid} is running`);
+    logger.log("info", `Master ${process.pid} is running`);
     for (let i = 0; i < numCPUs; i++) {
       cluster.fork();
     }
@@ -21,7 +23,7 @@ if (argv["_"][1] === "prueba") {
     });
   } else {
     const httpServer = require("http").createServer(app);
-    console.log(`Worker ${process.pid} !`);
+    logger.log("info", `Worker ${process.pid} !`);
 
     httpServer.listen(PORT);
 
@@ -39,7 +41,6 @@ if (argv["_"][1] === "prueba") {
   //
   const httpServer = require("http").createServer(app);
   const io = require("socket.io")(httpServer);
-
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
@@ -49,9 +50,12 @@ if (argv["_"][1] === "prueba") {
   app.set("view engine", "ejs");
   app.use("/api", randomOperation);
   app.use("/productos", routerDeProductos);
-  httpServer.listen(PORT, () => console.log("SERVER ON http://localhost:" + PORT));
+  //USAMOS ROUTER PARA COMPARAR USANDO GZIP
+  app.use("/infoConCompresion", infoConCompresion);
+  httpServer.listen(PORT, () => logger.log("info", "SERVER ON http://localhost:" + PORT));
   ///
 
+  //
   const mongoose = require("mongoose");
   const Usuarios = require("./src/models/usuarios");
   const bcrypt = require("bcrypt");
@@ -69,9 +73,10 @@ if (argv["_"][1] === "prueba") {
   mongoose.set("strictQuery", false);
   mongoose
     .connect(process.env.DATABAS)
-    .then(() => console.log("Connected to Mongo para registrar Usuarios"))
+    .then(() => logger.log("info", "Connected to Mongo para registrar Usuarios"))
+
     .catch((e) => {
-      console.error(e);
+      logger.log("error", e);
       throw "can not connect to the mongo!";
     });
 
@@ -101,12 +106,12 @@ if (argv["_"][1] === "prueba") {
           if (err) return done(err);
 
           if (!user) {
-            console.log("User Not Found with email " + email);
+            logger.log("info", "User Not Found with email " + email);
             return done(null, false, req.flash("crearCuentamsg", "tenemos algun problema o verifica tu informacion"));
           }
 
           if (!isValidPassword(user, password)) {
-            console.log("Invalid Password");
+            logger.log("info", "Invalid Password");
             return done(null, false, req.flash("crearCuentamsg", "tenemos algun problema o verifica tu informacion"));
           }
           return done(null, user);
@@ -126,12 +131,12 @@ if (argv["_"][1] === "prueba") {
       (req, email, password, done) => {
         Usuarios.findOne({ email: email }, function (err, user) {
           if (err) {
-            console.log("Error in SignUp: " + err);
+            logger.log("info", "Error in SignUp: " + err);
             return done(err);
           }
 
           if (user) {
-            console.log("User already exists");
+            logger.log("info", "User already exists");
             return done(null, false, req.flash("crearCuentamsg", "cuenta ya existente"));
           }
 
@@ -141,11 +146,11 @@ if (argv["_"][1] === "prueba") {
           };
           Usuarios.create(newUser, (err, userWithId) => {
             if (err) {
-              console.log("Error in Saving user: " + err);
+              logger.log("info", "Error in Saving user: " + err);
               return done(err);
             }
             console.log(user);
-            console.log("User Registration succesful");
+            logger.log("info", "User Registration succesful");
             return done(null, userWithId);
           });
         });
@@ -180,7 +185,7 @@ if (argv["_"][1] === "prueba") {
     next();
   });
   //Solicitudes & res
-
+  app.get("*", routes.failRoute);
   // INICIO
   app.get("/", routes.routIndex);
   //Ver productos estan en mongoDB
@@ -210,13 +215,17 @@ if (argv["_"][1] === "prueba") {
   }
   ///////////////////////////////////RUTAS DESAFIO OBJECT PROCES
   //
-  app.get("/info", routes.info);
+  app.get("/infoSinCompresion", routes.info);
+  const compression = require("compression");
+  infoConCompresion.use(compression()); //use el routing para implementar compression
+  infoConCompresion.get("/", routes.info);
+  //randomOperation.use(compression());//prueba
   randomOperation.get("/randoms", routes.apiRandoms);
 
   ///////////////////////////////////////////////////Sockets
 
   io.on("connection", async (socket) => {
-    console.log("con3ct");
+    logger.log("info", "con3ct Socket");
     //sOCKETS PRODUCTOS
     socket.on("on", async () => {
       io.sockets.emit("feedAct", await containerProducts.getAll());

@@ -1,24 +1,29 @@
 const { connect, mongoose } = require("mongoose");
 const Productos = require("../models/productos");
 const { config } = require("dotenv");
+const logger = require("../utils/loggers");
 config();
 class Contenedor {
   constructor(routPersistance) {
     this.routPersistance = routPersistance;
   }
   memoryDirectory() {
-    if (this.routPersistance == "productos") {
-      return Productos;
-    } else if (this.routPersistance == "carritos") {
-      return Carritos;
+    try {
+      if (this.routPersistance == "productos") {
+        return Productos;
+      } else if (this.routPersistance == "carritos") {
+        return Carritos;
+      }
+    } catch (err) {
+      logger.log("error", `${err}`);
     }
   }
   async connectMG() {
     try {
       await connect(process.env.DATABAS);
-      console.log("conecte");
-    } catch (e) {
-      console.log(e);
+      logger.log("info", "conecte bse de datos Productos");
+    } catch (err) {
+      logger.log("error", `${err}`);
       throw "can not connect to the db";
     }
   }
@@ -30,7 +35,7 @@ class Contenedor {
       await newProduct.save().then((data) => console.log(data));
       return this.getAll();
     } catch (err) {
-      console.log(err);
+      logger.log("error", `${err}`);
     }
   } /*  */
   async getById(number) {
@@ -39,7 +44,7 @@ class Contenedor {
       const datas = await this.memoryDirectory().find({});
       return datas.find((el) => el._id == number);
     } catch (err) {
-      console.log(err);
+      logger.log("error", `${err}`);
     }
   }
   async getAll() {
@@ -48,6 +53,7 @@ class Contenedor {
       const data = await this.memoryDirectory().find({});
       return data;
     } catch (err) {
+      logger.log("error", `${err}`);
       return { error: err };
     }
   }
@@ -58,13 +64,13 @@ class Contenedor {
         console.log("Data deleted");
       });
     } catch (err) {
-      console.log(err);
+      logger.log("error", `${err}`);
     }
   }
   async deleteAll() {
     try {
     } catch (err) {
-      console.log(err);
+      logger.log("error", `${err}`);
     }
   }
   async modifyElement(id, body) {
@@ -83,9 +89,9 @@ class Contenedor {
           },
         }
       );
-      console.log(usuarioModificado);
+      logger.log("info", usuarioModificado);
     } catch (err) {
-      console.log(err);
+      logger.log("error", `${err}`);
     }
   }
 }
