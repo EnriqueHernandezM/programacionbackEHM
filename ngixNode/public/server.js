@@ -184,8 +184,7 @@ if (argv["_"][1] === "prueba") {
     app.locals.crearCuentamsg = req.flash("crearCuentamsg");
     next();
   });
-  //Solicitudes & res
-  app.get("*", routes.failRoute);
+  //Solicitudes & re
   // INICIO
   app.get("/", routes.routIndex);
   //Ver productos estan en mongoDB
@@ -196,11 +195,11 @@ if (argv["_"][1] === "prueba") {
   /////////////////////////////////////////////Crear Cuenta
   app.get("/crearCuenta", routes.getCreateAcount);
   ///
-  app.post("/crearCuenta", passport.authenticate("crearCuenta", { successRedirect: "/", failureRedirect: "/crearCuenta", passReqToCallback: true }), routes.postCreateAcount);
+  app.post("/crearCuenta", passport.authenticate("crearCuenta", { passReqToCallback: true }), routes.postCreateAcount);
   ////
   //FORMULARIO LOGUIN
   app.get("/loguear", routes.getLoguear); //
-  app.post("/loguear", passport.authenticate("login", { successRedirect: "/", failureRedirect: "/loguear", passReqToCallback: true }), routes.postLoguear);
+  app.post("/loguear", passport.authenticate("login", { passReqToCallback: true }), routes.postLoguear);
   //////////////////////////////////////////////LOG OUT SESSION
   app.get("/logout", routes.logOut);
 
@@ -213,17 +212,20 @@ if (argv["_"][1] === "prueba") {
       res.redirect("/loguear");
     }
   }
-  ///////////////////////////////////RUTAS DESAFIO OBJECT PROCES
+  ///////////////////////////////////RUTAS DESAFIO OBJECT PROCES((INFO))
   //
   app.get("/infoSinCompresion", routes.info);
   const compression = require("compression");
   infoConCompresion.use(compression()); //use el routing para implementar compression
   infoConCompresion.get("/", routes.info);
+  app.get("/infoConLog", routes.infoConLog);
+  app.get("/infoSinLog", routes.info);
   //randomOperation.use(compression());//prueba
   randomOperation.get("/randoms", routes.apiRandoms);
 
   ///////////////////////////////////////////////////Sockets
-
+  app.get("*", routes.failRoute);
+  ///
   io.on("connection", async (socket) => {
     logger.log("info", "con3ct Socket");
     //sOCKETS PRODUCTOS

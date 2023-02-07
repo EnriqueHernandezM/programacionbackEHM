@@ -121,3 +121,9 @@
 2023/01/30 02:45:36 [notice] 19704#16172: signal process started
 2023/01/30 02:45:40 [notice] 3208#13632: signal process started
 2023/01/30 02:45:40 [error] 3208#13632: CreateFile() "C:\Users\quiqu\Desktop\1erdesafioBackend\root/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/01/31 18:58:38 [notice] 28824#28568: signal process started
+2023/01/31 18:58:38 [error] 28824#28568: CreateFile() "C:\Users\quiqu\Desktop\1erdesafioBackend\root/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2023/01/31 19:02:31 [notice] 3488#29316: signal process started
+2023/01/31 19:15:27 [notice] 11764#19192: signal process started
+2023/01/31 19:15:29 [notice] 19220#14976: signal process started
+2023/01/31 19:15:29 [error] 19220#14976: CreateFile() "C:\Users\quiqu\Desktop\1erdesafioBackend\root/logs/nginx.pid" failed (2: The system cannot find the file specified)

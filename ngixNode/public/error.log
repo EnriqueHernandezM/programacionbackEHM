@@ -1,1 +1,27 @@
 {"level":"error","message":"127.0.0.1 - log warn","timestamp":"2023-02-06T07:34:22.290Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'path')","timestamp":"2023-02-06T08:16:30.296Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'path')","timestamp":"2023-02-06T08:17:13.282Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-07T03:17:35.126Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-07T03:17:58.349Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-07T03:20:18.188Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-07T03:20:23.419Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-07T03:20:33.148Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-07T03:20:51.743Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-07T03:21:51.263Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-07T03:23:08.062Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-07T03:23:10.077Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-07T03:23:23.731Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-07T03:24:07.620Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-07T03:24:14.457Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-07T03:24:18.516Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-07T03:24:41.877Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-07T03:26:04.111Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'originalUrl')","timestamp":"2023-02-07T03:31:45.340Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-07T03:32:19.517Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-07T03:32:24.174Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'user')","timestamp":"2023-02-07T03:37:44.643Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'user')","timestamp":"2023-02-07T03:37:46.758Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'user')","timestamp":"2023-02-07T03:38:07.491Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'user')","timestamp":"2023-02-07T03:38:11.367Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'user')","timestamp":"2023-02-07T03:38:23.490Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'user')","timestamp":"2023-02-07T03:38:25.277Z"}
