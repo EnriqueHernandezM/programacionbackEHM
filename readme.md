@@ -46,10 +46,33 @@ CON GZIP
    artillery quick --count 20 -n 50 http://localhost:8080/infoConLog > result_infoConLogArtill.txt
    node --prof server.js 8080
    artillery quick --count 20 -n 50 http://localhost:8080/infoSinLog > result_infoSinLogArtill.txt
-   decodificamos en terminal windows bash no func. en vs
+   decodificamos en terminal windows bash no func. en vsc
    node --prof-process infoConLogArtill-v8.log > result_prof-infoConLogArtill.txt
+   //////con Log
+   ![prof con Logs](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/profConLog.jpg)
    node --prof-process infoSinLogArtill-v8.log > result_prof-infoSinLogArtill.txt
-   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Cambiamos Scripts
+   //////Sin Log
+   ![prof sin Log](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/profSinLog.jpg)
+   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   Luego utilizaremos Autocannon en línea de comandos, emulando 100 conexiones concurrentes realizadas en un tiempo de 20 segundos. Extraer un reporte con los resultados (puede ser un print screen de la consola)
+   //////////////instalamos autocannon globaL
+   ///////con Log
+   ![prueba de autocannon por consola](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/autocannonComandConLog.jpg)
+   ////////Sin Log
+   ![prueba de autocannon en cons si log](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/autocannonComandSinLog.jpg)
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   El perfilamiento del servidor con el modo inspector de node.js --inspect (en chrome). Revisar el tiempo de los procesos menos performantes sobre el archivo fuente de inspección.
+   //////
+   node --inspect server.js
+   ///
+   chrome://inspect/#devices
+   ////Con Logs
+   ![inspect con Logs](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/inspectInfConLog.jpg)
+   ////Sin Logs
+   ![](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/inspectInfSinLog.jpg)
+   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   El diagrama de flama con 0x, emulando la carga con Autocannon con los mismos parámetros anteriores.
+   ////////////////////////////////////////////////Cambiamos Scripts
    "test": " node benchmark.js",
    "start": "0x server.js",
    "dev": "nodemon server.js"
