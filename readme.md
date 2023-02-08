@@ -102,3 +102,4 @@ En cuanto a Gzip probando varias veces me llego a pesar un poco mas el archivo c
    ![grafica flama con log](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/flamaAppClog.jpg)
    ////////S Log
    ![grafica flama con log](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/flamaAppSlog.jpg)
+   ////// En general se nota la importanci en optimizar lo meorposible el codigo, y en este ejercicio pues la carga quepuede generar el que dejemosconsole.log activos.

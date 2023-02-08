@@ -209,6 +209,7 @@ if (argv["_"][1] === "prueba") {
     } else {
       /*  let tex = "hola para ver esta ruta necesitas etsar logueado";
     return res.status(401).render("pages/formloguear", { sessionE: "fake", msg: tex }); */
+      logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
       res.redirect("/loguear");
     }
   }
