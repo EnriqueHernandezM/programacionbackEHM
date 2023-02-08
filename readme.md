@@ -35,8 +35,8 @@ PARA VER INFO SIN GZIP
 
 CON GZIP
 /infoConCompresion
-![info Con Compresion]
-(https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/infoConCompression.jpg?raw=true)
+
+![info Con Compresion](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/infoConCompression.jpg)
 //////////////////////////////
 
 1. El perfilamiento (profilling) del servidor, realizando el test con --prof de node.js. Analizar los resultados obtenidos luego de procesarlos con --prof-process.
