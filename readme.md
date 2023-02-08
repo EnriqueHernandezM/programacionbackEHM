@@ -70,19 +70,12 @@ CON GZIP
    ![inspect con Logs](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/inspectInfConLog.jpg)
    ////Sin Logs
    ![](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/inspectInfSinLog.jpg)
-   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   El diagrama de flama con 0x, emulando la carga con Autocannon con los mismos parámetros anteriores.
+   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 3) El diagrama de flama con 0x, emulando la carga con Autocannon con los mismos parámetros anteriores.
    ////////////////////////////////////////////////Cambiamos Scripts
    "test": " node benchmark.js",
    "start": "0x server.js",
    "dev": "nodemon server.js"
-   //// Ejecutamos en terminal vsc
-   npm start 8080
-   ///y windows bash
-   npm test
-   ////////////////////////////////////////
-   ////////////////////
-   AHORA ANALIZAMOS CON NODE INSPECT.
-   node --inspect server.js
-   ///
-   chrome://inspect/#devices
+   //////////con Log
+   ![grafica flama con log](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/gFlameConLog.jpg)
+   ///////////Sin log
+   ![grafica flama sin Log](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/gFlameSinLog.jpg)
