@@ -49,5 +49,11 @@ node --prof-process infoSinLogArtill-v8.log > result_prof-infoSinLogArtill.txt
 "dev": "nodemon server.js"
 //// Ejecutamos en terminal vsc
 npm start 8080
-///ye windows bash
+///y windows bash
 npm test
+////////////////////////////////////////
+////////////////////
+AHORA ANALIZAMOS CON NODE INSPECT.
+node --inspect server.js
+///
+chrome://inspect/#devices
