@@ -44,8 +44,12 @@ CON GZIP
    node --prof server.js 8080
    ////////////////
    artillery quick --count 20 -n 50 http://localhost:8080/infoConLog > result_infoConLogArtill.txt
+   ////////////////////////Resultado artillery con Log
+   ![resultados artillery](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/resultadoArtClog.jpg)
    node --prof server.js 8080
    artillery quick --count 20 -n 50 http://localhost:8080/infoSinLog > result_infoSinLogArtill.txt
+   ////////////////Resultado artillery sin Log
+   ![res artillery Sin Log](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/resultadoArtSlog.jpg)
    decodificamos en terminal windows bash no func. en vsc
    node --prof-process infoConLogArtill-v8.log > result_prof-infoConLogArtill.txt
    //////con Log
