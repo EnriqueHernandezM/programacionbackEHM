@@ -32,10 +32,9 @@ ENTREGA LOOGERS
 /////Incorporar al proyecto de servidor de trabajo la compresión gzip./////
 PARA VER INFO SIN GZIP
 /infoSinCompresion//////////////
-
+![info sin compression](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/infoSinCompresion.jpg)
 CON GZIP
 /infoConCompresion
-
 ![info Con Compresion](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/infoConCompression.jpg)
 //////////////////////////////
 
