@@ -35,6 +35,7 @@ PARA VER INFO SIN GZIP
 
 CON GZIP
 /infoConCompresion
+![info Con Compresion]
 https://github.com/EnriqueHernandezM/programacionbackEHM/blob/loggers/imagenesRead/infoConCompression.jpg
 //////////////////////////////
 
