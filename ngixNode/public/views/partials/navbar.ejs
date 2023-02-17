@@ -1,16 +1,48 @@
-<nav class="navbar navbar-expand-lg bg-light w-100 bg-dark ">
-    <div class="container-fluid ">
-      <a class="navbar-brand p-4 text-white fs-1" href="#">Jack Vinaterias</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end " id="navbarNavAltMarkup">
-        <div class="navbar-nav me-5">
-          <a class=" text-white nav-link p-2 ms-5 me-5 fs-4" href="/">Inicio</a>
-          <a class="text-white nav-link p-2 ms-5 me-5 fs-4" href="/productos">Productos</a>
-          <a class="text-white nav-link p-2 ms-5 me-5 fs-4" href="/api/productos-test">Productos FAKER</a>
-          <a class="text-white nav-link p-2 ms-5 me-5 fs-4" href="/loguear">Loguear</a>
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-light w-100 bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand p-4 text-white fs-1 ms-2 me-5" href="/">JACK VINATERIAS</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white p-3 ms-3 me-3 fs-4" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="text-white nav-link p-3 ms-3me-3 fs-4" href="/productos">Productos</a>
+        </li>
+        <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li> -->
+        <li class="nav-item">
+          <a class="text-white nav-link p-3 ms-3 me-3 fs-4" href="/api/productos-test">Productos Faker</a>
+        </li>
+        <li class="nav-item">
+          <a class="text-white nav-link p-3 ms-3 me-3 fs-4" href="/loguear"> Perfil</a>
+        </li>
+      </ul>
 
-        </div>
-      </div>
-  </nav>
+      <form class="d-flex col-lg-5" role="search">
+        <input class="form-control me-1 w-50" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

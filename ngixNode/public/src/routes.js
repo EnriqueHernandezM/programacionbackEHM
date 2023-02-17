@@ -59,9 +59,8 @@ function getLoguear(req, res) {
   try {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
     if (req.isAuthenticated()) {
-      const { email, password } = req.user;
-      const user = { email, password };
-      res.render("pages/formloguear", { sessionE: true, userE: user.email });
+      const user = req.user;
+      res.render("pages/formloguear", { sessionE: true, userE: user });
     } else {
       res.render("pages/formloguear", { sessionE: "esp" });
     }
@@ -78,6 +77,7 @@ function postLoguear(req, res) {
     logger.log("error", `${err}`);
   }
 }
+true;
 function logOut(req, res) {
   try {
     let mdg = "hasta luego" + " " + req.user.email;

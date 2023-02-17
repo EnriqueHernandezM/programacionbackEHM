@@ -26,3 +26,7 @@
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'user')","timestamp":"2023-02-07T03:38:23.490Z"}
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'user')","timestamp":"2023-02-07T03:38:25.277Z"}
 {"level":"error","message":"ReferenceError: reer is not defined","timestamp":"2023-02-08T08:21:01.597Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-17T06:17:25.882Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-17T06:17:30.533Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-17T06:41:10.169Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-17T08:44:31.858Z"}
