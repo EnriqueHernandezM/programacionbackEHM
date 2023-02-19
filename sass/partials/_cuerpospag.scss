@@ -40,23 +40,25 @@ form {
   }
 }
 #probandoAct {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   div {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    width: 75vw;
-    margin: auto;
-    margin-bottom: 2rem;
+    text-align: center;
+
     p {
       font-size: 1.25rem;
-      width: 25%;
     }
     img {
-      width: 25%;
+      width: 14rem;
+      height: 14rem;
     }
-    span::before {
-      content: "borrar articulo";
+
+    span {
+      cursor: pointer;
     }
   }
 }
@@ -119,4 +121,21 @@ form {
 }
 #footer {
   border-top: double 0.5rem #baab8f;
+}
+.totalCarrito {
+  border-top: double 0.5rem #baab8f;
+  margin-left: 76%;
+  width: 15%;
+}
+.logoVerCarrito {
+  margin-left: 2rem;
+  a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: aliceblue;
+    padding: 0.25rem;
+  }
+  a:hover {
+    color: #a9a075;
+  }
 }

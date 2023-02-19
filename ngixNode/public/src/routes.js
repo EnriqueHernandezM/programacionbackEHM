@@ -1,6 +1,7 @@
 const str = require("../src/contenedores/mocks");
 const logger = require("./utils/loggers");
-
+const { ContenedorCarrito } = require("../src/contenedores/appcarrito");
+const containerCarrito = new ContenedorCarrito();
 function routIndex(req, res) {
   try {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
@@ -29,6 +30,7 @@ function getProductsRout(req, res) {
   } catch (err) {
     logger.log("error", `${err}`);
   }
+  00;
 }
 function productsTest(req, res) {
   logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
@@ -60,7 +62,8 @@ function getLoguear(req, res) {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
     if (req.isAuthenticated()) {
       const user = req.user;
-      res.render("pages/formloguear", { sessionE: true, userE: user });
+      const total = user.carrito.reduce((acc, el) => acc + el.precio, 0);
+      res.render("pages/formloguear", { sessionE: true, userE: user, total: total });
     } else {
       res.render("pages/formloguear", { sessionE: "esp" });
     }
@@ -160,6 +163,19 @@ function apiRandoms(req, res) {
 function failRoute(req, res) {
   logger.log("warn", { ruta: req.path, metodo: req.route.methods, err: "ruta inexistente" });
 }
+async function postTrolley(req, res) {
+  logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
+  try {
+    if (req.user) {
+      const { body } = req;
+      const idProduct = body.product;
+      await containerCarrito.addToCart(req.user._id, idProduct);
+    } else {
+      logger.log("info", "Al parecer aun no estas Loguead");
+    }
+  } catch (err) {}
+}
+//////Carrito de compras
 module.exports = {
   apiRandoms,
   routIndex,
@@ -173,4 +189,5 @@ module.exports = {
   info,
   failRoute,
   infoConLog,
+  postTrolley,
 };

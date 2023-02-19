@@ -8,6 +8,7 @@ const UsuarrioSchema = new Schema({
   direccion: { type: String, required: true, max: 100 },
   telefono: { type: Number, required: true },
   avatar: { type: String, required: true },
+  carrito: { type: Array },
 });
 
 const Usuarios = model("Usuarios", UsuarrioSchema);

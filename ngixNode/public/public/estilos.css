@@ -53,24 +53,26 @@ form .bEnv {
   margin-left: 0.5rem;
 }
 
-#probandoAct div {
+#probandoAct {
   display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  width: 75vw;
+  flex-direction: row;
+  width: 80vw;
   margin: auto;
-  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#probandoAct div {
+  text-align: center;
 }
 #probandoAct div p {
   font-size: 1.25rem;
-  width: 25%;
 }
 #probandoAct div img {
-  width: 25%;
+  width: 14rem;
+  height: 14rem;
 }
-#probandoAct div span::before {
-  content: "borrar articulo";
+#probandoAct div span {
+  cursor: pointer;
 }
 
 .imgchat {
@@ -123,4 +125,23 @@ form .bEnv {
 
 #footer {
   border-top: double 0.5rem #baab8f;
-}/*# sourceMappingURL=estilos.css.map */
+}
+
+.totalCarrito {
+  border-top: double 0.5rem #baab8f;
+  margin-left: 76%;
+  width: 15%;
+}
+
+.logoVerCarrito {
+  margin-left: 2rem;
+}
+.logoVerCarrito a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: aliceblue;
+  padding: 0.25rem;
+}
+.logoVerCarrito a:hover {
+  color: #a9a075;
+}

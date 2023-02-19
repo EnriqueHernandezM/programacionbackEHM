@@ -26,6 +26,21 @@ const deleteElement = (idAb) => {
   socket.emit("deleteElement", idAb);
 };
 ///
+const addArticleTrolley = (idAdd) => {
+  //MODIFICAMOS ESTA VARIABLE SI QUEREMOS PUSHEAR ENN OTRO CARRITO
+
+  fetch("http://localhost:8080/api/carrito", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ product: idAdd }),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+    });
+};
 ///ESQUEMA
 const authorSchema = new schema.Entity("authors", {}, { idAttribute: "idmail" });
 const messageSchema = new schema.Entity("texts", {
@@ -92,10 +107,11 @@ socket.on("feedAct", (data12) => {
   data12.forEach((el) => {
     html1 += `
     <div>
+    <img src="${el.imagen}" alt="">
       <p >  ${el.producto}  </p>
-      <p> ${el.precio} </p>
-        <img src="${el.imagen}" alt="">
-        <span onclick=deleteElement("${el._id}");> 🗑️ </span>
+      <p> $ ${el.precio} </p>
+      <span  onclick=addArticleTrolley("${el._id}");> agregar al 🛒 </span>
+      <span  onclick=deleteElement("${el._id}");>borrar🗑️ </span>
     </div>
     `;
   });
@@ -103,6 +119,5 @@ socket.on("feedAct", (data12) => {
 });
 //
 ////
-
 ///
 //

@@ -10,7 +10,7 @@ let puertoPorArgumentos = argv["_"][0];
 const PORT = process.env.PORT || puertoPorArgumentos || 8080;
 const routes = require("./src/routes");
 ////////////////////////////////////// CLUSTER UTILIZANDO EL MODULO NATIVO
-
+const upload = require("./src/utils/multerFunction");
 /////////////////////////////////////
 ////////////////////////
 //////////////////////////////////////////////////MINIMIST REQ PARA USAR PARAM EN TERMINA
@@ -19,6 +19,7 @@ const { Contenedor } = require("./src/contenedores/app");
 const { ContenedorMsjes } = require("./src/contenedores/appMsjes");
 const containerProducts = new Contenedor("productos");
 const containerMsjes = new ContenedorMsjes("mensajes");
+const enviarcorreo = require("./src/utils/nodemailer");
 //
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer);
@@ -131,6 +132,19 @@ passport.use(
           direccion: req.body.direccion,
           telefono: req.body.telefono,
           avatar: req.body.avatar,
+          carrito: [],
+        };
+        const mailOptions = {
+          from: "Servidor Node. JackVinaterias",
+          to: process.env.CORREOSERVICEME,
+          subject: "Nuevo Registro",
+          html: `<div>
+           <h1 style="color: blue;">Email Usuario <span style="color: green;">${email}</span></h1>
+          <h1 style="color: blue;">Nombre <span style="color: green;">${req.body.nombre}</span></h1>
+          <h1 style="color: blue;">Edad <span style="color: green;">${req.body.edad}</span></h1>
+          <h1 style="color: blue;">Direccion <span style="color: green;">${req.body.direccion}</span></h1>
+          <h1 style="color: blue;"> Telefono <span style="color: green;">${req.body.telefono}</span></h1>
+          </div>`,
         };
         Usuarios.create(newUser, (err, userWithId) => {
           if (err) {
@@ -139,6 +153,8 @@ passport.use(
           }
           console.log(user);
           logger.log("info", "User Registration succesful");
+          enviarcorreo(mailOptions);
+          ///////////////////////////////////////////////////////////////////////
           return done(null, userWithId);
         });
       });
@@ -183,6 +199,7 @@ app.get("/api/productos-test", checkAuthentication, routes.productsTest);
 /////////////////////////////////////////////Crear Cuenta
 app.get("/crearCuenta", routes.getCreateAcount);
 ///
+
 app.post("/crearCuenta", passport.authenticate("crearCuenta", { passReqToCallback: true, failureRedirect: "/crearCuenta" }), routes.postCreateAcount);
 ////
 //FORMULARIO LOGUIN
@@ -215,6 +232,9 @@ randomOperation.get("/randoms", routes.apiRandoms);
 ///////////////////////////////////////////////////Sockets
 app.get("*", routes.failRoute);
 ///
+///////////////////CArrito De Compras
+app.post("/api/carrito", routes.postTrolley);
+
 io.on("connection", async (socket) => {
   logger.log("info", "con3ct Socket");
   //sOCKETS PRODUCTOS

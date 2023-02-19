@@ -36,8 +36,27 @@
                 <h3>direccion: <%=userE.direccion%></h3>
               </div>
             </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-lg-12 P-5 mt-1 mb-5 text-center">
+                <h4 class="fs-1">Tu carrito de compras</h4>
+              </div>
+              <% if(userE.carrito.length){ %><%userE.carrito.forEach((el) => {%>
+              <div class="col-xs-12 col-md-6 col-lg-4 mt-1 text-center">
+                <img class="img-fluid w-25" src="<%=el.imagen%>" alt="imagen de un producto en carrioto" />
+              </div>
+              <div class="col-xs-12 col-md-6 col-lg-4 mt-5 text-center">
+                <p><%=el.producto%></p>
+              </div>
+              <div class="col-xs-12 col-md-6 col-lg-4 mt-5 text-center">
+                <p>$: <%=el.precio%></p>
+              </div>
+              <%})%>
+              <div class="col-xs-12 col-md-6 col-lg-4 mt-5 totalCarrito">
+                <p>Total $: <%=total%></p>
+              </div>
+            </div>
           </div>
-          <% } if(sessionE == false){ %>
+          <% } %> <% } if(sessionE == false){ %>
           <h1>Hola al parecer aun no estas en el sistema</h1>
           <% }if(sessionE != true) { %>
         </div>
@@ -66,7 +85,7 @@
         </div>
       </form>
     </div>
-    <% } %> <%- include('../partials/footer'); %>
+    <% } %><%- include('../partials/footer'); %>
   </body>
   <!--  <script type="text/javascript">
     function actualizar() {
