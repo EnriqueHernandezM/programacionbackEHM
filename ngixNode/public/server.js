@@ -189,12 +189,13 @@ app.use((req, res, next) => {
   next();
 });
 //Solicitudes & re
+
 // INICIO
 app.get("/", routes.routIndex);
 //Ver productos estan en mongoDB
 routerDeProductos.get("/", routes.getProductsRout);
 //PRODUCTOS FAKER
-app.get("/api/productos-test", checkAuthentication, routes.productsTest);
+app.get("/productos-test", checkAuthentication, routes.productsTest);
 ////
 /////////////////////////////////////////////Crear Cuenta
 app.get("/crearCuenta", routes.getCreateAcount);
@@ -230,11 +231,14 @@ app.get("/infoSinLog", routes.info);
 randomOperation.get("/randoms", routes.apiRandoms);
 
 ///////////////////////////////////////////////////Sockets
-app.get("*", routes.failRoute);
+
 ///
 ///////////////////CArrito De Compras
 app.post("/api/carrito", routes.postTrolley);
 
+app.get("/carrito-confirmarcompra", routes.confirmarCompra);
+
+app.get("*", routes.failRoute);
 io.on("connection", async (socket) => {
   logger.log("info", "con3ct Socket");
   //sOCKETS PRODUCTOS

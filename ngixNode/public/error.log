@@ -53,3 +53,36 @@
 {"level":"error","message":"ReferenceError: prueba is not defined","timestamp":"2023-02-19T03:55:16.461Z"}
 {"level":"error","message":"ReferenceError: carrito is not defined","timestamp":"2023-02-19T03:58:12.225Z"}
 {"level":"error","message":"ReferenceError: carrito is not defined","timestamp":"2023-02-19T03:58:21.063Z"}
+{"level":"error","message":"SyntaxError: Unexpected token o in JSON at position 1","timestamp":"2023-02-20T00:42:41.877Z"}
+{"level":"error","message":"SyntaxError: Unexpected token o in JSON at position 1","timestamp":"2023-02-20T00:42:42.356Z"}
+{"level":"error","message":"SyntaxError: Unexpected token o in JSON at position 1","timestamp":"2023-02-20T00:42:45.448Z"}
+{"level":"error","message":"SyntaxError: Unexpected token o in JSON at position 1","timestamp":"2023-02-20T00:43:13.822Z"}
+{"level":"error","message":"SyntaxError: Unexpected token o in JSON at position 1","timestamp":"2023-02-20T00:43:15.655Z"}
+{"level":"error","message":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-02-20T00:54:15.636Z"}
+{"level":"error","message":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-02-20T00:55:06.656Z"}
+{"level":"error","message":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-02-20T00:55:52.710Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T07:53:07.677Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T07:53:10.864Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T07:53:11.000Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T08:13:58.208Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T08:24:16.626Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T08:24:21.214Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T08:40:59.563Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T08:56:33.094Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T09:35:13.259Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T09:45:30.470Z"}
+{"level":"error","message":"ReferenceError: data is not defined","timestamp":"2023-02-21T09:51:17.053Z"}
+{"level":"error","message":"ReferenceError: data is not defined","timestamp":"2023-02-21T09:51:19.448Z"}
+{"level":"error","message":"ReferenceError: data is not defined","timestamp":"2023-02-21T09:52:13.623Z"}
+{"level":"error","message":"ReferenceError: data is not defined","timestamp":"2023-02-21T09:52:28.845Z"}
+{"level":"error","message":"TypeError: dataCarrito.map is not a function","timestamp":"2023-02-21T09:59:52.081Z"}
+{"level":"error","message":"TypeError: dataCarrito.map is not a function","timestamp":"2023-02-21T10:00:29.338Z"}
+{"level":"error","message":"TypeError: dataCarrito.map is not a function","timestamp":"2023-02-21T10:01:17.108Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T10:01:17.244Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T10:01:17.341Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T10:01:18.312Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T10:01:18.410Z"}
+{"level":"error","message":"TypeError: dataCarrito.map is not a function","timestamp":"2023-02-21T10:01:34.892Z"}
+{"level":"error","message":"TypeError: dataCarrito.forEach is not a function","timestamp":"2023-02-21T10:02:45.923Z"}
+{"level":"error","message":"TypeError: dataCarrito.forEach is not a function","timestamp":"2023-02-21T10:02:46.267Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'producto')","timestamp":"2023-02-21T10:03:08.031Z"}

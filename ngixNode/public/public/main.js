@@ -19,7 +19,15 @@ const enviarMsg = () => {
   const apellidoUser = document.getElementById("apellido").value;
   const edadUser = document.getElementById("edad").value;
   const aliasUser = document.getElementById("alias").value;
-  socket.emit("msg", { idmail: email, text: msgeParaEnviar, avatar: avatarImagen, nombre: nombreUser, apellido: apellidoUser, edad: edadUser, alias: aliasUser });
+  socket.emit("msg", {
+    idmail: email,
+    text: msgeParaEnviar,
+    avatar: avatarImagen,
+    nombre: nombreUser,
+    apellido: apellidoUser,
+    edad: edadUser,
+    alias: aliasUser,
+  });
 };
 //funcion para llamar eliminar producto
 const deleteElement = (idAb) => {
@@ -27,8 +35,6 @@ const deleteElement = (idAb) => {
 };
 ///
 const addArticleTrolley = (idAdd) => {
-  //MODIFICAMOS ESTA VARIABLE SI QUEREMOS PUSHEAR ENN OTRO CARRITO
-
   fetch("http://localhost:8080/api/carrito", {
     method: "POST",
     headers: {
@@ -39,8 +45,25 @@ const addArticleTrolley = (idAdd) => {
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
+    })
+    .catch((e) => {
+      console.log(e + "error");
     });
 };
+/////////////////////////////////////////////////fetch CARRITO PEDIDO
+/* const pagarCarrito = () => {
+  fetch("http://localhost:8080/api/carrito/confirmarcompra")
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res.usuario);
+      /*  res.forEach((el) => {
+        console.log(el);
+      }); 
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+}; */
 ///ESQUEMA
 const authorSchema = new schema.Entity("authors", {}, { idAttribute: "idmail" });
 const messageSchema = new schema.Entity("texts", {
@@ -111,7 +134,7 @@ socket.on("feedAct", (data12) => {
       <p >  ${el.producto}  </p>
       <p> $ ${el.precio} </p>
       <span  onclick=addArticleTrolley("${el._id}");> agregar al 🛒 </span>
-      <span  onclick=deleteElement("${el._id}");>borrar🗑️ </span>
+      <span  onclick=deleteElement("${el._id}");>borrar 🗑️ </span>
     </div>
     `;
   });

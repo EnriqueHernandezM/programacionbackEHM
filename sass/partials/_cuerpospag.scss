@@ -123,9 +123,26 @@ form {
   border-top: double 0.5rem #baab8f;
 }
 .totalCarrito {
-  border-top: double 0.5rem #baab8f;
-  margin-left: 76%;
-  width: 15%;
+  margin-left: 65%;
+  ul {
+    display: flex;
+    flex-direction: row;
+    li {
+      list-style: none;
+      p {
+        border-top: double 0.5rem #baab8f;
+        margin-left: 49%;
+        padding: 0.25rem;
+        width: 100%;
+      }
+      button {
+        padding: 0.25rem;
+        border-radius: 15%;
+        color: #ffffff;
+        background-color: rgb(14, 14, 14);
+      }
+    }
+  }
 }
 .logoVerCarrito {
   margin-left: 2rem;

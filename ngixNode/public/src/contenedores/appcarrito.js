@@ -4,19 +4,11 @@ const Usuarios = require("../models/usuarios");
 const { config } = require("dotenv");
 const logger = require("../utils/loggers");
 config();
+const enviarcorreo = require("../utils/nodemailer");
+
 class ContenedorCarrito {
   constructor() {}
-  /*  memoryDirectory() {
-    try {
-      if (this.routPersistance == "productos") {
-        return Productos;
-      } else if (this.routPersistance == "carritos") {
-        return Carritos;
-      }
-    } catch (err) {
-      logger.log("error", `${err}`);
-    }
-  } */
+
   async connectMG() {
     try {
       await connect(process.env.DATABAS);
@@ -53,6 +45,14 @@ class ContenedorCarrito {
     } catch (err) {
       console.log(err);
     }
+  }
+  async comprarCarrito(idUsuario) {
+    try {
+      const dataCarrito = await Usuarios.find({ _id: idUsuario });
+      for (const data of dataCarrito) {
+        return data;
+      }
+    } catch (err) {}
   }
 }
 module.exports = { ContenedorCarrito };

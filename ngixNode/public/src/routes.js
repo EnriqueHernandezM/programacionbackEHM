@@ -2,6 +2,7 @@ const str = require("../src/contenedores/mocks");
 const logger = require("./utils/loggers");
 const { ContenedorCarrito } = require("../src/contenedores/appcarrito");
 const containerCarrito = new ContenedorCarrito();
+const enviarcorreo = require("./utils/nodemailer");
 function routIndex(req, res) {
   try {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
@@ -18,7 +19,11 @@ function routIndex(req, res) {
       veces = +1;
     }
 
-    res.render("pages/index", { saludo: `bienvenido ${email} a esta gran vinateria`, imagen: "https://i.ytimg.com/vi/WGrX46hqSCc/maxresdefault.jpg", visitas: veces });
+    res.render("pages/index", {
+      saludo: `bienvenido ${email} a esta gran vinateria`,
+      imagen: "https://i.ytimg.com/vi/WGrX46hqSCc/maxresdefault.jpg",
+      visitas: veces,
+    });
   } catch (err) {
     logger.log("error", `${err}`);
   }
@@ -160,9 +165,6 @@ function apiRandoms(req, res) {
     logger.log("error", `${err}`);
   }
 }
-function failRoute(req, res) {
-  logger.log("warn", { ruta: req.path, metodo: req.route.methods, err: "ruta inexistente" });
-}
 async function postTrolley(req, res) {
   logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
   try {
@@ -175,7 +177,37 @@ async function postTrolley(req, res) {
     }
   } catch (err) {}
 }
+async function confirmarCompra(req, res) {
+  try {
+    logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
+    const dataCarrito = await containerCarrito.comprarCarrito(req.user._id);
+    let pedido = [];
+    dataCarrito.carrito.forEach((el) => {
+      pedido.push(el.producto);
+    });
+    const mailOptionsConfirm = {
+      from: `Servidor Node. JackVinaterias`,
+      to: process.env.CORREOSERVICEME,
+      subject: `Nuevo Pedido de ${dataCarrito.nombre}`,
+      html: `<div>
+       <h1 style="color: black;">Hola has recibido un nuevo pedido</h1>
+        <h1 style="color: blue;">Email Usuario <span style="color: green;">${dataCarrito.email}</span></h1>
+          <h1 style="color: blue;"> telefono Contacto<span style="color: green;">${dataCarrito.telefono}</span></h1>
+          <h1 style="color: blue;">Direccion <span style="color: green;">${dataCarrito.direccion}</span></h1>
+          <h1 style="color: blue;">productos:<span style="color: green;">${pedido}</span></h1>
+      </div>
+      `,
+    };
+    enviarcorreo(mailOptionsConfirm);
+    res.render("pages/confirmacion", {});
+  } catch (err) {
+    logger.log("error", `${err}`);
+  }
+}
 //////Carrito de compras
+function failRoute(req, res) {
+  logger.log("warn", { ruta: req.path, metodo: req.route.methods, err: "ruta inexistente" });
+}
 module.exports = {
   apiRandoms,
   routIndex,
@@ -187,7 +219,8 @@ module.exports = {
   postLoguear,
   logOut,
   info,
-  failRoute,
   infoConLog,
   postTrolley,
+  confirmarCompra,
+  failRoute,
 };
