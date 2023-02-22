@@ -186,7 +186,6 @@ async function confirmarCompra(req, res) {
   try {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
     const dataCarrito = await containerCarrito.comprarCarrito(req.user._id);
-
     let pedido = [];
     dataCarrito.carrito.forEach((el) => {
       pedido.push(el.producto);
@@ -214,7 +213,20 @@ async function confirmarCompra(req, res) {
 }
 //////Carrito de compras
 function failRoute(req, res) {
-  logger.log("warn", { ruta: req.path, metodo: req.route.methods, err: "ruta inexistente" });
+  try {
+    logger.log("warn", { ruta: req.path, metodo: req.route.methods, err: "ruta inexistente" });
+  } catch (err) {
+    logger.log("error", `${err}`);
+  }
+}
+async function deleteItemTrolley(req, res) {
+  try {
+    const { id } = req.params;
+    await containerCarrito.deleteByIdAllTrolleyItem(req.user.id, id);
+  } catch (err) {
+    logger.log("error", `${err}`);
+  }
+  res.json({ eliminated: "ok" });
 }
 module.exports = {
   apiRandoms,
@@ -231,5 +243,6 @@ module.exports = {
   postTrolley,
   confirmarCompra,
   getApiProductos,
+  deleteItemTrolley,
   failRoute,
 };

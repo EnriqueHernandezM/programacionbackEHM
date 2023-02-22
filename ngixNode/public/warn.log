@@ -1697,3 +1697,15 @@
 {"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/api/productos","timestamp":"2023-02-22T02:07:09.198Z"}
 {"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/favicon.ico","timestamp":"2023-02-22T02:07:14.425Z"}
 {"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/favicon.ico","timestamp":"2023-02-22T02:07:26.374Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T08:21:03.803Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T08:21:47.303Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T08:26:05.893Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T08:26:06.199Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T08:26:59.657Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T08:27:26.405Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T08:30:37.657Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T08:31:25.558Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T09:04:05.332Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T09:07:29.728Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T09:07:46.725Z"}
+{"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T09:07:46.834Z"}

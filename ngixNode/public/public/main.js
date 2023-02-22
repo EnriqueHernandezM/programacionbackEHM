@@ -103,7 +103,19 @@ const buscadorItems = () => {
       console.log(e + "error");
     });
 };
-///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////DELETE ITEMS TROLLEY
+const deleteItemTrolley = (idItem) => {
+  let url = "http://localhost:8080/api/carritodelete/";
+  fetch(url + idItem, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.eliminated == "ok") {
+        window.location.href = window.location.href;
+      }
+    });
+};
 /////////////////////////////////////////////////fetch CARRITO PEDIDO
 /* const pagarCarrito = () => {
   fetch("http://localhost:8080/api/carrito/confirmarcompra")

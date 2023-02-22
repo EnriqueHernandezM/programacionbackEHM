@@ -128,7 +128,8 @@ form .bEnv {
 }
 
 .totalCarrito {
-  margin-left: 65%;
+  margin-left: 63%;
+  margin-bottom: 2rem;
 }
 .totalCarrito ul {
   display: flex;
@@ -139,13 +140,13 @@ form .bEnv {
 }
 .totalCarrito ul li p {
   border-top: double 0.5rem #baab8f;
-  margin-left: 48%;
   padding: 0.25rem;
   width: 100%;
 }
 .totalCarrito ul li a {
+  margin-left: 5.75rem;
   text-decoration: none;
-  padding: 0.45rem;
+  padding: 0.55rem;
   border-radius: 15%;
   color: #ffffff;
   background-color: rgb(14, 14, 14);

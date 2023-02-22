@@ -89,3 +89,10 @@
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T23:56:22.870Z"}
 {"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-22T01:33:34.806Z"}
 {"level":"error","message":"ReferenceError: total is not defined","timestamp":"2023-02-22T01:33:51.070Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'originalUrl')","timestamp":"2023-02-22T08:08:48.482Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'originalUrl')","timestamp":"2023-02-22T08:08:48.922Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-22T09:11:45.589Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-22T09:11:47.853Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-22T09:11:49.908Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-22T09:12:02.819Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-02-22T09:12:04.095Z"}

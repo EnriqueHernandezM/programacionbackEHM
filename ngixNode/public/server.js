@@ -9,10 +9,6 @@ let argv = require("minimist")(process.argv.slice(2));
 let puertoPorArgumentos = argv["_"][0];
 const PORT = process.env.PORT || puertoPorArgumentos || 8080;
 const routes = require("./src/routes");
-////////////////////////////////////// CLUSTER UTILIZANDO EL MODULO NATIVO
-const upload = require("./src/utils/multerFunction");
-/////////////////////////////////////
-////////////////////////
 //////////////////////////////////////////////////MINIMIST REQ PARA USAR PARAM EN TERMINA
 
 const { Contenedor } = require("./src/contenedores/app");
@@ -201,7 +197,6 @@ app.get("/api/productos", routes.getApiProductos);
 /////////////////////////////////////////////Crear Cuenta
 app.get("/crearCuenta", routes.getCreateAcount);
 ///
-
 app.post("/crearCuenta", passport.authenticate("crearCuenta", { passReqToCallback: true, failureRedirect: "/crearCuenta" }), routes.postCreateAcount);
 ////
 //FORMULARIO LOGUIN
@@ -236,7 +231,7 @@ randomOperation.get("/randoms", routes.apiRandoms);
 ///
 ///////////////////CArrito De Compras
 app.post("/api/carrito", routes.postTrolley);
-
+app.delete("/api/carritodelete/:id", routes.deleteItemTrolley);
 app.get("/carrito-confirmarcompra", routes.confirmarCompra);
 
 //app.get("*", routes.failRoute);
