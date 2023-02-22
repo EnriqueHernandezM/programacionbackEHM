@@ -3,6 +3,33 @@ const schema = normalizr.schema;
 const normalize = normalizr.normalize;
 const denormalize = normalizr.denormalize;
 //funcion para subir producto
+const renderUpdateProductos = () => {
+  let htmlUpdate = "";
+  htmlUpdate += `
+  <div class="row p-5 ps-2">
+        <div class="col text-white ms-5 text-center">
+          <h1>Agregar Un Nuevo Producto</h1>
+        </div>
+      </div>
+      <form enctype="multipart/form-data" method="POST" class="row p-5" onsubmit="actualizarFeed();return false;">
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">Nombre del Licor</p>
+          <input id="ingProduct" type="text" name="producto" placeholder="Ingresa nombre del producto " class="w-75" required="true" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">precio del producto</p>
+          <input id="ingPrecio" type="number" placeholder="ingresa el precio del producto" name="precio" class="w-50" required="true" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <p class="text-white P-2">ingresa URL de imagen</p>
+          <input id="ingImagen" type="text" name="imagen" class="w-100" required="true" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-12 P-4 mt-5 text-center ps-5 ms-5">
+          <input type="submit" value="Upload productos" />
+        </div>
+      </form>`;
+  document.getElementById("renderUpdateProductos").innerHTML = htmlUpdate;
+};
 
 const actualizarFeed = () => {
   const ingProduct = document.getElementById("ingProduct").value;
@@ -50,6 +77,33 @@ const addArticleTrolley = (idAdd) => {
       console.log(e + "error");
     });
 };
+///////////////////////////////////////////////////////////////buscador Por Nombre
+const buscadorItems = () => {
+  fetch("http://localhost:8080/api/productos")
+    .then((res) => res.json())
+    .then((json) => {
+      let entradaAbuscar = document.getElementById("ingresoBuscadorItems").value;
+      document.getElementById("ingresoBuscadorItems").value = "";
+      const inventarioVinateria = json.filter((el) => el.producto.includes(entradaAbuscar[0].toUpperCase()));
+      let html1 = "";
+      inventarioVinateria.forEach((el) => {
+        html1 += `
+        <div>
+        <img src="${el.imagen}" alt="">
+          <p >  ${el.producto}  </p>
+          <p> $ ${el.precio} </p>
+          <span  onclick=addArticleTrolley("${el._id}");> agregar al 🛒 </span>
+          <span  onclick=deleteElement("${el._id}");>borrar 🗑️ </span>
+        </div>
+        `;
+      });
+      document.getElementById("probandoAct").innerHTML = html1;
+    })
+    .catch((e) => {
+      console.log(e + "error");
+    });
+};
+///////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////fetch CARRITO PEDIDO
 /* const pagarCarrito = () => {
   fetch("http://localhost:8080/api/carrito/confirmarcompra")

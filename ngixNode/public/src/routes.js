@@ -3,6 +3,8 @@ const logger = require("./utils/loggers");
 const { ContenedorCarrito } = require("../src/contenedores/appcarrito");
 const containerCarrito = new ContenedorCarrito();
 const enviarcorreo = require("./utils/nodemailer");
+const { Contenedor } = require("../src/contenedores/app");
+const containerProducts = new Contenedor("productos");
 function routIndex(req, res) {
   try {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
@@ -27,6 +29,10 @@ function routIndex(req, res) {
   } catch (err) {
     logger.log("error", `${err}`);
   }
+}
+async function getApiProductos(req, res) {
+  const todosLosItems = await containerProducts.getAll();
+  res.json(todosLosItems);
 }
 function getProductsRout(req, res) {
   try {
@@ -56,8 +62,8 @@ function getCreateAcount(req, res) {
 }
 function postCreateAcount(req, res) {
   try {
-    routIndex(req, res);
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
+    res.render("pages/formloguear", {});
   } catch (err) {
     logger.log("error", `${err}`);
   }
@@ -79,8 +85,7 @@ function getLoguear(req, res) {
 
 function postLoguear(req, res) {
   try {
-    logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
-    routIndex(req, res);
+    getLoguear(req, res);
   } catch (err) {
     logger.log("error", `${err}`);
   }
@@ -181,10 +186,13 @@ async function confirmarCompra(req, res) {
   try {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
     const dataCarrito = await containerCarrito.comprarCarrito(req.user._id);
+
     let pedido = [];
     dataCarrito.carrito.forEach((el) => {
       pedido.push(el.producto);
     });
+    await containerCarrito.enviarMsg(dataCarrito, pedido);
+    containerCarrito.enviarWats(dataCarrito.nombre);
     const mailOptionsConfirm = {
       from: `Servidor Node. JackVinaterias`,
       to: process.env.CORREOSERVICEME,
@@ -222,5 +230,6 @@ module.exports = {
   infoConLog,
   postTrolley,
   confirmarCompra,
+  getApiProductos,
   failRoute,
 };

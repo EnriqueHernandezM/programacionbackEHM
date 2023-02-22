@@ -139,26 +139,46 @@ form .bEnv {
 }
 .totalCarrito ul li p {
   border-top: double 0.5rem #baab8f;
-  margin-left: 49%;
+  margin-left: 48%;
   padding: 0.25rem;
   width: 100%;
 }
-.totalCarrito ul li button {
-  padding: 0.25rem;
+.totalCarrito ul li a {
+  text-decoration: none;
+  padding: 0.45rem;
   border-radius: 15%;
   color: #ffffff;
   background-color: rgb(14, 14, 14);
 }
-
-.logoVerCarrito {
-  margin-left: 2rem;
+.totalCarrito ul li a:hover {
+  color: #a9a075;
 }
-.logoVerCarrito a {
+
+.logoVerCarrito ul {
+  display: flex;
+  justify-content: space-around;
+}
+.logoVerCarrito ul li {
+  list-style: none;
+}
+.logoVerCarrito ul li a {
   font-size: 1.5rem;
   text-decoration: none;
   color: aliceblue;
   padding: 0.25rem;
 }
-.logoVerCarrito a:hover {
+.logoVerCarrito ul li a:hover {
+  color: #a9a075;
+}
+.logoVerCarrito ul li button {
+  display: inline-block;
+  font-size: 1.15rem;
+  border-radius: 7%;
+  padding: 0.15rem;
+  color: #ffffff;
+  background-color: rgb(41, 41, 41);
+  border: none;
+}
+.logoVerCarrito ul li button:hover {
   color: #a9a075;
 }

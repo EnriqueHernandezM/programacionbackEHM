@@ -86,3 +86,6 @@
 {"level":"error","message":"TypeError: dataCarrito.forEach is not a function","timestamp":"2023-02-21T10:02:45.923Z"}
 {"level":"error","message":"TypeError: dataCarrito.forEach is not a function","timestamp":"2023-02-21T10:02:46.267Z"}
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'producto')","timestamp":"2023-02-21T10:03:08.031Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-02-21T23:56:22.870Z"}
+{"level":"error","message":"ReferenceError: user is not defined","timestamp":"2023-02-22T01:33:34.806Z"}
+{"level":"error","message":"ReferenceError: total is not defined","timestamp":"2023-02-22T01:33:51.070Z"}
