@@ -17,3 +17,13 @@ Mensjae a WSP
 //////////////////////////////////////////////////////////////////////////////////////////
 Mensaje a cliente
 ![ss nuevo registo](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/3erEntregaFinal/imagenesRead/mensajeAclient.jpeg)
+////////////////////////////////////////////////////////////////////////////////////////////////
+PARA ENCENDER EL SERVIDOR CON CLUSTER CAMBIAR LA VARIABLE DE ENTORNO: CLUSTER "ON"/"OF
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////PRUEBAS CON ARTILLERY
+simulaMOS 30 usuarios enviando 100 peticiones AH LA RUTA DE PRODUCTOS CON EL USER YA LOGUADO
+////////////////////////////////////////////////////// CON CLUSTER
+artillery quick --count 30 -n 100 http://localhost:8080/productos > result_productosConCluster.txt
+![TEST](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/3erEntregaFinal/imagenesRead/productosConCluser.jpg)
+//////////////////////////////////////////////////////////SIN CLUSTER
+artillery quick --count 30 -n 100 http://localhost:8080/productos > result_productosSinCluster.txt
+![TEST](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/3erEntregaFinal/imagenesRead/productosSinCluster.jpg)
