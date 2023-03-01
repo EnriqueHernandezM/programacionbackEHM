@@ -9,6 +9,6 @@ infoConCompresion.use(compression()); //use el routing para implementar compress
 infoConCompresion.get("/compresion", info);
 randomOperation.get("/infoConLog", infoConLog);
 randomOperation.get("/infoSinLog", info);
-//randomOperation.use(compression());//prueba
+randomOperation.use(compression()); //prueba
 randomOperation.get("/randoms", apiRandoms);
 module.exports = { randomOperation, infoConCompresion };

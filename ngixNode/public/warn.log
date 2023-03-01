@@ -1709,3 +1709,36 @@
 {"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T09:07:29.728Z"}
 {"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T09:07:46.725Z"}
 {"level":"warn","message":"En el modo pruba de twilio solo se pueden usarn numeros registrados","timestamp":"2023-02-22T09:07:46.834Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos","timestamp":"2023-03-01T06:27:48.890Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos","timestamp":"2023-03-01T06:27:54.816Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos","timestamp":"2023-03-01T06:27:55.248Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/loguear","timestamp":"2023-03-01T06:27:57.000Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/loguear","timestamp":"2023-03-01T06:27:57.160Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/test","timestamp":"2023-03-01T06:28:01.632Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/test","timestamp":"2023-03-01T06:28:01.742Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos","timestamp":"2023-03-01T06:28:52.968Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/test","timestamp":"2023-03-01T06:28:57.343Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/test","timestamp":"2023-03-01T06:28:57.487Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/loguear","timestamp":"2023-03-01T06:29:01.628Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/loguear","timestamp":"2023-03-01T06:29:03.661Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos","timestamp":"2023-03-01T06:29:07.409Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/main.js","timestamp":"2023-03-01T06:30:38.105Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/estilos.css","timestamp":"2023-03-01T06:30:38.109Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/carrito-confirmarcompra","timestamp":"2023-03-01T08:24:34.596Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/carrito-confirmarcompra","timestamp":"2023-03-01T08:24:40.701Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/carrito-confirmarcompra","timestamp":"2023-03-01T08:24:43.515Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/carrito-confirmarcompra","timestamp":"2023-03-01T08:25:46.123Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/carrito/estilos.css","timestamp":"2023-03-01T08:25:57.961Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/carrito/main.js","timestamp":"2023-03-01T08:25:58.023Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/estilos.css","timestamp":"2023-03-01T08:26:59.347Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/main.js","timestamp":"2023-03-01T08:27:00.339Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/estilos.css","timestamp":"2023-03-01T08:30:51.677Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/main.js","timestamp":"2023-03-01T08:30:51.955Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/estilos.css","timestamp":"2023-03-01T08:35:28.675Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/main.js","timestamp":"2023-03-01T08:35:28.677Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/estilos.css","timestamp":"2023-03-01T08:44:33.729Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/main.js","timestamp":"2023-03-01T08:44:33.733Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/estilos.css","timestamp":"2023-03-01T08:44:46.826Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/main.js","timestamp":"2023-03-01T08:44:46.835Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/main.js","timestamp":"2023-03-01T08:44:49.319Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/productos/estilos.css","timestamp":"2023-03-01T08:44:49.320Z"}

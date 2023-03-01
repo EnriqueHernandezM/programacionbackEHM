@@ -1,14 +1,8 @@
 const moment = require("moment");
 const timestamp = moment().format("lll");
+const logger = require("../utils/loggers");
 ///
-const admin = require("firebase-admin");
-const { getFirestore } = require("firebase-admin/firestore");
-const serviceAccount = require("../../../../privi.json");
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
-console.log("conecte");
-const db = getFirestore();
+const { traerMensajesOredenadoPorFecha, guardarNuevoMensaje } = require("../persistencia/mensajes");
 ///
 const { normalize, schema } = require("normalizr");
 /////
@@ -25,7 +19,7 @@ class ContenedorMsjes {
   }
   async readMsgs() {
     try {
-      const res = await db.collection("mensajes").orderBy("time", "asc").get();
+      const res = await traerMensajesOredenadoPorFecha();
       if (res) {
         let arrayRes = res.docs.map((item) => {
           return { id: item.id, ...item.data() };
@@ -40,16 +34,17 @@ class ContenedorMsjes {
   }
   async saveMsges(mensaje) {
     try {
-      const author1 = { idmail: mensaje.idmail, avatar: mensaje.avatar, nombre: mensaje.nombre, apellido: mensaje.apellido, edad: mensaje.edad, alias: mensaje.alias };
+      const author1 = {
+        idmail: mensaje.idmail,
+        avatar: mensaje.avatar,
+        nombre: mensaje.nombre,
+        apellido: mensaje.apellido,
+        edad: mensaje.edad,
+        alias: mensaje.alias,
+      };
       let text1 = mensaje.text;
-      let res;
-
-      res = await db.collection("mensajes").doc().set({
-        author: author1,
-        text: text1,
-        time: timestamp,
-      });
-      console.log(res);
+      const saveMsgDtb = await guardarNuevoMensaje(author1, text1, timestamp);
+      logger.log("info", `${saveMsgDtb}`);
       let act = await this.readMsgs();
       return act;
     } catch (err) {
@@ -61,7 +56,7 @@ class ContenedorMsjes {
     try {
       const normalizarOk = normalize(msgRec, messageSchemaOk);
       // const denormalized = denormalize(normalizxado.result, posts, normalizxado.entities);
-      console.log(JSON.stringify(normalizarOk, null, 4));
+      logger.log("info", `${JSON.stringify(normalizarOk, null, 4)}`);
       return normalizarOk;
     } catch (err) {
       logger.log("error", `${err}`);

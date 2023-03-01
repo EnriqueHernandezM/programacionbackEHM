@@ -25,5 +25,8 @@ function routIndex(req, res) {
     logger.log("error", `${err}`);
   }
 }
+function failRoute(req, res) {
+  logger.log("warn", { ruta: req.path, metodo: req.route.methods, err: "ruta inexistente" });
+}
 
-module.exports = routIndex;
+module.exports = { routIndex, failRoute };

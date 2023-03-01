@@ -77,7 +77,7 @@ class ContenedorCarrito {
       } else {
         logger.log("warn", "En el modo pruba de twilio solo se pueden usarn numeros registrados");
       }
-    } catch (error) {
+    } catch (err) {
       logger.log("error", `${err}`);
     }
   }
@@ -96,8 +96,7 @@ class ContenedorCarrito {
   }
   async deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
-      await this.connectMG();
-      let catchCart = await this.comprarCarrito(idTrolley);
+      let catchCart = await this.infoCarrito(idTrolley);
       let carrito = catchCart.carrito;
       catchCart = carrito.findIndex((el) => el._id == idItem);
       let x = carrito.splice(catchCart, 1);

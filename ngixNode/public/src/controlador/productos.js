@@ -1,4 +1,4 @@
-const str = require("../contenedores/mocks");
+const str = require("../utils/mocks");
 const logger = require("../utils/loggers");
 const { Contenedor } = require("../negocio/productos");
 const containerProducts = new Contenedor();
