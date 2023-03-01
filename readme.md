@@ -27,3 +27,10 @@ artillery quick --count 30 -n 100 http://localhost:8080/productos > result_produ
 //////////////////////////////////////////////////////////SIN CLUSTER
 artillery quick --count 30 -n 100 http://localhost:8080/productos > result_productosSinCluster.txt
 ![TEST](https://github.com/EnriqueHernandezM/programacionbackEHM/blob/3erEntregaFinal/imagenesRead/productosSinCluster.jpg)
+/////////////////////////////////////////
+
+////////////////////////////////
+//////////////////PARA MI
+ESTAMOS EMPEZANDO A ACOMODAR LAS RUTAS EN EL SERVER ESTA PRODUCTOS Y PRODUCTOS API SEUIR CON ESO
+PARA DESPUES AGRGAR LO DE LA RUTA INDEXZ
+Y LUEGO VERIFICAR SI ESTA FUNCIONANDO PASSPORT
