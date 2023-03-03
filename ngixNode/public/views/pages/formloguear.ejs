@@ -42,13 +42,13 @@
               </div>
               <% if(userE.carrito.length){ %><%userE.carrito.forEach((el) => {%>
               <div class="col-xs-12 col-md-6 col-lg-4 mt-1 text-center">
-                <img class="img-fluid w-25" src="<%=el.imagen%>" alt="imagen de un producto en carrioto" />
+                <img class="img-fluid w-25" src="<%=el.image%>" alt="imagen de un producto en carrioto" />
               </div>
               <div class="col-xs-12 col-md-6 col-lg-3 mt-5 text-center">
-                <p><%=el.producto%></p>
+                <p><%=el.product%></p>
               </div>
               <div class="col-xs-12 col-md-6 col-lg-3 mt-5 text-center">
-                <p>$: <%=el.precio%></p>
+                <p>$: <%=el.price%></p>
               </div>
               <div class="col-xs-12 col-md-6 col-lg-2 mt-5 text-center">
                 <span onclick="deleteItemTrolley('<%=el._id%>')">borrar 🗑️ </span>

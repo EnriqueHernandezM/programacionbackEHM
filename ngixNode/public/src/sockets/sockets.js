@@ -8,7 +8,7 @@ function socketModule(io) {
   io.on("connection", async (socket) => {
     logger.log("info", "con3ct Socket");
     //sOCKETS PRODUCTOS
-    socket.on("on", async () => {
+    /* socket.on("on", async () => {
       io.sockets.emit("feedAct", await containerProducts.getAll());
     });
     socket.on("actualizame", async (data) => {
@@ -19,7 +19,7 @@ function socketModule(io) {
       await containerProducts.deleteById(idAb);
       const actual = await containerProducts.getAll();
       io.sockets.emit("feedAct", actual);
-    });
+    }); */
     //
     //SOCKETS MENSAJES
     socket.on("msg", async (data) => {

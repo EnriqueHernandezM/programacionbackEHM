@@ -1,16 +1,9 @@
 const mongoose = require("mongoose");
 const Productos = require("../models/productos");
 const logger = require("../utils/loggers");
-/* mongoose.set("strictQuery", false);
-mongoose
-  .connect(process.env.DATABAS)
-  .then(() => logger.log("info", "Connected to Mongo  productos"))
-  .catch((e) => {
-    logger.log("error", e);
-    throw "can not connect to the mongo!";
-  }) */ const guardarNuevoProducto = async (producto) => {
+const guardarNuevoProducto = async (product) => {
   try {
-    const newProduct = new Productos(producto);
+    const newProduct = new Productos(product);
     await newProduct.save().then((data) => console.log(data));
   } catch (err) {
     logger.log("error", `${err}`);

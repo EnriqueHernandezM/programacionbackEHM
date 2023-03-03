@@ -11,31 +11,77 @@ const renderUpdateProductos = () => {
           <h1>Agregar Un Nuevo Producto</h1>
         </div>
       </div>
-      <form enctype="multipart/form-data" method="POST" class="row p-5" onsubmit="actualizarFeed();return false;">
+      <form enctype="multipart/form-data" method="POST" class="row p-5" onsubmit="newProduct();return false;">
         <div class="col-xs-12 col-md-6 col-lg-4">
           <p class="text-white P-2">Nombre del Licor</p>
-          <input id="ingProduct" type="text" name="producto" placeholder="Ingresa nombre del producto " class="w-75" required="true" />
+          <input id="newIngProduct" type="text" name="product" placeholder="Ingresa nombre del producto " class="w-75" required="true" />
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa tipo de licor</p>
+        <input id="newTypeLicor" type="text" name="typeOfLiquor" class="w-100" required="true" />
+      </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
           <p class="text-white P-2">precio del producto</p>
-          <input id="ingPrecio" type="number" placeholder="ingresa el precio del producto" name="precio" class="w-50" required="true" />
+          <input id="newIngPrecio" type="number" placeholder="ingresa el precio del producto" name="price" class="w-50" required="true" />
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
           <p class="text-white P-2">ingresa URL de imagen</p>
-          <input id="ingImagen" type="text" name="imagen" class="w-100" required="true" />
+          <input id="newIngImage" type="text" name="image" class="w-100" required="true" />
         </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa stock disponible</p>
+        <input id="newIngStock" type="number" name="stockItems" class="w-100" required="true" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa CodeItem</p>
+        <input id="newIngCodeItem" type="number" name="codeItem" class="w-100" required="true" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa Descripcion del producto</p>
+        <input id="newIngDescription" type="text" name="description" class="w-100" required="true" />
+      </div>
         <div class="col-xs-12 col-md-6 col-lg-12 P-4 mt-5 text-center ps-5 ms-5">
-          <input type="submit" value="Upload productos" />
+          <input type="submit" value="Upload product" />
         </div>
       </form>`;
-  document.getElementById("renderUpdateProductos").innerHTML = htmlUpdate;
+  document.getElementById("renderUpdateProducts").innerHTML = htmlUpdate;
 };
 
-const actualizarFeed = () => {
-  const ingProduct = document.getElementById("ingProduct").value;
-  const ingPrecio = document.getElementById("ingPrecio").value;
-  const ingImg = document.getElementById("ingImagen").value;
-  socket.emit("actualizame", { producto: ingProduct, precio: ingPrecio, imagen: ingImg });
+const newProduct = () => {
+  const nameProductNew = document.getElementById("newIngProduct").value;
+  const typeOfLicor = document.getElementById("newTypeLicor").value;
+  const newPriceProduct = document.getElementById("newIngPrecio").value;
+  const newImageProduct = document.getElementById("newIngImage").value;
+  const newDescriptionProduct = document.getElementById("newIngDescription").value;
+  const newStockProduct = document.getElementById("newIngStock").value;
+  const newCodeItem = document.getElementById("newIngCodeItem").value;
+  fetch("http://localhost:8080/api/productos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      product: nameProductNew,
+      typeOfLiquor: typeOfLicor,
+      price: newPriceProduct,
+      image: newImageProduct,
+      description: newDescriptionProduct,
+      stockItems: newStockProduct,
+      codeItem: newCodeItem,
+    }),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.error == true) {
+        alert("reservado solo para administradores");
+      }
+      if (res.ok) {
+        alert("ProductoagregadoCorrectamente");
+      }
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 };
 //funcion para enviar mensaje
 const enviarMsg = () => {
@@ -58,7 +104,16 @@ const enviarMsg = () => {
 };
 //funcion para llamar eliminar producto
 const deleteElement = (idAb) => {
-  socket.emit("deleteElement", idAb);
+  let url = "http://localhost:8080/api/productos/";
+  fetch(url + idAb, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.eliminated == "ok") {
+        window.location.href = window.location.href;
+      }
+    });
 };
 ///
 const addArticleTrolley = (idAdd) => {
@@ -190,22 +245,7 @@ socket.on("listaMsgs", (data) => {
 ///
 ///
 //
-//renderiza productos
-socket.on("feedAct", (data12) => {
-  let html1 = "";
-  data12.forEach((el) => {
-    html1 += `
-    <div>
-    <img src="${el.imagen}" alt="">
-      <p >  ${el.producto}  </p>
-      <p> $ ${el.precio} </p>
-      <span  onclick=addArticleTrolley("${el._id}");> agregar al 🛒 </span>
-      <span  onclick=deleteElement("${el._id}");>borrar 🗑️ </span>
-    </div>
-    `;
-  });
-  document.getElementById("probandoAct").innerHTML = html1;
-});
+
 //
 ////
 ///

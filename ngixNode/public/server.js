@@ -15,12 +15,12 @@ require("./src/passport/local-auth");
 
 let argv = require("minimist")(process.argv.slice(2));
 let puertoPorArgumentos = argv["_"][0];
-
+const cors = require("cors");
 const PORT = process.env.PORT || puertoPorArgumentos || 8080;
 
 const logger = require("./src/utils/loggers");
 const flash = require("connect-flash");
-
+app.use(cors({ origin: "*" }));
 const httpServer = require("http").createServer(app);
 
 app.use(express.json());

@@ -5,7 +5,7 @@
   </head>
   <body class="bg-dark text-white">
     <%- include('../partials/navbar'); %>
-    <div class="container-fluid mt-5" id="renderUpdateProductos"></div>
+    <div class="container-fluid mt-5" id="renderUpdateProducts"></div>
     <div class="container m-auto">
       <div class="row logoVerCarrito">
         <ul>
@@ -13,12 +13,17 @@
           <li><button onclick="renderUpdateProductos()">Agregar productos</button></li>
         </ul>
       </div>
-      <div class="row">
-        <h2 class="p-5 text-center">productos disponibles</h2>
-        <div class="col-xs-12 col-md-6 col-lg-4">
-          <div id="itemsAmostrar"></div>
-          <div id="probandoAct"></div>
+      <h2 class="p-5 text-center">productos disponibles</h2>
+      <div id="probandoAct">
+        <%allItems.forEach((el) => {%>
+        <div>
+          <img src="<%=el.image%>" alt="imagen de un producto en carrioto" />
+          <p><%=el.product%></p>
+          <p>$:<%=el.price%></p>
+          <span onclick="addArticleTrolley('<%=el._id%>')"> agregar al 🛒 </span>
+          <span onclick="deleteElement('<%=el._id%>')">borrar 🗑️ </span>
         </div>
+        <%})%>
       </div>
     </div>
     <div class="container m-auto">

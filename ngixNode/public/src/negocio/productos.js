@@ -16,9 +16,11 @@ class Contenedor {
       throw "can not connect to the db";
     }
   }
-  async save(producto) {
+  async save(product) {
     try {
-      await guardarNuevoProducto(producto);
+      const data = new Date();
+      product.data = data;
+      await guardarNuevoProducto(product);
       return this.getAll();
     } catch (err) {
       logger.log("error", `${err}`);
@@ -42,7 +44,7 @@ class Contenedor {
   }
   async deleteById(aBorrar) {
     try {
-      borrarItemInventario(aBorrar);
+      await borrarItemInventario(aBorrar);
     } catch (err) {
       logger.log("error", `${err}`);
     }

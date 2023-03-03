@@ -122,3 +122,5 @@
 {"level":"error","message":"TypeError: this.connectMG is not a function","timestamp":"2023-03-01T08:36:09.840Z"}
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'forEach')","timestamp":"2023-03-01T08:37:06.856Z"}
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-01T08:37:06.857Z"}
+{"level":"error","message":"ValidationError: image: Path `image` is required., price: Path `price` is required., typeOfLiquor: Path `typeOfLiquor` is required., product: Path `product` is required.","timestamp":"2023-03-03T08:42:29.977Z"}
+{"level":"error","message":"ValidationError: image: Path `image` is required., price: Path `price` is required., typeOfLiquor: Path `typeOfLiquor` is required., product: Path `product` is required.","timestamp":"2023-03-03T08:44:06.563Z"}
