@@ -16,7 +16,7 @@ function socketModule(io) {
       io.sockets.emit("feedAct", act);
     });
     socket.on("deleteElement", async (idAb) => {
-      containerProducts.deleteById(idAb);
+      await containerProducts.deleteById(idAb);
       const actual = await containerProducts.getAll();
       io.sockets.emit("feedAct", actual);
     });
