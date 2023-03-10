@@ -2,10 +2,14 @@ const { Schema, model } = require("mongoose");
 
 const MensajesSchema = new Schema({
   author: {
-    type: Map,
-    of: String,
-    required: true,
+    alias: { type: String },
+    apellido: { type: String },
+    avatar: { type: String },
+    edad: { type: Number },
+    idmail: { type: String },
+    nombre: { type: String },
   },
+
   text: { type: String, required: true, max: 100 },
   time: Date,
 });
@@ -20,14 +24,16 @@ class ContainerMessagesMongo {
   }
   traerMensajesOredenadoPorFecha = async () => {
     const mensajesPorFecha = await Mensajes.find({});
-
-    return mensajesPorFecha;
+    let arrayRes = mensajesPorFecha.map((item) => {
+      return { id: item._id, author: item.author, text: item.text };
+    });
+    return arrayRes;
   };
   guardarNuevoMensaje = async (author1, text1, timestamp) => {
     try {
       const res = { author: author1, text: text1, time: timestamp };
       const newMessage = new Mensajes(res);
-      await newMessage.save().then((data) => console.log(data));
+      // await newMessage.save().then((data) => console.log(data));
     } catch (err) {
       logger.log("error", `${err}`);
       return { error: err };

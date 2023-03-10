@@ -8,7 +8,7 @@ async function postTrolley(req, res) {
     if (req.user) {
       const { body } = req;
       const idProduct = body.product;
-      await containerCarrito.addToCart(req.user._id, idProduct);
+      await containerCarrito.addToCart(req.user.email, idProduct);
     } else {
       logger.log("info", "Al parecer aun no estas Loguead");
     }
@@ -30,7 +30,7 @@ async function deleteItemTrolley(req, res) {
   try {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
     const { id } = req.params;
-    await containerCarrito.deleteByIdAllTrolleyItem(req.user.id, id);
+    await containerCarrito.deleteByIdAllTrolleyItem(req.user.email, id);
     res.json({ eliminated: "ok" });
   } catch (err) {
     logger.log("error", `${err}`);

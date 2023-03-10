@@ -1,45 +1,39 @@
+const { usuarios } = require("../../utils/createUserParallel");
 const logger = require("../../utils/loggers");
 
-class ContainerCarritoMongo {
+class ContainerCarritoMem {
   constructor() {}
-
-  pushAunCarrito = async (idUser, catchProduct) => {
+  getAllTrolley = () => {
     try {
-      const agregarItem = await Usuarios.updateOne(
-        { _id: idUser },
-        {
-          $push: {
-            carrito: catchProduct,
-          },
-        }
-      );
-      return agregarItem;
+      const datas = usuarios;
+      return datas[0].carrito;
+    } catch (err) {
+      logger.log("error", `${err}`);
+    }
+  };
+  pushAunCarrito = (id, catchProduct) => {
+    try {
+      let carr = this.getAllTrolley();
+      carr.push(catchProduct);
     } catch (err) {
       logger.log("error", `${err}`);
     }
   };
   borrarUnItemCarrito = async (idTrolley, carrito) => {
     try {
-      const agregarItem = await Usuarios.updateOne(
-        { _id: idTrolley },
-        {
-          $set: {
-            carrito: carrito,
-          },
-        }
-      );
-      return agregarItem;
+      let datasAct = this.getAllTrolley();
+      datasAct = carrito;
     } catch (err) {
       logger.log("error", `${err}`);
     }
   };
-  datosCarrito = async (idUsuario) => {
+  datosCarrito = (idUsuario) => {
     try {
-      return await Usuarios.find({ _id: idUsuario });
+      return usuarios;
     } catch (err) {
       logger.log("error", `${err}`);
     }
   };
 }
 
-module.exports = ContainerCarritoMongo;
+module.exports = ContainerCarritoMem;

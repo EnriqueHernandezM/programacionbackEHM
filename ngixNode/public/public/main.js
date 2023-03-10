@@ -139,16 +139,16 @@ const buscadorItems = () => {
     .then((json) => {
       let entradaAbuscar = document.getElementById("ingresoBuscadorItems").value;
       document.getElementById("ingresoBuscadorItems").value = "";
-      const inventarioVinateria = json.filter((el) => el.producto.includes(entradaAbuscar[0].toUpperCase()));
+      const inventarioVinateria = json.filter((el) => el.product.includes(entradaAbuscar[0].toUpperCase()));
       let html1 = "";
       inventarioVinateria.forEach((el) => {
         html1 += `
         <div>
-        <img src="${el.imagen}" alt="">
-          <p >  ${el.producto}  </p>
-          <p> $ ${el.precio} </p>
-          <span  onclick=addArticleTrolley("${el._id}");> agregar al 🛒 </span>
-          <span  onclick=deleteElement("${el._id}||${el._id}");>borrar 🗑️ </span>
+        <img src="${el.image}" alt="">
+          <p >  ${el.product}  </p>
+          <p> $ ${el.price} </p>
+          <span  onclick=addArticleTrolley("${el._id || el.id}");> agregar al 🛒 </span>
+          <span  onclick=deleteElement("${el._id || el.id}");>borrar 🗑️ </span>
         </div>
         `;
       });

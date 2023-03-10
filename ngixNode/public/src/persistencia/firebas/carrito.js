@@ -9,7 +9,6 @@ class ContainerCarritoFirebas {
   getAllTrolley = async (idTrolley) => {
     try {
       const datas = await db.collection("usuarios").where("email", "==", idTrolley).get();
-
       let arrayRes = datas.docs.map((item) => {
         return item.data();
       });
@@ -29,37 +28,35 @@ class ContainerCarritoFirebas {
   };
   pushAunCarrito = async (idUser, catchProduct) => {
     try {
-      const agregarItem = await Usuarios.updateOne(
-        { id: idUser },
-        {
-          $push: {
-            carrito: catchProduct,
-          },
-        }
-      );
-      return agregarItem;
+      const Act = await this.getAllTrolley(idUser);
+      const acumuladorProductos = [];
+      acumuladorProductos.push(catchProduct, ...Act);
+      let agregar = await db.collection("usuarios").doc("2zZc3pwRXKnK1Oxp6vmy").update({ carrito: acumuladorProductos });
+      return agregar;
     } catch (err) {
       logger.log("error", `${err}`);
     }
   };
-  borrarUnItemCarrito = async (idTrolley, carrito) => {
+  borrarUnItemCarrito = async (idTrolley, carrito, idUser) => {
     try {
-      const agregarItem = await Usuarios.updateOne(
-        { _id: idTrolley },
-        {
-          $set: {
-            carrito: carrito,
-          },
-        }
-      );
-      return agregarItem;
+      console.log(idUser);
+      const Act = await this.getAllTrolley(idTrolley);
+      let trolleyDelete = Act.find((el) => el.id == carrito);
+      Act.splice(trolleyDelete, 1);
+
+      let agregar = await db.collection("usuarios").doc(idUser).update({ carrito: Act });
+      return agregar;
     } catch (err) {
       logger.log("error", `${err}`);
     }
   };
   datosCarrito = async (idUsuario) => {
     try {
-      return await Usuarios.find({ _id: idUsuario });
+      const datas = await db.collection("usuarios").where("email", "==", idUsuario).get();
+      let arrayRes = datas.docs.map((item) => {
+        return { id: item.id, ...item.data() };
+      });
+      return arrayRes;
     } catch (err) {
       logger.log("error", `${err}`);
     }

@@ -102,10 +102,12 @@ class ContenedorCarrito {
   async deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
       let catchCart = await this.infoCarrito(idTrolley);
+      const idUser = catchCart.id;
       let carrito = catchCart.carrito;
-      catchCart = carrito.findIndex((el) => el._id == idItem);
+      catchCart = carrito.findIndex((el) => el._id || el.id == idItem);
       let x = carrito.splice(catchCart, 1);
-      const deleteItem = await DaoCarrito.borrarUnItemCarrito(idTrolley, carrito);
+
+      const deleteItem = await DaoCarrito.borrarUnItemCarrito(idTrolley, carrito, idUser);
       logger.log("info", `${deleteItem}`);
     } catch (err) {
       logger.log("error", `${err}`);

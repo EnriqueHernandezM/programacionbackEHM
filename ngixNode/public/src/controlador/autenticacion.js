@@ -25,12 +25,11 @@ async function getLoguear(req, res) {
   try {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
     if (req.isAuthenticated()) {
-      const l = await containerCarrito.getAllToTrolley(req.user.email);
-
+      const carrito = await containerCarrito.getAllToTrolley(req.user.email);
       const user = req.user;
-      let total = l.reduce((acc, el) => acc + el.price, 0);
+      let total = carrito.reduce((acc, el) => acc + el.price, 0);
 
-      res.render("pages/formloguear", { sessionE: true, userE: user, total: total });
+      res.render("pages/formloguear", { sessionE: true, userE: user, carritoE: carrito, total: total });
     } else {
       res.render("pages/formloguear", { sessionE: "esp" });
     }

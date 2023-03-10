@@ -17,8 +17,8 @@ class ContenedorMsjes {
   async readMsgs() {
     try {
       const res = await DaoMensajes.traerMensajesOredenadoPorFecha();
-
       if (res) {
+        console.log(res);
         return res;
       } else {
         console.log(res);
@@ -40,7 +40,6 @@ class ContenedorMsjes {
       };
       let text1 = mensaje.text;
       const saveMsgDtb = await DaoMensajes.guardarNuevoMensaje(author1, text1, timestamp);
-      logger.log("info", `${saveMsgDtb}`);
       let act = await this.readMsgs();
       return act;
     } catch (err) {
@@ -51,7 +50,7 @@ class ContenedorMsjes {
   normalizarMsges(msgRec) {
     try {
       const normalizarOk = normalize(msgRec, messageSchemaOk);
-      logger.log("info", `${JSON.stringify(normalizarOk, null, 4)}`);
+      // logger.log("info", `${JSON.stringify(normalizarOk, null, 4)}`);
       return normalizarOk;
     } catch (err) {
       logger.log("error", `${err}`);

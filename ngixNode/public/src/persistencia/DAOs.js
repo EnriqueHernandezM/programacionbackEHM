@@ -9,6 +9,7 @@ const ContainerUsuariosFirebas = require("./firebas/usuarios");
 const { ContainerProductMem } = require("./memory/productos");
 const ContainerMessagesMem = require("./memory/mensajes");
 const ContainerUsuariosMem = require("./memory/usuarios");
+const ContainerCarritoMem = require("./memory/carrito");
 let DaoProductos;
 let DaoCarrito;
 let DaoUsuarios;
@@ -31,5 +32,6 @@ if (dataBasForConsole === "mem") {
   DaoProductos = new ContainerProductMem();
   DaoMensajes = new ContainerMessagesMem();
   DaoUsuarios = new ContainerUsuariosMem();
+  DaoCarrito = new ContainerCarritoMem();
 }
 module.exports = { DaoProductos, DaoCarrito, DaoUsuarios, DaoMensajes };

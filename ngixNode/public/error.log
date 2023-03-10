@@ -419,3 +419,266 @@
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:38:57.979Z"}
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:38:58.387Z"}
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:40:16.185Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:20:10.041Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:20:16.710Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:22:49.566Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:23:51.705Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:24:21.155Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:24:38.417Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:25:29.062Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:26:58.887Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:27:18.178Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:28:00.339Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:28:14.873Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:28:17.719Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:28:26.445Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:28:51.193Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:29:49.924Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:30:05.063Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:30:48.680Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:31:06.364Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:31:25.525Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:31:46.833Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:32:08.954Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:32:28.372Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:32:41.771Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:32:43.458Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:32:50.437Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:36:13.027Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:36:17.714Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T05:36:44.162Z"}
+{"level":"error","message":"ReferenceError: l is not defined","timestamp":"2023-03-10T05:36:51.035Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-03-10T05:52:43.871Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-03-10T05:54:06.059Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-03-10T05:57:38.322Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-03-10T05:57:39.785Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-03-10T05:58:34.925Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-03-10T05:58:35.970Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-03-10T05:58:39.439Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-03-10T06:01:05.594Z"}
+{"level":"error","message":"TypeError: trolleyAct.push is not a function","timestamp":"2023-03-10T06:03:04.277Z"}
+{"level":"error","message":"TypeError: trolleyAct.push is not a function","timestamp":"2023-03-10T06:03:28.793Z"}
+{"level":"error","message":"TypeError: trolleyAct.push is not a function","timestamp":"2023-03-10T06:03:30.193Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'push')","timestamp":"2023-03-10T06:05:33.366Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'push')","timestamp":"2023-03-10T06:05:33.770Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'push')","timestamp":"2023-03-10T06:05:42.215Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-10T06:14:52.138Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:14:52.139Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:14:52.140Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-10T06:22:18.985Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:22:18.986Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:22:18.986Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-10T06:23:26.970Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:23:26.972Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:23:26.973Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-10T06:23:37.900Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:23:37.902Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:23:37.903Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:30:22.561Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:30:22.562Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:31:58.571Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:31:58.572Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:35:44.215Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:35:44.216Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:37:49.783Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:37:49.784Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:38:19.952Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:38:19.953Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:38:30.437Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:38:30.439Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:39:45.668Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T06:39:45.670Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T06:40:14.229Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T06:40:14.231Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:41:32.675Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T06:42:09.045Z"}
+{"level":"error","message":"Error: Authenticate","timestamp":"2023-03-10T06:55:00.186Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:08:58.441Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:09:03.365Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:09:07.947Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:09:55.212Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:10:15.442Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T07:10:33.056Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T07:10:33.146Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T07:10:47.442Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T07:10:47.484Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:11:17.746Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:11:49.221Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:15:27.350Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:17:02.899Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:22:24.133Z"}
+{"level":"error","message":"TypeError: carrito.reduce is not a function","timestamp":"2023-03-10T07:22:33.553Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T07:23:33.661Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T07:23:34.793Z"}
+{"level":"error","message":"Error: Value for argument \"value\" is not a valid Firestore document. Couldn't serialize object of type \"ObjectId\". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the \"new\" operator).","timestamp":"2023-03-10T07:31:07.246Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:31:07.249Z"}
+{"level":"error","message":"Error: Value for argument \"value\" is not a valid Firestore document. Couldn't serialize object of type \"ObjectId\". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the \"new\" operator).","timestamp":"2023-03-10T07:31:27.343Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:31:27.345Z"}
+{"level":"error","message":"Error: Value for argument \"value\" is not a valid Firestore document. Couldn't serialize object of type \"ObjectId\". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the \"new\" operator).","timestamp":"2023-03-10T07:31:50.433Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:31:50.435Z"}
+{"level":"error","message":"Error: Value for argument \"value\" is not a valid Firestore document. Couldn't serialize object of type \"ObjectId\". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the \"new\" operator).","timestamp":"2023-03-10T07:40:53.329Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:40:53.330Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:41:08.604Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T07:41:08.717Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:47:04.355Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:48:32.034Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:48:33.899Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:49:07.735Z"}
+{"level":"error","message":"TypeError: db.collection(...).where(...).update is not a function","timestamp":"2023-03-10T07:49:35.592Z"}
+{"level":"error","message":"TypeError: db.collection(...).where(...).update is not a function","timestamp":"2023-03-10T07:49:35.843Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:50:09.110Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:52:53.856Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:53:11.641Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:53:15.143Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:54:26.457Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:54:42.276Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:55:11.023Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:55:11.034Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:55:11.294Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:55:50.921Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:56:00.764Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:56:01.331Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:56:47.159Z"}
+{"level":"error","message":"TypeError: Found non-callable @@iterator","timestamp":"2023-03-10T07:56:47.417Z"}
+{"level":"error","message":"ReferenceError: agregar is not defined","timestamp":"2023-03-10T07:57:04.937Z"}
+{"level":"error","message":"TypeError: db.collection(...).where(...).update is not a function","timestamp":"2023-03-10T08:06:35.258Z"}
+{"level":"error","message":"Error: 5 NOT_FOUND: No document to update: projects/mensajes-6bd07/databases/(default)/documents/usuarios/email","timestamp":"2023-03-10T08:07:04.940Z"}
+{"level":"error","message":"Error: 5 NOT_FOUND: No document to update: projects/mensajes-6bd07/databases/(default)/documents/usuarios/email","timestamp":"2023-03-10T08:07:06.705Z"}
+{"level":"error","message":"TypeError: db.collection(...).where(...).update is not a function","timestamp":"2023-03-10T08:07:21.712Z"}
+{"level":"error","message":"TypeError: db.collection(...).where(...).update is not a function","timestamp":"2023-03-10T08:09:29.478Z"}
+{"level":"error","message":"TypeError: db.collection(...).where(...).update is not a function","timestamp":"2023-03-10T08:09:32.132Z"}
+{"level":"error","message":"Error: 5 NOT_FOUND: No document to update: projects/mensajes-6bd07/databases/(default)/documents/usuarios/email","timestamp":"2023-03-10T08:09:45.409Z"}
+{"level":"error","message":"Error: 5 NOT_FOUND: No document to update: projects/mensajes-6bd07/databases/(default)/documents/usuarios/email","timestamp":"2023-03-10T08:09:45.611Z"}
+{"level":"error","message":"ReferenceError: idTrolley is not defined","timestamp":"2023-03-10T08:12:49.811Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T08:12:49.813Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:12:49.813Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T08:13:28.311Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:13:28.313Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T08:15:01.202Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:15:01.203Z"}
+{"level":"error","message":"TypeError: datas.data is not a function","timestamp":"2023-03-10T08:19:56.365Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T08:19:56.366Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:19:56.367Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T08:25:05.375Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:25:05.377Z"}
+{"level":"error","message":"TypeError: datas.data is not a function","timestamp":"2023-03-10T08:26:49.670Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-10T08:26:49.671Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:26:49.673Z"}
+{"level":"error","message":"Error: Value for argument \"value\" is not a valid Firestore document. Input is not a plain JavaScript object.","timestamp":"2023-03-10T08:33:19.036Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-10T08:33:19.037Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:34:23.176Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-10T08:34:23.177Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:34:32.562Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-10T08:34:32.563Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:35:02.988Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-10T08:35:02.989Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:35:10.194Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-10T08:35:10.195Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:35:48.861Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-10T08:35:48.861Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:36:29.038Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-10T08:36:29.039Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T08:36:29.387Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-10T08:36:29.388Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T08:38:32.697Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T08:39:50.709Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T08:40:01.095Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T08:40:12.418Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T08:40:34.050Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-10T08:44:00.463Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-10T08:44:01.557Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-10T08:45:25.270Z"}
+{"level":"error","message":"ReferenceError: idUser is not defined","timestamp":"2023-03-10T08:46:28.632Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T08:49:42.031Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T08:50:17.916Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T08:50:58.881Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T08:51:11.618Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'alias')","timestamp":"2023-03-10T09:30:23.106Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:30:23.108Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'alias')","timestamp":"2023-03-10T09:30:23.113Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:30:23.114Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'alias')","timestamp":"2023-03-10T09:30:24.291Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:30:24.292Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'alias')","timestamp":"2023-03-10T09:30:35.302Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:30:35.304Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'author')","timestamp":"2023-03-10T09:33:24.788Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:33:24.790Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'author')","timestamp":"2023-03-10T09:33:26.175Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:33:26.176Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'author')","timestamp":"2023-03-10T09:33:43.703Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:33:43.706Z"}
+{"level":"error","message":"ReferenceError: i is not defined","timestamp":"2023-03-10T09:34:06.531Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:34:06.532Z"}
+{"level":"error","message":"ReferenceError: i is not defined","timestamp":"2023-03-10T09:35:46.414Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:35:46.416Z"}
+{"level":"error","message":"ReferenceError: i is not defined","timestamp":"2023-03-10T09:35:56.993Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:35:56.994Z"}
+{"level":"error","message":"ReferenceError: i is not defined","timestamp":"2023-03-10T09:36:11.318Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:36:11.320Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:39:03.132Z"}
+{"level":"error","message":"TypeError: data.forEach is not a function","timestamp":"2023-03-10T09:42:04.532Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:42:04.534Z"}
+{"level":"error","message":"TypeError: data.forEach is not a function","timestamp":"2023-03-10T09:42:13.220Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:42:13.221Z"}
+{"level":"error","message":"TypeError: data.forEach is not a function","timestamp":"2023-03-10T09:42:33.325Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:42:33.326Z"}
+{"level":"error","message":"ReferenceError: i is not defined","timestamp":"2023-03-10T09:45:58.285Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:45:58.287Z"}
+{"level":"error","message":"ReferenceError: i is not defined","timestamp":"2023-03-10T09:46:03.492Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:46:03.494Z"}
+{"level":"error","message":"ReferenceError: length is not defined","timestamp":"2023-03-10T09:46:12.178Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:46:12.179Z"}
+{"level":"error","message":"TypeError: el.data is not a function","timestamp":"2023-03-10T09:48:20.158Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:48:20.160Z"}
+{"level":"error","message":"TypeError: mensajesPorFecha.data is not a function","timestamp":"2023-03-10T09:48:41.038Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:48:41.040Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T09:49:46.116Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:49:46.118Z"}
+{"level":"error","message":"MongooseError: Query was already executed: mensajes.find({})","timestamp":"2023-03-10T09:52:14.783Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:52:14.785Z"}
+{"level":"error","message":"MongooseError: Query was already executed: mensajes.find({})","timestamp":"2023-03-10T09:52:16.587Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:52:16.588Z"}
+{"level":"error","message":"MongooseError: Query was already executed: mensajes.find({})","timestamp":"2023-03-10T09:52:44.838Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:52:44.840Z"}
+{"level":"error","message":"MongooseError: Query was already executed: mensajes.find({})","timestamp":"2023-03-10T09:53:41.740Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T09:53:41.741Z"}
+{"level":"error","message":"ReferenceError: author is not defined","timestamp":"2023-03-10T10:01:13.240Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:01:13.242Z"}
+{"level":"error","message":"TypeError: Mensajes.find(...).toArray is not a function","timestamp":"2023-03-10T10:09:25.512Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:09:25.514Z"}
+{"level":"error","message":"TypeError: Mensajes.find(...).toArray is not a function","timestamp":"2023-03-10T10:09:28.069Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:09:28.070Z"}
+{"level":"error","message":"TypeError: Mensajes.find(...).toArray is not a function","timestamp":"2023-03-10T10:09:36.682Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:09:36.683Z"}
+{"level":"error","message":"ObjectParameterError: Parameter \"filter\" to find() must be an object, got text","timestamp":"2023-03-10T10:23:59.505Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:23:59.507Z"}
+{"level":"error","message":"ObjectParameterError: Parameter \"filter\" to find() must be an object, got text","timestamp":"2023-03-10T10:24:05.666Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:24:05.667Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'alias')","timestamp":"2023-03-10T10:37:09.337Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:37:09.339Z"}
+{"level":"error","message":"TypeError: el is not iterable","timestamp":"2023-03-10T10:40:08.866Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:40:08.868Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'author')","timestamp":"2023-03-10T10:41:35.384Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:41:35.385Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'author')","timestamp":"2023-03-10T10:41:44.105Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:41:44.107Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'author')","timestamp":"2023-03-10T10:41:58.392Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:41:58.394Z"}
+{"level":"error","message":"ReferenceError: i is not defined","timestamp":"2023-03-10T10:42:11.523Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:42:11.525Z"}
+{"level":"error","message":"ReferenceError: i is not defined","timestamp":"2023-03-10T10:42:37.657Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:42:37.659Z"}
+{"level":"error","message":"ReferenceError: i is not defined","timestamp":"2023-03-10T10:42:41.855Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:42:41.856Z"}
+{"level":"error","message":"ReferenceError: element is not defined","timestamp":"2023-03-10T10:58:16.264Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:58:16.266Z"}
+{"level":"error","message":"ReferenceError: element is not defined","timestamp":"2023-03-10T10:58:34.473Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T10:58:34.474Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'author')","timestamp":"2023-03-10T11:00:29.280Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T11:00:29.282Z"}
+{"level":"error","message":"ReferenceError: i is not defined","timestamp":"2023-03-10T11:01:00.492Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T11:01:00.494Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T11:11:35.499Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T11:11:35.500Z"}
+{"level":"error","message":"TypeError: item.data is not a function","timestamp":"2023-03-10T11:11:51.562Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T11:11:51.563Z"}

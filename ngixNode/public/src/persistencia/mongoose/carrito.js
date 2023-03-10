@@ -15,7 +15,7 @@ class ContainerCarritoMongo {
   pushAunCarrito = async (idUser, catchProduct) => {
     try {
       const agregarItem = await Usuarios.updateOne(
-        { _id: idUser },
+        { email: idUser },
         {
           $push: {
             carrito: catchProduct,
@@ -27,10 +27,10 @@ class ContainerCarritoMongo {
       logger.log("error", `${err}`);
     }
   };
-  borrarUnItemCarrito = async (idTrolley, carrito) => {
+  borrarUnItemCarrito = async (idTrolley, carrito, idUser) => {
     try {
       const agregarItem = await Usuarios.updateOne(
-        { _id: idTrolley },
+        { _id: idUser },
         {
           $set: {
             carrito: carrito,
@@ -44,7 +44,7 @@ class ContainerCarritoMongo {
   };
   datosCarrito = async (idUsuario) => {
     try {
-      return await Usuarios.find({ _id: idUsuario });
+      return await Usuarios.find({ email: idUsuario });
     } catch (err) {
       logger.log("error", `${err}`);
     }

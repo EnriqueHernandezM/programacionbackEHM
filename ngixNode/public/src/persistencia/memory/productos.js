@@ -55,10 +55,9 @@ class ContainerProductMem {
       logger.log("error", `${err}`);
     }
   };
-  traerProductoProId = (number) => {
+  traerProductoPorId = (number) => {
     try {
-      let buscaPmostrar = inventarios.findIndex((el) => el.id == number);
-      return buscaPmostrar > -1 ? inventarios.find((el) => el.id == number) : { error: "producto no encontrado" };
+      return inventarios.find((el) => el.id == number);
     } catch (error) {
       logger.log("error", `${err}`);
     }
