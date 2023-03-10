@@ -1,20 +1,25 @@
-const { config } = require("dotenv");
+const environmentVars = require("../utils/environmentVar");
 const logger = require("../utils/loggers");
-config();
 const twilio = require("twilio");
-const accountSid = process.env.ACOUNTSID;
-const authToken = process.env.AUTHTOKEN;
-const { traerProductoParaCarrito, pushAunCarrito, borrarUnItemCarrito, datosCarrito } = require("../persistencia/carrito");
+const accountSid = environmentVars.acountSid;
+const authToken = environmentVars.authToken;
+const { DaoCarrito, DaoProductos } = require("../persistencia/DAOs");
 const client = twilio(accountSid, authToken);
 const enviarcorreo = require("../utils/nodemailer");
 class ContenedorCarrito {
   constructor() {}
 
+  async getAllToTrolley(idTrolley) {
+    try {
+      const allTrolley = await DaoCarrito.getAllTrolley(idTrolley);
+      return allTrolley;
+    } catch (err) {}
+  }
+
   async getByIdProductos(number) {
     try {
-      const data = await traerProductoParaCarrito();
-      let res = data.find((el) => el._id == number);
-      return res;
+      const data = await DaoProductos.traerProductoPorId(number);
+      return data;
     } catch (err) {
       logger.log("error", `${err}`);
     }
@@ -22,7 +27,7 @@ class ContenedorCarrito {
   async addToCart(idUser, body) {
     try {
       const catchProduct = await this.getByIdProductos(body);
-      const agregarItem = await pushAunCarrito(idUser, catchProduct);
+      const agregarItem = await DaoCarrito.pushAunCarrito(idUser, catchProduct);
       logger.log("info", `${agregarItem}`);
     } catch (err) {
       logger.log("error", `${err}`);
@@ -30,7 +35,7 @@ class ContenedorCarrito {
   }
   async infoCarrito(idUsuario) {
     try {
-      const dataCarrito = await datosCarrito(idUsuario);
+      const dataCarrito = await DaoCarrito.datosCarrito(idUsuario);
       for (const data of dataCarrito) {
         return data;
       }
@@ -48,7 +53,7 @@ class ContenedorCarrito {
       this.enviarWats(dataCarrito.nombre);
       const mailOptionsConfirm = {
         from: `Servidor Node. JackVinaterias`,
-        to: process.env.CORREOSERVICEME,
+        to: environmentVars.correoServiceMe,
         subject: `Nuevo Pedido de ${dataCarrito.nombre}`,
         html: `<div>
          <h1 style="color: black;">Hola has recibido un nuevo pedido</h1>
@@ -100,7 +105,7 @@ class ContenedorCarrito {
       let carrito = catchCart.carrito;
       catchCart = carrito.findIndex((el) => el._id == idItem);
       let x = carrito.splice(catchCart, 1);
-      const deleteItem = await borrarUnItemCarrito(idTrolley, carrito);
+      const deleteItem = await DaoCarrito.borrarUnItemCarrito(idTrolley, carrito);
       logger.log("info", `${deleteItem}`);
     } catch (err) {
       logger.log("error", `${err}`);

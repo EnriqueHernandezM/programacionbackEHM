@@ -1,15 +1,15 @@
-const { config } = require("dotenv");
+const environmentVars = require("../utils/environmentVar");
 const logger = require("../utils/loggers");
-const { guardarNuevoProducto, traerProductoPorId, traerTodosLosItems, borrarItemInventario } = require("../persistencia/productos");
-config();
-
+const moment = require("moment");
+const timestamp = moment().format("lll");
+const { DaoProductos } = require("../persistencia/DAOs");
 class Contenedor {
   constructor(routPersistance) {
     this.routPersistance = routPersistance;
   }
   async connectMG() {
     try {
-      await connect(process.env.DATABAS);
+      await connect(environmentVars.mongoDb);
       logger.log("info", "conecte bse de datos Productos");
     } catch (err) {
       logger.log("error", `${err}`);
@@ -18,9 +18,7 @@ class Contenedor {
   }
   async save(product) {
     try {
-      const data = new Date();
-      product.data = data;
-      await guardarNuevoProducto(product);
+      await DaoProductos.guardarNuevoProducto(product, timestamp);
       return this.getAll();
     } catch (err) {
       logger.log("error", `${err}`);
@@ -28,15 +26,15 @@ class Contenedor {
   } /*  */
   async getById(number) {
     try {
-      const datasRecived = await traerProductoPorId(number);
-      return datasRecived.find((el) => el._id == number);
+      const datasRecived = await DaoProductos.traerProductoPorId(number);
+      return datasRecived;
     } catch (err) {
       logger.log("error", `${err}`);
     }
   }
   async getAll() {
     try {
-      return await traerTodosLosItems();
+      return await DaoProductos.traerTodosLosItems();
     } catch (err) {
       logger.log("error", `${err}`);
       return { error: err };
@@ -44,7 +42,7 @@ class Contenedor {
   }
   async deleteById(aBorrar) {
     try {
-      await borrarItemInventario(aBorrar);
+      await DaoProductos.borrarItemInventario(aBorrar);
     } catch (err) {
       logger.log("error", `${err}`);
     }
@@ -58,7 +56,7 @@ class Contenedor {
   async modifyElement(id, body) {
     try {
       const buscar = await this.getById(id);
-      const usuarioModificado = await modificarUnElemento(buscar, body);
+      const usuarioModificado = await DaoProductos.modificarUnElemento(buscar, body);
       logger.log("info", usuarioModificado);
     } catch (err) {
       logger.log("error", `${err}`);

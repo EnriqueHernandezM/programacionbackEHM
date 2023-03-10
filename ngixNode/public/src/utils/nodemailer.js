@@ -1,14 +1,13 @@
 const { createTransport } = require("nodemailer");
-const { config } = require("dotenv");
+const environmentVars = require("./environmentVar");
 
-config();
 const transporter = createTransport({
   //host: "smtp.ethereal.email",
   service: "gmail",
   port: 587,
   auth: {
-    user: process.env.CORREOSERVICEME,
-    pass: process.env.CORREOSERVICEMEPASS,
+    user: environmentVars.correoServiceMe,
+    pass: environmentVars.correoServiceMePass,
   },
 });
 

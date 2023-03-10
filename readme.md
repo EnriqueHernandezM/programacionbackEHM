@@ -31,6 +31,4 @@ artillery quick --count 30 -n 100 http://localhost:8080/productos > result_produ
 
 ////////////////////////////////
 //////////////////PARA MI
-ESTAMOS EMPEZANDO A ACOMODAR LAS RUTAS EN EL SERVER ESTA PRODUCTOS Y PRODUCTOS API SEUIR CON ESO
-PARA DESPUES AGRGAR LO DE LA RUTA INDEXZ
-Y LUEGO VERIFICAR SI ESTA FUNCIONANDO PASSPORT
+nos quedamos en contenedor firebas carritos cambiar el metodo find

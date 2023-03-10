@@ -1,16 +1,16 @@
+const environmentVars = require("../utils/environmentVar");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const Usuarios = require("../models/usuarios");
 const bcrypt = require("bcrypt");
 const enviarcorreo = require("../utils/nodemailer");
-const flash = require("connect-flash");
 const logger = require("../utils/loggers");
-
+const { createUserParallel } = require("../utils/createUserParallel");
 passport.serializeUser((user, done) => {
   done(null, user._id);
 });
 
-passport.deserializeUser((id, done) => {
+passport.deserializeUser(async (id, done) => {
   Usuarios.findById(id, done);
 });
 
@@ -54,7 +54,7 @@ passport.use(
         };
         const mailOptions = {
           from: "Servidor Node. JackVinaterias",
-          to: process.env.CORREOSERVICEME,
+          to: environmentVars.correoServiceMe,
           subject: "Nuevo Registro",
           html: `<div>
           <h1 style="color: blue;">Email Usuario <span style="color: green;">${email}</span></h1>
@@ -64,14 +64,16 @@ passport.use(
             <h1 style="color: blue;"> Telefono <span style="color: green;">${req.body.telefono}</span></h1>
             </div>`,
         };
+
         Usuarios.create(newUser, (err, userWithId) => {
           if (err) {
             logger.log("info", `Error in Saving user:${err}`);
             return done(err);
           }
-          console.log(user);
+
           logger.log("info", "User Registration succesful");
-          enviarcorreo(mailOptions);
+          //enviarcorreo(mailOptions);
+          createUserParallel(newUser);
           ///////////////////////////////////////////////////////////////////////
           return done(null, userWithId);
         });
@@ -89,9 +91,8 @@ passport.use(
       passReqToCallback: true,
     },
     (req, email, password, done) => {
-      Usuarios.findOne({ email }, (err, user) => {
+      Usuarios.findOne({ email: email }, (err, user) => {
         if (err) return done(err);
-
         if (!user) {
           logger.log("info", `User Not Found with email  ${email}`);
           return done(null, false, req.flash("crearCuentamsg", "tenemos algun problema o verifica tu informacion"));
@@ -106,3 +107,5 @@ passport.use(
     }
   )
 );
+/////////////////////no se puede usar swicht vamos a crear un contenedor que regere lafuncion dependiendo de la base de datos que usemos
+/////QUE pege a presistencia  y de igual manera exporte con un DAOS

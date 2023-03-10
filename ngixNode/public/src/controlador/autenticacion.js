@@ -1,5 +1,6 @@
 const logger = require("../utils/loggers");
-const passport = require("passport");
+const { ContenedorCarrito } = require("../negocio/carrito");
+const containerCarrito = new ContenedorCarrito();
 function getCreateAcount(req, res) {
   try {
     logger.log("info", { ruta: req.path, metodo: req.route.methods });
@@ -20,12 +21,15 @@ function postCreateAcount(req, res) {
     logger.log("error", `${err}`);
   }
 }
-function getLoguear(req, res) {
+async function getLoguear(req, res) {
   try {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
     if (req.isAuthenticated()) {
+      const l = await containerCarrito.getAllToTrolley(req.user.email);
+
       const user = req.user;
-      const total = user.carrito.reduce((acc, el) => acc + el.precio, 0);
+      let total = l.reduce((acc, el) => acc + el.price, 0);
+
       res.render("pages/formloguear", { sessionE: true, userE: user, total: total });
     } else {
       res.render("pages/formloguear", { sessionE: "esp" });

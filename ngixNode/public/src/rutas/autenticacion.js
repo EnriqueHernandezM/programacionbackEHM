@@ -6,11 +6,7 @@ const autenticacion = new Router();
 const { getCreateAcount, postCreateAcount, getLoguear, postLoguear, logOut } = require("../controlador/autenticacion");
 autenticacion.get("/crearCuenta", getCreateAcount);
 ///
-autenticacion.post(
-  "/crearCuenta",
-  passport.authenticate("crearCuenta", { passReqToCallback: true, failureRedirect: "/crearCuenta" }),
-  postCreateAcount
-);
+autenticacion.post("/crearCuenta", passport.authenticate("crearCuenta", { passReqToCallback: true, failureRedirect: "/crearCuenta" }), postCreateAcount);
 ////
 //FORMULARIO LOGUIN
 autenticacion.get("/loguear", getLoguear); //

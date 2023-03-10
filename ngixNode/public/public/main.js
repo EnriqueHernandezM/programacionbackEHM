@@ -148,7 +148,7 @@ const buscadorItems = () => {
           <p >  ${el.producto}  </p>
           <p> $ ${el.precio} </p>
           <span  onclick=addArticleTrolley("${el._id}");> agregar al 🛒 </span>
-          <span  onclick=deleteElement("${el._id}");>borrar 🗑️ </span>
+          <span  onclick=deleteElement("${el._id}||${el._id}");>borrar 🗑️ </span>
         </div>
         `;
       });
@@ -230,7 +230,6 @@ socket.on("listaMsgs", (data) => {
   const denormalized = denormalize(data.result, messageSchemaOk, data.entities);
   normalizedCount.innerHTML = JSON.stringify(data).length;
   denormalizedCount.innerHTML = JSON.stringify(denormalized).length;
-  console.log(denormalized);
   denormalized.forEach((el) => {
     html += `
     <div>

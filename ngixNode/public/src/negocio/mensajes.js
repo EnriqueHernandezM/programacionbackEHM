@@ -1,10 +1,9 @@
 const moment = require("moment");
 const timestamp = moment().format("lll");
 const logger = require("../utils/loggers");
-///
-const { traerMensajesOredenadoPorFecha, guardarNuevoMensaje } = require("../persistencia/mensajes");
-///
+const { DaoMensajes } = require("../persistencia/DAOs");
 const { normalize, schema } = require("normalizr");
+
 /////
 const authorSchema = new schema.Entity("authors", {}, { idAttribute: "idmail" });
 const messageSchema = new schema.Entity("texts", {
@@ -14,18 +13,15 @@ const messageSchema = new schema.Entity("texts", {
 const messageSchemaOk = [messageSchema];
 ///
 class ContenedorMsjes {
-  constructor(table) {
-    this.table = table;
-  }
+  constructor() {}
   async readMsgs() {
     try {
-      const res = await traerMensajesOredenadoPorFecha();
+      const res = await DaoMensajes.traerMensajesOredenadoPorFecha();
+
       if (res) {
-        let arrayRes = res.docs.map((item) => {
-          return { id: item.id, ...item.data() };
-        });
-        return arrayRes;
+        return res;
       } else {
+        console.log(res);
         return [], { err: true, msg: "sin mensajes" };
       }
     } catch (err) {
@@ -43,7 +39,7 @@ class ContenedorMsjes {
         alias: mensaje.alias,
       };
       let text1 = mensaje.text;
-      const saveMsgDtb = await guardarNuevoMensaje(author1, text1, timestamp);
+      const saveMsgDtb = await DaoMensajes.guardarNuevoMensaje(author1, text1, timestamp);
       logger.log("info", `${saveMsgDtb}`);
       let act = await this.readMsgs();
       return act;
@@ -55,7 +51,6 @@ class ContenedorMsjes {
   normalizarMsges(msgRec) {
     try {
       const normalizarOk = normalize(msgRec, messageSchemaOk);
-      // const denormalized = denormalize(normalizxado.result, posts, normalizxado.entities);
       logger.log("info", `${JSON.stringify(normalizarOk, null, 4)}`);
       return normalizarOk;
     } catch (err) {
@@ -64,4 +59,4 @@ class ContenedorMsjes {
   }
 }
 
-module.exports = { ContenedorMsjes };
+module.exports = ContenedorMsjes;

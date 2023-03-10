@@ -124,3 +124,298 @@
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-01T08:37:06.857Z"}
 {"level":"error","message":"ValidationError: image: Path `image` is required., price: Path `price` is required., typeOfLiquor: Path `typeOfLiquor` is required., product: Path `product` is required.","timestamp":"2023-03-03T08:42:29.977Z"}
 {"level":"error","message":"ValidationError: image: Path `image` is required., price: Path `price` is required., typeOfLiquor: Path `typeOfLiquor` is required., product: Path `product` is required.","timestamp":"2023-03-03T08:44:06.563Z"}
+{"level":"error","message":"Error: Value for argument \"collectionPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-04T08:31:00.600Z"}
+{"level":"error","message":"ReferenceError: id is not defined","timestamp":"2023-03-04T08:38:52.076Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-04T08:41:19.949Z"}
+{"level":"error","message":"ReferenceError: Productos is not defined","timestamp":"2023-03-07T01:15:28.396Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerTodosLosItems')","timestamp":"2023-03-07T01:45:46.548Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerTodosLosItems')","timestamp":"2023-03-07T01:46:13.064Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerTodosLosItems')","timestamp":"2023-03-07T01:51:01.104Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerTodosLosItems')","timestamp":"2023-03-07T01:51:03.916Z"}
+{"level":"error","message":"TypeError: traerTodosLosItems is not a function","timestamp":"2023-03-07T01:51:46.738Z"}
+{"level":"error","message":"TypeError: traerTodosLosItems is not a function","timestamp":"2023-03-07T01:51:59.658Z"}
+{"level":"error","message":"TypeError: traerTodosLosItems is not a function","timestamp":"2023-03-07T01:54:21.723Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerTodosLosItems is not a function","timestamp":"2023-03-07T01:55:01.001Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerTodosLosItems')","timestamp":"2023-03-07T01:55:27.751Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerTodosLosItems')","timestamp":"2023-03-07T01:55:43.041Z"}
+{"code":"ETIMEOUT","hostname":"_mongodb._tcp.cluster0.ckqspop.mongodb.net","level":"error","syscall":"querySrv","timestamp":"2023-03-08T01:47:21.429Z"}
+{"code":"ETIMEOUT","hostname":"_mongodb._tcp.cluster0.ckqspop.mongodb.net","level":"error","syscall":"querySrv","timestamp":"2023-03-08T01:55:21.855Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'datosCarrito')","timestamp":"2023-03-08T06:10:16.472Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-08T06:10:16.473Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'datosCarrito')","timestamp":"2023-03-08T06:10:21.616Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-08T06:10:21.617Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerProductoParaCarrito')","timestamp":"2023-03-08T06:11:28.840Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'pushAunCarrito')","timestamp":"2023-03-08T06:11:28.841Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerProductoParaCarrito')","timestamp":"2023-03-08T06:12:09.062Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'pushAunCarrito')","timestamp":"2023-03-08T06:12:09.064Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerProductoParaCarrito')","timestamp":"2023-03-08T06:13:06.616Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'pushAunCarrito')","timestamp":"2023-03-08T06:13:06.618Z"}
+{"level":"error","message":"TypeError: Productos.traerProductoPorId is not a function","timestamp":"2023-03-08T06:14:02.999Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:14:03.001Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-08T06:14:17.517Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-08T06:14:17.518Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-08T06:14:17.519Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-08T06:14:22.210Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-08T06:14:22.211Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-08T06:14:22.212Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-08T06:14:46.450Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-08T06:14:46.451Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-08T06:14:46.452Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-08T06:14:47.723Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-08T06:14:47.724Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-08T06:14:47.725Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'find')","timestamp":"2023-03-08T06:16:46.039Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-03-08T06:16:46.040Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-08T06:16:46.041Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerProductoPorId')","timestamp":"2023-03-08T06:18:28.919Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:18:28.920Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerProductoPorId')","timestamp":"2023-03-08T06:18:40.556Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:18:40.558Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoParaCarrito is not a function","timestamp":"2023-03-08T06:20:12.123Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:20:12.125Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoParaCarrito is not a function","timestamp":"2023-03-08T06:20:29.104Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:20:29.105Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoParaCarrito is not a function","timestamp":"2023-03-08T06:20:55.396Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:20:55.398Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerProductoPorId')","timestamp":"2023-03-08T06:22:15.656Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:22:15.659Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'traerProductoPorId')","timestamp":"2023-03-08T06:22:30.016Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:22:30.019Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:25:28.572Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:25:29.984Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'updateOne')","timestamp":"2023-03-08T06:25:30.892Z"}
+{"level":"error","message":"Error: Authenticate","timestamp":"2023-03-08T06:32:43.357Z"}
+{"level":"error","message":"ValidationError: text: Path `text` is required., author: Path `author` is required.","timestamp":"2023-03-08T06:41:11.247Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T06:41:11.251Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T06:41:11.252Z"}
+{"level":"error","message":"ValidationError: text: Path `text` is required., author: Path `author` is required.","timestamp":"2023-03-08T06:41:22.477Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T06:41:22.478Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T06:41:22.478Z"}
+{"level":"error","message":"ValidationError: text: Path `text` is required., author: Path `author` is required.","timestamp":"2023-03-08T06:42:47.315Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T06:42:47.317Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T06:42:47.318Z"}
+{"level":"error","message":"ValidationError: text: Path `text` is required., author: Path `author` is required.","timestamp":"2023-03-08T06:42:50.359Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T06:42:50.360Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T06:42:50.360Z"}
+{"level":"error","message":"ValidationError: text: Path `text` is required., author: Path `author` is required.","timestamp":"2023-03-08T06:45:55.311Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T06:45:55.315Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T06:45:55.316Z"}
+{"level":"error","message":"ValidationError: text: Path `text` is required., author: Path `author` is required.","timestamp":"2023-03-08T06:50:52.815Z"}
+{"level":"error","message":"MongooseError: Query was already executed: mensajes.find({})","timestamp":"2023-03-08T06:50:52.824Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T06:50:52.825Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T06:56:43.276Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-08T06:56:43.355Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T06:56:43.356Z"}
+{"level":"error","message":"ReferenceError: res is not defined","timestamp":"2023-03-08T06:57:22.303Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T06:57:22.305Z"}
+{"level":"error","message":"ReferenceError: res is not defined","timestamp":"2023-03-08T06:57:49.249Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T06:57:49.251Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-08T06:59:05.151Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T06:59:05.154Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-08T07:00:06.741Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T07:00:06.744Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-08T07:03:34.783Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T07:03:34.784Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-08T07:05:19.998Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T07:05:20.000Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-08T07:07:27.025Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T07:07:27.027Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-08T07:08:33.918Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T07:08:33.920Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T07:58:44.981Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-08T07:58:44.983Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T07:58:55.880Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T07:59:01.628Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:04:01.380Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:04:25.005Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:04:48.787Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:04:59.161Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:06:46.531Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:08:03.870Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:09:54.244Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:12:32.095Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:13:13.739Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:13:15.211Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:13:29.477Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:13:31.416Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:14:05.519Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-08T08:14:07.743Z"}
+{"level":"error","message":"TypeError: products.data is not a function","timestamp":"2023-03-08T08:16:12.495Z"}
+{"level":"error","message":"TypeError: products.data is not a function","timestamp":"2023-03-08T08:16:19.274Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:23:11.238Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:24:54.630Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:28:01.901Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:28:05.525Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:28:40.554Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:30:19.150Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:32:08.215Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:32:11.878Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:33:07.971Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:33:32.735Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:34:48.387Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:36:48.324Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:38:59.208Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"stockItems\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-08T08:40:56.769Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-08T08:44:03.591Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-08T08:44:07.369Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-08T08:59:25.511Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-08T08:59:50.970Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-08T08:59:52.067Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-08T08:59:52.981Z"}
+{"level":"error","message":"ReferenceError: precio is not defined","timestamp":"2023-03-08T09:00:55.482Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-08T09:00:55.504Z"}
+{"level":"error","message":"ReferenceError: precio is not defined","timestamp":"2023-03-08T09:00:59.922Z"}
+{"level":"error","message":"TypeError: DaoProductos.guardarNuevoProducto is not a function","timestamp":"2023-03-09T08:27:22.813Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'guardarNuevoMensaje')","timestamp":"2023-03-09T08:50:33.045Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T08:50:33.047Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'guardarNuevoMensaje')","timestamp":"2023-03-09T08:50:35.844Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T08:50:35.845Z"}
+{"level":"error","message":"ReferenceError: producto is not defined","timestamp":"2023-03-09T08:51:54.741Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-09T08:51:54.744Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T08:51:54.745Z"}
+{"level":"error","message":"ReferenceError: producto is not defined","timestamp":"2023-03-09T08:53:28.181Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-09T08:53:28.184Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T08:53:28.185Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-09T08:54:17.810Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T08:54:17.812Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-09T08:54:56.117Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T08:54:56.119Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-09T08:56:26.668Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T08:56:26.670Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-09T08:56:28.699Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T08:56:28.702Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-09T09:19:09.883Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T09:19:09.885Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-09T09:19:23.118Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T09:19:23.118Z"}
+{"level":"error","message":"ReferenceError: res is not defined","timestamp":"2023-03-09T09:22:21.140Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T09:22:21.142Z"}
+{"level":"error","message":"ValidationError: author.0: Cast to [string] failed for value \"[\\n' +\n  '  {\\n' +\n  \"    idmail: 'quique166sb@hotmail.com',\\n\" +\n  \"    avatar: 'https://ss388.liverpool.com.mx/xl/1064210455.jpg',\\n\" +\n  \"    nombre: 'Enrique',\\n\" +\n  \"    apellido: 'Hernández',\\n\" +\n  \"    edad: '88',\\n\" +\n  \"    alias: 'feqfef'\\n\" +\n  '  }\\n' +\n  ']\" (type string) at path \"author.0\" because of \"CastError\"","timestamp":"2023-03-09T09:35:27.851Z"}
+{"level":"error","message":"ValidationError: author.0: Cast to [string] failed for value \"[\\n' +\n  '  {\\n' +\n  \"    idmail: 'quique166sb@hotmail.com',\\n\" +\n  \"    avatar: 'https://ss388.liverpool.com.mx/xl/1064210455.jpg',\\n\" +\n  \"    nombre: 'Enrique',\\n\" +\n  \"    apellido: 'Hernández',\\n\" +\n  \"    edad: '88',\\n\" +\n  \"    alias: 'feqfef'\\n\" +\n  '  }\\n' +\n  ']\" (type string) at path \"author.0\" because of \"CastError\"","timestamp":"2023-03-09T09:35:41.544Z"}
+{"level":"error","message":"ValidationError: author.0: Cast to [string] failed for value \"[\\n' +\n  '  {\\n' +\n  \"    idmail: 'quique166sb@hotmail.com',\\n\" +\n  \"    avatar: 'https://ss388.liverpool.com.mx/xl/1064210455.jpg',\\n\" +\n  \"    nombre: 'Enrique',\\n\" +\n  \"    apellido: 'Hernández',\\n\" +\n  \"    edad: '88',\\n\" +\n  \"    alias: 'feqfef'\\n\" +\n  '  }\\n' +\n  ']\" (type string) at path \"author.0\" because of \"CastError\"","timestamp":"2023-03-09T09:35:56.821Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'avatar')","timestamp":"2023-03-09T09:43:17.062Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T09:43:17.064Z"}
+{"level":"error","message":"ReferenceError: map is not defined","timestamp":"2023-03-09T09:47:57.039Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T09:47:57.041Z"}
+{"level":"error","message":"SyntaxError: Unexpected token u in JSON at position 0","timestamp":"2023-03-09T09:55:34.347Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T09:55:34.348Z"}
+{"level":"error","message":"SyntaxError: Unexpected token u in JSON at position 0","timestamp":"2023-03-09T09:56:01.970Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T09:56:01.972Z"}
+{"level":"error","message":"SyntaxError: Unexpected token u in JSON at position 0","timestamp":"2023-03-09T09:56:40.140Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T09:56:40.142Z"}
+{"level":"error","message":"TypeError: Mensajes.find(...).map is not a function","timestamp":"2023-03-09T10:04:01.213Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T10:04:01.214Z"}
+{"level":"error","message":"TypeError: Mensajes.find(...).map is not a function","timestamp":"2023-03-09T10:05:03.277Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T10:05:03.279Z"}
+{"level":"error","message":"TypeError: Mensajes.find(...).object is not a function","timestamp":"2023-03-09T10:05:28.094Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T10:05:28.096Z"}
+{"level":"error","message":"TypeError: mensajesPorFecha.Map is not a function","timestamp":"2023-03-09T10:07:01.403Z"}
+{"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-09T10:07:01.405Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-09T21:56:44.801Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-09T21:56:47.431Z"}
+{"level":"error","message":"ReferenceError: email is not defined","timestamp":"2023-03-10T01:59:35.693Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-10T02:01:30.666Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-10T02:02:41.850Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-10T02:03:31.764Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-10T02:03:41.385Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-10T02:03:48.194Z"}
+{"level":"error","message":"ReferenceError: password is not defined","timestamp":"2023-03-10T02:04:38.666Z"}
+{"level":"error","message":"ReferenceError: bcrypt is not defined","timestamp":"2023-03-10T02:05:21.574Z"}
+{"level":"error","message":"ReferenceError: newProduct is not defined","timestamp":"2023-03-10T02:06:52.820Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-10T02:20:34.973Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-10T03:37:59.404Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T03:37:59.406Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-10T03:38:45.283Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T03:38:45.284Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-10T03:39:04.161Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T03:39:04.162Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T03:39:10.686Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T03:39:10.688Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T03:39:17.612Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T03:39:17.614Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T03:41:11.633Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:41:11.635Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:42:46.821Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:43:13.318Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:43:37.833Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:44:08.140Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:44:37.807Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:44:45.093Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:44:45.390Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:45:25.441Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:45:48.717Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:45:48.723Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:45:50.411Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:45:51.162Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T03:46:54.038Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:46:54.039Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T03:46:55.065Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:46:55.066Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:47:08.684Z"}
+{"level":"error","message":"TypeError: getAt.data is not a function","timestamp":"2023-03-10T03:48:17.427Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:48:17.429Z"}
+{"level":"error","message":"TypeError: getAt.data is not a function","timestamp":"2023-03-10T03:48:17.523Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:48:17.523Z"}
+{"level":"error","message":"TypeError: getAt.data is not a function","timestamp":"2023-03-10T03:48:19.720Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:48:19.721Z"}
+{"level":"error","message":"TypeError: getAt.data is not a function","timestamp":"2023-03-10T03:48:22.082Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:48:22.083Z"}
+{"level":"error","message":"TypeError: getAt.data is not a function","timestamp":"2023-03-10T03:48:27.496Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:48:27.498Z"}
+{"level":"error","message":"TypeError: getAt.data is not a function","timestamp":"2023-03-10T03:49:20.683Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:49:20.686Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:49:48.578Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T03:49:55.260Z"}
+{"level":"error","message":"TypeError: getAt.data is not a function","timestamp":"2023-03-10T03:51:19.942Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T03:54:21.173Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T03:55:17.362Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T03:55:51.753Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T03:56:47.242Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2023-03-10T03:58:06.035Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T03:59:22.781Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T04:00:36.675Z"}
+{"level":"error","message":"ReferenceError: id is not defined","timestamp":"2023-03-10T04:01:00.973Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T04:02:45.512Z"}
+{"level":"error","message":"Error: Value for argument \"fieldPath\" is not a valid field path. Paths can only be specified as strings or via a FieldPath object.","timestamp":"2023-03-10T04:03:42.190Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T04:09:41.936Z"}
+{"level":"error","message":"ReferenceError: id is not defined","timestamp":"2023-03-10T04:09:57.448Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T04:12:05.650Z"}
+{"level":"error","message":"Error: Value for argument \"documentPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-10T04:12:07.182Z"}
+{"level":"error","message":"Error: Value for argument \"data\" is not a valid Firestore document. Input is not a plain JavaScript object.","timestamp":"2023-03-10T04:13:23.771Z"}
+{"level":"error","message":"TypeError: datas.data is not a function","timestamp":"2023-03-10T04:17:15.960Z"}
+{"level":"error","message":"TypeError: datas.data is not a function","timestamp":"2023-03-10T04:17:31.823Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-10T04:19:06.123Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:22:47.182Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:23:31.613Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:23:34.666Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:26:58.652Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:27:07.588Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:27:09.610Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:27:33.567Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:27:49.445Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-10T04:27:52.006Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-10T04:27:54.535Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:27:56.273Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:27:57.680Z"}
+{"level":"error","message":"ReferenceError: Usuarios is not defined","timestamp":"2023-03-10T04:28:04.850Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:28:42.375Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:29:16.273Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:29:20.379Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:30:56.840Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-10T04:31:18.529Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:31:58.330Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-10T04:32:43.454Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:32:43.456Z"}
+{"level":"error","message":"ReferenceError: db is not defined","timestamp":"2023-03-10T04:34:12.025Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:34:12.027Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:35:43.764Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:35:46.087Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:36:34.794Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:37:00.960Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:37:30.958Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:37:40.167Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:38:25.164Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:38:46.354Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:38:57.979Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:38:58.387Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-10T04:40:16.185Z"}

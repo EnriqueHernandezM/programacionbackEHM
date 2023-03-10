@@ -15,13 +15,13 @@
       </div>
       <h2 class="p-5 text-center">productos disponibles</h2>
       <div id="probandoAct">
-        <%allItems.forEach((el) => {%>
+        <%allItems.forEach((el) => { %>
         <div>
           <img src="<%=el.image%>" alt="imagen de un producto en carrioto" />
           <p><%=el.product%></p>
           <p>$:<%=el.price%></p>
-          <span onclick="addArticleTrolley('<%=el._id%>')"> agregar al 🛒 </span>
-          <span onclick="deleteElement('<%=el._id%>')">borrar 🗑️ </span>
+          <span onclick="addArticleTrolley('<%=el._id||el.id%>')"> agregar al 🛒 </span>
+          <span onclick="deleteElement('<%=el._id||el.id%>')">borrar 🗑️ </span>
         </div>
         <%})%>
       </div>

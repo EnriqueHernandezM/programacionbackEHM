@@ -3,7 +3,6 @@ const { combine, colorize, timestamp, json, prettyPrint } = winston.format;
 const warnFilter = winston.format((info, opts) => {
   return info.level === "warn" ? info : false;
 });
-
 const logger = winston.createLogger({
   level: "info",
   format: combine(timestamp(), json()),
