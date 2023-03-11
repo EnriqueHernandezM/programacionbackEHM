@@ -8,7 +8,7 @@ class ContainerCarritoMem {
       const datas = usuarios;
       return datas[0].carrito;
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `errInTrolleyMem${err}`);
     }
   };
   pushAunCarrito = (id, catchProduct) => {
@@ -16,7 +16,7 @@ class ContainerCarritoMem {
       let carr = this.getAllTrolley();
       carr.push(catchProduct);
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `errInTrolleyMem${err}`);
     }
   };
   borrarUnItemCarrito = async (idTrolley, carrito) => {
@@ -24,14 +24,14 @@ class ContainerCarritoMem {
       let datasAct = this.getAllTrolley();
       datasAct = carrito;
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `errInTrolleyMem${err}`);
     }
   };
   datosCarrito = (idUsuario) => {
     try {
       return usuarios;
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `errInTrolleyMem${err}`);
     }
   };
 }

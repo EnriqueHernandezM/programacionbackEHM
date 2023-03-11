@@ -20,11 +20,11 @@ if (dataBasForConsole === "mongo") {
   DaoProductos = new ContainerProductMongo();
   DaoCarrito = new ContainerCarritoMongo();
   DaoUsuarios = new ContainerUsuariosMongo();
-  DaoMensajes = new ContainerMessagesMongo("mensajes");
+  DaoMensajes = new ContainerMessagesMongo();
 }
 if (dataBasForConsole === "firebas") {
   DaoProductos = new ContainerProductFirebas("inventarios");
-  DaoCarrito = new ContainerCarritoFirebas();
+  DaoCarrito = new ContainerCarritoFirebas("usuarios");
   DaoUsuarios = new ContainerUsuariosFirebas();
   DaoMensajes = new ContainerMessagesFirebas("mensajes");
 }

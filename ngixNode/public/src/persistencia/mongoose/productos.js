@@ -17,13 +17,12 @@ class ContainerProductMongo {
   constructor(collection) {
     this.collecton = collection;
   }
-
   guardarNuevoProducto = async (product) => {
     try {
       const newProduct = new Productos(product);
       await newProduct.save().then((data) => console.log(data));
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `errInProductMdb${err}`);
       return { error: err };
     }
   };
@@ -32,7 +31,7 @@ class ContainerProductMongo {
       const datas = await Productos.find({});
       return datas.find((el) => el._id == idNumber);
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `errInProductMdb${err}`);
       return { error: err };
     }
   };
@@ -41,7 +40,7 @@ class ContainerProductMongo {
       const data = await Productos.find({});
       return data;
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `errInProductMdb${err}`);
       return { error: err };
     }
   };
@@ -51,7 +50,7 @@ class ContainerProductMongo {
         logger.log("info", "productoEliminado");
       });
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `errInProductMdb${err}`);
     }
   };
   modificarUnElemento = async (buscar, body) => {
@@ -71,7 +70,7 @@ class ContainerProductMongo {
       );
       return usuarioModificado;
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `errInProductMdb${err}`);
     }
   };
 }

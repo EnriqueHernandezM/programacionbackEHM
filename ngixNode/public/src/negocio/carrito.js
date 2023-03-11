@@ -27,7 +27,9 @@ class ContenedorCarrito {
   async addToCart(idUser, body) {
     try {
       const catchProduct = await this.getByIdProductos(body);
-      const agregarItem = await DaoCarrito.pushAunCarrito(idUser, catchProduct);
+      let catchCart = await this.infoCarrito(idUser);
+      const idUserF = catchCart.id;
+      const agregarItem = await DaoCarrito.pushAunCarrito(idUser, catchProduct, idUserF);
       logger.log("info", `${agregarItem}`);
     } catch (err) {
       logger.log("error", `${err}`);

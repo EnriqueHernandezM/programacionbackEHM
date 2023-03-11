@@ -48,19 +48,7 @@ const createUserParallel = async (objectUser) => {
         direccion: objectUser.direccion,
         telefono: objectUser.telefono,
         avatar: objectUser.avatar,
-        carrito: [
-          {
-            id: 1,
-            product: "Don Pedro",
-            typeOfLiquor: "Brandy",
-            price: 350,
-            image: "https://cdn.shopify.com/s/files/1/0402/2475/1766/products/BRANDYDONPEDRO1000MLSHOPIFY_700x.jpg?v=1637864473",
-            description: "Brandy Don Pedro Reserva Especial 750 ml a un súper precio",
-            stockItems: 9,
-            codeItem: 111,
-            data: "2023-03-03T09:35:13.475Z",
-          },
-        ],
+        carrito: [],
       });
     logger.log("info", `${newUser}`);
     return newUser;

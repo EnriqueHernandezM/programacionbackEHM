@@ -1,7 +1,7 @@
 const environmentVars = require("../utils/environmentVar");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const Usuarios = require("../models/usuarios");
+const { Usuarios } = require("../persistencia/mongoose/usuarios");
 const bcrypt = require("bcrypt");
 const enviarcorreo = require("../utils/nodemailer");
 const logger = require("../utils/loggers");

@@ -682,3 +682,17 @@
 {"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T11:11:35.500Z"}
 {"level":"error","message":"TypeError: item.data is not a function","timestamp":"2023-03-10T11:11:51.562Z"}
 {"level":"error","message":"Error: Unexpected input given to normalize. Expected type to be \"object\", found \"undefined\".","timestamp":"2023-03-10T11:11:51.563Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-11T07:45:15.039Z"}
+{"level":"error","message":"TypeError: Act is not iterable (cannot read property undefined)","timestamp":"2023-03-11T07:50:18.563Z"}
+{"level":"error","message":"TypeError: Act is not iterable (cannot read property undefined)","timestamp":"2023-03-11T07:50:23.711Z"}
+{"level":"error","message":"TypeError: Act is not iterable (cannot read property undefined)","timestamp":"2023-03-11T07:50:28.857Z"}
+{"level":"error","message":"ReferenceError: idTrolley is not defined","timestamp":"2023-03-11T07:58:21.051Z"}
+{"level":"error","message":"ReferenceError: idTrolley is not defined","timestamp":"2023-03-11T07:58:23.658Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-11T08:02:39.502Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-11T08:02:39.503Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-03-11T08:04:20.352Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-11T08:04:20.353Z"}
+{"level":"error","message":"errInTroleyFBError: Value for argument \"collectionPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-11T08:15:33.046Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-11T08:15:33.048Z"}
+{"level":"error","message":"TypeError: this.collection.find is not a function","timestamp":"2023-03-11T08:38:19.592Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-11T08:38:19.594Z"}

@@ -1,7 +1,7 @@
-const ContenedorMsjes = require("../negocio/mensajes");
+const ContenedorMsjes = require("../../negocio/mensajes");
 const containerMsjes = new ContenedorMsjes();
 
-const logger = require("../utils/loggers");
+const logger = require("../../utils/loggers");
 
 function socketModule(io) {
   io.on("connection", async (socket) => {

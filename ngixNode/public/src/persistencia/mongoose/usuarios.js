@@ -1,16 +1,28 @@
 const environmentVars = require("../../utils/environmentVar");
 const logger = require("../../utils/loggers");
 const mongoose = require("mongoose");
-const Usuarios = require("../../models/usuarios");
+const { Schema, model } = require("mongoose");
+
+const UsuarrioSchema = new Schema({
+  email: { type: String, required: true, max: 100 },
+  password: { type: String, required: true, max: 100 },
+  nombre: { type: String, required: true, max: 100 },
+  edad: { type: Number, required: true },
+  direccion: { type: String, required: true, max: 100 },
+  telefono: { type: Number, required: true },
+  avatar: { type: String, required: true },
+  carrito: { type: Array },
+});
+
+const Usuarios = model("Usuarios", UsuarrioSchema);
 
 mongoose.set("strictQuery", false);
 mongoose
   .connect(environmentVars.mongoDb)
-  .then(() => logger.log("info", "Connected to Mongo para registrar Usuarios"))
-
+  .then(() => logger.log("info", "Connected to Mongo!!!!DB"))
   .catch((e) => {
     logger.log("error", e);
-    throw "can not connect to the mongo!";
+    throw "can not connect to the mongo!!!!!!!";
   });
 
 class ContainerUsuariosMongo {
@@ -28,18 +40,3 @@ class ContainerUsuariosMongo {
 }
 
 module.exports = { ContainerUsuariosMongo, Usuarios };
-/*  case "firebas":
-            db.collection("usuarios")
-              .doc()
-              .set(newUser, (err, userWithId) => {
-                if (err) {
-                  logger.log("info", `Error in Saving user:${err}`);
-                  return done(err);
-                }
-                console.log(user);
-                logger.log("info", "User Registration succesful");
-                enviarcorreo(mailOptions);
-                ///////////////////////////////////////////////////////////////////////
-                return done(null, userWithId);
-              });
-            break; */

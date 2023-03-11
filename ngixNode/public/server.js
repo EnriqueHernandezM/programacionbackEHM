@@ -1,9 +1,5 @@
-const { config } = require("dotenv");
-config();
-
 const express = require("express");
 const app = express(); /////////////////////aqui conectamos con mongo
-require("./src/databasMongo/databas");
 ///////////////////////////////////////////////////  RUTAS EXPOPRTS/////////////////////
 const index = require("./src/rutas/index");
 const { routerDeProductos, apiProductos } = require("./src/rutas/productos");
@@ -32,7 +28,7 @@ httpServer.listen(PORT, () => logger.log("info", "SERVER ON http://localhost:" +
 ///////////////////////////////////SOCKETS
 /////////////////////////////////////////////se me ocurrio hacer asi lo de sockets
 const io = require("socket.io")(httpServer);
-const socketModule = require("./src/sockets/sockets");
+const socketModule = require("./src/controlador/socketsMensajes/sockets");
 socketModule(io);
 
 const session = require("./src/utils/session");
