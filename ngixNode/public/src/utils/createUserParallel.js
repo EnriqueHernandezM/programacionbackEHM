@@ -1,12 +1,6 @@
 const logger = require("../utils/loggers");
 const bcrypt = require("bcrypt");
-//const admin = require("firebase-admin");
 const { getFirestore } = require("firebase-admin/firestore");
-//const serviceAccount = require("../../../../privi.json");
-/* admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-}); 
-logger.log("info", "conecte base firebass");*/
 const db = getFirestore();
 const usuarios = [
   {

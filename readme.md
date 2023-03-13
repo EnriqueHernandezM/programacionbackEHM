@@ -4,4 +4,4 @@ npm run devMongo
 npm run devFirebas
 npm run devMem
 ///////////////////////////////////////////////////////////////////
-tuve que Encender las bases de Datos por el tema de los usuarios
+Tuve que Encender las bases de Datos desde el server por el tema de los usuarios en una carpeta de utils llamada conecctions con el patron singleton, A modo de ejemplo intento conectar de nuevo desde /percistencias en /firebas/productos y en /mongoose/productos

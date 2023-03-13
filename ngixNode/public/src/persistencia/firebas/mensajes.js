@@ -1,6 +1,10 @@
 const { getFirestore } = require("firebase-admin/firestore");
 const db = getFirestore();
+/* const DatabaseFirebas = require("../../passport/");
+const conectToFirebas = new DatabaseFirebas();
+conectToFirebas.getInstance; */
 ///
+
 class ContainerMessagesFirebas {
   constructor(collection) {
     this.collection = collection;

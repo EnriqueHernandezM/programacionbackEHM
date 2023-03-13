@@ -2812,3 +2812,6 @@
 {"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/favicon.ico","timestamp":"2023-03-11T08:38:37.416Z"}
 {"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/favicon.ico","timestamp":"2023-03-11T08:39:20.550Z"}
 {"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/favicon.ico","timestamp":"2023-03-11T08:39:26.457Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/favicon.ico","timestamp":"2023-03-13T09:30:11.568Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/favicon.ico","timestamp":"2023-03-13T09:30:14.244Z"}
+{"err":"ruta inexistente","level":"warn","metodo":{"get":true},"ruta":"/favicon.ico","timestamp":"2023-03-13T09:30:15.497Z"}

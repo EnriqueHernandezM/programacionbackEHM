@@ -1,5 +1,7 @@
 const express = require("express");
-const app = express(); /////////////////////aqui conectamos con mongo
+const app = express();
+require("./src/utils/databasConecctions/firebas");
+require("./src/utils/databasConecctions/mongoose"); /////////////////////aqui conectamos con mongo
 ///////////////////////////////////////////////////  RUTAS EXPOPRTS/////////////////////
 const index = require("./src/rutas/index");
 const { routerDeProductos, apiProductos } = require("./src/rutas/productos");

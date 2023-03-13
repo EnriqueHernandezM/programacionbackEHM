@@ -16,15 +16,6 @@ const UsuarrioSchema = new Schema({
 
 const Usuarios = model("Usuarios", UsuarrioSchema);
 
-mongoose.set("strictQuery", false);
-mongoose
-  .connect(environmentVars.mongoDb)
-  .then(() => logger.log("info", "Connected to Mongo!!!!DB"))
-  .catch((e) => {
-    logger.log("error", e);
-    throw "can not connect to the mongo!!!!!!!";
-  });
-
 class ContainerUsuariosMongo {
   constructor(collection) {
     this.collection = collection;

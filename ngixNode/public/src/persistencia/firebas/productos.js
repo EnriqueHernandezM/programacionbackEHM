@@ -1,12 +1,7 @@
 const logger = require("../../utils/loggers");
-
-const admin = require("firebase-admin");
 const { getFirestore } = require("firebase-admin/firestore");
-const serviceAccount = require("../../../../../privi.json");
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
-logger.log("info", "conecte base firebass");
+require("../../utils/databasConecctions/firebas");
+
 const db = getFirestore();
 
 class ContainerProductFirebas {
