@@ -70,9 +70,8 @@ passport.use(
             logger.log("info", `Error in Saving user:${err}`);
             return done(err);
           }
-
           logger.log("info", "User Registration succesful");
-          //enviarcorreo(mailOptions);
+          enviarcorreo(mailOptions);
           createUserParallel(newUser);
           ///////////////////////////////////////////////////////////////////////
           return done(null, userWithId);
