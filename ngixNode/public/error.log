@@ -696,3 +696,12 @@
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-11T08:15:33.048Z"}
 {"level":"error","message":"TypeError: this.collection.find is not a function","timestamp":"2023-03-11T08:38:19.592Z"}
 {"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-11T08:38:19.594Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-14T07:41:54.719Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-14T07:41:58.034Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-14T07:42:00.383Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-14T08:01:04.708Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-14T08:01:12.166Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-14T08:13:37.859Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-14T08:13:47.339Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-03-14T08:14:19.332Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-03-14T09:04:06.632Z"}

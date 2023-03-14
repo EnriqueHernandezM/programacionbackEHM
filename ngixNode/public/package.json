@@ -4,7 +4,7 @@
   "main": "main.js",
   "scripts": {
     "test": "node benchmark.js",
-    "start": "0x server.js",
+    "start": "0x server.js 8080 mongo",
     "devMongo": "nodemon server.js 8080 mongo",
     "devFirebas": "nodemon server.js 8080 firebas",
     "devMem": "nodemon server.js 8080 mem"
