@@ -18,10 +18,14 @@ class ContainerProductMongo {
   constructor(collection) {
     this.collecton = collection;
   }
-  guardarNuevoProducto = async (product) => {
+  guardarNuevoProducto = async (product, timestamp) => {
     try {
+      product.data = timestamp;
       const newProduct = new Productos(product);
-      await newProduct.save().then((data) => console.log(data));
+      return await newProduct.save().then((data) => {
+        console.log(data);
+        return data;
+      });
     } catch (err) {
       logger.log("error", `errInProductMdb${err}`);
       return { error: err };
@@ -56,20 +60,23 @@ class ContainerProductMongo {
   };
   modificarUnElemento = async (buscar, body) => {
     try {
-      const usuarioModificado = await this.Productos.updateOne(
+      const usuarioModificado = await Productos.updateOne(
         { _id: buscar._id },
         {
           $set: {
-            producto: body.producto,
-            precio: body.precio,
-            imagen: body.imagen,
+            product: body.product,
+            typeOfLiquor: body.typeOfLiquor,
+            price: body.price,
+            image: body.image,
             description: body.description,
             stockItems: body.stockItems,
-            codeItem: body.stockItems,
+            codeItem: body.codeItem,
           },
         }
       );
-      return usuarioModificado;
+      if (usuarioModificado.modifiedCount > 0) {
+      }
+      return await this.traerProductoPorId(buscar.id);
     } catch (err) {
       logger.log("error", `errInProductMdb${err}`);
     }

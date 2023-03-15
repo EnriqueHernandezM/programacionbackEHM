@@ -18,8 +18,7 @@ class Contenedor {
   }
   async save(product) {
     try {
-      await DaoProductos.guardarNuevoProducto(product, timestamp);
-      return this.getAll();
+      return await DaoProductos.guardarNuevoProducto(product, timestamp);
     } catch (err) {
       logger.log("error", `${err}`);
     }
@@ -42,7 +41,7 @@ class Contenedor {
   }
   async deleteById(aBorrar) {
     try {
-      await DaoProductos.borrarItemInventario(aBorrar);
+      return await DaoProductos.borrarItemInventario(aBorrar);
     } catch (err) {
       logger.log("error", `${err}`);
     }
@@ -56,8 +55,9 @@ class Contenedor {
   async modifyElement(id, body) {
     try {
       const buscar = await this.getById(id);
-      const usuarioModificado = await DaoProductos.modificarUnElemento(buscar, body);
-      logger.log("info", usuarioModificado);
+      return await DaoProductos.modificarUnElemento(buscar, body);
+
+      //logger.log("info", usuarioModificado);
     } catch (err) {
       logger.log("error", `${err}`);
     }

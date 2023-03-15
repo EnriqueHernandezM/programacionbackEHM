@@ -3,13 +3,14 @@ const { Router } = express;
 const routerDeProductos = new Router();
 const apiProductos = new Router();
 const logger = require("../utils/loggers");
-const { getProductsRout, productsTest, getApiProductos, newApiProduct, deleteElementInventary } = require("../controlador/productos");
+const { getProductsRout, productsTest, getApiProductos, newApiProduct, deleteElementInventary, modificProduct } = require("../controlador/productos");
 
 routerDeProductos.get("/", checkAuthentication, getProductsRout);
 routerDeProductos.get("/test", checkAuthentication, productsTest);
 ////
 apiProductos.get("/productos", getApiProductos);
 apiProductos.post("/productos", newApiProduct);
+apiProductos.put("/productos/:id", modificProduct);
 apiProductos.delete("/productos/:id", deleteElementInventary);
 ///////////////////////////////////RUTAS DESAFIO OBJECT PROCES((INFO))
 

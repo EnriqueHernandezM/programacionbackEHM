@@ -3,7 +3,7 @@ const moment = require("moment");
 const timestamp = moment().format("lll");
 let inventarios = [
   {
-    id: 1,
+    _id: 1,
     product: "Don Pedro",
     typeOfLiquor: "Brandy",
     price: 350,
@@ -14,7 +14,7 @@ let inventarios = [
     data: "2023-03-03T09:35:13.475Z",
   },
   {
-    id: 2,
+    _id: 2,
     product: "Moet Chandom",
     typeOfLiquor: "Champagne",
     price: 980,
@@ -25,7 +25,7 @@ let inventarios = [
     data: "2023-03-03T09:36:30.012Z",
   },
   {
-    id: 3,
+    _id: 3,
     product: "Nuvo",
     typeOfLiquor: "Vodka",
     price: 820,
@@ -42,22 +42,28 @@ class ContainerProductMem {
   guardarNuevoProducto = (product) => {
     try {
       let all = this.traerTodosLosItems();
-      let id = 1;
+      let _id = 1;
       let data = timestamp;
       all.length > 0 &&
         all.forEach((el) => {
-          id = el.id + 1;
+          _id = el._id + 1;
         });
       product.data = data;
-      product.id = id;
+      product._id = _id;
       all.push(product);
+      return product;
     } catch (err) {
       logger.log("error", `${err}`);
     }
   };
   traerProductoPorId = (number) => {
     try {
-      return inventarios.find((el) => el.id == number);
+      const oneItem = inventarios.find((el) => el._id == number);
+      if (oneItem) {
+        return oneItem;
+      } else {
+        return number;
+      }
     } catch (error) {
       logger.log("error", `${err}`);
     }
@@ -72,32 +78,31 @@ class ContainerProductMem {
   borrarItemInventario = (aBorrar) => {
     try {
       const datas = this.traerTodosLosItems();
-      let buscaPborrar = datas.findIndex((el) => el.id == aBorrar);
+      let buscaPborrar = datas.findIndex((el) => el._id == aBorrar);
       if (buscaPborrar >= 0) {
-        datas.splice(buscaPborrar, 1);
-        return { err: false, msg: "producto eliminado Correctamente" };
+        return datas.splice(buscaPborrar, 1);
       }
       if (buscaPborrar == -1) {
         return { err: true, msg: "producto a eliminar no existe" };
       }
+      return datas;
     } catch (err) {
       console.log(err);
     }
   };
   modificarUnElemento = (id, body) => {
     try {
-      let all = this.getAll();
-      let product = all.findIndex((el) => el.id == id);
+      let all = this.traerTodosLosItems();
+      let product = all.findIndex((el) => el._id == id._id);
       if (product <= -1) {
         return { error: "true", mesage: "producto a modificar no existe no existe" };
       }
       let data = all[product].data;
-      let codeItem = all[product].codeItem;
+      let _id = parseInt(id._id);
       if (product >= 0) {
-        id = parseInt(id);
-        let newProduct = { ...body, data, codeItem, id };
+        let newProduct = { ...body, data, _id };
         all[product] = newProduct;
-        return all;
+        return newProduct;
       }
     } catch (err) {
       logger.log("error", `${err}`);
