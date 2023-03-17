@@ -10,7 +10,6 @@ class ContainerProductFirebas {
   }
   guardarNuevoProducto = async (product, timestamp) => {
     try {
-      console.log(product);
       const newProduct = await db.collection(this.collection).doc().set({
         codeItem: product.codeItem,
         data: timestamp,
@@ -21,6 +20,14 @@ class ContainerProductFirebas {
         stockItems: product.stockItems,
         typeOfLiquor: product.typeOfLiquor,
       });
+      if (newProduct) {
+        logger.log("info", `new product en firebas`);
+        const datas = await db.collection(this.collection).get();
+        let arrayRes = datas.docs.map((item) => {
+          return { _id: item.id, ...item.data() };
+        });
+        return arrayRes.find((el) => el.codeItem == product.codeItem && el.product == product.product);
+      }
       logger.log("info", `${newProduct}`);
       return newProduct;
     } catch (err) {
@@ -32,9 +39,9 @@ class ContainerProductFirebas {
     try {
       const datas = await db.collection(this.collection).get();
       let arrayRes = datas.docs.map((item) => {
-        return { id: item.id, ...item.data() };
+        return { _id: item.id, ...item.data() };
       });
-      return arrayRes.find((el) => el.id == idNumber);
+      return arrayRes.find((el) => el._id == idNumber);
     } catch (err) {
       logger.log("error", `errInProductFB${err}`);
       return { error: err };
@@ -44,7 +51,7 @@ class ContainerProductFirebas {
     try {
       const products = await db.collection(this.collection).get();
       let arrayRes = products.docs.map((item) => {
-        return { id: item.id, ...item.data() };
+        return { _id: item.id, ...item.data() };
       });
       return arrayRes;
     } catch (err) {
@@ -68,7 +75,8 @@ class ContainerProductFirebas {
   };
   modificarUnElemento = async (buscar, body) => {
     try {
-      const usuarioModificado = await db.collection(this.collection).doc(buscar.id).set(
+      console.log(buscar._id);
+      const usuarioModificado = await db.collection(this.collection).doc(buscar._id).set(
         {
           product: body.product,
           typeOfLiquor: body.typeOfLiquor,
@@ -80,7 +88,9 @@ class ContainerProductFirebas {
         },
         { merge: true }
       );
-      return usuarioModificado;
+      if (usuarioModificado) {
+        return await this.traerProductoPorId(buscar._id);
+      }
     } catch (err) {
       logger.log("error", `errInProductFB${err}`);
     }

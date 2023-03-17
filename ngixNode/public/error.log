@@ -747,3 +747,111 @@
 {"level":"error","message":"errInProductMdbReferenceError: fic is not defined","timestamp":"2023-03-15T08:33:31.543Z"}
 {"level":"error","message":"errInProductMdbReferenceError: buscr is not defined","timestamp":"2023-03-15T08:37:41.131Z"}
 {"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-03-15T08:47:44.230Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T09:15:23.917Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T09:16:15.289Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T09:17:08.646Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T09:17:41.806Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T09:18:52.377Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T09:19:32.694Z"}
+{"level":"error","message":"errInProductFBError: Value for argument \"data\" is not a valid Firestore document. Cannot use \"undefined\" as a Firestore value (found in field \"image\"). If you want to ignore undefined values, enable `ignoreUndefinedProperties`.","timestamp":"2023-03-15T09:21:42.628Z"}
+{"level":"error","message":"errInProductFBError: Value for argument \"collectionPath\" is not a valid resource path. Path must be a non-empty string.","timestamp":"2023-03-15T09:26:21.252Z"}
+{"level":"error","message":"errInProductFBReferenceError: producrice is not defined","timestamp":"2023-03-15T09:26:49.619Z"}
+{"level":"error","message":" ❌ DB OFF Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.ckqspop.mongodb.net","timestamp":"2023-03-15T09:28:56.985Z"}
+{"level":"error","message":" ❌ DB OFF Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.ckqspop.mongodb.net","timestamp":"2023-03-15T09:29:37.512Z"}
+{"level":"error","message":"errInProductFBReferenceError: productockItems is not defined","timestamp":"2023-03-15T09:30:27.012Z"}
+{"level":"error","message":"errInProductFBTypeError: newProduct.data is not a function","timestamp":"2023-03-15T09:33:34.995Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'data')","timestamp":"2023-03-15T09:34:00.742Z"}
+{"level":"error","message":"errInProductFBTypeError: res.data is not a function","timestamp":"2023-03-15T09:40:48.095Z"}
+{"level":"error","message":"errInProductFBReferenceError: datas is not defined","timestamp":"2023-03-15T09:44:21.054Z"}
+{"level":"error","message":"errInProductFBReferenceError: datas is not defined","timestamp":"2023-03-15T09:44:54.922Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T10:09:02.542Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T10:09:22.797Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T10:09:26.047Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T10:09:43.541Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T10:10:27.018Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-03-15T10:11:00.968Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-03-15T10:11:23.515Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-03-15T10:13:05.852Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: createProductsSchema.VaidateAsync is not a function","timestamp":"2023-03-17T17:41:10.539Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: createProductsSchema.VaidateAsync is not a function","timestamp":"2023-03-17T17:42:13.102Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: createProductsSchema.Vaidate is not a function","timestamp":"2023-03-17T17:44:52.777Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: Productos.checkProduct is not a function","timestamp":"2023-03-17T18:47:37.488Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-17T18:48:26.641Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-17T18:48:35.012Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-17T18:48:54.704Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Vaidate is not a function","timestamp":"2023-03-17T18:49:37.389Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Vaidate is not a function","timestamp":"2023-03-17T18:49:48.131Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Vaidate is not a function","timestamp":"2023-03-17T18:50:48.627Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Vaidate is not a function","timestamp":"2023-03-17T18:51:28.256Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Vaidate is not a function","timestamp":"2023-03-17T18:51:29.388Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Vaidate is not a function","timestamp":"2023-03-17T18:51:30.200Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Vaidate is not a function","timestamp":"2023-03-17T18:51:40.815Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Validate is not a function","timestamp":"2023-03-17T18:52:26.317Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Validate is not a function","timestamp":"2023-03-17T18:52:31.839Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Validate is not a function","timestamp":"2023-03-17T18:52:38.341Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Validate is not a function","timestamp":"2023-03-17T18:52:46.598Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.Validate is not a function","timestamp":"2023-03-17T18:52:48.484Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T18:53:05.800Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T18:53:09.312Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T18:53:10.715Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T18:55:51.574Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T18:55:53.298Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T18:58:50.072Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T18:58:52.627Z"}
+{"level":"error","message":"Error en negocio/productosError: ah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T18:58:56.357Z"}
+{"level":"error","message":"Error en negocio/productosah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T19:00:18.548Z"}
+{"level":"error","message":"Error en negocio/productosah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T19:00:59.747Z"}
+{"level":"error","message":"Error en negocio/productosah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T19:01:33.318Z"}
+{"level":"error","message":"Error en negocio/productosah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T19:01:35.309Z"}
+{"level":"error","message":"Error en negocio/productosah el producto le fantan campos TypeError: createProductsSchema.validate is not a function","timestamp":"2023-03-17T19:02:16.155Z"}
+{"level":"error","message":"Error en negocio/productosah el producto le fantan campos TypeError: createProductsSchema.validateAsync is not a function","timestamp":"2023-03-17T19:03:54.863Z"}
+{"level":"error","message":"Error en negocio/productosah el producto le fantan campos TypeError: createProductsSchema.validateAsync is not a function","timestamp":"2023-03-17T19:03:56.602Z"}
+{"level":"error","message":"Error en negocio/productosah el producto le fantan campos TypeError: createProductsSchema.validateAsync is not a function","timestamp":"2023-03-17T19:04:40.298Z"}
+{"level":"error","message":"Error en negocio/productosah el producto le fantan campos TypeError: createProductsSchema.validateAsync is not a function","timestamp":"2023-03-17T19:04:41.850Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: error is not a function","timestamp":"2023-03-17T19:04:57.892Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: error is not a function","timestamp":"2023-03-17T19:04:59.090Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: createProductsSchema.validateAsync is not a function","timestamp":"2023-03-17T19:05:14.120Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: createProductsSchema.validateAsync is not a function","timestamp":"2023-03-17T19:05:28.648Z"}
+{"level":"error","message":"Error en negocio/productosah el producto le fantan campos TypeError: CreateProductsSchema.validate is not a function","timestamp":"2023-03-17T19:07:08.295Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"typeOfLiquor\" is not allowed to be empty","timestamp":"2023-03-17T19:10:40.309Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" must be a string","timestamp":"2023-03-17T19:14:31.965Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be a number","timestamp":"2023-03-17T19:14:59.333Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" must be a string","timestamp":"2023-03-17T19:15:31.892Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: Joi.alphanum is not a function","timestamp":"2023-03-17T19:17:42.514Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be a buffer or a string","timestamp":"2023-03-17T19:18:36.698Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be a number","timestamp":"2023-03-17T19:19:19.978Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be a number","timestamp":"2023-03-17T19:20:02.358Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be an integer","timestamp":"2023-03-17T19:21:19.833Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be an integer","timestamp":"2023-03-17T19:21:30.883Z"}
+{"level":"error","message":"Error en negocio/productosError: limit must be a number or reference","timestamp":"2023-03-17T19:23:44.171Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be greater than 1000","timestamp":"2023-03-17T19:24:04.353Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be greater than 1000","timestamp":"2023-03-17T19:24:37.818Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be a positive number","timestamp":"2023-03-17T19:25:38.609Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:26:06.043Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:26:58.213Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:26:59.330Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:27:01.434Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:27:54.864Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:27:59.040Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:28:29.775Z"}
+{"level":"error","message":"Error: campos incompletos ValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:28:29.777Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:28:43.191Z"}
+{"level":"error","message":"Error: campos incompletos ValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:28:43.193Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-17T19:30:36.572Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-17T19:30:58.690Z"}
+{"level":"error","message":"Error en negocio/productosTypeError: Cannot read properties of undefined (reading '0')","timestamp":"2023-03-17T19:31:46.514Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:32:13.798Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"typeOfLiquor\" is not allowed to be empty","timestamp":"2023-03-17T19:39:13.838Z"}
+{"level":"error","message":"ValidationError: \"typeOfLiquor\" is not allowed to be empty","timestamp":"2023-03-17T19:39:22.045Z"}
+{"level":"error","message":"ValidationError: \"typeOfLiquor\" is not allowed to be empty","timestamp":"2023-03-17T19:39:31.083Z"}
+{"level":"error","message":"ValidationError: \"product\" is not allowed to be empty","timestamp":"2023-03-17T19:40:15.215Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-03-17T19:44:12.897Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-03-17T19:44:14.414Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be a positive number","timestamp":"2023-03-17T19:49:30.045Z"}
+{"level":"error","message":"ValidationError: \"codeItem\" must be a number","timestamp":"2023-03-17T19:50:30.224Z"}
+{"level":"error","message":"ValidationError: \"price\" must be a positive number","timestamp":"2023-03-17T19:50:43.412Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be a positive number","timestamp":"2023-03-17T19:58:42.544Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be a positive number","timestamp":"2023-03-17T20:02:10.663Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-03-17T20:02:10.987Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be a positive number","timestamp":"2023-03-17T20:03:06.970Z"}
+{"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-03-17T20:03:07.286Z"}

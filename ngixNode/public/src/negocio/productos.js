@@ -1,26 +1,23 @@
 const environmentVars = require("../utils/environmentVar");
+//const CreateProductsSchema = require("../utils/joiSchema");
+const Joi = require("joi");
 const logger = require("../utils/loggers");
 const moment = require("moment");
 const timestamp = moment().format("lll");
 const { DaoProductos } = require("../persistencia/DAOs");
+const { Productos } = require("../persistencia/mongoose/productos");
 class Contenedor {
   constructor(routPersistance) {
     this.routPersistance = routPersistance;
   }
-  async connectMG() {
-    try {
-      await connect(environmentVars.mongoDb);
-      logger.log("info", "conecte bse de datos Productos");
-    } catch (err) {
-      logger.log("error", `${err}`);
-      throw "can not connect to the db";
-    }
-  }
   async save(product) {
     try {
-      return await DaoProductos.guardarNuevoProducto(product, timestamp);
+      Contenedor.checkProduct(product);
+      const items = await DaoProductos.guardarNuevoProducto(product, timestamp);
+      return { _id: items._id };
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `Error en negocio/productos${err}`);
+      return { error: `Error en negocio/productos${err}` };
     }
   } /*  */
   async getById(number) {
@@ -54,12 +51,37 @@ class Contenedor {
   }
   async modifyElement(id, body) {
     try {
+      Contenedor.checkProduct(body);
       const buscar = await this.getById(id);
       return await DaoProductos.modificarUnElemento(buscar, body);
-
       //logger.log("info", usuarioModificado);
     } catch (err) {
       logger.log("error", `${err}`);
+      return { error: `Error en negocio/productos${err}` };
+    }
+  }
+
+  static checkProduct(product) {
+    try {
+      Contenedor.validar(product);
+    } catch (err) {
+      throw err;
+    }
+  }
+  static validar(productR) {
+    const CreateProductsSchema = Joi.object({
+      product: Joi.string().required(),
+      typeOfLiquor: Joi.string().required(),
+      price: Joi.number().positive().required(),
+      image: Joi.string().required(),
+      description: Joi.string().required(),
+      stockItems: Joi.number().integer().required(),
+      codeItem: Joi.number().required(),
+    });
+
+    const { error } = CreateProductsSchema.validate(productR);
+    if (error) {
+      throw error;
     }
   }
 }
