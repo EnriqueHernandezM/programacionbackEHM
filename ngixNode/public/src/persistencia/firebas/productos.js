@@ -8,7 +8,7 @@ class ContainerProductFirebas {
   constructor(collection) {
     this.collection = collection;
   }
-  guardarNuevoProducto = async (product, timestamp) => {
+  saveNewProduct = async (product, timestamp) => {
     try {
       const newProduct = await db.collection(this.collection).doc().set({
         codeItem: product.codeItem,
@@ -26,7 +26,7 @@ class ContainerProductFirebas {
         let arrayRes = datas.docs.map((item) => {
           return { _id: item.id, ...item.data() };
         });
-        return arrayRes.find((el) => el.codeItem == product.codeItem && el.product == product.product);
+        return arrayRes.find((el) => el.codeItem == product.codeItem && el.product == product.product && el.codeItem === product.codeItem);
       }
       logger.log("info", `${newProduct}`);
       return newProduct;
@@ -35,7 +35,7 @@ class ContainerProductFirebas {
       return { error: err };
     }
   };
-  traerProductoPorId = async (idNumber) => {
+  getProductByIdDb = async (idNumber) => {
     try {
       const datas = await db.collection(this.collection).get();
       let arrayRes = datas.docs.map((item) => {
@@ -47,7 +47,7 @@ class ContainerProductFirebas {
       return { error: err };
     }
   };
-  traerTodosLosItems = async () => {
+  getAllitemsDb = async () => {
     try {
       const products = await db.collection(this.collection).get();
       let arrayRes = products.docs.map((item) => {
@@ -60,7 +60,7 @@ class ContainerProductFirebas {
     }
   };
 
-  borrarItemInventario = async (aBorrar) => {
+  deleteOneItemInventory = async (aBorrar) => {
     try {
       await db
         .collection(this.collection)
@@ -73,9 +73,8 @@ class ContainerProductFirebas {
       logger.log("error", `errInProductFB${err}`);
     }
   };
-  modificarUnElemento = async (buscar, body) => {
+  modifyOneElementInventory = async (buscar, body) => {
     try {
-      console.log(buscar._id);
       const usuarioModificado = await db.collection(this.collection).doc(buscar._id).set(
         {
           product: body.product,

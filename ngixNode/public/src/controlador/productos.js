@@ -1,68 +1,85 @@
-const str = require("../utils/mocks");
+const environmentVars = require("../utils/environmentVar");
 const logger = require("../utils/loggers");
-const { Contenedor } = require("../negocio/productos");
-const containerProducts = new Contenedor();
+const { ContainerProducts } = require("../negocio/productos");
+const containerProducts = new ContainerProducts();
 /////////////////////////////////////////VARIABLE PARACREAR ADMIN
-let userOrAdmin = true;
 /////////////////////////////////////////
-async function getApiProductos(req, res) {
-  const todosLosItems = await containerProducts.getAll();
-  res.status(201).json(todosLosItems);
-}
-async function getProductsRout(req, res) {
+const getApiProducts = async (req, res) => {
   try {
-    logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
+    logger.log("info", { route: req.originalUrl, method: req.route.methods });
     const allItemsGet = await containerProducts.getAll();
-    res.status(201).render("pages/productos", { allItems: allItemsGet });
+    //Dependiendo de la variable que le mando por consola hara res json o render
+    switch (environmentVars.typeInRes) {
+      case "resJson":
+        res.status(200).json({ inventario: allItemsGet });
+        break;
+      case "":
+        res.status(200).render("pages/productos", { allItems: allItemsGet });
+        break;
+    }
   } catch (err) {
-    logger.log("error", `${err}`);
+    res.status(500).json();
+    logger.log("error", `error en el controllador Products${err}`);
   }
-}
-async function newApiProduct(req, res) {
-  logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
+};
+const getOneProductById = async (req, res) => {
+  try {
+    logger.log("info", { route: req.originalUrl, method: req.route.methods });
+    const { id } = req.params;
+    const catchTheItem = await containerProducts.getById(id);
+    res.status(200).json({ catchTheItem });
+  } catch (err) {
+    logger.log("error", `error en el controllador Products${err}`);
+  }
+};
+const oneNewProdutToApi = async (req, res) => {
+  logger.log("info", { route: req.originalUrl, method: req.route.methods });
   try {
     const { body } = req;
-    let newI = await containerProducts.save(body);
-    res.status(201).json(newI);
+    let newItem = await containerProducts.save(body);
+    res.status(201).json({ idAsignado: newItem });
   } catch (err) {
-    logger.log("error", `${err}`);
+    logger.log("error", `error en el controllador Products${err}`);
   }
-}
-async function deleteElementInventary(req, res) {
+};
+const deleteElementInventary = async (req, res) => {
   try {
+    logger.log("info", { route: req.originalUrl, method: req.route.methods });
     const { id } = req.params;
     const eliminated = await containerProducts.deleteById(id);
-    res.status(202).json(eliminated);
+    if (!eliminated) {
+      res.status(404).json({ msge: "el producto a eliminar no existe" });
+    }
+    res.status(200).json({ message: "producto Eliminado", itemDelete: eliminated.id });
   } catch (err) {
-    logger.log("error", `${err}`);
+    logger.log("error", `error en el controllador Products${err}`);
   }
-}
-function productsTest(req, res) {
-  logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
-  res.render("pages/tablafaker", { stre: str() });
-}
-async function modificProduct(req, res) {
-  const { id } = req.params;
-  const { body } = req;
-  const modify = await containerProducts.modifyElement(id, body);
-  res.status(201).json(modify);
-}
-//////////////////////////////////////FUNCIONES ENTREGA OBJECT PROCESS
-
-function failRoute(req, res) {
+};
+const modificProduct = async (req, res) => {
   try {
-    logger.log("warn", { ruta: req.path, metodo: req.route.methods, err: "ruta inexistente" });
+    logger.log("info", { route: req.originalUrl, method: req.route.methods });
+    const { id } = req.params;
+    const { body } = req;
+    const modify = await containerProducts.modifyElement(id, body);
+    if (!modify) {
+      res.status(400).json({
+        msge: "item a modificar no existe",
+      });
+    } else {
+      res.status(201).json({
+        msge: "item correctamente modificado",
+        modify,
+      });
+    }
   } catch (err) {
-    logger.log("error", `${err}`);
+    logger.log("error", `error en el controllador Products${err}`);
   }
-}
+};
 
 module.exports = {
-  getProductsRout,
-  productsTest,
-  getApiProductos,
-  failRoute,
-  newApiProduct,
+  getApiProducts,
+  getOneProductById,
+  oneNewProdutToApi,
   deleteElementInventary,
   modificProduct,
 };

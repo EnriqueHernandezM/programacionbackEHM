@@ -1,11 +1,10 @@
 const express = require("express");
 const { Router } = express;
 const apiCarrito = new Router();
-const carrito = new Router();
-const { postTrolley, confirmarCompra, deleteItemTrolley } = require("../controlador/carrito");
-
+const { getTrolleyByClientId, postTrolley, confirmarCompra, deleteItemTrolley } = require("../controlador/carrito");
+apiCarrito.get("/carrito/:id", getTrolleyByClientId);
 apiCarrito.post("/carrito", postTrolley);
 apiCarrito.delete("/carritodelete/:id", deleteItemTrolley);
-carrito.get("/confirmarcompra", confirmarCompra);
+apiCarrito.get("/carrito/confirmarcompra", confirmarCompra);
 
-module.exports = { carrito, apiCarrito };
+module.exports = { apiCarrito };

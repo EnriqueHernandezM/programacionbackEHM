@@ -7,7 +7,9 @@
     "start": "0x server.js 8080 mongo",
     "devMongo": "nodemon server.js 8080 mongo",
     "devFirebas": "nodemon server.js 8080 firebas",
-    "devMem": "nodemon server.js 8080 mem"
+    "devMem": "nodemon server.js 8080 mem",
+    "devMongoJson": "nodemon server.js 8080 mongo resJson",
+    "devMemJson": "nodemon server.js 8080 mem resJson"
   },
   "repository": {
     "type": "git",

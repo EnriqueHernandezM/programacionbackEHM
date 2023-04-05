@@ -855,3 +855,446 @@
 {"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-03-17T20:02:10.987Z"}
 {"level":"error","message":"Error en negocio/productosValidationError: \"price\" must be a positive number","timestamp":"2023-03-17T20:03:06.970Z"}
 {"level":"error","message":"errInProductFBTypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-03-17T20:03:07.286Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is required","timestamp":"2023-04-03T19:05:45.066Z"}
+{"level":"error","message":"TypeError: this.getLogIn is not a function","timestamp":"2023-04-03T19:10:58.377Z"}
+{"level":"error","message":"TypeError: res.stattus is not a function","timestamp":"2023-04-03T19:20:42.209Z"}
+{"level":"error","message":"ReferenceError: carrito is not defined","timestamp":"2023-04-03T20:11:17.588Z"}
+{"level":"error","message":"ReferenceError: carrito is not defined","timestamp":"2023-04-03T20:11:23.519Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-03T20:13:19.709Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-03T21:08:50.947Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-03T22:01:19.029Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-03T22:04:43.537Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-03T22:05:00.404Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-03T22:26:14.833Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-03T22:27:51.886Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-03T22:27:54.664Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-03T22:29:17.627Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-03T22:34:36.529Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'originalUrl')","timestamp":"2023-04-04T00:00:35.384Z"}
+{"level":"error","message":"ReferenceError: re is not defined","timestamp":"2023-04-04T00:01:01.394Z"}
+{"level":"error","message":"TypeError: req.session.destro is not a function","timestamp":"2023-04-04T00:06:28.159Z"}
+{"level":"error","message":"ReferenceError: hod is not defined","timestamp":"2023-04-04T00:52:20.949Z"}
+{"level":"error","message":"ReferenceError: hod is not defined","timestamp":"2023-04-04T00:52:23.296Z"}
+{"level":"error","message":"ReferenceError: hod is not defined","timestamp":"2023-04-04T00:52:47.759Z"}
+{"level":"error","message":"ReferenceError: hod is not defined","timestamp":"2023-04-04T00:53:11.025Z"}
+{"level":"error","message":"Error en negocio/productosValidationError: \"product\" is not allowed to be empty","timestamp":"2023-04-04T01:07:39.400Z"}
+{"level":"error","message":"ReferenceError: containerProucts is not defined","timestamp":"2023-04-04T01:26:35.716Z"}
+{"level":"error","message":"ReferenceError: contanerProducts is not defined","timestamp":"2023-04-04T01:29:50.300Z"}
+{"level":"error","message":"ReferenceError: containerProduts is not defined","timestamp":"2023-04-04T01:30:13.956Z"}
+{"level":"error","message":"ReferenceError: containerProduts is not defined","timestamp":"2023-04-04T01:30:19.743Z"}
+{"level":"error","message":"ReferenceError: containerProduts is not defined","timestamp":"2023-04-04T01:30:34.626Z"}
+{"level":"error","message":"error en el controllador ProductsReferenceError: containerProduts is not defined","timestamp":"2023-04-04T01:48:26.581Z"}
+{"level":"error","message":"error en el controllador ProductsReferenceError: containerProduts is not defined","timestamp":"2023-04-04T01:48:28.943Z"}
+{"level":"error","message":"error en el controllador ProductsError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-04-04T01:59:55.163Z"}
+{"level":"error","message":"error en el controllador ProductsError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-04-04T01:59:56.884Z"}
+{"level":"error","message":"error en el controllador ProductsError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-04-04T02:02:14.560Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b780bda7371dd1a49e25\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T02:03:07.818Z"}
+{"level":"error","message":"error en el controllador ProductsTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T02:03:07.824Z"}
+{"level":"error","message":"error en el controllador ProductsTypeError: Cannot read properties of null (reading 'id')","timestamp":"2023-04-04T02:03:48.667Z"}
+{"level":"error","message":"error en el controllador ProductsTypeError: Cannot read properties of null (reading 'id')","timestamp":"2023-04-04T02:03:52.310Z"}
+{"level":"error","message":"error en el controllador ProductsTypeError: Cannot read properties of null (reading 'id')","timestamp":"2023-04-04T02:05:06.149Z"}
+{"level":"error","message":"ValidationError: \"image\" is required","timestamp":"2023-04-04T05:06:59.527Z"}
+{"level":"error","message":"ValidationError: \"price\" must be a number","timestamp":"2023-04-04T05:07:16.509Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-04-04T05:12:36.792Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-04-04T05:12:40.400Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T05:18:27.584Z"}
+{"level":"error","message":"error en el controllador ProductsError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-04-04T05:18:27.590Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T05:18:29.241Z"}
+{"level":"error","message":"error en el controllador ProductsError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-04-04T05:18:29.244Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T05:18:35.117Z"}
+{"level":"error","message":"error en el controllador ProductsError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-04-04T05:18:35.121Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T05:19:18.598Z"}
+{"level":"error","message":"error en el controllador ProductsError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-04-04T05:19:18.599Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T05:19:50.504Z"}
+{"level":"error","message":"error en el controllador ProductsError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-04-04T05:19:50.505Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T05:21:05.439Z"}
+{"level":"error","message":"error en el controllador ProductsError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-04-04T05:21:05.440Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T05:22:23.691Z"}
+{"level":"error","message":"error en el controllador ProductsError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client","timestamp":"2023-04-04T05:22:23.694Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T05:23:15.149Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T05:23:17.806Z"}
+{"level":"error","message":"errInProductMdbTypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T05:23:28.905Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b25\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:35:35.477Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b25\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:36:45.745Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b4\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:38:01.605Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b44\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:38:07.750Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9bll\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:38:38.658Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9bll\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:39:41.217Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b55\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:39:46.837Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b55\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:39:48.707Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b5\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:39:52.889Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b6\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:40:03.900Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b6\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:41:37.527Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b6\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:42:04.325Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b6\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:43:16.335Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b6\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:43:41.894Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b6\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:43:43.274Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b6\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:43:52.869Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b6\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:44:24.381Z"}
+{"level":"error","message":"ReferenceError: res is not defined","timestamp":"2023-04-04T05:44:24.383Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b6\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:44:25.728Z"}
+{"level":"error","message":"ReferenceError: res is not defined","timestamp":"2023-04-04T05:44:25.729Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b6\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:44:49.656Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b4\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:45:05.963Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b4\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T05:45:16.731Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:02:05.957Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:02:18.202Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:02:19.454Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:02:20.852Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:02:33.191Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:02:37.049Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:02:50.933Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:02:52.617Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:02:53.829Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9bdd\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:03:03.148Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:03:08.301Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b55\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:03:28.832Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:03:35.526Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9cc\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:03:41.510Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:03:49.264Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:03:53.051Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b55\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:03:55.250Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:04:02.191Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:04:05.502Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:04:07.019Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:04:08.036Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:04:08.786Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9385\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:04:09.689Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542a\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:04:12.348Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542a\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:04:13.640Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542a\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:04:14.397Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b52\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:04:18.964Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:04:49.293Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:05:00.739Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:05:02.401Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:05:03.776Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:05:05.193Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:05:06.679Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:05:08.478Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af955\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:05:11.773Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:05:16.645Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:05:20.558Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b4\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:05:48.773Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b4\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:06:36.812Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b4\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:06:56.438Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b5\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:06:59.785Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:07:04.260Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b4\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:07:14.971Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b4\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:07:58.453Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:08:04.344Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:08:11.615Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:08:12.770Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:08:36.981Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:08:46.660Z"}
+{"level":"error","message":"Error en productos NegocioTypeError: Cannot read properties of null (reading 'error')","timestamp":"2023-04-04T06:09:21.261Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af4\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:09:59.780Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af4fbg\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T06:10:08.662Z"}
+{"level":"error","message":"error en el controllador ProductsTypeError: Cannot read properties of null (reading 'id')","timestamp":"2023-04-04T06:14:15.201Z"}
+{"level":"error","message":"error en el controllador ProductsTypeError: Cannot read properties of null (reading 'id')","timestamp":"2023-04-04T06:15:17.365Z"}
+{"level":"error","message":"ValidationError: \"typeOfLiquor\" is required","timestamp":"2023-04-04T07:42:41.030Z"}
+{"level":"error","message":"ValidationError: \"typeOfLiquor\" is required","timestamp":"2023-04-04T07:42:59.273Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"64232cdfd2a1ad8d9542af9b25\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T16:54:34.473Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T18:33:02.301Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T18:33:06.049Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T18:33:11.488Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T18:34:23.705Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T18:34:24.059Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T18:34:31.609Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T18:34:48.332Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T18:34:49.024Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-04-04T18:42:20.417Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-04-04T18:43:04.237Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T18:43:04.313Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-04-04T18:43:11.854Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T18:43:11.929Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-04-04T18:43:22.760Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T19:06:28.663Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T19:07:10.872Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T19:25:03.838Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-04T19:25:35.643Z"}
+{"level":"error","message":"TypeError: DaoProductos.traerProductoPorId is not a function","timestamp":"2023-04-04T19:29:12.899Z"}
+{"level":"error","message":"TypeError: DaoProductos.getByIdProductos is not a function","timestamp":"2023-04-04T19:30:26.587Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:39:31.983Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:40:18.105Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:40:29.174Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:41:45.264Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:41:46.998Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:42:22.637Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:42:22.987Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:43:08.978Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:43:09.503Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:43:10.488Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:43:22.141Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:43:22.568Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:43:52.559Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:44:08.350Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:44:09.871Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:44:11.515Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:44:13.225Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"qui2222@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:44:13.714Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"quiqu22222sb@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:46:12.760Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"quiqu22222sb@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:46:18.167Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"quiqu22222sb@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:46:38.776Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"quiqu22222sb@hotmail.com\" (type string) at path \"_id\" for model \"Usuarios\"","timestamp":"2023-04-04T19:46:39.210Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T20:51:58.067Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T20:53:01.090Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T20:53:27.255Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T20:56:31.792Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T20:57:39.790Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T20:58:03.656Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:00:56.922Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:00:57.287Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:01:07.313Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:01:07.776Z"}
+{"level":"error","message":"ReferenceError: trolleyWithId is not defined","timestamp":"2023-04-04T21:07:21.920Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:20:03.328Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:22:36.285Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:25:59.441Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:26:17.113Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:26:38.815Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:27:07.758Z"}
+{"level":"error","message":"ReferenceError: trolleyWithId is not defined","timestamp":"2023-04-04T21:41:13.384Z"}
+{"level":"error","message":"ReferenceError: trolleyWithId is not defined","timestamp":"2023-04-04T21:43:55.722Z"}
+{"level":"error","message":"ReferenceError: trolleyWithId is not defined","timestamp":"2023-04-04T21:44:29.301Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T21:45:22.808Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-04T21:45:59.656Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:57:03.355Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T21:57:45.054Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T22:01:38.674Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T22:01:38.958Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T22:01:38.963Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T22:01:58.378Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T22:01:58.429Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T22:02:09.715Z"}
+{"level":"error","message":"ReferenceError: createNtrolley is not defined","timestamp":"2023-04-04T22:02:10.060Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"{ isUser: new ObjectId(\"642c7e759ca26c2ec100fbd0\") }\" (type Object) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T22:09:15.053Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'idUser')","timestamp":"2023-04-04T22:11:06.569Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'idUser')","timestamp":"2023-04-04T22:13:14.129Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'idUser')","timestamp":"2023-04-04T22:13:16.702Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'idUser')","timestamp":"2023-04-04T22:14:05.735Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'idUser')","timestamp":"2023-04-04T22:14:06.129Z"}
+{"level":"error","message":"TypeError: m is not iterable","timestamp":"2023-04-04T22:15:13.581Z"}
+{"level":"error","message":"TypeError: m is not iterable","timestamp":"2023-04-04T22:15:44.804Z"}
+{"level":"error","message":"ReferenceError: data is not defined","timestamp":"2023-04-04T22:16:26.997Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \" 642b7dcf0bb3780aa62c7eae\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T22:56:30.415Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \" 642b7dcf0bb3780aa62c7eae\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-04T22:56:55.432Z"}
+{"level":"error","message":"errInTrolleyMdbTypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-04T23:06:34.781Z"}
+{"level":"error","message":"errInTrolleyMdbTypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-04T23:06:36.693Z"}
+{"level":"error","message":"errInTrolleyMdbTypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-04T23:09:39.111Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:35:07.315Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:35:14.975Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:43:23.275Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:43:28.678Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:44:01.602Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:44:32.768Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:45:37.698Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:46:18.709Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:47:32.056Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:48:55.959Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:49:05.805Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-04T23:49:59.812Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T00:05:32.216Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7ea\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:13:09.091Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eaef\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:13:36.705Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:14:11.087Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:14:26.550Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T00:17:38.689Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:17:44.183Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:20:59.676Z"}
+{"level":"error","message":"ReferenceError: ContainerProducts is not defined","timestamp":"2023-04-05T00:20:59.750Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:21:03.325Z"}
+{"level":"error","message":"ReferenceError: ContainerProducts is not defined","timestamp":"2023-04-05T00:21:03.397Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:21:31.674Z"}
+{"level":"error","message":"ReferenceError: ContainerProducts is not defined","timestamp":"2023-04-05T00:21:31.749Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:21:33.089Z"}
+{"level":"error","message":"ReferenceError: ContainerProducts is not defined","timestamp":"2023-04-05T00:21:33.157Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:22:20.617Z"}
+{"level":"error","message":"ValidationError: \"product\" is required","timestamp":"2023-04-05T00:22:20.700Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:22:24.659Z"}
+{"level":"error","message":"ValidationError: \"product\" is required","timestamp":"2023-04-05T00:22:24.736Z"}
+{"level":"error","message":"ValidationError: \"typeOfLiquor\" is not allowed to be empty","timestamp":"2023-04-05T00:22:49.557Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:23:57.493Z"}
+{"level":"error","message":"ValidationError: \"product\" is required","timestamp":"2023-04-05T00:23:57.574Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:24:02.462Z"}
+{"level":"error","message":"ValidationError: \"product\" is required","timestamp":"2023-04-05T00:24:02.536Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7eap\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T00:25:59.653Z"}
+{"level":"error","message":"ValidationError: \"product\" is required","timestamp":"2023-04-05T00:25:59.660Z"}
+{"level":"error","message":"ValidationError: \"$__\" is not allowed","timestamp":"2023-04-05T00:26:12.151Z"}
+{"level":"error","message":"ValidationError: \"$__\" is not allowed","timestamp":"2023-04-05T00:26:30.463Z"}
+{"level":"error","message":"ValidationError: \"$__\" is not allowed","timestamp":"2023-04-05T00:27:39.111Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T00:29:33.724Z"}
+{"level":"error","message":"ReferenceError: catchProduct is not defined","timestamp":"2023-04-05T00:29:37.230Z"}
+{"level":"error","message":"ValidationError: \"$__\" is not allowed","timestamp":"2023-04-05T00:29:54.833Z"}
+{"level":"error","message":"ValidationError: \"$__\" is not allowed","timestamp":"2023-04-05T00:29:59.177Z"}
+{"level":"error","message":"ValidationError: \"$__\" is not allowed","timestamp":"2023-04-05T00:30:24.910Z"}
+{"level":"error","message":"ValidationError: \"$__\" is not allowed","timestamp":"2023-04-05T00:30:48.744Z"}
+{"level":"error","message":"ValidationError: \"$__\" is not allowed","timestamp":"2023-04-05T00:32:16.847Z"}
+{"level":"error","message":"errInTrolleyMdbReferenceError: data is not defined","timestamp":"2023-04-05T00:34:23.219Z"}
+{"level":"error","message":"errInTrolleyMdbReferenceError: Joi is not defined","timestamp":"2023-04-05T00:34:52.055Z"}
+{"level":"error","message":"errInTrolleyMdbValidationError: \"$__\" is not allowed","timestamp":"2023-04-05T00:35:13.882Z"}
+{"level":"error","message":"errInTrolleyMdbValidationError: \"$isNew\" is not allowed","timestamp":"2023-04-05T00:36:04.237Z"}
+{"level":"error","message":"errInTrolleyMdbValidationError: \"$__\" is not allowed","timestamp":"2023-04-05T00:36:33.384Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'email')","timestamp":"2023-04-05T00:52:03.576Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T00:52:33.849Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'findIndex')","timestamp":"2023-04-05T00:52:37.188Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'findIndex')","timestamp":"2023-04-05T00:53:01.554Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'findIndex')","timestamp":"2023-04-05T00:53:35.957Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'findIndex')","timestamp":"2023-04-05T00:55:54.473Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'findIndex')","timestamp":"2023-04-05T00:55:58.712Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'findIndex')","timestamp":"2023-04-05T00:57:34.122Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-05T00:58:05.321Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-05T00:59:01.961Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-05T00:59:15.021Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-05T01:00:13.575Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'id')","timestamp":"2023-04-05T01:00:30.879Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'idTrolley')","timestamp":"2023-04-05T01:05:01.678Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'idTrolley')","timestamp":"2023-04-05T01:05:08.932Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:05:35.171Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:05:38.432Z"}
+{"level":"error","message":"ReferenceError: idItem is not defined","timestamp":"2023-04-05T01:11:42.549Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:14:18.501Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:14:35.650Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:14:47.325Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:15:25.331Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:15:45.144Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:15:58.937Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:16:22.906Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:16:46.608Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:18:33.205Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading 'id')","timestamp":"2023-04-05T01:19:35.640Z"}
+{"level":"error","message":"Error en controladorTypeError: Cannot read properties of undefined (reading 'idTrolley')","timestamp":"2023-04-05T01:21:18.445Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:21:29.745Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"quique166sb1@hotmail.com\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:21:36.187Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:22:11.260Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:22:53.351Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:24:17.934Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:25:15.400Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:25:16.216Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:25:17.244Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:25:19.383Z"}
+{"level":"error","message":"TypeError: Cannot read properties of null (reading '_id')","timestamp":"2023-04-05T01:25:20.459Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:34:39.620Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:34:48.169Z"}
+{"level":"error","message":"errInProductMdbCastError: Cast to ObjectId failed for value \"642b7dcf0bb3780aa62c7e\" (type string) at path \"_id\" for model \"inventario\"","timestamp":"2023-04-05T01:35:16.406Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:35:36.789Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T01:35:36.790Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-04-05T01:35:36.791Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:37:04.018Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T01:37:04.020Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-04-05T01:37:04.020Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:37:10.212Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:39:30.138Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T01:39:30.140Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-04-05T01:39:30.142Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:40:24.888Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T01:40:24.891Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-04-05T01:40:24.892Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:40:47.261Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T01:40:47.264Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading '_id')","timestamp":"2023-04-05T01:40:47.265Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T01:46:45.083Z"}
+{"level":"error","message":"Error en controladorTypeError: Cannot read properties of undefined (reading 'idTrolley')","timestamp":"2023-04-05T01:57:09.801Z"}
+{"level":"error","message":"Error en controladorTypeError: Cannot read properties of undefined (reading 'idTrolley')","timestamp":"2023-04-05T01:57:18.600Z"}
+{"level":"error","message":"Error en controladorTypeError: Cannot read properties of undefined (reading 'idTrolley')","timestamp":"2023-04-05T04:06:42.330Z"}
+{"level":"error","message":"Error en controladorTypeError: Cannot read properties of undefined (reading 'idTrolley')","timestamp":"2023-04-05T04:06:49.812Z"}
+{"level":"error","message":"Error en deletElementTrolleyNegocioReferenceError: carritoI is not defined","timestamp":"2023-04-05T04:11:29.028Z"}
+{"level":"error","message":"Error en deletElementTrolleyNegocioReferenceError: carritoI is not defined","timestamp":"2023-04-05T04:11:29.706Z"}
+{"level":"error","message":"Error en controladorTypeError: Cannot read properties of undefined (reading 'idTrolley')","timestamp":"2023-04-05T04:17:09.000Z"}
+{"level":"error","message":"errInTrolleyMdbMongoServerError: Unknown modifier: $st. Expected a valid update modifier or pipeline-style update specified as an array","timestamp":"2023-04-05T04:26:21.992Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T04:57:27.118Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T04:57:51.120Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T04:58:14.135Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T04:58:16.124Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:00:01.096Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:00:06.840Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:00:31.983Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:00:45.987Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:00:47.245Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:00:48.188Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:00:48.637Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:00:53.225Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:00:55.441Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:00:55.863Z"}
+{"level":"error","message":"TypeError: containerTrolley.infTrolley is not a function","timestamp":"2023-04-05T05:01:17.501Z"}
+{"level":"error","message":"TypeError: containerTrolley.infTrolley is not a function","timestamp":"2023-04-05T05:01:18.162Z"}
+{"level":"error","message":"TypeError: containerTrolley.infTrolley is not a function","timestamp":"2023-04-05T05:01:20.034Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:01:28.877Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:01:29.009Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:01:45.050Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:02:48.111Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:03:09.512Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:03:21.123Z"}
+{"level":"error","message":"TypeError: containerTrolley.getTrolleyByClientId is not a function","timestamp":"2023-04-05T05:04:13.473Z"}
+{"level":"error","message":"TypeError: containerTrolley.getTrolleyByClientId is not a function","timestamp":"2023-04-05T05:04:24.629Z"}
+{"level":"error","message":"TypeError: containerTrolley.getTrolleyByClientId is not a function","timestamp":"2023-04-05T05:04:26.092Z"}
+{"level":"error","message":"TypeError: containerTrolley.getTrolleyByClientId is not a function","timestamp":"2023-04-05T05:04:26.536Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:05:09.285Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:05:30.121Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:06:00.921Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:06:01.164Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:06:25.966Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:06:26.601Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:06:26.605Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:06:30.715Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:06:32.951Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:06:32.991Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:06:39.186Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:06:39.570Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:07:43.523Z"}
+{"level":"error","message":"TypeError: this.getByIdProductos is not a function","timestamp":"2023-04-05T05:09:12.946Z"}
+{"level":"error","message":"TypeError: this.infoUser is not a function","timestamp":"2023-04-05T05:09:56.275Z"}
+{"level":"error","message":"Error en deletElementTrolleyNegocioTypeError: ContainerTrolley.infoTrolley is not a function","timestamp":"2023-04-05T05:10:39.529Z"}
+{"level":"error","message":"Error en deletElementTrolleyNegocioTypeError: ContainerTrolley.infoTrolley is not a function","timestamp":"2023-04-05T05:10:39.568Z"}
+{"level":"error","message":"Error en deletElementTrolleyNegocioTypeError: ContainerTrolley.infoTrolley is not a function","timestamp":"2023-04-05T05:19:11.492Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'reduce')","timestamp":"2023-04-05T05:21:20.809Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T05:22:19.135Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:22:19.137Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:22:19.138Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T05:22:22.958Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:22:22.959Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:22:22.961Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:23:26.385Z"}
+{"level":"error","message":"errInTrolleyMdbReferenceError: carrito is not defined","timestamp":"2023-04-05T05:23:58.348Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:23:58.350Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:23:58.351Z"}
+{"level":"error","message":"errInTrolleyMdbReferenceError: carrito is not defined","timestamp":"2023-04-05T05:23:58.951Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:23:58.952Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:23:58.953Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:24:08.989Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:24:13.597Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:24:13.902Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:24:16.724Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:24:19.269Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:24:21.137Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:25:14.067Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:25:29.868Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:25:29.953Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T05:26:34.121Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:26:34.122Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:26:34.123Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T05:27:00.189Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:27:00.191Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:27:00.193Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T05:27:00.585Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:27:00.586Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:27:00.588Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T05:27:26.795Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:27:26.797Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:27:26.798Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T05:27:54.342Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:27:54.344Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:27:54.345Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T05:27:57.359Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:27:57.361Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:27:57.362Z"}
+{"level":"error","message":"errInTrolleyMdbCastError: Cast to ObjectId failed for value \"f\" (type string) at path \"_id\" for model \"carritosCompras\"","timestamp":"2023-04-05T05:28:38.248Z"}
+{"level":"error","message":"TypeError: dataCarrito is not iterable","timestamp":"2023-04-05T05:28:38.251Z"}
+{"level":"error","message":"TypeError: Cannot read properties of undefined (reading 'carrito')","timestamp":"2023-04-05T05:28:38.252Z"}
+{"level":"error","message":"TypeError: trolley.reduce is not a function","timestamp":"2023-04-05T05:36:23.405Z"}
+{"level":"error","message":"TypeError: trolley.reduce is not a function","timestamp":"2023-04-05T05:36:29.162Z"}
+{"level":"error","message":"TypeError: trolley.reduce is not a function","timestamp":"2023-04-05T05:37:07.281Z"}
+{"level":"error","message":"TypeError: trolley.reduce is not a function","timestamp":"2023-04-05T05:38:08.133Z"}
+{"level":"error","message":"TypeError: trolley.reduce is not a function","timestamp":"2023-04-05T05:38:09.000Z"}
+{"level":"error","message":"TypeError: trolley.reduce is not a function","timestamp":"2023-04-05T05:38:15.734Z"}
+{"level":"error","message":"TypeError: trolley.reduce is not a function","timestamp":"2023-04-05T05:38:17.704Z"}
+{"level":"error","message":"TypeError: trolley.reduce is not a function","timestamp":"2023-04-05T05:38:32.188Z"}

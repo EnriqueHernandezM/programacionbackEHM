@@ -26,6 +26,7 @@ function routIndex(req, res) {
   }
 }
 function failRoute(req, res) {
+  res.status(404).json();
   logger.log("warn", { ruta: req.path, metodo: req.route.methods, err: "ruta inexistente" });
 }
 

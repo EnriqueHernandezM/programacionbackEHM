@@ -6,43 +6,54 @@ const authToken = environmentVars.authToken;
 const { DaoCarrito, DaoProductos } = require("../persistencia/DAOs");
 const client = twilio(accountSid, authToken);
 const enviarcorreo = require("../utils/nodemailer");
-class ContenedorCarrito {
+class ContainerTrolley {
   constructor() {}
-
   async getAllToTrolley(idTrolley) {
     try {
       const allTrolley = await DaoCarrito.getAllTrolley(idTrolley);
       return allTrolley;
     } catch (err) {}
   }
-
-  async getByIdProductos(number) {
-    try {
-      const data = await DaoProductos.traerProductoPorId(number);
-      return data;
-    } catch (err) {
-      logger.log("error", `${err}`);
-    }
-  }
   async addToCart(idUser, body) {
     try {
       const catchProduct = await this.getByIdProductos(body);
-      let catchCart = await this.infoCarrito(idUser);
-      const idUserF = catchCart.id;
-      const agregarItem = await DaoCarrito.pushAunCarrito(idUser, catchProduct, idUserF);
-      logger.log("info", `${agregarItem}`);
+      if (!catchProduct || catchProduct.error) {
+        return { msge: "no existe un producto con ese id" };
+      }
+      let catchCart = await ContainerTrolley.infoUser(idUser);
+      //AEUI LLAMAREMOS AH LA FUNCION EN CASO DE QUE EL USUARIO AUN NO TEGA CARRTIO AL AGREGAR UN PRODUCTO LO CREARA AUTOMATICAMENTE
+      let TrolleyUsed;
+      if (catchCart.idTrolley === "f") {
+        const createNtrolley = await DaoCarrito.createOneNewTrolley(catchCart._id);
+        for (const data of createNtrolley) {
+          TrolleyUsed = data.idUser;
+        }
+      }
+      const idUserF = TrolleyUsed || catchCart.id;
+
+      const agregarItem = await DaoCarrito.pushAunCarrito(idUserF, catchProduct, idUser);
+      return agregarItem;
     } catch (err) {
       logger.log("error", `${err}`);
     }
   }
-  async infoCarrito(idUsuario) {
+  async deleteByIdAllTrolleyItem(idTrolley, idItem) {
     try {
-      const dataCarrito = await DaoCarrito.datosCarrito(idUsuario);
-      for (const data of dataCarrito) {
-        return data;
+      let catchCart = await this.infoTrolley(idTrolley);
+      const carritoI = catchCart.carrito;
+      if (carritoI.length == 0) {
+        return { msge: "tu carrito esta vacio" };
       }
+      let catchCartIndex = carritoI.findIndex((el) => el._id == idItem);
+      if (catchCartIndex < 0) {
+        return { msge: "producto no existente en tu carrito" };
+      }
+      let x = carritoI.splice(catchCartIndex, 1);
+      const deleteItem = await DaoCarrito.borrarUnItemCarrito(idTrolley, carritoI);
+      logger.log("info", `${deleteItem}`);
+      return deleteItem;
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `Error en deletElementTrolleyNegocio${err}`);
     }
   }
   async comprarCarrito(dataCarrito) {
@@ -70,8 +81,53 @@ class ContenedorCarrito {
     } catch (err) {
       logger.log("error", `${err}`);
     }
-  } /////////////////////////////////////////////////////AQUI hacemos el envio de mensaje de texto
-  async enviarMsg(usuarioAenviar, pedido) {
+  }
+  async getByIdProductos(number) {
+    try {
+      const data = await DaoProductos.getProductByIdDb(number);
+      return data;
+    } catch (err) {
+      logger.log("error", `${err}`);
+    }
+  }
+  static infoUser = async (idUsuario) => {
+    try {
+      const dataCarrito = await DaoCarrito.datosOneUser(idUsuario);
+      for (const data of dataCarrito) {
+        return data;
+      }
+    } catch (err) {
+      logger.log("error", `${err}`);
+    }
+  };
+  infoTrolley = async (idUsuario) => {
+    try {
+      if (idUsuario == "f") {
+        return { carrito: [] };
+      } else {
+        const dataCarrito = await DaoCarrito.datosCarrito(idUsuario);
+        for (const data of dataCarrito) {
+          return data;
+        }
+      }
+    } catch (err) {
+      logger.log("error", `${err}`);
+    }
+  }; ////////////////////////////////////////////////////AQUI hacemos el envio de mensaje de texto
+  static enviarWats(usuarioQueCompro) {
+    try {
+      client.messages
+        .create({
+          body: `has recibido un nuevo pedido de ${usuarioQueCompro}`,
+          from: "whatsapp:+14155238886",
+          to: "whatsapp:+5215613507622",
+        })
+        .then((message) => logger.log("info", `${message.sid}`));
+    } catch (err) {
+      logger.log("error", `${err}`);
+    }
+  }
+  static enviarMsg = async (usuarioAenviar, pedido) => {
     try {
       let pedidoString = pedido.toString();
       if (usuarioAenviar.telefono == "5613507622" || usuarioAenviar.telefono == "5548375096") {
@@ -87,33 +143,6 @@ class ContenedorCarrito {
     } catch (err) {
       logger.log("error", `${err}`);
     }
-  }
-  enviarWats(usuarioQueCompro) {
-    try {
-      client.messages
-        .create({
-          body: `has recibido un nuevo pedido de ${usuarioQueCompro}`,
-          from: "whatsapp:+14155238886",
-          to: "whatsapp:+5215613507622",
-        })
-        .then((message) => logger.log("info", `${message.sid}`));
-    } catch (err) {
-      logger.log("error", `${err}`);
-    }
-  }
-  async deleteByIdAllTrolleyItem(idTrolley, idItem) {
-    try {
-      let catchCart = await this.infoCarrito(idTrolley);
-      const idUser = catchCart.id;
-      let carrito = catchCart.carrito;
-      catchCart = carrito.findIndex((el) => el._id || el.id == idItem);
-      let x = carrito.splice(catchCart, 1);
-
-      const deleteItem = await DaoCarrito.borrarUnItemCarrito(idTrolley, carrito, idUser);
-      logger.log("info", `${deleteItem}`);
-    } catch (err) {
-      logger.log("error", `${err}`);
-    }
-  }
+  };
 }
-module.exports = { ContenedorCarrito };
+module.exports = { ContainerTrolley };

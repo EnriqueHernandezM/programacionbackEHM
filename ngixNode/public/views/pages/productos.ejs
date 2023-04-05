@@ -5,12 +5,13 @@
   </head>
   <body class="bg-dark text-white">
     <%- include('../partials/navbar'); %>
-    <div class="container-fluid mt-5" id="renderUpdateProducts"></div>
+    <div class="container-fluid mt-5" id="renderPostProducts"></div>
+    <div class="container-fluid mt-5" id="formuToActulisedOneItem"></div>
     <div class="container m-auto">
       <div class="row logoVerCarrito">
         <ul>
           <li><a href="/loguear">Ver carrito 🛒</a></li>
-          <li><button onclick="renderUpdateProductos()">Agregar productos</button></li>
+          <li><button onclick="renderPostNewProducto()">Agregar productos</button></li>
         </ul>
       </div>
       <h2 class="p-5 text-center">productos disponibles</h2>
@@ -22,6 +23,8 @@
           <p>$:<%=el.price%></p>
           <span onclick="addArticleTrolley('<%=el._id||el.id%>')"> agregar al 🛒 </span>
           <span onclick="deleteElement('<%=el._id||el.id%>')">borrar 🗑️ </span>
+          <% const x = JSON.stringify(el)%>
+          <span onclick="renderFormActProduct('<%=x%>')"> Actualizar item 🔃</span>
         </div>
         <%})%>
       </div>

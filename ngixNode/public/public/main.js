@@ -3,7 +3,7 @@ const schema = normalizr.schema;
 const normalize = normalizr.normalize;
 const denormalize = normalizr.denormalize;
 //funcion para subir producto
-const renderUpdateProductos = () => {
+const renderPostNewProducto = () => {
   let htmlUpdate = "";
   htmlUpdate += `
   <div class="row p-5 ps-2">
@@ -44,9 +44,93 @@ const renderUpdateProductos = () => {
           <input type="submit" value="Upload product" />
         </div>
       </form>`;
-  document.getElementById("renderUpdateProducts").innerHTML = htmlUpdate;
+  document.getElementById("renderPostProducts").innerHTML = htmlUpdate;
 };
+///////////////////////////////////////////////////////////////////Aqui haremos el Fetch
+const updateOneProduct = (idParameter) => {
+  const idToEdit = idParameter;
+  const updateProduct = document.getElementById("updateProduct").value;
+  const updatePrecio = document.getElementById("updatePrecio").value;
+  const updateImagen = document.getElementById("updateImagen").value;
+  const updateDescription = document.getElementById("updateDescription").value;
+  const updateStock = document.getElementById("updateStock").value;
+  const updateCodeItem = document.getElementById("updateCodeItem").value;
+  const updatetypeOfLiquor = document.getElementById("updatetypeOfLiquor").value;
+  let url = "http://localhost:8080/api/productos/";
+  fetch(url + idToEdit, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      product: updateProduct,
+      typeOfLiquor: updatetypeOfLiquor,
+      price: updatePrecio,
+      image: updateImagen,
+      description: updateDescription,
+      stockItems: updateStock,
+      codeItem: updateCodeItem,
+    }),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+    });
+};
+///////////////////////////////////////////////////////////////////  Renderizarpara hacer puy}t a un item
+const renderFormActProduct = (number) => {
+  let x = number;
+  const p = JSON.parse(x);
 
+  let htmlFormActProduct = "";
+  htmlFormActProduct += `
+  <div class="container-fluid mt-5">
+    <div class="row p-5 ps-2">
+      <div class="col text-white ms-5 text-center">
+      <h1>Editar Un Producto</h1>
+      </div>
+    </div>
+    <div class="row p-5"> 
+      <div class="col-xs-12 col-md-6 col-lg-4">
+      <p class="text-white P-2">Nombre del Licor</p>
+      <input id="updateProduct" type="text"  placeholder="${p.product}" class="w-75"
+      value="${p.product}" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+      <p class="text-white P-2"> tipo de licor</p>
+      <input id="updatetypeOfLiquor" type="text" placeholder="${p.typeOfLiquor}" class="w-75"
+      value="${p.typeOfLiquor}" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">precio del producto</p>
+        <input id="updatePrecio" type="number" placeholder="${p.price}"  class="w-50"
+        value="${p.price}" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa URL de imagen</p>
+        <input id="updateImagen" type="text" placeholder="${p.image}" class="w-100" value="${p.image}" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa Descripcion del producto</p>
+        <input id="updateDescription" type="text" placeholder="${p.description}" class="w-100" value="${p.description}" />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa stock disponible</p>
+        <input id="updateStock" type="number" placeholder="${p.stockItems}" class="w-100"value="${p.stockItems}"  />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <p class="text-white P-2">ingresa CodeItem</p>
+        <input id="updateCodeItem" type="number" placeholder="${p.codeItem}" class="w-100"value="${p.codeItem}"  />
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-12 P-4 mt-5 text-center ps-5 ms-5">
+        <input type="submit" onclick="updateOneProduct('${p.id || p._id}')" value="update products" />
+      </div>   
+    </div>  
+  </div>
+      `;
+  document.getElementById("formuToActulisedOneItem").innerHTML = htmlFormActProduct;
+};
+////////////////////////////////////////////////////////////////////FETCH PARA NUEVOS PRODUCTOS
 const newProduct = () => {
   const nameProductNew = document.getElementById("newIngProduct").value;
   const typeOfLicor = document.getElementById("newTypeLicor").value;
@@ -75,7 +159,7 @@ const newProduct = () => {
       if (res.error == true) {
         alert("reservado solo para administradores");
       }
-      if (res.ok) {
+      if (res.idAsignado) {
         alert("ProductoagregadoCorrectamente");
       }
     })
@@ -110,12 +194,40 @@ const deleteElement = (idAb) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      if (res.eliminated == "ok") {
+      if (res.itemDelete) {
         window.location.href = window.location.href;
       }
     });
 };
-///
+///Por si havcemos
+function pruebaFetchLogin() {
+  let e = "quique166sb1@hotmail.com";
+  let z = "260199";
+  fetch("http://localhost:8080/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: e,
+      password: z,
+    }),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      let imprUser = "";
+      imprUser += `
+      <div>
+      <h1> ${res.user}<h1>
+      </div>
+      `;
+      document.getElementById("infoUser").innerHTML = imprUser;
+    })
+    .catch((e) => {
+      console.log(e + "error");
+    });
+}
 const addArticleTrolley = (idAdd) => {
   fetch("http://localhost:8080/api/carrito", {
     method: "POST",
@@ -172,20 +284,7 @@ const deleteItemTrolley = (idItem) => {
     });
 };
 /////////////////////////////////////////////////fetch CARRITO PEDIDO
-/* const pagarCarrito = () => {
-  fetch("http://localhost:8080/api/carrito/confirmarcompra")
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res.usuario);
-      /*  res.forEach((el) => {
-        console.log(el);
-      }); 
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-}; */
-///ESQUEMA
+
 const authorSchema = new schema.Entity("authors", {}, { idAttribute: "idmail" });
 const messageSchema = new schema.Entity("texts", {
   author: authorSchema,

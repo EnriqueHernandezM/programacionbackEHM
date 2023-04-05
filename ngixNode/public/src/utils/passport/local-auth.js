@@ -1,11 +1,12 @@
-const environmentVars = require("../utils/environmentVar");
+const environmentVars = require("../environmentVar");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const { Usuarios } = require("../persistencia/mongoose/usuarios");
+const { Usuarios } = require("../../persistencia/mongoose/usuarios");
 const bcrypt = require("bcrypt");
-const enviarcorreo = require("../utils/nodemailer");
-const logger = require("../utils/loggers");
-const { createUserParallel } = require("../utils/createUserParallel");
+const enviarcorreo = require("../nodemailer");
+const logger = require("../loggers");
+const { createUserParallel } = require("../createUserParallel");
+
 passport.serializeUser((user, done) => {
   done(null, user._id);
 });
@@ -50,7 +51,7 @@ passport.use(
           direccion: req.body.direccion,
           telefono: req.body.telefono,
           avatar: req.body.avatar,
-          carrito: [],
+          idTrolley: "f",
         };
         const mailOptions = {
           from: "Servidor Node. JackVinaterias",
@@ -71,9 +72,11 @@ passport.use(
             return done(err);
           }
           logger.log("info", "User Registration succesful");
-          enviarcorreo(mailOptions);
-          createUserParallel(newUser);
+          /////////////////////////////////////////////////////////// DFUNCIONES QUE HAY QUE DESCOMENTAR
+          //enviarcorreo(mailOptions);
+          //createUserParallel(newUser);
           ///////////////////////////////////////////////////////////////////////
+
           return done(null, userWithId);
         });
       });
@@ -106,5 +109,3 @@ passport.use(
     }
   )
 );
-/////////////////////no se puede usar swicht vamos a crear un contenedor que regere lafuncion dependiendo de la base de datos que usemos
-/////QUE pege a presistencia  y de igual manera exporte con un DAOS

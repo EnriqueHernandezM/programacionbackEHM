@@ -6,10 +6,10 @@ require("./src/utils/databasConecctions/mongoose"); /////////////////////aqui co
 const index = require("./src/rutas/index");
 const { routerDeProductos, apiProductos } = require("./src/rutas/productos");
 const { randomOperation, infoConCompresion } = require("./src/rutas/info");
-const { carrito, apiCarrito } = require("./src/rutas/carrito");
-const autenticacion = require("./src/rutas/autenticacion");
+const { apiCarrito } = require("./src/rutas/carrito");
+const authentication = require("./src/rutas/authentication");
 const passport = require("passport");
-require("./src/passport/local-auth");
+require("./src/utils/passport/local-auth");
 
 let argv = require("minimist")(process.argv.slice(2));
 let puertoPorArgumentos = argv["_"][0];
@@ -50,8 +50,7 @@ app.use("/productos", routerDeProductos);
 app.use("/api", apiProductos);
 app.use("/operacion", randomOperation);
 app.use("/info", infoConCompresion);
-app.use("/", carrito);
 app.use("/api", apiCarrito);
-app.use("/", autenticacion);
+app.use("/perfil", authentication);
 const { failRoute } = require("./src/controlador/index");
 app.get("*", failRoute);

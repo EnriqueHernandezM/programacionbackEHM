@@ -9,6 +9,7 @@ let environmentVars = {
   acountSid: process.env.ACOUNTSID,
   authToken: process.env.AUTHTOKEN,
   cluster: process.env.CLUSTER,
+  typeInRes: process.argv[4] || "",
 };
 
 module.exports = environmentVars;

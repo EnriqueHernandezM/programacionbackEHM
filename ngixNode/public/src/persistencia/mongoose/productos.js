@@ -18,7 +18,7 @@ class ContainerProductMongo {
   constructor(collection) {
     this.collecton = collection;
   }
-  guardarNuevoProducto = async (product, timestamp) => {
+  saveNewProduct = async (product, timestamp) => {
     try {
       product.data = timestamp;
       const newProduct = new Productos(product);
@@ -31,16 +31,15 @@ class ContainerProductMongo {
       return { error: err };
     }
   };
-  traerProductoPorId = async (idNumber) => {
+  getProductByIdDb = async (idNumber) => {
     try {
-      const datas = await Productos.find({});
-      return datas.find((el) => el._id == idNumber);
+      return await Productos.findById(idNumber);
     } catch (err) {
       logger.log("error", `errInProductMdb${err}`);
       return { error: err };
     }
   };
-  traerTodosLosItems = async () => {
+  getAllitemsDb = async () => {
     try {
       const data = await Productos.find({});
       return data;
@@ -49,34 +48,19 @@ class ContainerProductMongo {
       return { error: err };
     }
   };
-  borrarItemInventario = async (aBorrar) => {
+  deleteOneItemInventory = async (aBorrar) => {
     try {
-      Productos.deleteOne({ _id: aBorrar }).then(function () {
-        logger.log("info", "productoEliminado");
-      });
+      const deletedItem = await Productos.findByIdAndDelete(aBorrar);
+      logger.log("info", "productoEliminado");
+      return deletedItem;
     } catch (err) {
       logger.log("error", `errInProductMdb${err}`);
     }
   };
-  modificarUnElemento = async (buscar, body) => {
+  modifyOneElementInventory = async (buscar, body) => {
     try {
-      const usuarioModificado = await Productos.updateOne(
-        { _id: buscar._id },
-        {
-          $set: {
-            product: body.product,
-            typeOfLiquor: body.typeOfLiquor,
-            price: body.price,
-            image: body.image,
-            description: body.description,
-            stockItems: body.stockItems,
-            codeItem: body.codeItem,
-          },
-        }
-      );
-      if (usuarioModificado.modifiedCount > 0) {
-      }
-      return await this.traerProductoPorId(buscar.id);
+      const userModify = await Productos.findByIdAndUpdate(buscar.id, body, { new: true });
+      return userModify;
     } catch (err) {
       logger.log("error", `errInProductMdb${err}`);
     }

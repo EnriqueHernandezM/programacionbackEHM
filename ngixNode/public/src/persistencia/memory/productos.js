@@ -39,9 +39,9 @@ let inventarios = [
 
 class ContainerProductMem {
   constructor() {}
-  guardarNuevoProducto = (product) => {
+  saveNewProduct = (product) => {
     try {
-      let all = this.traerTodosLosItems();
+      let all = this.getAllitemsDb();
       let _id = 1;
       let data = timestamp;
       all.length > 0 &&
@@ -56,7 +56,7 @@ class ContainerProductMem {
       logger.log("error", `${err}`);
     }
   };
-  traerProductoPorId = (number) => {
+  getProductByIdDb = (number) => {
     try {
       const oneItem = inventarios.find((el) => el._id == number);
       if (oneItem) {
@@ -68,21 +68,21 @@ class ContainerProductMem {
       logger.log("error", `${err}`);
     }
   };
-  traerTodosLosItems = () => {
+  getAllitemsDb = () => {
     try {
       return inventarios;
     } catch (err) {
       logger.log("error", `${err}`);
     }
   };
-  borrarItemInventario = (aBorrar) => {
+  deleteOneItemInventory = (aBorrar) => {
     try {
       const datas = this.traerTodosLosItems();
-      let buscaPborrar = datas.findIndex((el) => el._id == aBorrar);
-      if (buscaPborrar >= 0) {
-        return datas.splice(buscaPborrar, 1);
+      let searchToDelete = datas.findIndex((el) => el._id == aBorrar);
+      if (searchToDelete >= 0) {
+        return datas.splice(searchToDelete, 1);
       }
-      if (buscaPborrar == -1) {
+      if (searchToDelete == -1) {
         return { err: true, msg: "producto a eliminar no existe" };
       }
       return datas;
@@ -90,12 +90,12 @@ class ContainerProductMem {
       console.log(err);
     }
   };
-  modificarUnElemento = (id, body) => {
+  modifyOneElementInventory = (id, body) => {
     try {
       let all = this.traerTodosLosItems();
       let product = all.findIndex((el) => el._id == id._id);
       if (product <= -1) {
-        return { error: "true", mesage: "producto a modificar no existe no existe" };
+        return { error: "true", mesage: "producto a modificar no existe" };
       }
       let data = all[product].data;
       let _id = parseInt(id._id);
