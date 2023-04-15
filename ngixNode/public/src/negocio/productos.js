@@ -20,6 +20,7 @@ class ContainerProducts {
   async getById(number) {
     try {
       const datasRecived = await DaoProductos.getProductByIdDb(number);
+      console.log(datasRecived);
       if (!datasRecived || datasRecived.error) {
         return { msge: "no existe un producto con ese id" };
       }
@@ -28,6 +29,7 @@ class ContainerProducts {
       logger.log("error", `Error en productos Negocio${err}`);
     }
   }
+  //funcionando
   async getAll() {
     try {
       return await DaoProductos.getAllitemsDb();
@@ -36,13 +38,15 @@ class ContainerProducts {
       return { error: err };
     }
   }
+  //funcionando revzar return
   async deleteById(aBorrar) {
     try {
       return await DaoProductos.deleteOneItemInventory(aBorrar);
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `ErrorEnNegociodeleteById${err}`);
     }
   }
+  //funcionand
   async modifyElement(id, body) {
     try {
       ContainerProducts.checkProduct(body);

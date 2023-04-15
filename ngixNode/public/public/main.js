@@ -2,7 +2,13 @@ const socket = io();
 const schema = normalizr.schema;
 const normalize = normalizr.normalize;
 const denormalize = normalizr.denormalize;
-//funcion para subir producto
+const authorSchema = new schema.Entity("authors", {}, { idAttribute: "idmail" });
+const messageSchema = new schema.Entity("texts", {
+  author: authorSchema,
+});
+const messageSchemaOk = [messageSchema];
+
+// Renderiza formulario para subir un nuevo producto
 const renderPostNewProducto = () => {
   let htmlUpdate = "";
   htmlUpdate += `
@@ -46,38 +52,44 @@ const renderPostNewProducto = () => {
       </form>`;
   document.getElementById("renderPostProducts").innerHTML = htmlUpdate;
 };
-///////////////////////////////////////////////////////////////////Aqui haremos el Fetch
-const updateOneProduct = (idParameter) => {
-  const idToEdit = idParameter;
-  const updateProduct = document.getElementById("updateProduct").value;
-  const updatePrecio = document.getElementById("updatePrecio").value;
-  const updateImagen = document.getElementById("updateImagen").value;
-  const updateDescription = document.getElementById("updateDescription").value;
-  const updateStock = document.getElementById("updateStock").value;
-  const updateCodeItem = document.getElementById("updateCodeItem").value;
-  const updatetypeOfLiquor = document.getElementById("updatetypeOfLiquor").value;
-  let url = "http://localhost:8080/api/productos/";
-  fetch(url + idToEdit, {
-    method: "PUT",
+///////////////////////////////FETCH POST PARA NUEVOS PRODUCTOS
+const newProduct = () => {
+  const nameProductNew = document.getElementById("newIngProduct").value;
+  const typeOfLicor = document.getElementById("newTypeLicor").value;
+  const newPriceProduct = document.getElementById("newIngPrecio").value;
+  const newImageProduct = document.getElementById("newIngImage").value;
+  const newDescriptionProduct = document.getElementById("newIngDescription").value;
+  const newStockProduct = document.getElementById("newIngStock").value;
+  const newCodeItem = document.getElementById("newIngCodeItem").value;
+  fetch("http://localhost:8080/api/productos", {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      product: updateProduct,
-      typeOfLiquor: updatetypeOfLiquor,
-      price: updatePrecio,
-      image: updateImagen,
-      description: updateDescription,
-      stockItems: updateStock,
-      codeItem: updateCodeItem,
+      product: nameProductNew,
+      typeOfLiquor: typeOfLicor,
+      price: newPriceProduct,
+      image: newImageProduct,
+      description: newDescriptionProduct,
+      stockItems: newStockProduct,
+      codeItem: newCodeItem,
     }),
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
+      if (res.error == true) {
+        alert("reservado solo para administradores");
+      }
+      if (res.idAsignado) {
+        alert("ProductoagregadoCorrectamente");
+      }
+    })
+    .catch((e) => {
+      console.log(e);
     });
 };
-///////////////////////////////////////////////////////////////////  Renderizarpara hacer puy}t a un item
+/////////////////////////////////  Renderiza rpara hacer put a un producto
 const renderFormActProduct = (number) => {
   let x = number;
   const p = JSON.parse(x);
@@ -130,106 +142,44 @@ const renderFormActProduct = (number) => {
       `;
   document.getElementById("formuToActulisedOneItem").innerHTML = htmlFormActProduct;
 };
-////////////////////////////////////////////////////////////////////FETCH PARA NUEVOS PRODUCTOS
-const newProduct = () => {
-  const nameProductNew = document.getElementById("newIngProduct").value;
-  const typeOfLicor = document.getElementById("newTypeLicor").value;
-  const newPriceProduct = document.getElementById("newIngPrecio").value;
-  const newImageProduct = document.getElementById("newIngImage").value;
-  const newDescriptionProduct = document.getElementById("newIngDescription").value;
-  const newStockProduct = document.getElementById("newIngStock").value;
-  const newCodeItem = document.getElementById("newIngCodeItem").value;
-  fetch("http://localhost:8080/api/productos", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      product: nameProductNew,
-      typeOfLiquor: typeOfLicor,
-      price: newPriceProduct,
-      image: newImageProduct,
-      description: newDescriptionProduct,
-      stockItems: newStockProduct,
-      codeItem: newCodeItem,
-    }),
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.error == true) {
-        alert("reservado solo para administradores");
-      }
-      if (res.idAsignado) {
-        alert("ProductoagregadoCorrectamente");
-      }
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-};
-//funcion para enviar mensaje
-const enviarMsg = () => {
-  const email = document.getElementById("inputEmail").value;
-  const msgeParaEnviar = document.getElementById("inputMsg").value;
-  const avatarImagen = document.getElementById("avatarImagen").value;
-  const nombreUser = document.getElementById("Nombre").value;
-  const apellidoUser = document.getElementById("apellido").value;
-  const edadUser = document.getElementById("edad").value;
-  const aliasUser = document.getElementById("alias").value;
-  socket.emit("msg", {
-    idmail: email,
-    text: msgeParaEnviar,
-    avatar: avatarImagen,
-    nombre: nombreUser,
-    apellido: apellidoUser,
-    edad: edadUser,
-    alias: aliasUser,
-  });
-};
-//funcion para llamar eliminar producto
-const deleteElement = (idAb) => {
+///////////////////////////////////////Fetch Para hacer update a un producto
+const updateOneProduct = (idParameter) => {
+  const idToEdit = idParameter;
+  const updateProduct = document.getElementById("updateProduct").value;
+  const updatePrecio = document.getElementById("updatePrecio").value;
+  const updateImagen = document.getElementById("updateImagen").value;
+  const updateDescription = document.getElementById("updateDescription").value;
+  const updateStock = document.getElementById("updateStock").value;
+  const updateCodeItem = document.getElementById("updateCodeItem").value;
+  const updatetypeOfLiquor = document.getElementById("updatetypeOfLiquor").value;
   let url = "http://localhost:8080/api/productos/";
-  fetch(url + idAb, {
-    method: "DELETE",
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.itemDelete) {
-        window.location.href = window.location.href;
-      }
-    });
-};
-///Por si havcemos
-function pruebaFetchLogin() {
-  let e = "quique166sb1@hotmail.com";
-  let z = "260199";
-  fetch("http://localhost:8080/login", {
-    method: "POST",
+  fetch(url + idToEdit, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: e,
-      password: z,
+      product: updateProduct,
+      typeOfLiquor: updatetypeOfLiquor,
+      price: updatePrecio,
+      image: updateImagen,
+      description: updateDescription,
+      stockItems: updateStock,
+      codeItem: updateCodeItem,
     }),
   })
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
-      let imprUser = "";
-      imprUser += `
-      <div>
-      <h1> ${res.user}<h1>
-      </div>
-      `;
-      document.getElementById("infoUser").innerHTML = imprUser;
-    })
-    .catch((e) => {
-      console.log(e + "error");
     });
-}
+};
+//////////Fetch Post agregar articulo al carrito
 const addArticleTrolley = (idAdd) => {
-  fetch("http://localhost:8080/api/carrito", {
+  let amountToBuy = document.getElementById("inputAmoutToBuy").value;
+  let endopintToAddTrolley = "http://localhost:8080/api/carrito?cantidad=";
+  let z = "";
+  document.getElementById("renderCantItems").innerHTML = z;
+  fetch(endopintToAddTrolley + amountToBuy, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -244,15 +194,48 @@ const addArticleTrolley = (idAdd) => {
       console.log(e + "error");
     });
 };
-///////////////////////////////////////////////////////////////buscador Por Nombre
+//Fetch Delete a un  producto
+const deleteElement = (idAb) => {
+  let url = "http://localhost:8080/api/productos/";
+  fetch(url + idAb, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.itemDelete) {
+        console.log(res.itemDelete);
+        window.location.href = window.location.href;
+      }
+    });
+};
+///////////////Renderiza un input para cantidad de productos a comprar
+const renderCantItemsF = (idproduct) => {
+  let impDomC = "";
+  impDomC += `
+  <div>
+  <h3> elige la cantidad que agregaras </h3>
+  <input id="inputAmoutToBuy" min="1" max="111" type="number" placeholder="cantidad" />
+  <input onclick="addArticleTrolley('${idproduct}')" class="bEnv" type="submit" value="Enviar" />
+  </div>
+  `;
+  document.getElementById("renderCantItems").innerHTML = impDomC;
+};
+/////////////////////////////////Fetch Get buscador Por Nombre y renderiza items
 const buscadorItems = () => {
-  fetch("http://localhost:8080/api/productos")
+  fetch("http://localhost:8080/api/productos/busqueda")
     .then((res) => res.json())
     .then((json) => {
       let entradaAbuscar = document.getElementById("ingresoBuscadorItems").value;
       document.getElementById("ingresoBuscadorItems").value = "";
       const inventarioVinateria = json.filter((el) => el.product.includes(entradaAbuscar[0].toUpperCase()));
+
       let html1 = "";
+      if (inventarioVinateria.length == 0) {
+        html1 += `
+        <div>
+        <h5 class="fs-1" >sin Resultados por el momento</h5>
+        </div>`;
+      }
       inventarioVinateria.forEach((el) => {
         html1 += `
         <div>
@@ -270,7 +253,7 @@ const buscadorItems = () => {
       console.log(e + "error");
     });
 };
-///////////////////////////////////////////////////////////////////////////////DELETE ITEMS TROLLEY
+//////////////////////////Fetch DELETE ITEMS TROLLEY
 const deleteItemTrolley = (idItem) => {
   let url = "http://localhost:8080/api/carritodelete/";
   fetch(url + idItem, {
@@ -278,44 +261,21 @@ const deleteItemTrolley = (idItem) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      if (res.eliminated == "ok") {
+      if (res.msge == "producto eliminido de tu carrtio correctamente") {
         window.location.href = window.location.href;
       }
     });
 };
-/////////////////////////////////////////////////fetch CARRITO PEDIDO
-
-const authorSchema = new schema.Entity("authors", {}, { idAttribute: "idmail" });
-const messageSchema = new schema.Entity("texts", {
-  author: authorSchema,
-});
-///
-/* const userLogin = () => {
-  const nombreDeUser = document.getElementById("userLog").value;
-  const contraseniaDeUser = document.getElementById("contraseniaLog").value;
-  fetch("http://localhost:8081/loguear1", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      nombreUserLog: nombreDeUser,
-      contraseñaLog: contraseniaDeUser,
-    }),
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.error == true) {
-        console.log(error);
-      }
-     
-    });
+////////////////////////////////////Sockets
+//funcion para enviar mensaje
+const enviarMsg = () => {
+  const msgeParaEnviar = document.getElementById("inputMsg").value;
+  const aliasUser = document.getElementById("alias").value;
+  socket.emit("msg", {
+    text: msgeParaEnviar,
+    alias: aliasUser,
+  });
 };
-/// */
-
-const messageSchemaOk = [messageSchema];
-///
-///
 socket.on("connect", () => {
   console.log("quede conectado!");
 });
@@ -334,17 +294,12 @@ socket.on("listaMsgs", (data) => {
     <div>
       <p class="user"> <img class="imgchat" src="${el.author.avatar}" alt="">User: ${el.author.idmail} dice: </p>
       <p class="mensaje" > ${el.text} </p>
-        
+
     </div>
     `;
   });
   document.getElementById("boxMsges").innerHTML = html;
 });
-///
-///
-//
-
-//
 ////
 ///
 //

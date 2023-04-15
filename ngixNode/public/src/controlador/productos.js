@@ -2,12 +2,27 @@ const environmentVars = require("../utils/environmentVar");
 const logger = require("../utils/loggers");
 const { ContainerProducts } = require("../negocio/productos");
 const containerProducts = new ContainerProducts();
+const ContenedorMsjes = require("../negocio/mensajes");
+const containerMsjes = new ContenedorMsjes();
 /////////////////////////////////////////VARIABLE PARACREAR ADMIN
 /////////////////////////////////////////
+const getApiProductsToSearch = async (req, res) => {
+  try {
+    logger.log("info", { route: req.originalUrl, method: req.route.methods });
+    const allItemsGet = await containerProducts.getAll();
+    containerMsjes.infoUserToChat(req.user);
+    res.status(200).json(allItemsGet);
+  } catch (err) {
+    res.status(500).json();
+    logger.log("error", `error en el controllador Products${err}`);
+  }
+};
+
 const getApiProducts = async (req, res) => {
   try {
     logger.log("info", { route: req.originalUrl, method: req.route.methods });
     const allItemsGet = await containerProducts.getAll();
+    containerMsjes.infoUserToChat(req.user);
     //Dependiendo de la variable que le mando por consola hara res json o render
     switch (environmentVars.typeInRes) {
       case "resJson":
@@ -50,9 +65,9 @@ const deleteElementInventary = async (req, res) => {
     if (!eliminated) {
       res.status(404).json({ msge: "el producto a eliminar no existe" });
     }
-    res.status(200).json({ message: "producto Eliminado", itemDelete: eliminated.id });
+    res.status(200).json({ msge: "producto Eliminado", itemDelete: eliminated._id });
   } catch (err) {
-    logger.log("error", `error en el controllador Products${err}`);
+    logger.log("error", `error en el controllador Products deleteElement${err}`);
   }
 };
 const modificProduct = async (req, res) => {
@@ -82,4 +97,5 @@ module.exports = {
   oneNewProdutToApi,
   deleteElementInventary,
   modificProduct,
+  getApiProductsToSearch,
 };

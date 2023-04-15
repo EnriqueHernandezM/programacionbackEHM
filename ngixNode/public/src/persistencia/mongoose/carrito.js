@@ -1,7 +1,6 @@
 const logger = require("../../utils/loggers");
 const { Usuarios } = require("../mongoose/usuarios");
 const { Schema, model } = require("mongoose");
-
 const TrolleySchema = new Schema({
   idUser: { type: String },
   emailUser: { type: String, required: true, max: 100 },
@@ -16,31 +15,30 @@ class ContainerCarritoMongo {
   }
 
   createOneNewTrolley = async (idMyUsuer) => {
-    const catchMyUser = await Usuarios.findById(idMyUsuer);
-    let theTrolley = {
-      idUser: idMyUsuer,
-      emailUser: catchMyUser.email,
-      carrito: [],
-    };
-    Trolley.create(theTrolley, async (err, trolleyWithId) => {
-      if (err) {
-        logger.log("info", `Error en crear carrito mongo:${err}`);
-      }
-      if (trolleyWithId) {
-        const addIdToUser = await Usuarios.updateOne(
+    try {
+      const catchMyUser = await Usuarios.findById(idMyUsuer); //recibo el id Usuario
+      let theTrolley = {
+        idUser: idMyUsuer,
+        emailUser: catchMyUser.email,
+        carrito: [],
+      };
+      const newTrolley = new Trolley(theTrolley);
+      return await newTrolley.save().then(async (data) => {
+        await Usuarios.updateOne(
           { _id: idMyUsuer },
           {
             $set: {
-              idTrolley: trolleyWithId._id,
+              idTrolley: data._id,
             },
           }
         );
-      }
-    });
-    logger.log("info", `Se asigno un nuevo carrito`);
-    return await Trolley.find({ idUser: idMyUsuer });
+        logger.log("info", `Se asigno un nuevo carrito`);
+        return await Trolley.find({ _id: data._id }); //me retorna el primer carrito que tenga el idUser
+      });
+    } catch (err) {
+      logger.log("error", `errIncarritoMongoose${err}`);
+    }
   };
-
   getAllTrolley = async (idTrolley) => {
     try {
       //LE ESTAMOS BUSCANDO POR id de carrito que en ususario viene como idTrolley
@@ -50,10 +48,11 @@ class ContainerCarritoMongo {
       logger.log("error", `errInTrolleyMdb${err}`);
     }
   };
-  pushAunCarrito = async (idUser, catchProduct) => {
+  pushAoneTrolley = async (idTrolley, catchProduct, cantidadTopurch) => {
     try {
+      catchProduct.cantidad = cantidadTopurch;
       const agregarItem = await Trolley.updateOne(
-        { idUser: idUser },
+        { _id: idTrolley },
         {
           $push: {
             carrito: catchProduct,
@@ -69,7 +68,7 @@ class ContainerCarritoMongo {
       logger.log("error", `errInTrolleyMdb${err}`);
     }
   };
-  borrarUnItemCarrito = async (idTrolley, carritoR) => {
+  deleteOneItemByTrolley = async (idTrolley, carritoR) => {
     try {
       const agregarItem = await Trolley.updateOne(
         { _id: idTrolley },
@@ -79,8 +78,8 @@ class ContainerCarritoMongo {
           },
         }
       );
-      if (agregarItem.modifiedCount > 0) {
-        return { msge: "porducto eliminido de tu carrtio correctamente" };
+      if (agregarItem.modifiedCount == 1) {
+        return { msge: "producto eliminido de tu carrtio correctamente" };
       } else {
         return { msge: "ocurrio algu problema" };
       }
@@ -88,14 +87,14 @@ class ContainerCarritoMongo {
       logger.log("error", `errInTrolleyMdb${err}`);
     }
   };
-  datosOneUser = async (idUsuario) => {
+  dataOneUser = async (idUsuario) => {
     try {
       return await Usuarios.find({ _id: idUsuario });
     } catch (err) {
       logger.log("error", `errInTrolleyMdb${err}`);
     }
   };
-  datosCarrito = async (idUsuario) => {
+  dataOneTrolley = async (idUsuario) => {
     try {
       return await Trolley.find({ _id: idUsuario });
     } catch (err) {

@@ -8,4 +8,11 @@ function checkAuthentication(req, res, next) {
   }
 }
 
-module.exports = checkAuthentication;
+function checkAuthenticationAdmin(req, res, next) {
+  if (req.isAuthenticated() && req.user.email === "quique166sb1@hotmail.com") {
+    next();
+  } else {
+    res.redirect("/perfil/login");
+  }
+}
+module.exports = { checkAuthentication, checkAuthenticationAdmin };

@@ -3,38 +3,48 @@ const logger = require("../utils/loggers");
 const twilio = require("twilio");
 const accountSid = environmentVars.acountSid;
 const authToken = environmentVars.authToken;
-const { DaoCarrito, DaoProductos } = require("../persistencia/DAOs");
+const { DaoCarrito, DaoProductos, DaoOrders } = require("../persistencia/DAOs");
 const client = twilio(accountSid, authToken);
 const enviarcorreo = require("../utils/nodemailer");
+
 class ContainerTrolley {
   constructor() {}
   async getAllToTrolley(idTrolley) {
     try {
       const allTrolley = await DaoCarrito.getAllTrolley(idTrolley);
       return allTrolley;
-    } catch (err) {}
+    } catch (err) {
+      logger.log("error", `ErrorEnGetAllTrolleyNegocio${err}`);
+    }
   }
-  async addToCart(idUser, body) {
+  async addToCart(idUser, idProducto, cantToPUrch) {
     try {
-      const catchProduct = await this.getByIdProductos(body);
+      const msgeMayoreo = {
+        msge: `para compras mayores a 12 pz comuniquese a nuestro chat para ser contactado`,
+      };
+      cantToPUrch == 0 && (cantToPUrch = 1);
+      if (cantToPUrch > 12) return msgeMayoreo; //si la cantidad a comprar es menor a 0 o mayor a 12
+      const catchProduct = await this.getByIdProductos(idProducto); //traemos el producto
+
       if (!catchProduct || catchProduct.error) {
         return { msge: "no existe un producto con ese id" };
       }
-      let catchCart = await ContainerTrolley.infoUser(idUser);
-      //AEUI LLAMAREMOS AH LA FUNCION EN CASO DE QUE EL USUARIO AUN NO TEGA CARRTIO AL AGREGAR UN PRODUCTO LO CREARA AUTOMATICAMENTE
-      let TrolleyUsed;
-      if (catchCart.idTrolley === "f") {
-        const createNtrolley = await DaoCarrito.createOneNewTrolley(catchCart._id);
-        for (const data of createNtrolley) {
-          TrolleyUsed = data.idUser;
+      let catchUser = await ContainerTrolley.infoUser(idUser); //primer usuario con id iterado
+      let trolleyUsed; //al crear un usuar idTrolley vale
+      if (catchUser.idTrolley === "f") {
+        //creamos un carrito el parametro sera el id del usuario
+        const createNewtrolley = await DaoCarrito.createOneNewTrolley(catchUser._id);
+        for (const trolley of createNewtrolley) {
+          //iteramos y asignamos ah let el id del carrito generado
+          trolleyUsed = trolley._id;
         }
       }
-      const idUserF = TrolleyUsed || catchCart.id;
-
-      const agregarItem = await DaoCarrito.pushAunCarrito(idUserF, catchProduct, idUser);
+      //si catchUser.idTrolley ya tiene asignado manda
+      const idToTrolley = trolleyUsed || catchUser.idTrolley;
+      const agregarItem = await DaoCarrito.pushAoneTrolley(idToTrolley, catchProduct, cantToPUrch);
       return agregarItem;
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `ErrorEnAddToCartNegocio${err}`);
     }
   }
   async deleteByIdAllTrolleyItem(idTrolley, idItem) {
@@ -49,22 +59,32 @@ class ContainerTrolley {
         return { msge: "producto no existente en tu carrito" };
       }
       let x = carritoI.splice(catchCartIndex, 1);
-      const deleteItem = await DaoCarrito.borrarUnItemCarrito(idTrolley, carritoI);
-      logger.log("info", `${deleteItem}`);
+      const deleteItem = await DaoCarrito.deleteOneItemByTrolley(idTrolley, carritoI);
       return deleteItem;
     } catch (err) {
       logger.log("error", `Error en deletElementTrolleyNegocio${err}`);
     }
   }
-  async comprarCarrito(dataCarrito) {
+  async buyTrolley(dataCarrito) {
     try {
-      let pedido = [];
+      const userCreator = await ContainerTrolley.infoUser(dataCarrito.idUser);
+      if (dataCarrito.carrito.length == 0) {
+        return { msge: "aun no hay productos en tu carrito" };
+      }
+      let order = [];
       dataCarrito.carrito.forEach((el) => {
-        pedido.push(el.producto);
-      });
-      await this.enviarMsg(dataCarrito, pedido);
-      this.enviarWats(dataCarrito.nombre);
-      const mailOptionsConfirm = {
+        order.push({ _id: el._id, product: el.product, cantidad: el.cantidad, price: el.price, codeItem: el.codeItem, image: el.image });
+      }); //mandamos a la persstencia de ordenes
+      let totalCantidad = order.reduce((acc, el) => acc + el.cantidad, 0);
+      const confirmationTheBuy = await DaoOrders.sendNewBuy(order, userCreator, totalCantidad);
+      if (confirmationTheBuy.state == "creado") {
+        DaoCarrito.createOneNewTrolley(confirmationTheBuy.idCustomer);
+      }
+      return confirmationTheBuy;
+      //funciiones para enviar wats y msge al cliente en pausa por que se se temina la prueba constantemente y rompe
+      //await this.enviarMsg(dataCarrito, pedido);
+      //this.enviarWats(dataCarrito.nombre);
+      /*  const mailOptionsConfirm = {
         from: `Servidor Node. JackVinaterias`,
         to: environmentVars.correoServiceMe,
         subject: `Nuevo Pedido de ${dataCarrito.nombre}`,
@@ -77,7 +97,7 @@ class ContainerTrolley {
         </div>
         `,
       };
-      enviarcorreo(mailOptionsConfirm);
+      enviarcorreo(mailOptionsConfirm); */
     } catch (err) {
       logger.log("error", `${err}`);
     }
@@ -90,30 +110,31 @@ class ContainerTrolley {
       logger.log("error", `${err}`);
     }
   }
-  static infoUser = async (idUsuario) => {
-    try {
-      const dataCarrito = await DaoCarrito.datosOneUser(idUsuario);
-      for (const data of dataCarrito) {
-        return data;
-      }
-    } catch (err) {
-      logger.log("error", `${err}`);
-    }
-  };
-  infoTrolley = async (idUsuario) => {
+  async infoTrolley(idUsuario) {
     try {
       if (idUsuario == "f") {
         return { carrito: [] };
       } else {
-        const dataCarrito = await DaoCarrito.datosCarrito(idUsuario);
+        const dataCarrito = await DaoCarrito.getAllTrolley(idUsuario);
         for (const data of dataCarrito) {
           return data;
         }
       }
     } catch (err) {
-      logger.log("error", `${err}`);
+      logger.log("error", `ErrorEnCapaNegocioCarritoInfoTrolley${err}`);
     }
-  }; ////////////////////////////////////////////////////AQUI hacemos el envio de mensaje de texto
+  }
+  static infoUser = async (idUsuario) => {
+    try {
+      const dataCarrito = await DaoCarrito.dataOneUser(idUsuario);
+      for (const data of dataCarrito) {
+        return data;
+      }
+    } catch (err) {
+      logger.log("error", `ErrorEnInfoUserNegocio${err}`);
+    }
+  };
+  ////////////////////////////////////////////////////AQUI hacemos el envio de mensaje de texto
   static enviarWats(usuarioQueCompro) {
     try {
       client.messages

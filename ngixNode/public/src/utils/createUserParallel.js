@@ -4,34 +4,22 @@ const { getFirestore } = require("firebase-admin/firestore");
 const db = getFirestore();
 const usuarios = [
   {
-    email: "quiq2222@hotmail.com",
-    password: "$2b$10$z6Y14KqPqLDURLdBnghjEOW1WyYGQYTHGWcmJCiF06uDEfOClSp4m",
+    _id: "642ca609ffc507b352621f49",
+    email: "quique166sb1@hotmail.com",
+    password: "$2b$10$hdMQHkjQhybrI64B1j73K.gjroU6GJr.XPpAq9bLgZbFxzyQj7AzC",
     nombre: "Enrique",
     edad: "88",
     direccion: "And. tecamac 2",
     telefono: "5613507622",
     avatar: "https://static.nike.com/a/images/w_1920,c_limit/73a6ec94-cea8-49b1-9838-b70cee0c042f/c%C3%B3mo-practicar-skateboarding-para-principiantes.jpg",
-    carrito: [
-      {
-        id: 1,
-        product: "Don Pedro",
-        typeOfLiquor: "Brandy",
-        price: 350,
-        image: "https://cdn.shopify.com/s/files/1/0402/2475/1766/products/BRANDYDONPEDRO1000MLSHOPIFY_700x.jpg?v=1637864473",
-        description: "Brandy Don Pedro Reserva Especial 750 ml a un súper precio",
-        stockItems: 9,
-        codeItem: 111,
-        data: "2023-03-03T09:35:13.475Z",
-      },
-    ],
+    idTrolley: "f",
   },
 ];
-
 const createUserParallel = async (objectUser) => {
   try {
     usuarios.push(objectUser);
     console.log(objectUser);
-    const newUser = await db
+    /* const newUser = await db
       .collection("usuarios")
       .doc()
       .set({
@@ -42,8 +30,8 @@ const createUserParallel = async (objectUser) => {
         direccion: objectUser.direccion,
         telefono: objectUser.telefono,
         avatar: objectUser.avatar,
-        carrito: [],
-      });
+        carrito: "f",
+      }); */
     logger.log("info", `${newUser}`);
     return newUser;
   } catch (err) {

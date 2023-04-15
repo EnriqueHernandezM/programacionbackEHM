@@ -1,13 +1,13 @@
 const logger = require("../../utils/loggers");
 const { getFirestore } = require("firebase-admin/firestore");
 require("../../utils/databasConecctions/firebas");
-
 const db = getFirestore();
 
 class ContainerProductFirebas {
   constructor(collection) {
     this.collection = collection;
   }
+  //funciona
   saveNewProduct = async (product, timestamp) => {
     try {
       const newProduct = await db.collection(this.collection).doc().set({
@@ -35,6 +35,7 @@ class ContainerProductFirebas {
       return { error: err };
     }
   };
+  //al parcer funcion  proba con postman
   getProductByIdDb = async (idNumber) => {
     try {
       const datas = await db.collection(this.collection).get();
@@ -47,6 +48,7 @@ class ContainerProductFirebas {
       return { error: err };
     }
   };
+  //funciona
   getAllitemsDb = async () => {
     try {
       const products = await db.collection(this.collection).get();
@@ -59,7 +61,7 @@ class ContainerProductFirebas {
       return { error: err };
     }
   };
-
+  //funciona
   deleteOneItemInventory = async (aBorrar) => {
     try {
       await db
@@ -69,10 +71,12 @@ class ContainerProductFirebas {
         .then(function () {
           logger.log("info", "productoEliminado");
         });
+      return { _id: aBorrar };
     } catch (err) {
       logger.log("error", `errInProductFB${err}`);
     }
   };
+  //funciona
   modifyOneElementInventory = async (buscar, body) => {
     try {
       const usuarioModificado = await db.collection(this.collection).doc(buscar._id).set(
@@ -88,7 +92,7 @@ class ContainerProductFirebas {
         { merge: true }
       );
       if (usuarioModificado) {
-        return await this.traerProductoPorId(buscar._id);
+        return await this.getProductByIdDb(buscar._id);
       }
     } catch (err) {
       logger.log("error", `errInProductFB${err}`);

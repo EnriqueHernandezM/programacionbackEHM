@@ -5,12 +5,27 @@
   </head>
   <body class="bg-dark text-white">
     <%- include('../partials/navbar'); %>
-
     <div class="container-fluid d-flex">
       <div class="row align-items-center">
         <div class="col-lg-12">
           <h2>GRACIAS POR TU COMPRA RECIBIRAS UN MENSAJE DE CONFIRMACION</h2>
+          <h3>total a pagar <%=aPagar%></h3>
         </div>
+      </div>
+      <div class="row align-items-center">
+        <%itemsBuy.forEach((el) => { %>
+        <div>
+          <div class="col-xs-12 col-md-6 col-lg-4 mt-1 text-center">
+            <img class="img-fluid w-25" src="<%=el.image%>" alt="imagen de un producto en carrioto" />
+          </div>
+          <div class="col-xs-12 col-md-6 col-lg-4 mt-1 text-center">
+            <p><%=el.product%></p>
+          </div>
+          <div class="col-xs-12 col-md-6 col-lg-4 mt-1 text-center">
+            <p>$:<%=el.price%></p>
+          </div>
+        </div>
+        <%})%>
       </div>
     </div>
     <%- include('../partials/footer'); %>

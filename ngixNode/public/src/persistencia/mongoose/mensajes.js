@@ -4,7 +4,6 @@ const logger = require("../../utils/loggers");
 const MensajesSchema = new Schema({
   author: {
     alias: { type: String },
-    apellido: { type: String },
     avatar: { type: String },
     edad: { type: Number },
     idmail: { type: String },

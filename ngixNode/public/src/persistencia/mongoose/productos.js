@@ -11,6 +11,7 @@ const ProductoSchema = new Schema({
   stockItems: { type: Number, required: true },
   codeItem: { type: Number, required: true },
   data: Date,
+  cantidad: { type: Number },
 });
 const Productos = model("inventario", ProductoSchema);
 

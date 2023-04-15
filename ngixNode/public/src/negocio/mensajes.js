@@ -3,8 +3,9 @@ const timestamp = moment().format("lll");
 const logger = require("../utils/loggers");
 const { DaoMensajes } = require("../persistencia/DAOs");
 const { normalize, schema } = require("normalizr");
-
-/////
+const { Usuarios } = require("../persistencia/mongoose/usuarios");
+const usuarios = require("../utils/createUserParallel");
+let infoUser;
 const authorSchema = new schema.Entity("authors", {}, { idAttribute: "idmail" });
 const messageSchema = new schema.Entity("texts", {
   author: authorSchema,
@@ -28,15 +29,21 @@ class ContenedorMsjes {
       logger.log("error", `${err}`);
     }
   }
+  async infoUserToChat(infUser) {
+    try {
+      infoUser = infUser;
+    } catch (err) {
+      logger.log("error", `ErrorEnNegocioMensajes${err}`);
+    }
+  }
   async saveMsges(mensaje) {
     try {
+      console.log(infoUser);
       const author1 = {
-        idmail: mensaje.idmail,
-        avatar: mensaje.avatar,
-        nombre: mensaje.nombre,
-        apellido: mensaje.apellido,
-        edad: mensaje.edad,
-        alias: mensaje.alias,
+        idmail: infoUser.email,
+        avatar: infoUser.avatar,
+        nombre: infoUser.nombre,
+        edad: infoUser.edad,
       };
       let text1 = mensaje.text;
       const saveMsgDtb = await DaoMensajes.guardarNuevoMensaje(author1, text1, timestamp);
@@ -57,5 +64,4 @@ class ContenedorMsjes {
     }
   }
 }
-
 module.exports = ContenedorMsjes;

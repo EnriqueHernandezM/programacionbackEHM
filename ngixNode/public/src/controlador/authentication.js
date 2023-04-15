@@ -3,6 +3,84 @@ const { ContainerTrolley } = require("../negocio/carrito");
 const containerTrolley = new ContainerTrolley();
 const environmentVars = require("../utils/environmentVar");
 
+const getLogIn = async (req, res) => {
+  try {
+    logger.log("info", { route: req.originalUrl, method: req.route.methods });
+    if (req.isAuthenticated()) {
+      const oneTrolley = await containerTrolley.infoTrolley(req.user.idTrolley);
+      const trolley = oneTrolley.carrito;
+      let prueba = [];
+      trolley.forEach((el) => {
+        prueba.push(el.price * el.cantidad);
+      });
+      let total = prueba.reduce((acc, el) => acc + el, 0);
+      const user = req.user;
+      switch (environmentVars.typeInRes) {
+        case "resJson":
+          res.status(202).json({
+            session: true,
+            user: user,
+            msge: "user login ok",
+          });
+          break;
+        case "":
+          res.status(202).render("pages/formloguear", { sessionE: true, userE: user, carritoE: trolley, total: total || 0 });
+          break;
+      }
+    } else if (req.isAuthenticated() == false) {
+      switch (environmentVars.typeInRes) {
+        case "resJson":
+          res.status(202).json({
+            session: false,
+            msge: "user not login",
+          });
+          break;
+        case "":
+          res.status(202).render("pages/formloguear", { sessionE: "esp" });
+          break;
+      }
+    }
+  } catch (err) {
+    logger.log("error", `${err}`);
+  }
+};
+const postLogIn = async (req, res) => {
+  try {
+    if (req.isAuthenticated()) {
+      const oneTrolley = await containerTrolley.infoTrolley(req.user.idTrolley);
+      const trolley = oneTrolley.carrito;
+      let prueba = [];
+      let total = prueba.reduce((acc, el) => acc + el, 0);
+      const user = req.user;
+      switch (environmentVars.typeInRes) {
+        case "resJson":
+          res.status(202).json({
+            session: true,
+            user: user,
+            msge: "user login ok",
+          });
+          break;
+        case "":
+          res.status(202).render("pages/formloguear", { sessionE: true, userE: user, carritoE: trolley, total: total || 0 });
+          break;
+      }
+    } else if (req.isAuthenticated() == false) {
+      switch (environmentVars.typeInRes) {
+        case "resJson":
+          res.status(202).json({
+            session: false,
+            msge: "user not login",
+          });
+          break;
+        case "":
+          res.status(202).render("pages/formloguear", { sessionE: "esp" });
+          break;
+      }
+    }
+  } catch (err) {
+    logger.log("error", `${err}`);
+  }
+};
 const getCreateAcount = (req, res) => {
   try {
     logger.log("info", { route: req.path, method: req.route.methods });
@@ -24,81 +102,6 @@ const postCreateAcount = (req, res) => {
     logger.log("error", `${err}`);
   }
 };
-const getLogIn = async (req, res) => {
-  try {
-    logger.log("info", { route: req.originalUrl, method: req.route.methods });
-    if (req.isAuthenticated()) {
-      const oneTrolley = await containerTrolley.infoTrolley(req.user.idTrolley);
-      const trolley = oneTrolley.carrito;
-      const user = req.user;
-      let total = trolley.reduce((acc, el) => acc + el.price, 0);
-      switch (environmentVars.typeInRes) {
-        case "resJson":
-          res.status(202).json({
-            session: true,
-            user: user,
-            msge: "user login ok",
-          });
-          break;
-        case "":
-          res.status(202).render("pages/formloguear", { sessionE: true, userE: user, carritoE: trolley, total: total || 0 });
-          break;
-      }
-    } else if (req.isAuthenticated() == false) {
-      switch (environmentVars.typeInRes) {
-        case "resJson":
-          res.status(202).json({
-            session: false,
-            msge: "user not login",
-          });
-          break;
-        case "":
-          res.status(202).render("pages/formloguear", { sessionE: "esp" });
-          break;
-      }
-    }
-  } catch (err) {
-    logger.log("error", `${err}`);
-  }
-};
-
-const postLogIn = async (req, res) => {
-  try {
-    if (req.isAuthenticated()) {
-      const oneTrolley = await containerTrolley.infoTrolley(req.user.idTrolley);
-      const trolley = oneTrolley.carrito;
-      const user = req.user;
-      let total = trolley.reduce((acc, el) => acc + el.price, 0);
-      switch (environmentVars.typeInRes) {
-        case "resJson":
-          res.status(202).json({
-            session: true,
-            user: user,
-            msge: "user login ok",
-          });
-          break;
-        case "":
-          res.status(202).render("pages/formloguear", { sessionE: true, userE: user, carritoE: trolley, total: total || 0 });
-          break;
-      }
-    } else if (req.isAuthenticated() == false) {
-      switch (environmentVars.typeInRes) {
-        case "resJson":
-          res.status(202).json({
-            session: false,
-            msge: "user not login",
-          });
-          break;
-        case "":
-          res.status(202).render("pages/formloguear", { sessionE: "esp" });
-          break;
-      }
-    }
-  } catch (err) {
-    logger.log("error", `${err}`);
-  }
-};
-
 const logOut = (req, res) => {
   try {
     let mdgDesp = "hasta luego" + " " + req.user.email;

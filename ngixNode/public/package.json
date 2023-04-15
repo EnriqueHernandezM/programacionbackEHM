@@ -6,9 +6,10 @@
     "test": "node benchmark.js",
     "start": "0x server.js 8080 mongo",
     "devMongo": "nodemon server.js 8080 mongo",
-    "devFirebas": "nodemon server.js 8080 firebas",
-    "devMem": "nodemon server.js 8080 mem",
     "devMongoJson": "nodemon server.js 8080 mongo resJson",
+    "devFirebas": "nodemon server.js 8080 firebas",
+    "devFirebasJson": "nodemon server.js 8080 firebas resJson",
+    "devMem": "nodemon server.js 8080 mem",
     "devMemJson": "nodemon server.js 8080 mem resJson"
   },
   "repository": {

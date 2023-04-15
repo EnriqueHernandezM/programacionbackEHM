@@ -21,7 +21,6 @@ function isValidPassword(user, password) {
 function createHash(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
 }
-//app.use(flash());
 
 passport.use(
   "crearCuenta",
@@ -74,7 +73,7 @@ passport.use(
           logger.log("info", "User Registration succesful");
           /////////////////////////////////////////////////////////// DFUNCIONES QUE HAY QUE DESCOMENTAR
           //enviarcorreo(mailOptions);
-          //createUserParallel(newUser);
+          createUserParallel(newUser);
           ///////////////////////////////////////////////////////////////////////
 
           return done(null, userWithId);

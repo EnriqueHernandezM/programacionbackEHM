@@ -1,5 +1,6 @@
 const logger = require("../utils/loggers");
 const { ContainerTrolley } = require("../negocio/carrito");
+const environmentVars = require("../utils/environmentVar");
 const containerTrolley = new ContainerTrolley();
 
 const getTrolleyByClientId = async (req, res) => {
@@ -7,21 +8,21 @@ const getTrolleyByClientId = async (req, res) => {
   const clientTrolley = await containerTrolley.getAllToTrolley(id);
   res.status(200).json({ clientTrolley });
 };
-
-const postTrolley = async (req, res) => {
+const postOneItemTrolley = async (req, res) => {
   logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
   try {
+    const { cantidad } = req.query;
     if (req.user) {
       const { body } = req;
       const idProduct = body.product;
-      const addITrolley = await containerTrolley.addToCart(req.user._id, idProduct);
-      res.status(202).json({ addITrolley });
+      const addITrolley = await containerTrolley.addToCart(req.user._id, idProduct, cantidad);
+      res.status(202).json(addITrolley);
     } else {
       res.status(403).json({ msge: "Al parecer aun no estas Logueado" });
       logger.log("info", "Al parecer aun no estas Logueado");
     }
   } catch (err) {
-    logger.log("error", `${err}`);
+    logger.log("error", `ErrorEnPostTrolleyControlador${err}`);
   }
 };
 const deleteItemTrolley = async (req, res) => {
@@ -29,25 +30,43 @@ const deleteItemTrolley = async (req, res) => {
     logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
     const { id } = req.params;
     const goToEliminate = await containerTrolley.deleteByIdAllTrolleyItem(req.user.idTrolley, id);
-    res.json({ goToEliminate });
+    res.json(goToEliminate);
   } catch (err) {
     logger.log("error", `Error en controlador${err}`);
   }
 };
-async function confirmarCompra(req, res) {
+const confirmationBuy = async (req, res) => {
   try {
-    logger.log("info", { ruta: req.originalUrl, metodo: req.route.methods });
-    const dataCarrito = await containerTrolley.infoTrolley(req.user._id);
-    await containerTrolley.comprarCarrito(dataCarrito);
-    res.render("pages/confirmacion", {});
+    logger.log("info", { route: req.originalUrl, method: req.route.methods });
+    const catchTrolleyClient = await containerTrolley.infoTrolley(req.user.idTrolley);
+    //traigo carrito iterado y lo mando asi
+    const trolleyTrueConfirm = await containerTrolley.buyTrolley(catchTrolleyClient);
+
+    if (trolleyTrueConfirm.order == undefined) {
+      return { msge: "carrito vacio" };
+    }
+    switch (environmentVars.typeInRes) {
+      case "":
+        const items = trolleyTrueConfirm.order;
+        let prueba = [];
+        items.forEach((el) => {
+          prueba.push(el.price * el.cantidad);
+        });
+        let total = prueba.reduce((acc, el) => acc + el, 0);
+        res.render("pages/confirmacion", { itemsBuy: items, aPagar: total });
+        break;
+      case "resJson":
+        res.status(202).json({ trolleyTrueConfirm });
+        break;
+    }
   } catch (err) {
-    logger.log("error", `${err}`);
+    logger.log("error", `Error en controlador Function ConfirmationBuy${err}`);
   }
-}
+};
 
 module.exports = {
   getTrolleyByClientId,
-  postTrolley,
-  confirmarCompra,
+  postOneItemTrolley,
+  confirmationBuy,
   deleteItemTrolley,
 };

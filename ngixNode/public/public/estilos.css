@@ -183,3 +183,20 @@ form .bEnv {
 .logoVerCarrito ul li button:hover {
   color: #a9a075;
 }
+
+#renderCantItems {
+  background-color: #a9a075;
+  position: fixed;
+  border-radius: 3%;
+}
+#renderCantItems h3 {
+  padding: 2rem;
+}
+
+#contenedorForOrder {
+  padding: 2rem;
+  margin-top: 2.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: double 0.5rem #baab8f;
+}

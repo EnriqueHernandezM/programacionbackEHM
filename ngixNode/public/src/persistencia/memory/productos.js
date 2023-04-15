@@ -1,6 +1,7 @@
 const logger = require("../../utils/loggers");
 const moment = require("moment");
 const timestamp = moment().format("lll");
+const { usuarios } = require("../../utils/createUserParallel");
 let inventarios = [
   {
     _id: 1,
@@ -62,7 +63,7 @@ class ContainerProductMem {
       if (oneItem) {
         return oneItem;
       } else {
-        return number;
+        return;
       }
     } catch (error) {
       logger.log("error", `${err}`);
@@ -70,6 +71,7 @@ class ContainerProductMem {
   };
   getAllitemsDb = () => {
     try {
+      //console.log(usuarios);
       return inventarios;
     } catch (err) {
       logger.log("error", `${err}`);
@@ -77,22 +79,24 @@ class ContainerProductMem {
   };
   deleteOneItemInventory = (aBorrar) => {
     try {
-      const datas = this.traerTodosLosItems();
+      const datas = this.getAllitemsDb();
       let searchToDelete = datas.findIndex((el) => el._id == aBorrar);
       if (searchToDelete >= 0) {
-        return datas.splice(searchToDelete, 1);
+        datas.splice(searchToDelete, 1);
+        for (const prop of datas) {
+          return { _id: prop._id };
+        }
       }
       if (searchToDelete == -1) {
         return { err: true, msg: "producto a eliminar no existe" };
       }
-      return datas;
     } catch (err) {
       console.log(err);
     }
   };
   modifyOneElementInventory = (id, body) => {
     try {
-      let all = this.traerTodosLosItems();
+      let all = this.getAllitemsDb();
       let product = all.findIndex((el) => el._id == id._id);
       if (product <= -1) {
         return { error: "true", mesage: "producto a modificar no existe" };

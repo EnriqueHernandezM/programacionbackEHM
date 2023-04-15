@@ -4,6 +4,7 @@ require("./src/utils/databasConecctions/firebas");
 require("./src/utils/databasConecctions/mongoose"); /////////////////////aqui conectamos con mongo
 ///////////////////////////////////////////////////  RUTAS EXPOPRTS/////////////////////
 const index = require("./src/rutas/index");
+const apiOrders = require("./src/rutas/orders");
 const { routerDeProductos, apiProductos } = require("./src/rutas/productos");
 const { randomOperation, infoConCompresion } = require("./src/rutas/info");
 const { apiCarrito } = require("./src/rutas/carrito");
@@ -46,6 +47,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/", index);
+app.use("/api/ordenes", apiOrders);
 app.use("/productos", routerDeProductos);
 app.use("/api", apiProductos);
 app.use("/operacion", randomOperation);
